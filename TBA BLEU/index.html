@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Building Alsace — teambuildingalsace.fr</title>
+  <meta name="description" content="Trouvez le meilleur team building en Alsace : activités nature, gastronomie, leadership, cohésion. Comparez et filtrez toutes les activités par objectif, ambiance et budget.">
+  <meta name="keywords" content="team building alsace, activité entreprise alsace, cohésion équipe alsace, séminaire alsace, team building strasbourg, team building colmar">
+  <meta name="author" content="teambuildingalsace.fr">
+  <link rel="canonical" href="https://www.teambuildingalsace.fr/">
+  <meta property="og:title" content="Team Building Alsace — Trouvez votre activité idéale">
+  <meta property="og:description" content="Toutes les activités de team building en Alsace réunies sur une seule plateforme.">
+  <meta property="og:url" content="https://www.teambuildingalsace.fr/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    :root {
+      --violet: #5B2EFF;
+      --violet-clair: #7B5FFF;
+      --vert: #00E5A0;
+      --vert-fonce: #00B87A;
+      --orange: #FF6B35;
+      --rose: #FF3D9A;
+      --jaune: #FFD93D;
+      --noir: #0D0D0D;
+      --gris-fonce: #1A1A2E;
+      --gris-mid: #555;
+      --gris-clair: #F4F2FF;
+      --blanc: #FAFAFA;
+      --bordure: #E8E4FF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--blanc);
+      color: var(--noir);
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    /* ======= HEADER ======= */
+    header {
+      background: var(--noir);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 3px solid var(--violet);
+    }
+
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+    .logo span {
+      color: var(--vert);
+      position: relative;
+    }
+    .logo span::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 2px;
+      background: var(--vert);
+      border-radius: 2px;
+    }
+
+    nav { display: flex; align-items: center; }
+    nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    nav a:hover { color: var(--vert); }
+
+    .nav-cta {
+      margin-left: 20px !important;
+      background: var(--violet);
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 0.78rem !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--violet-clair) !important; transform: scale(1.04); }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+      background: none;
+      border: none;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all 0.3s; border-radius: 2px; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0; bottom: 0;
+      background: var(--noir);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--vert); }
+
+    /* ======= HERO ======= */
+    .hero {
+      background: var(--noir);
+      padding: 80px 40px 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Formes géométriques animées */
+    .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero-shape-1 { width: 400px; height: 400px; background: var(--violet); top: -100px; left: -100px; animation-delay: 0s; }
+    .hero-shape-2 { width: 300px; height: 300px; background: var(--vert); bottom: -80px; right: -80px; animation-delay: 2s; }
+    .hero-shape-3 { width: 200px; height: 200px; background: var(--rose); top: 50%; right: 15%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(1.05); }
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--vert);
+      background: rgba(0,229,160,0.1);
+      border: 1px solid rgba(0,229,160,0.3);
+      padding: 7px 18px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+      font-weight: 600;
+    }
+    .hero-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--vert);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+      font-weight: 800;
+      color: white;
+      line-height: 1.05;
+      max-width: 720px;
+      margin: 0 auto 22px;
+      letter-spacing: -0.03em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 .highlight {
+      position: relative;
+      display: inline-block;
+      color: var(--vert);
+    }
+    .hero h1 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--violet), var(--vert));
+      border-radius: 4px;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      padding: 15px 32px;
+      background: linear-gradient(135deg, var(--violet), var(--violet-clair));
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 30px rgba(91,46,255,0.4);
+      text-decoration: none;
+    }
+    .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(91,46,255,0.5); }
+
+    .btn-hero-secondary {
+      padding: 15px 32px;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-hero-secondary:hover { background: rgba(255,255,255,0.15); border-color: var(--vert); color: var(--vert); }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      z-index: 1;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--vert);
+      display: block;
+      letter-spacing: -0.04em;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+    }
+
+    /* ======= LAYOUT PRINCIPAL ======= */
+    .main-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: calc(100vh - 68px);
+    }
+
+    /* ======= SIDEBAR ======= */
+    .sidebar {
+      background: white;
+      border-right: 1px solid var(--bordure);
+      padding: 28px 20px;
+      position: sticky;
+      top: 68px;
+      height: calc(100vh - 68px);
+      overflow-y: auto;
+    }
+
+    .sidebar-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--noir);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+    .sidebar-sub { font-size: 0.75rem; color: #aaa; margin-bottom: 24px; }
+
+    .filter-group {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--bordure);
+    }
+    .filter-group:last-child { border-bottom: none; }
+
+    .filter-group-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--violet);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 5px 11px;
+      border-radius: 100px;
+      border: 1.5px solid var(--bordure);
+      background: white;
+      cursor: pointer;
+      transition: all 0.18s;
+      color: #666;
+      font-weight: 500;
+    }
+    .tag:hover { border-color: var(--violet); color: var(--violet); background: var(--gris-clair); }
+    .tag.active {
+      background: var(--violet);
+      border-color: var(--violet);
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(91,46,255,0.3);
+    }
+
+    .range-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #bbb;
+      margin-bottom: 10px;
+    }
+    .range-val { color: var(--violet); font-weight: 700; }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--violet);
+      height: 4px;
+      cursor: pointer;
+    }
+
+    .filter-select {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid var(--bordure);
+      border-radius: 10px;
+      background: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--noir);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+    .filter-select:focus { outline: none; border-color: var(--violet); }
+
+    .reset-btn {
+      width: 100%;
+      padding: 10px;
+      background: transparent;
+      border: 1.5px solid var(--bordure);
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      color: #aaa;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+    .reset-btn:hover { border-color: var(--violet); color: var(--violet); }
+
+    /* ======= CONTENT ======= */
+    .content-area { display: flex; flex-direction: column; background: var(--gris-clair); }
+
+    .view-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--bordure);
+      background: white;
+      padding: 0 28px;
+      position: sticky;
+      top: 68px;
+      z-index: 10;
+    }
+    .view-tab {
+      padding: 16px 18px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .view-tab:hover { color: var(--noir); }
+    .view-tab.active { color: var(--violet); border-bottom-color: var(--violet); }
+
+    .results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      background: white;
+      border-bottom: 1px solid var(--bordure);
+    }
+    .results-count { font-size: 0.8rem; color: #aaa; font-weight: 500; }
+    .results-count strong { color: var(--noir); }
+
+    /* ======= CARDS ======= */
+    #view-list { padding: 28px; }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 20px 50px rgba(91,46,255,0.15);
+      border-color: var(--violet);
+    }
+
+    .card-img {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(8px);
+      color: white;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .card-body { padding: 18px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 11px; }
+
+    .card-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 9px;
+      border-radius: 100px;
+      font-weight: 700;
+    }
+
+    /* Objectif métier */
+    .card-tag.cat-commercial  { background: #FFF3E0; color: #E65100; }
+    .card-tag.cat-leadership  { background: #EDE7F6; color: #4527A0; }
+    .card-tag.cat-cohesion    { background: #E8F5E9; color: #2E7D32; }
+    .card-tag.cat-innovation  { background: #E3F2FD; color: #1565C0; }
+    .card-tag.cat-communication { background: #FCE4EC; color: #AD1457; }
+    .card-tag.cat-stress      { background: #F3E5F5; color: #6A1B9A; }
+    /* Ambiance */
+    .card-tag.cat-nature      { background: #E8F8F0; color: #1B5E20; }
+    .card-tag.cat-gastro      { background: #FFF8E1; color: #F57F17; }
+    .card-tag.cat-challenge   { background: #FFEBEE; color: #B71C1C; }
+    .card-tag.cat-creatif     { background: #E8EAF6; color: #283593; }
+    .card-tag.cat-bienetre    { background: #E0F7FA; color: #006064; }
+    .card-tag.cat-urbain      { background: #ECEFF1; color: #263238; }
+    /* Environnement */
+    .card-tag.cat-indoor      { background: #F3E5F5; color: #4A148C; }
+    .card-tag.cat-outdoor     { background: #E8F5E9; color: #1B5E20; }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--noir);
+      margin-bottom: 7px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .card-location {
+      font-size: 0.75rem;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--bordure);
+      font-size: 0.8rem;
+    }
+    .card-price {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--violet);
+      letter-spacing: -0.02em;
+    }
+    .card-price span { font-size: 0.7rem; color: #bbb; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; }
+    .card-participants { color: #aaa; display: flex; align-items: center; gap: 4px; font-weight: 500; }
+
+    .no-results { text-align: center; padding: 80px 40px; color: #aaa; }
+    .no-results-icon { font-size: 3rem; margin-bottom: 16px; }
+    .no-results h3 { font-family: 'Outfit', sans-serif; font-size: 1.4rem; color: #ccc; margin-bottom: 8px; }
+
+    /* ======= MAP ======= */
+    #view-map { display: none; }
+    #map-container { height: calc(100vh - 140px); }
+    #map { height: 100%; width: 100%; }
+
+    /* ======= MODAL ======= */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13,13,13,0.75);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: white;
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-header {
+      background: var(--gris-fonce);
+      padding: 32px 36px;
+      position: relative;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-radius: 20px 20px 0 0;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.2); }
+
+    .modal-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .modal-header .modal-loc { color: rgba(255,255,255,0.6); font-size: 0.85rem; display: flex; align-items: center; gap: 5px; }
+
+    .modal-body { padding: 32px 36px; }
+
+    .modal-section-title {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--violet);
+      font-weight: 700;
+      margin-bottom: 10px;
+      margin-top: 24px;
+    }
+    .modal-section-title:first-child { margin-top: 0; }
+
+    .modal-desc { color: #555; line-height: 1.8; font-size: 0.92rem; }
+
+    .modal-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .modal-info-item {
+      background: var(--gris-clair);
+      border-radius: 12px;
+      padding: 14px;
+      border: 1px solid var(--bordure);
+    }
+    .modal-info-item .info-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; margin-bottom: 4px; font-weight: 600; }
+    .modal-info-item .info-val { font-weight: 700; color: var(--noir); font-size: 0.95rem; }
+
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+
+    .modal-cta { margin-top: 28px; display: flex; gap: 12px; }
+
+    .btn-primary {
+      flex: 1;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--violet), var(--violet-clair));
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 6px 20px rgba(91,46,255,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(91,46,255,0.45); }
+
+    .btn-secondary {
+      padding: 14px 20px;
+      background: transparent;
+      color: var(--noir);
+      border: 1.5px solid var(--bordure);
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--violet); color: var(--violet); }
+
+    /* ======= FOOTER ======= */
+    footer {
+      background: var(--noir);
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      padding: 28px;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      border-top: 3px solid var(--violet);
+    }
+    footer span { color: var(--vert); font-weight: 700; }
+
+    /* ======= ANIMATIONS SCROLL ======= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ======= BARRE DE RECHERCHE ======= */
+    .search-bar-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 28px auto 0;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 6px 6px 6px 20px;
+      gap: 10px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .search-bar:focus-within {
+      border-color: var(--vert);
+      background: rgba(255,255,255,0.12);
+    }
+    .search-bar input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+    .search-bar input::placeholder { color: rgba(255,255,255,0.4); }
+    .search-bar-btn {
+      padding: 10px 22px;
+      background: linear-gradient(135deg, var(--violet), var(--violet-clair));
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(91,46,255,0.4);
+    }
+    .search-bar-btn:hover { transform: scale(1.03); }
+    .search-suggestions {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0; right: 0;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 16px 50px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: none;
+      z-index: 100;
+    }
+    .search-suggestions.visible { display: block; }
+    .suggestion-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--noir);
+      font-weight: 500;
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--bordure);
+    }
+    .suggestion-item:last-child { border-bottom: none; }
+    .suggestion-item:hover { background: var(--gris-clair); }
+    .suggestion-item .suggestion-icon { font-size: 1rem; }
+    .suggestion-item .suggestion-type { font-size: 0.7rem; color: #aaa; margin-left: auto; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+    .search-empty { padding: 20px; text-align: center; font-size: 0.85rem; color: #aaa; }
+
+    /* ======= SECTION VILLES ======= */
+    .villes-section {
+      background: white;
+      padding: 40px 40px;
+      border-bottom: 1px solid var(--bordure);
+    }
+    .villes-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .villes-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--noir);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .villes-header p { font-size: 0.82rem; color: #aaa; font-weight: 500; }
+
+    .villes-grid {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .ville-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 24px;
+      background: var(--gris-clair);
+      border: 1.5px solid var(--bordure);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);
+      text-decoration: none;
+      min-width: 110px;
+    }
+    .ville-btn:hover, .ville-btn.active {
+      background: var(--violet);
+      border-color: var(--violet);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(91,46,255,0.25);
+    }
+    .ville-btn:hover .ville-emoji,
+    .ville-btn.active .ville-emoji { transform: scale(1.2); }
+    .ville-btn:hover .ville-name,
+    .ville-btn.active .ville-name { color: white; }
+    .ville-btn:hover .ville-count,
+    .ville-btn.active .ville-count { color: rgba(255,255,255,0.7); }
+    .ville-emoji { font-size: 1.6rem; transition: transform 0.2s; }
+    .ville-name { font-size: 0.82rem; font-weight: 700; color: var(--noir); text-transform: uppercase; letter-spacing: 0.06em; }
+    .ville-count { font-size: 0.7rem; color: #aaa; font-weight: 500; }
+
+    /* CTA MOBILE FLOTTANT */
+    .mobile-cta-float {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 500;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--violet), var(--violet-clair));
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(91,46,255,0.5);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .search-bar-wrap { margin: 20px 0 0; }
+      .villes-section { padding: 28px 16px; }
+      .villes-grid { gap: 8px; }
+      .ville-btn { padding: 12px 16px; min-width: 90px; }
+      .mobile-cta-float { display: flex; align-items: center; gap: 8px; }
+    }
+
+    /* ======= RESPONSIVE ======= */
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+
+      .hero { padding: 48px 20px 40px; min-height: auto; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-stats { gap: 24px; margin-top: 36px; padding-top: 28px; }
+      .stat-num { font-size: 1.9rem; }
+      .hero-btns { flex-direction: column; align-items: center; }
+
+      .main-container { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--bordure); }
+
+      .view-tabs { padding: 0 16px; top: 68px; }
+      .results-bar { padding: 12px 16px; }
+
+      #view-list { padding: 16px; }
+      .activities-grid { grid-template-columns: 1fr; gap: 14px; }
+
+      .modal-overlay { padding: 0; align-items: flex-end; }
+      .modal { border-radius: 20px 20px 0 0; max-height: 92vh; }
+      .modal-header { padding: 24px 20px; border-radius: 20px 20px 0 0; }
+      .modal-body { padding: 20px; }
+      .modal-info-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .modal-cta { flex-direction: column; }
+    }
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="blog.html">Blog</a>
+    <a href="#">Contact</a>
+    <a href="referencer.html" class="nav-cta">+ Référencer</a>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="toggleMenu()">Accueil</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="referencer.html" onclick="toggleMenu()">Référencer mon activité</a>
+  <a href="#" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-shape hero-shape-1"></div>
+  <div class="hero-shape hero-shape-2"></div>
+  <div class="hero-shape hero-shape-3"></div>
+
+  <div class="hero-label">Alsace · Grand Est · France</div>
+  <h1>Trouvez le team building <span class="highlight">parfait</span> en Alsace</h1>
+  <p>Activités sélectionnées pour fédérer vos équipes, de la forêt vosgienne aux vignobles alsaciens.</p>
+
+  <!-- BARRE DE RECHERCHE -->
+  <div class="search-bar-wrap">
+    <div class="search-bar">
+      <span>🔍</span>
+      <input type="text" id="search-input" placeholder="Ex: escape game Strasbourg, team building nature..." autocomplete="off" oninput="handleSearch(this.value)" onfocus="handleSearch(this.value)" onblur="setTimeout(()=>hideSuggestions(),150)">
+      <button class="search-bar-btn" onclick="triggerSearch()">Rechercher</button>
+    </div>
+    <div class="search-suggestions" id="search-suggestions"></div>
+  </div>
+
+  <div class="hero-btns" style="margin-top:20px">
+    <a href="#activites" class="btn-hero-primary">Explorer les activités ↓</a>
+    <a href="referencer.html" class="btn-hero-secondary">Référencer mon activité</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num" id="total-count">3</span><span class="stat-label">Activités</span></div>
+    <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">Villes</span></div>
+    <div class="stat-item"><span class="stat-num">12</span><span class="stat-label">Catégories</span></div>
+  </div>
+</div>
+
+<!-- SECTION VILLES -->
+<div class="villes-section">
+  <div class="villes-header">
+    <h2>Trouvez une activité près de chez vous</h2>
+    <p>Cliquez sur une ville pour filtrer les activités disponibles</p>
+  </div>
+  <div class="villes-grid">
+    <div class="ville-btn" onclick="filterByVille('strasbourg')" id="ville-strasbourg">
+      <span class="ville-emoji">🏛️</span>
+      <span class="ville-name">Strasbourg</span>
+      <span class="ville-count" id="count-strasbourg">1 activité</span>
+    </div>
+    <div class="ville-btn" onclick="filterByVille('colmar')" id="ville-colmar">
+      <span class="ville-emoji">🍷</span>
+      <span class="ville-name">Colmar</span>
+      <span class="ville-count" id="count-colmar">1 activité</span>
+    </div>
+    <div class="ville-btn" onclick="filterByVille('obernai')" id="ville-obernai">
+      <span class="ville-emoji">🌲</span>
+      <span class="ville-name">Obernai</span>
+      <span class="ville-count" id="count-obernai">1 activité</span>
+    </div>
+    <div class="ville-btn" onclick="filterByVille('mulhouse')" id="ville-mulhouse">
+      <span class="ville-emoji">🏭</span>
+      <span class="ville-name">Mulhouse</span>
+      <span class="ville-count" id="count-mulhouse">0 activité</span>
+    </div>
+    <div class="ville-btn" onclick="filterByVille('vosges')" id="ville-vosges">
+      <span class="ville-emoji">⛰️</span>
+      <span class="ville-name">Vosges</span>
+      <span class="ville-count" id="count-vosges">0 activité</span>
+    </div>
+    <div class="ville-btn active-all" onclick="filterByVille(null)" id="ville-all" style="background:var(--gris-clair);border-color:var(--bordure)">
+      <span class="ville-emoji">🗺️</span>
+      <span class="ville-name">Toutes</span>
+      <span class="ville-count" id="count-all">3 activités</span>
+    </div>
+  </div>
+</div>
+
+<!-- CTA MOBILE FLOTTANT -->
+<a href="#activites" class="mobile-cta-float">Explorer les activités ↓</a>
+
+<!-- MAIN -->
+<div class="main-container" id="activites">
+
+  <aside class="sidebar">
+    <div class="sidebar-title">Filtres</div>
+    <div class="sidebar-sub">Affinez votre recherche</div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">🎯 Objectif métier</div>
+      <div class="tag-grid">
+        <div class="tag" data-filter="objectif" data-val="commercial">🏆 Commerciaux</div>
+        <div class="tag" data-filter="objectif" data-val="leadership">🧭 Leadership</div>
+        <div class="tag" data-filter="objectif" data-val="cohesion">🤝 Cohésion</div>
+        <div class="tag" data-filter="objectif" data-val="innovation">💡 Innovation</div>
+        <div class="tag" data-filter="objectif" data-val="communication">🗣️ Communication</div>
+        <div class="tag" data-filter="objectif" data-val="stress">⚡ Gestion du stress</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">✨ Ambiance</div>
+      <div class="tag-grid">
+        <div class="tag" data-filter="ambiance" data-val="nature">🌿 Nature</div>
+        <div class="tag" data-filter="ambiance" data-val="gastro">🍷 Gastronomie</div>
+        <div class="tag" data-filter="ambiance" data-val="challenge">🏅 Challenge</div>
+        <div class="tag" data-filter="ambiance" data-val="creatif">🎨 Créatif</div>
+        <div class="tag" data-filter="ambiance" data-val="bienetre">🧘 Bien-être</div>
+        <div class="tag" data-filter="ambiance" data-val="urbain">🏙️ Urbain & Digital</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">🏠 Environnement</div>
+      <div class="tag-grid">
+        <div class="tag" data-filter="env" data-val="indoor">Indoor</div>
+        <div class="tag" data-filter="env" data-val="outdoor">Outdoor</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">💶 Budget / personne</div>
+      <div class="range-row">
+        <span>0 €</span>
+        <span class="range-val" id="budget-display">200 €</span>
+        <span>200 €+</span>
+      </div>
+      <input type="range" id="budget-range" min="0" max="200" value="200" step="10"
+        oninput="document.getElementById('budget-display').textContent = this.value + (this.value == 200 ? '+' : '') + ' €'; applyFilters()">
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">👥 Nombre de participants</div>
+      <select class="filter-select" id="participants-select" onchange="applyFilters()">
+        <option value="">Tous les groupes</option>
+        <option value="10">Jusqu'à 10 personnes</option>
+        <option value="30">Jusqu'à 30 personnes</option>
+        <option value="50">Jusqu'à 50 personnes</option>
+        <option value="100">Plus de 50 personnes</option>
+      </select>
+    </div>
+
+    <button class="reset-btn" onclick="resetFilters()">↺ Réinitialiser</button>
+  </aside>
+
+  <div class="content-area">
+    <div class="view-tabs">
+      <div class="view-tab active" onclick="switchView('list', this)">☰ Liste</div>
+      <div class="view-tab" onclick="switchView('map', this)">📍 Carte</div>
+    </div>
+
+    <div class="results-bar">
+      <div class="results-count"><strong id="result-count">3</strong> activité(s) trouvée(s)</div>
+    </div>
+
+    <div id="view-list">
+      <div class="activities-grid" id="cards-grid"></div>
+      <div class="no-results" id="no-results" style="display:none">
+        <div class="no-results-icon">🔍</div>
+        <h3>Aucune activité trouvée</h3>
+        <p>Essayez d'élargir vos critères de recherche.</p>
+      </div>
+    </div>
+
+    <div id="view-map">
+      <div id="map-container"><div id="map"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<footer>
+  &copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.
+</footer>
+
+<script>
+  const activities = [
+    {
+      id: 1,
+      title: "Potager collaboratif et plus si affinitées",
+      location: "Sur votre lieu de travail",
+      lat: 47.75096893310547,
+      lng: 7.345345497131348,
+      description: "Installez un nouvel outil compétitif, anti-stress, cool, collaboratif et stratégique sur votre lieux de travail. En une journée vos collaborateurs découvrent la permaculture, font des choix stratégiques d'espèces à planter et mettent en terre leur vieil ami ;-). Pendant ce temps là, nous analysons les capacités de collaboration de vos équipes!",
+      objectifs: ["leadership", "cohesion", "stress", "innovation"],
+      ambiances: ["nature", "bienetre"],
+      env: ["outdoor"],
+      prixMin: 80,
+      participantsMin: 5,
+      participantsMax: 50,
+      duree: "Journée",
+      emoji: "🌱",
+      gradient: "linear-gradient(135deg, #134E5E, #71B280)",
+      image: "images/pomelo.png",
+      tags: [
+        { label: "Commerciaux", cls: "cat-commercial" },
+        { label: "Gastronomie", cls: "cat-gastro" },
+        { label: "Challenge", cls: "cat-challenge" },
+        { label: "Outdoor", cls: "cat-outdoor" }
+      ]
+    },
+    {
+      id: 2,
+      title: "Survie & Leadership en Forêt Vosgienne",
+      location: "Massif des Vosges, Obernai",
+      lat: 48.4613,
+      lng: 7.4831,
+      description: "Immersion en pleine forêt vosgienne pour tester et développer les aptitudes de leadership de vos managers. Orienteering, construction de camp, gestion de crise simulée et prise de décision collective sous pression. Un programme conçu pour révéler les leaders naturels et renforcer la confiance mutuelle.",
+      objectifs: ["leadership", "stress"],
+      ambiances: ["nature", "challenge"],
+      env: ["outdoor"],
+      prixMin: 95,
+      participantsMin: 8,
+      participantsMax: 40,
+      duree: "Journée complète",
+      emoji: "🌲",
+      gradient: "linear-gradient(135deg, #0F2027, #203A43, #2C5364)",
+      tags: [
+        { label: "Leadership", cls: "cat-leadership" },
+        { label: "Gestion du stress", cls: "cat-stress" },
+        { label: "Nature", cls: "cat-nature" },
+        { label: "Challenge", cls: "cat-challenge" }
+      ]
+    },
+    {
+      id: 3,
+      title: "Atelier Poterie & Céramique Alsacienne",
+      location: "Souffelweyersheim, Strasbourg",
+      lat: 48.6317,
+      lng: 7.7291,
+      description: "Découvrez l'art de la poterie alsacienne dans un atelier artisanal authentique. En équipes, concevez et réalisez des pièces inspirées des motifs traditionnels d'Alsace. Un moment de créativité, de détente et de partage qui favorise l'expression individuelle et la coopération. Session de bien-être incluse.",
+      objectifs: ["communication", "cohesion"],
+      ambiances: ["creatif", "bienetre"],
+      env: ["indoor"],
+      prixMin: 55,
+      participantsMin: 6,
+      participantsMax: 30,
+      duree: "3 heures",
+      emoji: "🏺",
+      gradient: "linear-gradient(135deg, #8E2DE2, #4A00E0)",
+      tags: [
+        { label: "Créatif", cls: "cat-creatif" },
+        { label: "Bien-être", cls: "cat-bienetre" },
+        { label: "Communication", cls: "cat-communication" },
+        { label: "Indoor", cls: "cat-indoor" }
+      ]
+    }
+  ];
+
+  let activeFilters = { objectif: [], ambiance: [], env: [] };
+  let activeVille = null;
+  const villeKeywords = {
+    strasbourg: ['strasbourg', 'souffelweyersheim'],
+    colmar: ['colmar', 'route des vins'],
+    obernai: ['obernai', 'vosges', 'massif'],
+    mulhouse: ['mulhouse'],
+    vosges: ['vosges', 'massif'],
+  };
+  let map = null;
+  let markers = [];
+
+  function renderCards(data) {
+    const grid = document.getElementById('cards-grid');
+    const noRes = document.getElementById('no-results');
+    document.getElementById('result-count').textContent = data.length;
+    if (data.length === 0) { grid.innerHTML = ''; noRes.style.display = 'block'; return; }
+    noRes.style.display = 'none';
+    grid.innerHTML = data.map(a => `
+      <div class="card fade-in" onclick="openModal(${a.id})">
+        <div class="card-img" style="${a.image ? `background-image:url('${a.image}');background-size:cover;background-position:center` : `background:${a.gradient}`}">
+          ${!a.image ? `<div class="card-img-placeholder">${a.emoji}</div>` : ''}
+          <div class="card-badge">${a.duree}</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">${a.tags.map(t => `<span class="card-tag ${t.cls}">${t.label}</span>`).join('')}</div>
+          <div class="card-title">${a.title}</div>
+          <div class="card-location">📍 ${a.location}</div>
+          <div class="card-meta">
+            <div class="card-price">À partir de ${a.prixMin} € <span>/ pers.</span></div>
+            <div class="card-participants">👥 ${a.participantsMin}–${a.participantsMax}</div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    // Trigger fade-in animations
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 80);
+      });
+    }, 30);
+  }
+
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      const filter = tag.dataset.filter;
+      const val = tag.dataset.val;
+      tag.classList.toggle('active');
+      if (activeFilters[filter].includes(val)) {
+        activeFilters[filter] = activeFilters[filter].filter(v => v !== val);
+      } else {
+        activeFilters[filter].push(val);
+      }
+      applyFilters();
+    });
+  });
+
+  function applyFilters() {
+    const budget = parseInt(document.getElementById('budget-range').value);
+    const partVal = document.getElementById('participants-select').value;
+    let filtered = activities.filter(a => {
+      if (activeFilters.objectif.length > 0 && !activeFilters.objectif.some(o => a.objectifs.includes(o))) return false;
+      if (activeFilters.ambiance.length > 0 && !activeFilters.ambiance.some(b => a.ambiances.includes(b))) return false;
+      if (activeFilters.env.length > 0 && !activeFilters.env.some(e => a.env.includes(e))) return false;
+      if (budget < 200 && a.prixMin > budget) return false;
+      if (partVal) {
+        const nb = parseInt(partVal);
+        if (nb === 100 && a.participantsMax < 50) return false;
+        if (nb !== 100 && a.participantsMin > nb) return false;
+      }
+      if (activeVille && villeKeywords[activeVille]) {
+        const loc = a.location.toLowerCase();
+        if (!villeKeywords[activeVille].some(kw => loc.includes(kw))) return false;
+      }if (activeVille && villeMap && villeMap[activeVille]) { const loc = a.location.toLowerCase(); if (!villeMap[activeVille].some(kw => loc.includes(kw))) return false; }
+
+      return true;
+    });
+    renderCards(filtered);
+    if (map) updateMapMarkers(filtered);
+  }
+
+  function resetFilters() {
+    activeFilters = { objectif: [], ambiance: [], env: [] };
+    document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+    document.getElementById('budget-range').value = 200;
+    document.getElementById('budget-display').textContent = '200+ €';
+    document.getElementById('participants-select').value = '';
+    renderCards(activities);
+    if (map) updateMapMarkers(activities);
+  }
+
+  function switchView(view, el) {
+    document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    if (view === 'list') {
+      document.getElementById('view-list').style.display = 'block';
+      document.getElementById('view-map').style.display = 'none';
+    } else {
+      document.getElementById('view-list').style.display = 'none';
+      document.getElementById('view-map').style.display = 'block';
+      initMap();
+    }
+  }
+
+  function initMap() {
+    if (map) return;
+    map = L.map('map').setView([48.33, 7.44], 9);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors', maxZoom: 18
+    }).addTo(map);
+    const icon = L.divIcon({
+      className: '',
+      html: `<div style="background:#5B2EFF;color:white;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 4px 14px rgba(91,46,255,0.5);border:2px solid white;">📍</div>`,
+      iconSize: [34, 34], iconAnchor: [17, 17]
+    });
+    updateMapMarkers(activities, icon);
+  }
+
+  function updateMapMarkers(data, customIcon) {
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+    data.forEach(a => {
+      const marker = L.marker([a.lat, a.lng], customIcon ? { icon: customIcon } : {})
+        .addTo(map)
+        .bindPopup(`
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;min-width:220px;overflow:hidden;border-radius:8px;">
+            ${a.image
+              ? `<div style="height:120px;background-image:url('${a.image}');background-size:cover;background-position:center;margin:-1px -1px 0 -1px;border-radius:8px 8px 0 0;"></div>`
+              : `<div style="height:80px;background:${a.gradient};display:flex;align-items:center;justify-content:center;font-size:2rem;margin:-1px -1px 0 -1px;border-radius:8px 8px 0 0;">${a.emoji}</div>`
+            }
+            <div style="padding:12px">
+              <div style="font-weight:700;margin-bottom:5px;color:#0D0D0D;font-size:0.95rem">${a.title}</div>
+              <div style="color:#5B2EFF;font-weight:700">À partir de ${a.prixMin} € / pers.</div>
+              <div style="color:#aaa;font-size:0.78rem;margin-top:4px">📍 ${a.location}</div>
+              <button onclick="openModal(${a.id})" style="margin-top:10px;background:linear-gradient(135deg,#5B2EFF,#7B5FFF);color:white;border:none;padding:8px 14px;border-radius:100px;font-size:0.78rem;cursor:pointer;width:100%;font-weight:600">Voir la fiche →</button>
+            </div>
+          </div>
+        `);
+      markers.push(marker);
+    });
+  }
+
+  function openModal(id) {
+    const a = activities.find(x => x.id === id);
+    if (!a) return;
+    document.getElementById('modal-content').innerHTML = `
+      <div class="modal-header" style="${a.image ? `background-image:url('${a.image}');background-size:cover;background-position:center;` : `background:${a.gradient};`}">
+        ${a.image ? `<div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);border-radius:20px 20px 0 0;"></div>` : ''}
+        <div style="position:relative;z-index:1">
+          <button class="modal-close" onclick="closeModalDirect()">✕</button>
+          <div style="font-size:2.5rem;margin-bottom:10px">${a.emoji}</div>
+          <h2>${a.title}</h2>
+          <div class="modal-loc">📍 ${a.location}</div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section-title">Description</div>
+        <p class="modal-desc">${a.description}</p>
+        <div class="modal-section-title">Informations pratiques</div>
+        <div class="modal-info-grid">
+          <div class="modal-info-item"><div class="info-label">Durée</div><div class="info-val">${a.duree}</div></div>
+          <div class="modal-info-item"><div class="info-label">Budget</div><div class="info-val">À partir de ${a.prixMin} € / pers.</div></div>
+          <div class="modal-info-item"><div class="info-label">Participants</div><div class="info-val">${a.participantsMin} – ${a.participantsMax} pers.</div></div>
+          <div class="modal-info-item"><div class="info-label">Lieu</div><div class="info-val">${a.location}</div></div>
+        </div>
+        <div class="modal-section-title">Catégories</div>
+        <div class="modal-tags">${a.tags.map(t => `<span class="card-tag ${t.cls}">${t.label}</span>`).join('')}</div>
+        <div class="modal-cta">
+          <button class="btn-primary">Demander un devis</button>
+          <button class="btn-secondary">♡ Sauvegarder</button>
+        </div>
+      </div>
+    `;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+  }
+  function closeModalDirect() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function toggleMenu() {
+    const btn = document.getElementById('hamburger');
+    const nav = document.getElementById('mobile-nav');
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  }
+
+  // ====== RECHERCHE ======
+  const searchIndex = [
+    ...activities.map(a => ({ type: 'activite', label: a.title, sub: a.location, id: a.id, val: String(a.id), emoji: a.emoji })),
+    { type: 'ville', label: 'Strasbourg', sub: 'Activités à Strasbourg', val: 'strasbourg', emoji: '🏛️' },
+    { type: 'ville', label: 'Colmar', sub: 'Activités à Colmar', val: 'colmar', emoji: '🍷' },
+    { type: 'ville', label: 'Obernai', sub: 'Activités à Obernai', val: 'obernai', emoji: '🌲' },
+    { type: 'ville', label: 'Mulhouse', sub: 'Activités à Mulhouse', val: 'mulhouse', emoji: '🏭' },
+    { type: 'ville', label: 'Vosges', sub: 'Activités dans les Vosges', val: 'vosges', emoji: '⛰️' },
+    { type: 'categorie', label: 'Nature & Outdoor', sub: 'Activités en plein air', val: 'nature', emoji: '🌿' },
+    { type: 'categorie', label: 'Gastronomie', sub: 'Autour de la table', val: 'gastro', emoji: '🍷' },
+    { type: 'categorie', label: 'Leadership', sub: 'Développer vos managers', val: 'leadership', emoji: '🧭' },
+    { type: 'categorie', label: 'Bien-être', sub: 'Détente et ressourcement', val: 'bienetre', emoji: '🧘' },
+    { type: 'categorie', label: 'Créatif', sub: 'Ateliers artistiques', val: 'creatif', emoji: '🎨' },
+    { type: 'categorie', label: 'Challenge', sub: 'Compétition et dépassement', val: 'challenge', emoji: '🏅' },
+  ];
+
+  function handleSearch(val) {
+    const box = document.getElementById('search-suggestions');
+    if (!val.trim()) { hideSuggestions(); return; }
+    const q = val.toLowerCase();
+    const results = searchIndex.filter(item =>
+      item.label.toLowerCase().includes(q) || item.sub.toLowerCase().includes(q)
+    ).slice(0, 6);
+    if (results.length === 0) {
+      box.innerHTML = `<div class="search-empty">Aucun résultat pour "${val}"</div>`;
+    } else {
+      box.innerHTML = results.map(r => `
+        <div class="suggestion-item" onmousedown="selectSuggestion('${r.type}','${r.val}')">
+          <span class="suggestion-icon">${r.emoji}</span>
+          <div><div style="font-weight:600">${r.label}</div><div style="font-size:0.75rem;color:#aaa">${r.sub}</div></div>
+          <span class="suggestion-type">${r.type === 'activite' ? 'Activité' : r.type === 'ville' ? 'Ville' : 'Catégorie'}</span>
+        </div>`).join('');
+    }
+    box.classList.add('visible');
+  }
+
+  function selectSuggestion(type, val) {
+    hideSuggestions();
+    document.getElementById('search-input').value = '';
+    if (type === 'activite') {
+      openModal(parseInt(val));
+    } else if (type === 'ville') {
+      filterByVille(val);
+    } else if (type === 'categorie') {
+      const tag = document.querySelector(`.tag[data-val="${val}"]`);
+      if (tag) { tag.click(); }
+      document.getElementById('activites').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function triggerSearch() {
+    const val = document.getElementById('search-input').value.trim();
+    if (!val) { document.getElementById('activites').scrollIntoView({ behavior: 'smooth' }); return; }
+    handleSearch(val);
+  }
+
+  function hideSuggestions() {
+    document.getElementById('search-suggestions').classList.remove('visible');
+  }
+
+  // ====== FILTRE PAR VILLE ======
+  function filterByVille(ville) {
+    activeVille = ville;
+    // Reset all ville buttons
+    document.querySelectorAll('.ville-btn').forEach(b => {
+      b.style.background = ''; b.style.borderColor = '';
+      b.querySelectorAll('.ville-name,.ville-emoji,.ville-count').forEach(el => el.style.color = '');
+    });
+    if (ville) {
+      const btn = document.getElementById('ville-' + ville);
+      if (btn) {
+        btn.style.background = 'var(--violet)';
+        btn.style.borderColor = 'var(--violet)';
+        btn.querySelectorAll('.ville-name,.ville-emoji').forEach(el => el.style.color = 'white');
+        btn.querySelector('.ville-count').style.color = 'rgba(255,255,255,0.7)';
+      }
+    }
+    applyFilters();
+    document.getElementById('activites').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  renderCards(activities);
+  document.getElementById('total-count').textContent = activities.length;
+</script>
+</body>
+</html>
