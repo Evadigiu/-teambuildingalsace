@@ -16,96 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-  // ====== VILLE FILTER ======
-  var activeVille = null;
-  var villeMap = {
-    strasbourg: ['strasbourg', 'souffelweyersheim'],
-    colmar: ['colmar', 'route des vins'],
-    obernai: ['obernai', 'massif des vosges'],
-    mulhouse: ['mulhouse'],
-    vosges: ['vosges', 'massif']
-  };
-
-  function filterVille(ville) {
-    activeVille = ville;
-    document.querySelectorAll('.ville-btn').forEach(function(b) {
-      b.classList.remove('active-ville');
-    });
-    var target = ville ? document.getElementById('ville-' + ville) : document.getElementById('ville-all');
-    if (target) target.classList.add('active-ville');
-    applyFilters();
-    document.getElementById('activites').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  // ====== SEARCH ======
-  var searchData = activities.map(function(a) {
-    return { type: 'activite', label: a.title, sub: a.location, emoji: a.emoji, id: a.id };
-  }).concat([
-    { type: 'ville', label: 'Strasbourg', sub: 'Activités à Strasbourg', emoji: 'Strasbourg', val: 'strasbourg' },
-    { type: 'ville', label: 'Colmar', sub: 'Activités à Colmar', emoji: 'Colmar', val: 'colmar' },
-    { type: 'ville', label: 'Obernai', sub: 'Activités à Obernai', emoji: 'Obernai', val: 'obernai' },
-    { type: 'ville', label: 'Mulhouse', sub: 'Activités à Mulhouse', emoji: 'Mulhouse', val: 'mulhouse' },
-    { type: 'ville', label: 'Vosges', sub: 'Activités dans les Vosges', emoji: 'Vosges', val: 'vosges' },
-    { type: 'cat', label: 'Nature', sub: 'Activités en plein air', emoji: 'Nature', val: 'nature' },
-    { type: 'cat', label: 'Gastronomie', sub: 'Autour de la table', emoji: 'Gastro', val: 'gastro' },
-    { type: 'cat', label: 'Leadership', sub: 'Développer vos managers', emoji: 'Leadership', val: 'leadership' },
-    { type: 'cat', label: 'Bien-être', sub: 'Détente et ressourcement', emoji: 'Bien-être', val: 'bienetre' },
-    { type: 'cat', label: 'Créatif', sub: 'Ateliers artistiques', emoji: 'Créatif', val: 'creatif' },
-    { type: 'cat', label: 'Challenge', sub: 'Compétition et dépassement', emoji: 'Challenge', val: 'challenge' }
-  ]);
-
-  function showSuggestions(val) {
-    var box = document.getElementById('suggestions');
-    if (!val || !val.trim()) { box.classList.remove('on'); return; }
-    var q = val.toLowerCase();
-    var res = searchData.filter(function(r) {
-      return r.label.toLowerCase().indexOf(q) > -1 || r.sub.toLowerCase().indexOf(q) > -1;
-    }).slice(0, 6);
-    var html = '';
-    if (res.length === 0) {
-      html = '<div class="sug-empty">Aucun résultat...</div>';
-    } else {
-      for (var i = 0; i < res.length; i++) {
-        var r = res[i];
-        var tl = r.type === 'activite' ? 'Activité' : r.type === 'ville' ? 'Ville' : 'Catégorie';
-        var v = r.type === 'activite' ? r.id : r.val;
-        html += '<div class="sug-item" onmousedown="pickSug('' + r.type + '','' + v + '')">';
-        html += '<span>' + r.emoji + '</span>';
-        html += '<div><div style="font-weight:600">' + r.label + '</div>';
-        html += '<div style="font-size:0.73rem;color:#aaa">' + r.sub + '</div></div>';
-        html += '<span class="sug-type">' + tl + '</span></div>';
-      }
-    }
-    box.innerHTML = html;
-    box.classList.add('on');
-  }
-
-  function pickSug(type, val) {
-    document.getElementById('suggestions').classList.remove('on');
-    document.getElementById('search-input').value = '';
-    if (type === 'activite') {
-      openModal(parseInt(val));
-    } else if (type === 'ville') {
-      filterVille(val);
-    } else {
-      var tag = document.querySelector('.tag[data-val="' + val + '"]');
-      if (tag) tag.click();
-      document.getElementById('activites').scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
-  var si = document.getElementById('search-input');
-  var sb = document.getElementById('search-btn');
-  si.addEventListener('input', function() { showSuggestions(this.value); });
-  si.addEventListener('focus', function() { if (this.value) showSuggestions(this.value); });
-  si.addEventListener('blur', function() { setTimeout(function() { document.getElementById('suggestions').classList.remove('on'); }, 200); });
-  sb.addEventListener('click', function() {
-    var v = si.value.trim();
-    if (!v) { document.getElementById('activites').scrollIntoView({ behavior: 'smooth' }); return; }
-    showSuggestions(v);
-  });
-</script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
       --violet: #5B2EFF;
@@ -1316,6 +1227,96 @@
 
   renderCards(activities);
   document.getElementById('total-count').textContent = activities.length;
+
+  // ====== VILLE FILTER ======
+  var activeVille = null;
+  var villeMap = {
+    strasbourg: ['strasbourg', 'souffelweyersheim'],
+    colmar: ['colmar', 'route des vins'],
+    obernai: ['obernai', 'massif des vosges'],
+    mulhouse: ['mulhouse'],
+    vosges: ['vosges', 'massif']
+  };
+
+  function filterVille(ville) {
+    activeVille = ville;
+    document.querySelectorAll('.ville-btn').forEach(function(b) {
+      b.classList.remove('active-ville');
+    });
+    var target = ville ? document.getElementById('ville-' + ville) : document.getElementById('ville-all');
+    if (target) target.classList.add('active-ville');
+    applyFilters();
+    document.getElementById('activites').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // ====== SEARCH ======
+  var searchData = activities.map(function(a) {
+    return { type: 'activite', label: a.title, sub: a.location, emoji: a.emoji, id: a.id };
+  }).concat([
+    { type: 'ville', label: 'Strasbourg', sub: 'Activités à Strasbourg', emoji: 'Strasbourg', val: 'strasbourg' },
+    { type: 'ville', label: 'Colmar', sub: 'Activités à Colmar', emoji: 'Colmar', val: 'colmar' },
+    { type: 'ville', label: 'Obernai', sub: 'Activités à Obernai', emoji: 'Obernai', val: 'obernai' },
+    { type: 'ville', label: 'Mulhouse', sub: 'Activités à Mulhouse', emoji: 'Mulhouse', val: 'mulhouse' },
+    { type: 'ville', label: 'Vosges', sub: 'Activités dans les Vosges', emoji: 'Vosges', val: 'vosges' },
+    { type: 'cat', label: 'Nature', sub: 'Activités en plein air', emoji: 'Nature', val: 'nature' },
+    { type: 'cat', label: 'Gastronomie', sub: 'Autour de la table', emoji: 'Gastro', val: 'gastro' },
+    { type: 'cat', label: 'Leadership', sub: 'Développer vos managers', emoji: 'Leadership', val: 'leadership' },
+    { type: 'cat', label: 'Bien-être', sub: 'Détente et ressourcement', emoji: 'Bien-être', val: 'bienetre' },
+    { type: 'cat', label: 'Créatif', sub: 'Ateliers artistiques', emoji: 'Créatif', val: 'creatif' },
+    { type: 'cat', label: 'Challenge', sub: 'Compétition et dépassement', emoji: 'Challenge', val: 'challenge' }
+  ]);
+
+  function showSuggestions(val) {
+    var box = document.getElementById('suggestions');
+    if (!val || !val.trim()) { box.classList.remove('on'); return; }
+    var q = val.toLowerCase();
+    var res = searchData.filter(function(r) {
+      return r.label.toLowerCase().indexOf(q) > -1 || r.sub.toLowerCase().indexOf(q) > -1;
+    }).slice(0, 6);
+    var html = '';
+    if (res.length === 0) {
+      html = '<div class="sug-empty">Aucun résultat...</div>';
+    } else {
+      for (var i = 0; i < res.length; i++) {
+        var r = res[i];
+        var tl = r.type === 'activite' ? 'Activité' : r.type === 'ville' ? 'Ville' : 'Catégorie';
+        var v = r.type === 'activite' ? r.id : r.val;
+        html += '<div class="sug-item" onmousedown="pickSug(\'' + r.type + '\',\'' + v + '\')">';
+        html += '<span>' + r.emoji + '</span>';
+        html += '<div><div style="font-weight:600">' + r.label + '</div>';
+        html += '<div style="font-size:0.73rem;color:#aaa">' + r.sub + '</div></div>';
+        html += '<span class="sug-type">' + tl + '</span></div>';
+      }
+    }
+    box.innerHTML = html;
+    box.classList.add('on');
+  }
+
+  function pickSug(type, val) {
+    document.getElementById('suggestions').classList.remove('on');
+    document.getElementById('search-input').value = '';
+    if (type === 'activite') {
+      openModal(parseInt(val));
+    } else if (type === 'ville') {
+      filterVille(val);
+    } else {
+      var tag = document.querySelector('.tag[data-val="' + val + '"]');
+      if (tag) tag.click();
+      document.getElementById('activites').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  var si = document.getElementById('search-input');
+  var sb = document.getElementById('search-btn');
+  si.addEventListener('input', function() { showSuggestions(this.value); });
+  si.addEventListener('focus', function() { if (this.value) showSuggestions(this.value); });
+  si.addEventListener('blur', function() { setTimeout(function() { document.getElementById('suggestions').classList.remove('on'); }, 200); });
+  sb.addEventListener('click', function() {
+    var v = si.value.trim();
+    if (!v) { document.getElementById('activites').scrollIntoView({ behavior: 'smooth' }); return; }
+    showSuggestions(v);
+  });
+
 </script>
 </body>
 </html>
