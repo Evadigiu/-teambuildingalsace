@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Référencer mon activité — Team Building Alsace</title>
+  <meta name="description" content="Référencez votre activité de team building en Alsace sur teambuildingalsace.fr">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --violet: #5B2EFF; --violet-clair: #7B5FFF; --vert: #00E5A0;
+      --noir: #0D0D0D; --gris-clair: #F4F2FF; --blanc: #FAFAFA; --bordure: #E8E4FF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--blanc); color: var(--noir); font-size: 15px; overflow-x: hidden; }
+
+    header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
+    .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; z-index: 1001; flex-shrink: 0; letter-spacing: -0.02em; }
+    .logo span { color: var(--vert); position: relative; }
+    .logo span::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--vert); border-radius: 2px; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; margin-left: 28px; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--vert); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all 0.3s; border-radius: 2px; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--noir); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+    .mobile-nav a:hover { color: var(--vert); }
+
+    .hero { background: var(--noir); padding: 60px 40px 50px; text-align: center; position: relative; overflow: hidden; }
+    .hero-shape { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.3; }
+    .hero-shape-1 { width: 350px; height: 350px; background: var(--violet); top: -100px; left: -80px; }
+    .hero-shape-2 { width: 250px; height: 250px; background: var(--vert); bottom: -60px; right: -60px; }
+    .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vert); background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3); padding: 7px 18px; border-radius: 100px; margin-bottom: 20px; position: relative; z-index: 1; font-weight: 600; }
+    .hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: white; line-height: 1.1; max-width: 600px; margin: 0 auto 16px; letter-spacing: -0.03em; position: relative; z-index: 1; }
+    .hero h1 .highlight { color: var(--vert); }
+    .hero p { color: rgba(255,255,255,0.55); font-size: 0.95rem; max-width: 500px; margin: 0 auto; line-height: 1.7; position: relative; z-index: 1; }
+
+    .avantages { display: flex; justify-content: center; gap: 28px; padding: 28px 40px; background: white; border-bottom: 1px solid var(--bordure); flex-wrap: wrap; }
+    .avantage { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #555; font-weight: 500; }
+    .avantage-icon { width: 36px; height: 36px; background: var(--gris-clair); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+
+    .form-container { max-width: 760px; margin: 50px auto; padding: 0 24px 80px; }
+
+    .progress-bar { display: flex; gap: 6px; margin-bottom: 40px; }
+    .progress-step { flex: 1; padding: 10px 6px; text-align: center; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #bbb; background: white; border: 1.5px solid var(--bordure); border-radius: 10px; cursor: pointer; transition: all 0.2s; font-weight: 600; }
+    .progress-step.active { background: var(--violet); border-color: var(--violet); color: white; box-shadow: 0 4px 16px rgba(91,46,255,0.3); }
+    .progress-step.done { background: var(--gris-clair); color: var(--violet); }
+    .progress-step .step-num { display: block; font-size: 1rem; margin-bottom: 2px; font-family: 'Outfit', sans-serif; font-weight: 800; }
+
+    .form-section { display: none; }
+    .form-section.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .section-title { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--noir); margin-bottom: 6px; letter-spacing: -0.02em; }
+    .section-sub { font-size: 0.85rem; color: #aaa; margin-bottom: 28px; }
+
+    .field-group { margin-bottom: 20px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--violet); font-weight: 700; margin-bottom: 7px; }
+    label .required { color: var(--violet); }
+    label .optional { color: #ccc; font-size: 0.65rem; text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 4px; }
+
+    input[type=text], input[type=email], input[type=tel], input[type=number], input[type=url], select, textarea {
+      width: 100%; padding: 11px 14px; border: 1.5px solid var(--bordure); border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; color: var(--noir);
+      background: white; transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--violet); box-shadow: 0 0 0 3px rgba(91,46,255,0.1); }
+    textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; cursor: pointer; }
+
+    .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+    .check-item { display: flex; align-items: center; gap: 9px; padding: 9px 12px; border: 1.5px solid var(--bordure); border-radius: 10px; cursor: pointer; transition: all 0.2s; background: white; font-size: 0.85rem; font-weight: 500; }
+    .check-item:hover { border-color: var(--violet); background: var(--gris-clair); }
+    .check-item input[type=checkbox], .check-item input[type=radio] { width: auto; padding: 0; border: none; accent-color: var(--violet); cursor: pointer; flex-shrink: 0; }
+    .check-item:has(input:checked) { border-color: var(--violet); background: rgba(91,46,255,0.06); }
+
+    .prix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .prix-item { position: relative; }
+    .prix-item .currency { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 0.85rem; pointer-events: none; }
+    .prix-item input { padding-right: 36px; }
+
+    .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--bordure); }
+
+    .btn-next { padding: 13px 28px; background: linear-gradient(135deg, var(--violet), var(--violet-clair)); color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 6px 20px rgba(91,46,255,0.3); }
+    .btn-next:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(91,46,255,0.4); }
+    .btn-prev { padding: 13px 24px; background: transparent; color: #aaa; border: 1.5px solid var(--bordure); border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .btn-prev:hover { border-color: var(--violet); color: var(--violet); }
+    .step-indicator { font-size: 0.78rem; color: #ccc; font-weight: 500; }
+
+    .recap-block { background: var(--gris-clair); border: 1.5px solid var(--bordure); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; }
+    .recap-block h4 { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--violet); margin-bottom: 12px; font-weight: 700; }
+    .recap-line { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 5px 0; border-bottom: 1px solid var(--bordure); color: #888; }
+    .recap-line:last-child { border-bottom: none; }
+    .recap-line strong { color: var(--noir); font-weight: 600; }
+
+    .success-screen { display: none; text-align: center; padding: 60px 40px; }
+    .success-icon { font-size: 4rem; margin-bottom: 20px; }
+    .success-screen h2 { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .success-screen p { color: #888; line-height: 1.7; max-width: 400px; margin: 0 auto; }
+
+    footer { background: var(--noir); color: rgba(255,255,255,0.3); text-align: center; padding: 28px; font-size: 0.78rem; letter-spacing: 0.05em; border-top: 3px solid var(--violet); }
+    footer span { color: var(--vert); font-weight: 700; }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .hero { padding: 40px 20px 36px; }
+      .field-row, .prix-grid { grid-template-columns: 1fr; }
+      .check-grid { grid-template-columns: 1fr 1fr; }
+      .avantages { gap: 14px; padding: 20px; }
+      .progress-bar { gap: 4px; }
+      .progress-step { font-size: 0.6rem; padding: 8px 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
+  <nav><a href="index.html">← Retour aux activités</a></nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="toggleMenu()">Accueil</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="referencer.html" onclick="toggleMenu()">Référencer mon activité</a>
+  <a href="#" onclick="toggleMenu()">Contact</a>
+</div>
+
+<div class="hero">
+  <div class="hero-shape hero-shape-1"></div>
+  <div class="hero-shape hero-shape-2"></div>
+  <div class="hero-label">📋 Prestataires</div>
+  <h1>Référencez votre activité <span class="highlight">gratuitement</span></h1>
+  <p>Rejoignez la première plateforme de team building en Alsace et touchez des entreprises qui cherchent exactement ce que vous proposez.</p>
+</div>
+
+<div class="avantages">
+  <div class="avantage"><div class="avantage-icon">🎯</div><span>Visibilité ciblée auprès des entreprises</span></div>
+  <div class="avantage"><div class="avantage-icon">⚡</div><span>Mise en ligne sous 48h</span></div>
+  <div class="avantage"><div class="avantage-icon">💶</div><span>Référencement 100% gratuit</span></div>
+  <div class="avantage"><div class="avantage-icon">📊</div><span>Filtres intelligents pour être trouvé</span></div>
+</div>
+
+<div class="form-container">
+  <div class="progress-bar">
+    <div class="progress-step active" onclick="goToStep(1)"><span class="step-num">1</span>Structure</div>
+    <div class="progress-step" onclick="goToStep(2)"><span class="step-num">2</span>Activité</div>
+    <div class="progress-step" onclick="goToStep(3)"><span class="step-num">3</span>Catégories</div>
+    <div class="progress-step" onclick="goToStep(4)"><span class="step-num">4</span>Tarifs</div>
+    <div class="progress-step" onclick="goToStep(5)"><span class="step-num">5</span>Récap</div>
+  </div>
+
+  <form name="referencer-activite" method="POST" id="main-form">
+    <input type="hidden" name="_subject" value="Nouvelle demande de référencement — TeamBuildingAlsace.fr">
+
+    <div class="form-section active" id="step-1">
+      <div class="section-title">Votre structure</div>
+      <div class="section-sub">Dites-nous qui vous êtes pour qu'on puisse vous contacter.</div>
+      <div class="field-row">
+        <div class="field-group"><label>Nom de la structure <span class="required">*</span></label><input type="text" name="structure_nom" placeholder="Ex: Aventure Vosges SARL" required></div>
+        <div class="field-group"><label>Nom du contact <span class="required">*</span></label><input type="text" name="contact_nom" placeholder="Prénom Nom" required></div>
+      </div>
+      <div class="field-row">
+        <div class="field-group"><label>Email <span class="required">*</span></label><input type="email" name="contact_email" placeholder="contact@monentreprise.fr" required></div>
+        <div class="field-group"><label>Téléphone <span class="required">*</span></label><input type="tel" name="contact_tel" placeholder="06 xx xx xx xx" required></div>
+      </div>
+      <div class="field-row">
+        <div class="field-group"><label>Site internet <span class="optional">(optionnel)</span></label><input type="url" name="site_web" placeholder="https://www.monsite.fr"></div>
+        <div class="field-group"><label>Siret <span class="optional">(optionnel)</span></label><input type="text" name="siret" placeholder="123 456 789 00012"></div>
+      </div>
+      <div class="form-nav"><span class="step-indicator">Étape 1 sur 5</span><button type="button" class="btn-next" onclick="nextStep(1)">Suivant →</button></div>
+    </div>
+
+    <div class="form-section" id="step-2">
+      <div class="section-title">Votre activité</div>
+      <div class="section-sub">Décrivez votre activité telle qu'elle apparaîtra sur la fiche.</div>
+      <div class="field-group"><label>Nom de l'activité <span class="required">*</span></label><input type="text" name="activite_nom" placeholder="Ex: Rallye œnotouristique en Alsace" required></div>
+      <div class="field-group"><label>Description <span class="required">*</span> <span class="optional">(2-3 phrases visibles sur la fiche)</span></label><textarea name="activite_description" placeholder="Décrivez votre activité..." required></textarea></div>
+      <div class="field-row">
+        <div class="field-group"><label>Ville / Lieu <span class="required">*</span></label><input type="text" name="activite_lieu" placeholder="Ex: Colmar, Route des Vins" required></div>
+        <div class="field-group"><label>Durée <span class="required">*</span></label>
+          <select name="activite_duree" required><option value="">Sélectionnez...</option><option>1 heure</option><option>2 heures</option><option>3 heures</option><option>Demi-journée</option><option>Journée complète</option><option>Week-end</option><option>Sur mesure</option></select>
+        </div>
+      </div>
+      <div class="field-group"><label>Adresse exacte <span class="optional">(pour la carte)</span></label><input type="text" name="activite_adresse" placeholder="Ex: 10 rue des Vignerons, 68000 Colmar"></div>
+      <div class="field-group"><label>Lien vers vos photos <span class="optional">(WeTransfer, Drive, Dropbox…)</span></label><input type="url" name="photos_lien" placeholder="https://drive.google.com/..."></div>
+      <div class="form-nav"><button type="button" class="btn-prev" onclick="prevStep(2)">← Précédent</button><span class="step-indicator">Étape 2 sur 5</span><button type="button" class="btn-next" onclick="nextStep(2)">Suivant →</button></div>
+    </div>
+
+    <div class="form-section" id="step-3">
+      <div class="section-title">Catégories & filtres</div>
+      <div class="section-sub">Ces infos permettent aux entreprises de trouver votre activité.</div>
+      <div class="field-group">
+        <label>Objectif métier <span class="required">*</span> <span class="optional">(plusieurs choix)</span></label>
+        <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="objectif" value="commercial"> 🏆 Commerciaux</label>
+          <label class="check-item"><input type="checkbox" name="objectif" value="leadership"> 🧭 Leadership</label>
+          <label class="check-item"><input type="checkbox" name="objectif" value="cohesion"> 🤝 Cohésion</label>
+          <label class="check-item"><input type="checkbox" name="objectif" value="innovation"> 💡 Innovation</label>
+          <label class="check-item"><input type="checkbox" name="objectif" value="communication"> 🗣️ Communication</label>
+          <label class="check-item"><input type="checkbox" name="objectif" value="stress"> ⚡ Gestion du stress</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>Ambiance <span class="required">*</span> <span class="optional">(plusieurs choix)</span></label>
+        <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="ambiance" value="nature"> 🌿 Nature</label>
+          <label class="check-item"><input type="checkbox" name="ambiance" value="gastro"> 🍷 Gastronomie</label>
+          <label class="check-item"><input type="checkbox" name="ambiance" value="challenge"> 🏅 Challenge</label>
+          <label class="check-item"><input type="checkbox" name="ambiance" value="creatif"> 🎨 Créatif</label>
+          <label class="check-item"><input type="checkbox" name="ambiance" value="bienetre"> 🧘 Bien-être</label>
+          <label class="check-item"><input type="checkbox" name="ambiance" value="urbain"> 🏙️ Urbain & Digital</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>Environnement <span class="required">*</span></label>
+        <div class="check-grid">
+          <label class="check-item"><input type="radio" name="env" value="indoor"> 🏠 Indoor</label>
+          <label class="check-item"><input type="radio" name="env" value="outdoor"> 🌳 Outdoor</label>
+          <label class="check-item"><input type="radio" name="env" value="les-deux"> 🔄 Les deux</label>
+        </div>
+      </div>
+      <div class="form-nav"><button type="button" class="btn-prev" onclick="prevStep(3)">← Précédent</button><span class="step-indicator">Étape 3 sur 5</span><button type="button" class="btn-next" onclick="nextStep(3)">Suivant →</button></div>
+    </div>
+
+    <div class="form-section" id="step-4">
+      <div class="section-title">Tarifs & pratique</div>
+      <div class="section-sub">Ces informations apparaîtront sur votre fiche activité.</div>
+      <div class="prix-grid">
+        <div class="field-group"><label>Prix min. / pers. <span class="required">*</span></label><div class="prix-item"><input type="number" name="prix_min" placeholder="50" min="0" required><span class="currency">€</span></div></div>
+        <div class="field-group"><label>Prix max. / pers. <span class="optional">(optionnel)</span></label><div class="prix-item"><input type="number" name="prix_max" placeholder="150" min="0"><span class="currency">€</span></div></div>
+      </div>
+      <div class="field-row">
+        <div class="field-group"><label>Participants min. <span class="required">*</span></label><input type="number" name="participants_min" placeholder="Ex: 8" min="1" required></div>
+        <div class="field-group"><label>Participants max. <span class="required">*</span></label><input type="number" name="participants_max" placeholder="Ex: 50" min="1" required></div>
+      </div>
+      <div class="field-group"><label>Ce qui est inclus <span class="optional">(optionnel)</span></label><textarea name="inclus" placeholder="Ex: Encadrement, matériel, collation..." style="min-height:80px"></textarea></div>
+      <div class="field-group">
+        <label>Disponibilités <span class="optional">(optionnel)</span></label>
+        <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="dispo" value="semaine"> 📅 En semaine</label>
+          <label class="check-item"><input type="checkbox" name="dispo" value="weekend"> 🗓️ Week-end</label>
+          <label class="check-item"><input type="checkbox" name="dispo" value="sur-mesure"> ✏️ Sur mesure</label>
+          <label class="check-item"><input type="checkbox" name="dispo" value="toute-annee"> 🔄 Toute l'année</label>
+        </div>
+      </div>
+      <div class="field-group"><label>Informations complémentaires <span class="optional">(optionnel)</span></label><textarea name="complement" placeholder="Accessibilité PMR, langues, options sur mesure..."></textarea></div>
+      <div class="form-nav"><button type="button" class="btn-prev" onclick="prevStep(4)">← Précédent</button><span class="step-indicator">Étape 4 sur 5</span><button type="button" class="btn-next" onclick="nextStep(4)">Voir le récapitulatif →</button></div>
+    </div>
+
+    <div class="form-section" id="step-5">
+      <div class="section-title">Récapitulatif</div>
+      <div class="section-sub">Vérifiez vos informations avant d'envoyer.</div>
+      <div id="recap-content"></div>
+      <div class="field-group" style="margin-top:24px">
+        <label class="check-item" style="border-color:var(--bordure)">
+          <input type="checkbox" name="cgv" required>
+          J'accepte que mes informations soient publiées sur teambuildingalsace.fr et je certifie être le représentant légal de la structure.
+        </label>
+      </div>
+      <div class="form-nav"><button type="button" class="btn-prev" onclick="prevStep(5)">← Précédent</button><span class="step-indicator">Étape 5 sur 5</span><button type="submit" class="btn-next">✉️ Envoyer ma demande</button></div>
+    </div>
+  </form>
+
+  <div class="success-screen" id="success-screen">
+    <div class="success-icon">🎉</div>
+    <h2>Demande envoyée !</h2>
+    <p>Notre équipe va examiner votre demande et vous recontacter sous <strong>48h</strong>.</p>
+    <br><a href="index.html" style="color:var(--violet);font-weight:700;text-decoration:none">← Retour aux activités</a>
+  </div>
+</div>
+
+<footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
+
+<script>
+  function goToStep(n) {
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.progress-step').forEach((s, i) => { s.classList.remove('active','done'); if(i+1<n) s.classList.add('done'); if(i+1===n) s.classList.add('active'); });
+    document.getElementById('step-'+n).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function nextStep(from) { if(!validateStep(from)) return; if(from===4) buildRecap(); goToStep(from+1); }
+  function prevStep(from) { goToStep(from-1); }
+  function validateStep(step) {
+    let valid = true;
+    document.getElementById('step-'+step).querySelectorAll('[required]').forEach(f => { f.style.borderColor=''; if(!f.value.trim()){f.style.borderColor='var(--violet)';valid=false;} });
+    return valid;
+  }
+  function buildRecap() {
+    const f = document.getElementById('main-form');
+    const get = n => f.querySelector(`[name="${n}"]`)?.value || '—';
+    const getChecked = n => [...f.querySelectorAll(`[name="${n}"]:checked`)].map(c=>c.value).join(', ') || '—';
+    document.getElementById('recap-content').innerHTML = `
+      <div class="recap-block"><h4>Votre structure</h4>
+        <div class="recap-line"><span>Structure</span><strong>${get('structure_nom')}</strong></div>
+        <div class="recap-line"><span>Contact</span><strong>${get('contact_nom')}</strong></div>
+        <div class="recap-line"><span>Email</span><strong>${get('contact_email')}</strong></div>
+        <div class="recap-line"><span>Téléphone</span><strong>${get('contact_tel')}</strong></div>
+      </div>
+      <div class="recap-block"><h4>L'activité</h4>
+        <div class="recap-line"><span>Nom</span><strong>${get('activite_nom')}</strong></div>
+        <div class="recap-line"><span>Lieu</span><strong>${get('activite_lieu')}</strong></div>
+        <div class="recap-line"><span>Durée</span><strong>${get('activite_duree')}</strong></div>
+      </div>
+      <div class="recap-block"><h4>Catégories</h4>
+        <div class="recap-line"><span>Objectifs</span><strong>${getChecked('objectif')}</strong></div>
+        <div class="recap-line"><span>Ambiance</span><strong>${getChecked('ambiance')}</strong></div>
+        <div class="recap-line"><span>Environnement</span><strong>${getChecked('env')}</strong></div>
+      </div>
+      <div class="recap-block"><h4>Tarifs</h4>
+        <div class="recap-line"><span>Prix min.</span><strong>${get('prix_min')} €/pers.</strong></div>
+        <div class="recap-line"><span>Participants</span><strong>${get('participants_min')} – ${get('participants_max')} pers.</strong></div>
+      </div>`;
+  }
+  document.getElementById('main-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch('https://formspree.io/f/xkoqlnpg', { method:'POST', headers:{'Accept':'application/json'}, body: new FormData(this) })
+    .then(r => { if(r.ok){ document.getElementById('main-form').style.display='none'; document.querySelector('.progress-bar').style.display='none'; document.getElementById('success-screen').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); } else { alert('Erreur. Réessayez.'); } })
+    .catch(() => alert('Erreur. Réessayez.'));
+  });
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobile-nav').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
+  }
+</script>
+</body>
+</html>
