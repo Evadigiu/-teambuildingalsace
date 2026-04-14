@@ -156,6 +156,7 @@
       transform: translateX(-50%) rotate(45deg);
     }
     .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
     .dropdown-item {
       display: flex;
       align-items: center;
@@ -877,7 +878,7 @@
   <nav>
     <a href="index.html">Accueil</a>
     <div class="nav-dropdown">
-      <button class="nav-dropdown-btn">Par ville <span class="arrow">▼</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Par ville <span class="arrow">▼</span></button>
       <div class="dropdown-menu">
         <a href="strasbourg.html" class="dropdown-item">
           <span class="d-emoji">🏛️</span>
@@ -891,9 +892,9 @@
           <span class="d-emoji">🌲</span>
           <span class="d-info"><span class="d-name">Obernai</span><span class="d-count">Bientôt disponible</span></span>
         </a>
-        <a href="#" class="dropdown-item coming">
+        <a href="index.html#activites" onclick="setTimeout(()=>filterVille('mulhouse'),100)" class="dropdown-item">
           <span class="d-emoji">🏭</span>
-          <span class="d-info"><span class="d-name">Mulhouse</span><span class="d-count">"1 activité disponible"</span></span>
+          <span class="d-info"><span class="d-name">Mulhouse</span><span class="d-count">1 activité disponible</span></span>
         </a>
         <a href="#" class="dropdown-item coming">
           <span class="d-emoji">⛰️</span>
@@ -1354,6 +1355,15 @@
 
   renderCards(activities);
   document.getElementById('total-count').textContent = activities.length;
+
+  // ====== DROPDOWN VILLE ======
+  function toggleDropdown(e) {
+    e.stopPropagation();
+    document.querySelector('.nav-dropdown').classList.toggle('open');
+  }
+  document.addEventListener('click', function() {
+    document.querySelector('.nav-dropdown').classList.remove('open');
+  });
 
   // ====== VILLE FILTER ======
   var activeVille = null;
