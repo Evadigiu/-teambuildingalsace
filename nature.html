@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Building Nature & Plein air en Alsace — Activités outdoor | TeamBuildingAlsace.fr</title>
+  <meta name="description" content="Découvrez les meilleures activités de team building nature en Alsace. Forêt vosgienne, plein air, randonnée, survie. Des activités prouvées scientifiquement pour vos équipes.">
+  <meta name="keywords" content="team building nature alsace, team building outdoor alsace, team building forêt vosges, activité plein air entreprise alsace">
+  <link rel="canonical" href="https://www.teambuildingalsace.fr/nature">
+  <meta property="og:title" content="Team Building Nature & Plein air Alsace | TeamBuildingAlsace.fr">
+  <meta property="og:description" content="La science le prouve : vos équipes ont besoin de nature. Activités outdoor sélectionnées en Alsace.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Team Building Nature & Plein air en Alsace",
+    "description": "Activités de team building nature et outdoor en Alsace",
+    "url": "https://www.teambuildingalsace.fr/nature",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.teambuildingalsace.fr" },
+        { "@type": "ListItem", "position": 2, "name": "Nature & Plein air", "item": "https://www.teambuildingalsace.fr/nature" }
+      ]
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --violet: #5B2EFF;
+      --violet-clair: #7B5FFF;
+      --vert: #00E5A0;
+      --vert-nature: #2D6A4F;
+      --vert-clair: #74C69D;
+      --vert-pale: #D8F3DC;
+      --noir: #0D0D0D;
+      --gris-clair: #F4F2FF;
+      --blanc: #FAFAFA;
+      --bordure: #E8E4FF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--blanc); color: var(--noir); overflow-x: hidden; line-height: 1.7; }
+
+    /* ── HEADER ── */
+    header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
+    .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.02em; }
+    .logo span { color: var(--vert); }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--vert); }
+    .nav-cta { background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--violet-clair) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { background: white; padding: 14px 40px; border-bottom: 1px solid var(--bordure); font-size: 0.78rem; color: #aaa; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--violet); text-decoration: none; font-weight: 600; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--noir);
+      padding: 80px 40px 70px;
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(45,106,79,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(0,229,160,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 40% at 50% 0%, rgba(91,46,255,0.2) 0%, transparent 50%);
+    }
+    /* Animated leaves */
+    .leaf { position: absolute; opacity: 0.06; font-size: 4rem; animation: drift 8s ease-in-out infinite; pointer-events: none; }
+    .leaf:nth-child(1) { top: 10%; right: 15%; animation-delay: 0s; }
+    .leaf:nth-child(2) { top: 60%; right: 8%; font-size: 2.5rem; animation-delay: 2s; }
+    .leaf:nth-child(3) { top: 30%; right: 30%; font-size: 3rem; animation-delay: 4s; }
+    .leaf:nth-child(4) { bottom: 10%; right: 20%; font-size: 5rem; animation-delay: 1s; }
+    @keyframes drift { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-20px) rotate(5deg)} }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vert-clair); background: rgba(116,198,157,0.12); border: 1px solid rgba(116,198,157,0.3); padding: 7px 18px; border-radius: 100px; margin-bottom: 24px; font-weight: 600; }
+    .hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; color: white; line-height: 1.05; margin-bottom: 10px; letter-spacing: -0.04em; }
+    .hero h1 .line2 { color: var(--vert-clair); display: block; }
+    .hero-sub { color: rgba(255,255,255,0.55); font-size: 1rem; max-width: 580px; line-height: 1.8; margin: 20px 0 36px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-p { padding: 13px 28px; background: linear-gradient(135deg, var(--vert-nature), var(--vert-clair)); color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 6px 20px rgba(45,106,79,0.4); }
+    .btn-p:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(45,106,79,0.5); }
+    .btn-s { padding: 13px 28px; background: rgba(255,255,255,0.07); color: white; border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .btn-s:hover { border-color: var(--vert-clair); color: var(--vert-clair); }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: var(--vert-nature); padding: 28px 40px; }
+    .stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .stat { text-align: center; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15); }
+    .stat:last-child { border-right: none; }
+    .stat-n { font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--vert-pale); display: block; letter-spacing: -0.05em; line-height: 1; }
+    .stat-l { font-size: 0.75rem; color: rgba(255,255,255,0.65); font-weight: 500; margin-top: 6px; display: block; line-height: 1.4; }
+    .stat-src { font-size: 0.6rem; color: rgba(255,255,255,0.35); display: block; margin-top: 3px; }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+    section { padding: 72px 0; border-bottom: 1px solid var(--bordure); }
+    section:last-child { border-bottom: none; }
+    .section-label { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--vert-nature); font-weight: 700; margin-bottom: 10px; display: block; }
+    .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; color: var(--noir); letter-spacing: -0.03em; margin-bottom: 14px; line-height: 1.1; }
+    .section-title em { color: var(--vert-nature); font-style: normal; }
+    .section-intro { color: #555; font-size: 0.95rem; max-width: 640px; line-height: 1.85; margin-bottom: 44px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+
+    /* ── SCIENCE CARDS ── */
+    .sci-card { background: white; border: 1.5px solid var(--bordure); border-radius: 16px; padding: 28px; position: relative; overflow: hidden; transition: all 0.25s; }
+    .sci-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--vert-nature), var(--vert-clair)); }
+    .sci-card:hover { border-color: var(--vert-nature); box-shadow: 0 12px 36px rgba(45,106,79,0.1); transform: translateY(-3px); }
+    .sci-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+    .sci-stat { font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--vert-nature); letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
+    .sci-card h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 800; color: var(--noir); margin-bottom: 10px; }
+    .sci-card p { font-size: 0.83rem; color: #666; line-height: 1.7; }
+    .sci-source { display: inline-block; font-size: 0.65rem; color: var(--vert-nature); background: var(--vert-pale); padding: 3px 10px; border-radius: 100px; margin-top: 12px; font-weight: 600; }
+
+    /* ── DARK BOX ── */
+    .dark-box { background: linear-gradient(135deg, #0D1F0D, #1A2E1A); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
+    .dark-box::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: var(--vert-nature); border-radius: 50%; filter: blur(60px); opacity: 0.3; }
+    .dark-box h3 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--vert-pale); margin-bottom: 20px; position: relative; z-index: 1; }
+    .dark-box ul { list-style: none; padding: 0; position: relative; z-index: 1; }
+    .dark-box ul li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .dark-box ul li:last-child { border-bottom: none; }
+    .dark-box ul li strong { color: var(--vert-clair); }
+
+    /* ── RH CARDS ── */
+    .rh-card { background: white; border: 1.5px solid var(--bordure); border-radius: 14px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; transition: all 0.2s; }
+    .rh-card:hover { border-color: var(--vert-nature); box-shadow: 0 6px 24px rgba(45,106,79,0.08); }
+    .rh-ico { width: 48px; height: 48px; background: var(--vert-pale); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+    .rh-card h4 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: var(--noir); margin-bottom: 6px; }
+    .rh-card p { font-size: 0.82rem; color: #666; line-height: 1.65; }
+    .rh-stat { display: inline-block; font-size: 0.72rem; background: var(--vert-pale); color: var(--vert-nature); padding: 3px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; }
+
+    /* ── ACTIVITÉS ── */
+    .act-card { background: white; border: 1.5px solid var(--bordure); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(45,106,79,0.12); border-color: var(--vert-nature); }
+    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
+    .act-body { padding: 18px; }
+    .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
+    .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
+    .act-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--bordure); }
+    .act-price { color: var(--vert-nature); font-weight: 800; font-family: 'Outfit', sans-serif; }
+    .act-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; background: var(--vert-pale); color: var(--vert-nature); }
+
+    /* ── ALSACE SECTION ── */
+    .alsace-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .alsace-item { background: white; border: 1.5px solid var(--bordure); border-radius: 12px; padding: 20px; text-align: center; transition: all 0.2s; }
+    .alsace-item:hover { border-color: var(--vert-nature); }
+    .alsace-emoji { font-size: 2rem; display: block; margin-bottom: 10px; }
+    .alsace-item h4 { font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 800; margin-bottom: 6px; }
+    .alsace-item p { font-size: 0.78rem; color: #777; line-height: 1.6; }
+    .alsace-dist { display: inline-block; font-size: 0.68rem; background: var(--vert-pale); color: var(--vert-nature); padding: 2px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; }
+
+    /* ── FAQ ── */
+    .faq-item { border-bottom: 1px solid var(--bordure); }
+    .faq-q { padding: 18px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.93rem; gap: 16px; }
+    .faq-q:hover { color: var(--vert-nature); }
+    .faq-ico { font-size: 1.1rem; color: var(--vert-nature); transition: transform 0.2s; flex-shrink: 0; }
+    .faq-a { padding: 0 0 18px; font-size: 0.86rem; color: #555; line-height: 1.8; display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-ico { transform: rotate(45deg); }
+
+    /* ── CTA ── */
+    .cta-section { background: linear-gradient(135deg, #0D1F0D, #1A3A1A); padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(45,106,79,0.4) 0%, transparent 60%); }
+    .cta-section h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: white; margin-bottom: 14px; letter-spacing: -0.03em; position: relative; z-index: 1; }
+    .cta-section h2 em { color: var(--vert-clair); font-style: normal; }
+    .cta-section p { color: rgba(255,255,255,0.5); font-size: 0.93rem; max-width: 460px; margin: 0 auto 28px; position: relative; z-index: 1; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--noir); color: rgba(255,255,255,0.3); text-align: center; padding: 26px; font-size: 0.78rem; border-top: 3px solid var(--violet); }
+    footer span { color: var(--vert); font-weight: 700; }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .breadcrumb, .container { padding-left: 20px; padding-right: 20px; }
+      .hero { padding: 50px 20px 40px; }
+      .stats-bar { padding: 20px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 16px; }
+      .stat { border-right: none; }
+      section { padding: 44px 0; }
+      .grid-2, .grid-3, .alsace-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 50px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="strasbourg.html">Strasbourg</a>
+    <a href="blog.html">Blog</a>
+    <a href="#">Contact</a>
+    <a href="referencer.html" class="nav-cta">+ Référencer</a>
+  </nav>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">Accueil</a> ›
+  <a href="index.html">Univers</a> ›
+  <span>🌿 Nature & Plein air</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <span class="leaf">🌿</span>
+  <span class="leaf">🍃</span>
+  <span class="leaf">🌱</span>
+  <span class="leaf">🌲</span>
+  <div class="hero-content">
+    <div class="hero-label">🌿 Univers · Nature & Plein air</div>
+    <h1>Vos équipes ont besoin<br>de forêt.
+      <span class="line2">La science le prouve.</span>
+    </h1>
+    <p class="hero-sub">20 minutes en pleine nature suffisent pour mesurer une baisse significative du cortisol. Imaginez ce qu'une journée en forêt vosgienne peut faire pour votre équipe.</p>
+    <div class="hero-btns">
+      <a href="#activites" class="btn-p">Voir les activités ↓</a>
+      <a href="referencer.html" class="btn-s">Référencer mon activité</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-n">-25%</span>
+      <span class="stat-l">de cortisol après une session en nature</span>
+      <span class="stat-src">Études shinrin-yoku</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">+15%</span>
+      <span class="stat-l">de créativité chez les salariés en contact avec la nature</span>
+      <span class="stat-src">Université de Melbourne</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">79%</span>
+      <span class="stat-l">des salariés : le team building améliore les relations</span>
+      <span class="stat-src">Teamland, 2025</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">20 min</span>
+      <span class="stat-l">suffisent pour déclencher une baisse mesurable de stress</span>
+      <span class="stat-src">ONF / Recherches scientifiques</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1 : SCIENCE -->
+<section>
+  <div class="container">
+    <span class="section-label">Données scientifiques</span>
+    <h2 class="section-title">Ce n'est pas du team building <em>feel-good</em>.<br>C'est de la biologie.</h2>
+    <p class="section-intro">Les effets de la nature sur le cerveau humain sont mesurés, reproductibles et publiés dans les grandes revues scientifiques internationales. Ce que vos équipes ressentent en forêt, les chercheurs le mesurent dans leur sang.</p>
+
+    <div class="grid-3">
+      <div class="sci-card">
+        <span class="sci-icon">🧠</span>
+        <div class="sci-stat">-12,4%</div>
+        <h3>Le cortisol chute en forêt</h3>
+        <p>Comparées aux promenades urbaines, les immersions en forêt entraînent une baisse mesurable du cortisol, de la fréquence cardiaque et de la tension artérielle. Le système nerveux parasympathique — celui du repos — s'active dès les premières minutes.</p>
+        <span class="sci-source">Dr. Qing Li, Nippon Medical School</span>
+      </div>
+      <div class="sci-card">
+        <span class="sci-icon">🛡️</span>
+        <div class="sci-stat">+50%</div>
+        <h3>Le système immunitaire boosté</h3>
+        <p>Trois jours en forêt augmentent de 50% l'activité des cellules Natural Killer (NK), essentielles pour combattre infections et maladies. Et ce boost se maintient plus d'un mois après l'expérience — un investissement santé durable pour vos équipes.</p>
+        <span class="sci-source">Dr. Qing Li, publié 2010</span>
+      </div>
+      <div class="sci-card">
+        <span class="sci-icon">💡</span>
+        <div class="sci-stat">+15%</div>
+        <h3>La créativité décuplée</h3>
+        <p>Les employés entourés d'éléments naturels sont 15% plus créatifs que leurs collègues en open-space classique. Un atelier collaboratif en plein air génère plus d'idées nouvelles qu'une réunion de brainstorming en salle de réunion.</p>
+        <span class="sci-source">Université de Melbourne</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 : TRADUCTION RH -->
+<section style="background:var(--gris-clair)">
+  <div class="container">
+    <span class="section-label">Pourquoi c'est stratégique</span>
+    <h2 class="section-title">Ce que ça change <em>concrètement</em><br>pour votre entreprise</h2>
+    <p class="section-intro">Les bienfaits de la nature en équipe ne sont pas qu'une question de bien-être. Ce sont des leviers RH mesurables qui impactent directement vos KPIs.</p>
+
+    <div class="grid-2">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="rh-card">
+          <div class="rh-ico">📉</div>
+          <div>
+            <h4>Absentéisme réduit</h4>
+            <p>Le stress chronique est la 1ère cause d'absentéisme en France. Une journée en nature agit directement sur le système nerveux et réduit les marqueurs biologiques du burnout. Un investissement préventif bien plus économique qu'un remplacement.</p>
+            <span class="rh-stat">3 500 €/an/salarié = coût moyen de l'absentéisme</span>
+          </div>
+        </div>
+        <div class="rh-card">
+          <div class="rh-ico">🌱</div>
+          <div>
+            <h4>Argument RSE concret</h4>
+            <p>Organiser des activités en plein air, c'est aussi sensibiliser vos équipes à l'environnement. Un signal fort pour attirer et retenir les talents des générations Y et Z qui privilégient les employeurs engagés.</p>
+            <span class="rh-stat">85% des salariés plus engagés en entreprise RSE (ADEME)</span>
+          </div>
+        </div>
+        <div class="rh-card">
+          <div class="rh-ico">🔗</div>
+          <div>
+            <h4>Cohésion renforcée durablement</h4>
+            <p>Partager une expérience physique en plein air crée des souvenirs partagés impossibles à recréer en salle. Les liens tissés en forêt ou sur un sentier perdurent bien après le retour au bureau.</p>
+            <span class="rh-stat">79% des salariés : améliore les relations (Teamland 2025)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dark-box">
+        <h3>📈 Le marché en 2025</h3>
+        <ul>
+          <li><span>🚀</span><span>Le team building écologique connaît un <strong>essor sans précédent</strong> depuis janvier 2025 — il représente désormais 20% des activités organisées.</span></li>
+          <li><span>♻️</span><span><strong>72% des entreprises</strong> organisant des événements d'entreprise choisissent désormais des sites éco-certifiés (GreenEv, 2025).</span></li>
+          <li><span>👥</span><span><strong>70% des Gen Y & Z</strong> considèrent l'engagement environnemental d'une entreprise avant de postuler (Deloitte, 2024).</span></li>
+          <li><span>🌍</span><span>En Alsace, les Vosges sont accessibles en <strong>moins de 30 minutes</strong> depuis Strasbourg — un avantage logistique rare pour les activités outdoor.</span></li>
+          <li><span>🌲</span><span><strong>75% des Français</strong> vivent à moins de 30 minutes d'une forêt (ONF) — la nature n'a jamais été aussi accessible pour vos équipes.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 : ACTIVITÉS -->
+<section id="activites">
+  <div class="container">
+    <span class="section-label">Nos sélections</span>
+    <h2 class="section-title">Activités Nature & Plein air <em>en Alsace</em></h2>
+    <p class="section-intro">Des activités sélectionnées pour leur qualité, leur impact sur la cohésion et leur ancrage dans les paysages alsaciens.</p>
+
+    <div class="grid-3">
+      <a href="index.html" class="act-card">
+        <div class="act-img" style="background:linear-gradient(135deg,#134E5E,#71B280)">🌱</div>
+        <div class="act-body">
+          <h3>Potager Collaboratif & Permaculture</h3>
+          <p>Créez un potager sur votre lieu de travail. Ancrage RSE, cohésion et retour à l'essentiel. Adapté à toutes les saisons.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 80 €/pers.</span>
+            <span class="act-tag">RSE · Outdoor</span>
+          </div>
+        </div>
+      </a>
+      <a href="index.html" class="act-card">
+        <div class="act-img" style="background:linear-gradient(135deg,#1B4332,#40916C)">🌲</div>
+        <div class="act-body">
+          <h3>Survie & Leadership en Forêt Vosgienne</h3>
+          <p>Techniques de survie, navigation et leadership en situation. La forêt comme terrain d'entraînement pour vos managers.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 95 €/pers.</span>
+            <span class="act-tag">Leadership · Sport</span>
+          </div>
+        </div>
+      </a>
+      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:10px">➕</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité nature en Alsace ?</h3>
+        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
+        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 : ALSACE -->
+<section style="background:var(--gris-clair)">
+  <div class="container">
+    <span class="section-label">Le terrain de jeu alsacien</span>
+    <h2 class="section-title">L'Alsace, un cadre naturel <em>exceptionnel</em><br>à portée de bureau</h2>
+    <p class="section-intro">Vos équipes n'ont pas besoin de partir loin. En Alsace, des paysages extraordinaires sont accessibles en quelques dizaines de minutes depuis n'importe quelle entreprise.</p>
+
+    <div class="alsace-grid">
+      <div class="alsace-item">
+        <span class="alsace-emoji">⛰️</span>
+        <h4>Massif des Vosges</h4>
+        <p>Forêts de sapins, chaumes, panoramas sur la plaine d'Alsace. Idéal pour randonnées, survie et activités de leadership.</p>
+        <span class="alsace-dist">30 min de Strasbourg</span>
+      </div>
+      <div class="alsace-item">
+        <span class="alsace-emoji">🌊</span>
+        <h4>Bords du Rhin & de l'Ill</h4>
+        <p>Kayak, canoë, activités nautiques. Un cadre naturel unique à deux pas du centre-ville, sans logistique complexe.</p>
+        <span class="alsace-dist">5 min du centre</span>
+      </div>
+      <div class="alsace-item">
+        <span class="alsace-emoji">🍇</span>
+        <h4>Route des Vins & Vignobles</h4>
+        <p>Paysages de vignes et villages alsaciens. Combinable avec des activités gastronomiques pour une journée complète.</p>
+        <span class="alsace-dist">20 min de Strasbourg</span>
+      </div>
+      <div class="alsace-item">
+        <span class="alsace-emoji">🌲</span>
+        <h4>Forêt de Haguenau</h4>
+        <p>L'une des plus grandes forêts de plaine d'Europe. Parfaite pour les activités de cohésion en grand groupe.</p>
+        <span class="alsace-dist">30 min de Strasbourg</span>
+      </div>
+      <div class="alsace-item">
+        <span class="alsace-emoji">🏔️</span>
+        <h4>Obernai & Piémont Vosgien</h4>
+        <p>Entre plaine et montagne, ce secteur offre une diversité de terrains pour toutes les activités outdoor.</p>
+        <span class="alsace-dist">30 min de Strasbourg</span>
+      </div>
+      <div class="alsace-item">
+        <span class="alsace-emoji">🌿</span>
+        <h4>Réserve Naturelle du Rhin</h4>
+        <p>Biodiversité exceptionnelle. Idéale pour les ateliers nature, sensibilisation RSE et activités de pleine conscience.</p>
+        <span class="alsace-dist">15 min de Strasbourg</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 : FAQ -->
+<section>
+  <div class="container" style="max-width:760px">
+    <span class="section-label">Vos questions</span>
+    <h2 class="section-title">Les questions que se posent <em>les RH</em><br>avant de réserver</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Pour combien de personnes ? Les activités nature sont-elles adaptées aux grands groupes ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">La majorité des activités nature que nous référençons sont adaptées à des groupes de 8 à 80 personnes. Pour les très grands groupes (100+), les prestataires proposent généralement un découpage en sous-équipes qui s'affrontent ou collaborent sur des parcours différents. Précisez votre effectif lors de la demande de devis — c'est le premier critère de sélection.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Quelle est la meilleure saison pour un team building nature en Alsace ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">Le printemps (avril-juin) est idéal pour les activités de cohésion en plein air. L'automne (septembre-novembre) offre des paysages vosgiens et viticoles d'exception. L'été convient parfaitement aux activités nautiques. Même l'hiver est possible avec des activités adaptées (randonnée en raquettes, survival en conditions hivernales). Certaines activités comme le potager collaboratif sont disponibles toute l'année.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Comment justifier le budget d'un team building nature à ma direction ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">Trois arguments chiffrés : (1) L'absentéisme coûte en moyenne 3 500 € par salarié et par an — une journée en nature agit directement sur ses causes profondes. (2) 85% des salariés sont plus engagés dans les entreprises qui adoptent des pratiques RSE concrètes, ce qui réduit le turnover et ses coûts associés (4 000 à 10 000 € par recrutement). (3) Un team building nature est un investissement double : cohésion ET image employeur, que vous pouvez valoriser sur vos supports de communication RH.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Quelle différence avec un team building classique en salle ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">La différence est physiologique avant d'être psychologique. En salle, le cerveau reste dans un état d'alerte lié à l'environnement de travail. En pleine nature, le système nerveux parasympathique s'active, le cortisol baisse, et les participants entrent dans un état propice à la créativité, à l'écoute et à la coopération authentique. Les souvenirs créés en nature sont également plus forts et durables — l'effet "cohésion" persiste bien plus longtemps après l'événement.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Comment valoriser ce team building dans notre démarche RSE ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">Plusieurs angles possibles : (1) Communiquez sur le choix d'une activité à faible empreinte carbone (pas de déplacement longue distance, prestataire local). (2) Choisissez des activités qui incluent une dimension pédagogique sur la biodiversité ou l'agriculture. (3) Documentez l'événement avec photos et témoignages pour vos rapports RSE, votre marque employeur et vos réseaux. Un potager collaboratif, par exemple, laisse une trace physique dans l'entreprise — un symbole fort et durable.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Prêt à emmener votre équipe<br><em>au vert en Alsace</em> ?</h2>
+  <p>Parcourez toutes nos activités nature, filtrez par format et budget, et contactez directement les prestataires.</p>
+  <div class="cta-btns">
+    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="referencer.html" class="btn-s">Référencer mon activité</a>
+  </div>
+</div>
+
+<footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
+
+<script>
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
