@@ -851,6 +851,41 @@
     }
     footer span { color: var(--vert); font-weight: 700; }
 
+    /* ======= FICHE NON REVENDIQUÉE ======= */
+    .card-unclaimed {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(13,13,13,0.82);
+      backdrop-filter: blur(6px);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .card-unclaimed-text {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .card-unclaimed-btn {
+      padding: 5px 12px;
+      background: var(--vert);
+      color: var(--noir);
+      border: none;
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .card-unclaimed-btn:hover { opacity: 0.85; }
+
     /* ======= ANIMATIONS SCROLL ======= */
     .fade-in {
       opacity: 0;
@@ -1233,6 +1268,7 @@
   const activities = [
     {
       id: 1,
+      revendiquee: true,
       title: "Potager collaboratif et plus si affinitées",
       location: "Sur votre lieu de travail",
       lat: 47.75096893310547,
@@ -1259,6 +1295,7 @@
     },
     {
       id: 2,
+      revendiquee: false,
       title: "Survie & Leadership en Forêt Vosgienne",
       location: "Obernai",
       lat: 48.4613,
@@ -1284,6 +1321,7 @@
     },
     {
       id: 3,
+      revendiquee: false,
       title: "Atelier Poterie & Céramique Alsacienne",
       location: "Strasbourg",
       lat: 48.6317,
@@ -1310,6 +1348,7 @@
     },
     {
   id: 4,
+  revendiquee: false,
   title: "Quiz convivialité",
   location: "Mulhouse",
   lat: 47.7499531,
@@ -1336,6 +1375,7 @@
 },
       {
       id: 5,
+      revendiquee: false,
       title: "Lancer de hache",
       location: "Wittenheim",
       lat: 47.7982383,
@@ -1377,6 +1417,10 @@
         <div class="card-img" style="${a.image ? `background-image:url('${a.image}');background-size:cover;background-position:center` : `background:${a.gradient}`}">
           ${!a.image ? `<div class="card-img-placeholder">${a.emoji}</div>` : ''}
           <div class="card-badge">${a.duree}</div>
+          ${!a.revendiquee ? `<div class="card-unclaimed">
+            <span class="card-unclaimed-text">Fiche non revendiquée</span>
+            <a href="referencer.html" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
+          </div>` : ''}
         </div>
         <div class="card-body">
           <div class="card-tags">${a.tags.map(t => `<span class="card-tag ${t.cls}">${t.label}</span>`).join('')}</div>
