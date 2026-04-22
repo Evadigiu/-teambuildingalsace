@@ -208,6 +208,12 @@
     .mobile-nav.open { display: flex; }
     .mobile-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; }
     .mobile-nav a:hover { color: var(--vert); }
+    .mobile-nav-section { width: 100%; text-align: center; }
+    .mobile-nav-section-title { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); font-weight: 600; margin-bottom: 12px; display: block; }
+    .mobile-nav-section-items { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+    .mobile-nav-section-items a { font-size: 0.92rem; }
+    .mobile-nav-section-items a.coming { color: rgba(255,255,255,0.25); pointer-events: none; font-size: 0.82rem; }
+    .mobile-nav-divider { width: 40px; height: 1px; background: rgba(255,255,255,0.1); margin: 4px auto; }
 
     /* ======= HERO ======= */
     .hero {
@@ -987,10 +993,42 @@
 
 <div class="mobile-nav" id="mobile-nav">
   <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="strasbourg.html" onclick="toggleMenu()">🏛️ Strasbourg</a>
+
+  <div class="mobile-nav-divider"></div>
+
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-section-title">Par ville</span>
+    <div class="mobile-nav-section-items">
+      <a href="strasbourg.html" onclick="toggleMenu()">🏛️ Strasbourg</a>
+      <a href="#" class="coming">🍷 Colmar</a>
+      <a href="#" class="coming">🌲 Obernai</a>
+      <a href="index.html#activites" onclick="setTimeout(()=>filterVille('mulhouse'),100);toggleMenu()">🏭 Mulhouse</a>
+      <a href="#" class="coming">⛰️ Vosges</a>
+    </div>
+  </div>
+
+  <div class="mobile-nav-divider"></div>
+
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-section-title">Par univers</span>
+    <div class="mobile-nav-section-items">
+      <a href="#" class="coming">🌿 Nature & Plein air</a>
+      <a href="#" class="coming">🍽️ Gastronomie & Vins</a>
+      <a href="#" class="coming">🎨 Artistique & Créatif</a>
+      <a href="#" class="coming">🧘 Bien-être & Slow</a>
+      <a href="#" class="coming">⚡ Sport & Adrénaline</a>
+      <a href="#" class="coming">🎮 Jeux & Digital</a>
+      <a href="#" class="coming">🎭 Culture & Patrimoine</a>
+      <a href="#" class="coming">🎉 Événementiel</a>
+      <a href="#" class="coming">🛸 What the Fuck</a>
+      <a href="#" class="coming">🧠 Stratégie & Logique</a>
+    </div>
+  </div>
+
+  <div class="mobile-nav-divider"></div>
+
   <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="index.html#activites" onclick="toggleMenu()" style="font-size:0.85rem;color:rgba(255,255,255,0.5)">🌿 Nature · 🍽️ Gastro · ⚡ Sport · 🎮 Jeux</a>
-  <a href="referencer.html" onclick="toggleMenu()">Référencer mon activité</a>
+  <a href="referencer.html" onclick="toggleMenu()">+ Référencer</a>
   <a href="#" onclick="toggleMenu()">Contact</a>
 </div>
 
