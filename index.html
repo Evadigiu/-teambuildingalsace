@@ -206,14 +206,40 @@
       gap: 32px;
     }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; }
+    /* MOBILE NAV */
+    .mobile-nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; }
     .mobile-nav a:hover { color: var(--vert); }
-    .mobile-nav-section { width: 100%; text-align: center; }
-    .mobile-nav-section-title { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); font-weight: 600; margin-bottom: 12px; display: block; }
-    .mobile-nav-section-items { display: flex; flex-direction: column; gap: 14px; align-items: center; }
-    .mobile-nav-section-items a { font-size: 0.92rem; }
-    .mobile-nav-section-items a.coming { color: rgba(255,255,255,0.25); pointer-events: none; font-size: 0.82rem; }
-    .mobile-nav-divider { width: 40px; height: 1px; background: rgba(255,255,255,0.1); margin: 4px auto; }
+
+    /* ACCORDION */
+    .mob-accordion { width: 100%; }
+    .mob-accordion-btn {
+      width: 100%; background: none; border: none;
+      color: rgba(255,255,255,0.75); font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 0; transition: color 0.2s;
+    }
+    .mob-accordion-btn:hover { color: var(--vert); }
+    .mob-accordion-btn .mob-arrow { font-size: 0.55rem; transition: transform 0.25s; display: inline-block; }
+    .mob-accordion-btn.open { color: var(--vert); }
+    .mob-accordion-btn.open .mob-arrow { transform: rotate(180deg); }
+    .mob-accordion-content {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      padding: 0;
+    }
+    .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
+    .mob-accordion-content a {
+      font-size: 0.88rem !important;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.6) !important;
+    }
+    .mob-accordion-content a.coming {
+      color: rgba(255,255,255,0.22) !important;
+      pointer-events: none;
+    }
+    .mob-accordion-content a:hover { color: var(--vert) !important; }
 
     /* ======= HERO ======= */
     .hero {
@@ -992,13 +1018,15 @@
 </header>
 
 <div class="mobile-nav" id="mobile-nav">
+
   <a href="index.html" onclick="toggleMenu()">Accueil</a>
 
-  <div class="mobile-nav-divider"></div>
-
-  <div class="mobile-nav-section">
-    <span class="mobile-nav-section-title">Par ville</span>
-    <div class="mobile-nav-section-items">
+  <!-- ACCORDION : Par ville -->
+  <div class="mob-accordion">
+    <button class="mob-accordion-btn" onclick="toggleAccordion(this)">
+      Par ville <span class="mob-arrow">▼</span>
+    </button>
+    <div class="mob-accordion-content">
       <a href="strasbourg.html" onclick="toggleMenu()">🏛️ Strasbourg</a>
       <a href="#" class="coming">🍷 Colmar</a>
       <a href="#" class="coming">🌲 Obernai</a>
@@ -1007,11 +1035,12 @@
     </div>
   </div>
 
-  <div class="mobile-nav-divider"></div>
-
-  <div class="mobile-nav-section">
-    <span class="mobile-nav-section-title">Par univers</span>
-    <div class="mobile-nav-section-items">
+  <!-- ACCORDION : Par univers -->
+  <div class="mob-accordion">
+    <button class="mob-accordion-btn" onclick="toggleAccordion(this)">
+      Par univers <span class="mob-arrow">▼</span>
+    </button>
+    <div class="mob-accordion-content">
       <a href="#" class="coming">🌿 Nature & Plein air</a>
       <a href="#" class="coming">🍽️ Gastronomie & Vins</a>
       <a href="#" class="coming">🎨 Artistique & Créatif</a>
@@ -1025,11 +1054,10 @@
     </div>
   </div>
 
-  <div class="mobile-nav-divider"></div>
-
   <a href="blog.html" onclick="toggleMenu()">Blog</a>
   <a href="referencer.html" onclick="toggleMenu()">+ Référencer</a>
   <a href="#" onclick="toggleMenu()">Contact</a>
+
 </div>
 
 <!-- HERO -->
@@ -1513,6 +1541,19 @@
   function closeModalDirect() {
     document.getElementById('modal-overlay').classList.remove('open');
     document.body.style.overflow = '';
+  }
+
+  function toggleAccordion(btn) {
+    var content = btn.nextElementSibling;
+    var isOpen = content.classList.contains('open');
+    // close all
+    document.querySelectorAll('.mob-accordion-content').forEach(function(c) { c.classList.remove('open'); });
+    document.querySelectorAll('.mob-accordion-btn').forEach(function(b) { b.classList.remove('open'); });
+    // open clicked if it was closed
+    if (!isOpen) {
+      content.classList.add('open');
+      btn.classList.add('open');
+    }
   }
 
   function toggleMenu() {
