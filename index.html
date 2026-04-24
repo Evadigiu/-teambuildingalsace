@@ -811,7 +811,7 @@
 
     /* ── MODALE DEVIS ── */
     .devis-overlay {
-      display: none; position: fixed; inset: 0; z-index: 2000;
+      display: none; position: fixed; inset: 0; z-index: 3000;
       background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
       align-items: center; justify-content: center; padding: 20px;
     }
@@ -1516,6 +1516,9 @@
 
   // ── MODALE DEVIS ──
   function openDevis(actTitle) {
+    // Fermer la modale activité d'abord
+    document.getElementById('modal-overlay').classList.remove('open');
+    // Ouvrir la modale devis
     document.getElementById('devis-act-name').textContent = actTitle;
     document.getElementById('devis-act-field').value = actTitle;
     document.getElementById('devis-overlay').classList.add('open');
