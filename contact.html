@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — TeamBuildingAlsace.fr</title>
+  <meta name="description" content="Contactez TeamBuildingAlsace.fr pour toute question sur nos activités, un devis ou un partenariat. Réponse sous 24h.">
+  <link rel="canonical" href="https://www.teambuildingalsace.fr/contact">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --violet: #5B2EFF; --violet-clair: #7B5FFF; --vert: #00E5A0;
+      --noir: #0D0D0D; --gris-clair: #F4F2FF; --blanc: #FAFAFA; --bordure: #E8E4FF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--blanc); color: var(--noir); overflow-x: hidden; line-height: 1.7; }
+
+    /* HEADER */
+    header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
+    .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.02em; }
+    .logo span { color: var(--vert); }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--vert); }
+    nav a.active { color: white; }
+    .nav-cta { background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; }
+    .nav-cta:hover { background: var(--violet-clair) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--noir); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+
+    /* BREADCRUMB */
+    .breadcrumb { background: white; padding: 14px 40px; border-bottom: 1px solid var(--bordure); font-size: 0.78rem; color: #aaa; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--violet); text-decoration: none; font-weight: 600; }
+
+    /* HERO */
+    .hero { background: var(--noir); padding: 64px 40px 56px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(91,46,255,0.2) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 10% 80%, rgba(0,229,160,0.1) 0%, transparent 50%); }
+    .hero-inner { max-width: 640px; position: relative; z-index: 1; }
+    .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vert); background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3); padding: 7px 18px; border-radius: 100px; margin-bottom: 20px; font-weight: 600; }
+    .hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: white; line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.04em; }
+    .hero h1 em { color: var(--vert); font-style: normal; }
+    .hero-desc { color: rgba(255,255,255,0.55); font-size: 0.95rem; line-height: 1.8; }
+
+    /* LAYOUT */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+    .main-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; padding: 64px 0; align-items: start; }
+
+    /* INFOS COLONNE GAUCHE */
+    .info-block { margin-bottom: 36px; }
+    .info-block h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 800; color: var(--noir); margin-bottom: 12px; letter-spacing: -0.01em; }
+    .info-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--bordure); }
+    .info-item:last-child { border-bottom: none; }
+    .info-ico { width: 40px; height: 40px; background: var(--gris-clair); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .info-content h4 { font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 800; color: var(--noir); margin-bottom: 3px; }
+    .info-content p { font-size: 0.82rem; color: #777; line-height: 1.5; }
+    .info-content a { color: var(--violet); text-decoration: none; font-weight: 600; }
+
+    .pro-box { background: linear-gradient(135deg, var(--noir), #1A1A2E); border-radius: 16px; padding: 24px; position: relative; overflow: hidden; }
+    .pro-box::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; background: var(--violet); border-radius: 50%; filter: blur(50px); opacity: 0.25; }
+    .pro-box h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: white; margin-bottom: 8px; position: relative; z-index: 1; }
+    .pro-box p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 14px; position: relative; z-index: 1; }
+    .pro-btn { display: inline-block; padding: 9px 20px; background: linear-gradient(135deg, var(--violet), var(--violet-clair)); color: white; border-radius: 100px; font-size: 0.8rem; font-weight: 700; text-decoration: none; position: relative; z-index: 1; transition: all 0.2s; }
+    .pro-btn:hover { transform: translateY(-2px); }
+
+    /* FORMULAIRE */
+    .form-card { background: white; border: 1.5px solid var(--bordure); border-radius: 20px; padding: 36px; box-shadow: 0 8px 40px rgba(91,46,255,0.06); }
+    .form-card h2 { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--noir); margin-bottom: 6px; letter-spacing: -0.02em; }
+    .form-card .form-sub { font-size: 0.85rem; color: #888; margin-bottom: 28px; }
+    .form-fields { display: flex; flex-direction: column; gap: 16px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 0.73rem; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.08em; }
+    .field input, .field select, .field textarea {
+      padding: 11px 14px; border: 1.5px solid var(--bordure); border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; color: var(--noir);
+      background: var(--gris-clair); outline: none; transition: border-color 0.2s;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--violet); background: white; }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .form-submit { padding: 14px; background: linear-gradient(135deg, var(--violet), var(--violet-clair)); color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 6px 20px rgba(91,46,255,0.3); margin-top: 6px; }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(91,46,255,0.45); }
+    .form-note { font-size: 0.72rem; color: #aaa; text-align: center; margin-top: 10px; }
+    .form-success { display: none; text-align: center; padding: 24px 0; }
+    .form-success .s-ico { font-size: 3.5rem; display: block; margin-bottom: 14px; }
+    .form-success h3 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--noir); margin-bottom: 8px; }
+    .form-success p { font-size: 0.85rem; color: #777; }
+
+    /* FAQ */
+    .faq-section { background: var(--gris-clair); padding: 64px 0; border-top: 1px solid var(--bordure); }
+    .faq-header { text-align: center; margin-bottom: 48px; }
+    .section-label { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--violet); font-weight: 700; margin-bottom: 10px; display: block; }
+    .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--noir); letter-spacing: -0.03em; }
+    .section-title em { color: var(--violet); font-style: normal; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+    .faq-item { border-bottom: 1px solid var(--bordure); }
+    .faq-q { padding: 18px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.9rem; gap: 16px; color: var(--noir); transition: color 0.2s; }
+    .faq-q:hover { color: var(--violet); }
+    .faq-ico { font-size: 1rem; color: var(--violet); transition: transform 0.2s; flex-shrink: 0; }
+    .faq-a { padding: 0 0 16px; font-size: 0.84rem; color: #555; line-height: 1.8; display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-ico { transform: rotate(45deg); }
+    .faq-item.open .faq-q { color: var(--violet); }
+
+    /* CTA */
+    .cta-section { background: var(--noir); padding: 64px 40px; text-align: center; position: relative; overflow: hidden; border-top: 3px solid var(--violet); }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(91,46,255,0.2) 0%, transparent 60%); }
+    .cta-section h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: white; margin-bottom: 14px; letter-spacing: -0.03em; position: relative; z-index: 1; }
+    .cta-section h2 em { color: var(--vert); font-style: normal; }
+    .cta-section p { color: rgba(255,255,255,0.5); font-size: 0.9rem; max-width: 440px; margin: 0 auto 24px; position: relative; z-index: 1; }
+    .cta-btn { display: inline-block; padding: 13px 28px; background: linear-gradient(135deg, var(--violet), var(--violet-clair)); color: white; border-radius: 100px; font-size: 0.88rem; font-weight: 700; text-decoration: none; transition: all 0.2s; position: relative; z-index: 1; box-shadow: 0 6px 20px rgba(91,46,255,0.35); }
+    .cta-btn:hover { transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--noir); color: rgba(255,255,255,0.3); text-align: center; padding: 26px; font-size: 0.78rem; }
+    footer span { color: var(--vert); font-weight: 700; }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .breadcrumb, .container { padding-left: 20px; padding-right: 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .main-grid { grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
+      .field-row { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-section { padding: 44px 0; }
+      .cta-section { padding: 50px 20px; }
+      .form-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="referencer.html" class="nav-cta">+ Référencer</a>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="toggleMenu()">Accueil</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="referencer.html" onclick="toggleMenu()">Référencer mon activité</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<div class="breadcrumb">
+  <a href="index.html">Accueil</a> › <span>Contact</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">💬 On vous répond sous 24h</div>
+    <h1>Une question ?<br><em>On est là.</em></h1>
+    <p class="hero-desc">Que vous cherchiez une activité pour votre équipe, que vous souhaitiez référencer votre prestation ou simplement en savoir plus sur la plateforme — écrivez-nous.</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+  <div class="main-grid">
+
+    <!-- COLONNE GAUCHE : INFOS -->
+    <div>
+      <div class="info-block">
+        <h3>Informations de contact</h3>
+        <div class="info-item">
+          <div class="info-ico">📧</div>
+          <div class="info-content">
+            <h4>Email</h4>
+            <p><a href="mailto:contact@teambuildingalsace.fr">contact@teambuildingalsace.fr</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">📍</div>
+          <div class="info-content">
+            <h4>Zone couverte</h4>
+            <p>Alsace — Strasbourg, Colmar, Mulhouse, Obernai et tout le Bas-Rhin et Haut-Rhin</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">⏱️</div>
+          <div class="info-content">
+            <h4>Délai de réponse</h4>
+            <p>Nous répondons à tous les messages sous <strong>24h ouvrées</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOX PRESTATAIRES -->
+      <div class="pro-box">
+        <h3>🏢 Vous êtes prestataire ?</h3>
+        <p>Pour référencer votre activité sur la plateforme, rendez-vous sur notre page dédiée. Le référencement de base est gratuit.</p>
+        <a href="referencer.html" class="pro-btn">Référencer mon activité →</a>
+      </div>
+    </div>
+
+    <!-- COLONNE DROITE : FORMULAIRE -->
+    <div class="form-card">
+      <h2>Envoyez-nous un message</h2>
+      <p class="form-sub">Remplissez ce formulaire et nous vous répondons sous 24h.</p>
+
+      <div id="form-fields" class="form-fields">
+        <form id="contact-form">
+          <div class="form-fields">
+            <div class="field-row">
+              <div class="field">
+                <label>Prénom & Nom *</label>
+                <input type="text" name="nom" placeholder="Marie Dupont" required>
+              </div>
+              <div class="field">
+                <label>Entreprise</label>
+                <input type="text" name="entreprise" placeholder="Votre entreprise">
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>Email *</label>
+                <input type="email" name="email" placeholder="marie@entreprise.fr" required>
+              </div>
+              <div class="field">
+                <label>Téléphone</label>
+                <input type="tel" name="telephone" placeholder="06 XX XX XX XX">
+              </div>
+            </div>
+            <div class="field">
+              <label>Sujet *</label>
+              <select name="sujet" required>
+                <option value="" disabled selected>Choisissez un sujet</option>
+                <option value="trouver-activite">Trouver une activité pour mon équipe</option>
+                <option value="demande-devis">Demande de devis</option>
+                <option value="renseignements">Renseignements généraux</option>
+                <option value="partenariat">Partenariat</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Message *</label>
+              <textarea name="message" placeholder="Décrivez votre demande, le nombre de participants, la date souhaitée, votre budget..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Envoyer mon message →</button>
+            <p class="form-note">Vos données sont utilisées uniquement pour répondre à votre demande.</p>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-success" id="form-success">
+        <span class="s-ico">✅</span>
+        <h3>Message envoyé !</h3>
+        <p>Merci pour votre message. Nous vous répondons sous 24h ouvrées.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="container">
+    <div class="faq-header">
+      <span class="section-label">Questions fréquentes</span>
+      <h2 class="section-title">Les réponses aux questions <em>les plus courantes</em></h2>
+    </div>
+
+    <div class="faq-grid">
+      <div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Comment trouver une activité adaptée à mon équipe ? <span class="faq-ico">+</span></div>
+          <div class="faq-a">Utilisez les filtres de notre plateforme : objectif métier (cohésion, leadership, communication...), univers (nature, gastronomie, sport...), environnement (indoor/outdoor), format (moins de 2h, demi-journée, journée) et budget. En quelques clics vous accédez aux activités correspondant exactement à vos besoins. Vous pouvez aussi cliquer sur "Demander un devis" directement depuis une fiche pour être mis en relation avec le prestataire.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Comment fonctionne la demande de devis ? <span class="faq-ico">+</span></div>
+          <div class="faq-a">Depuis chaque fiche activité, cliquez sur "Demander un devis". Remplissez le formulaire avec vos informations (nombre de participants, date souhaitée, message). Nous recevons votre demande et vous mettons en relation avec le prestataire sous 24h ouvrées. C'est gratuit et sans engagement.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Les activités sont-elles disponibles toute l'année ? <span class="faq-ico">+</span></div>
+          <div class="faq-a">Cela dépend des activités. Chaque fiche indique la saisonnalité (toute saison, printemps/été, automne/hiver). Les activités indoor sont généralement disponibles toute l'année. Pour les activités outdoor, nous recommandons de vérifier les disponibilités avec le prestataire. La plupart des prestataires alsaciens proposent des alternatives en cas de mauvaise météo.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Proposez-vous des activités pour les grands groupes ? <span class="faq-ico">+</span></div>
+          <div class="faq-a">Oui ! Chaque fiche indique le nombre minimum et maximum de participants. Beaucoup de prestataires référencés peuvent accueillir des groupes de 50 à 200 personnes, notamment pour les rallyes, activités outdoor et ateliers gastronomiques. Pour les groupes de plus de 50 personnes, nous vous recommandons de contacter le prestataire en amont pour personnaliser le programme.</div>
+        </div>
+      </div>
+      <div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">TeamBuildingAlsace.fr organise-t-il directement les activités ? <span class="faq-ico">+</span></div>
+          <div class="faq-a">Non, nous sommes une plateforme de mise en relation. Nous référençons et sélectionnons les meilleurs prestataires de team building en Alsace, et nous facilitons le contact entre les entreprises et ces prestataires. L'organisation et la prestation sont assurées directement par les professionnels référencés.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Est-ce payant pour les entreprises qui cherchent une activité ? <span class="faq-ico">+</span></div>
+          <div class="faq-a">Absolument pas. L'accès à la plateforme, la recherche d'activités et la mise en relation avec les prestataires sont entièrement gratuits pour les entreprises. Notre modèle repose sur les abonnements des prestataires qui souhaitent être visibles sur la plateforme.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Couvrez-vous toute l'Alsace ou seulement Strasbourg ? <span class="faq-ico">+</span></div>
+          <div class="faq-a">Nous couvrons toute l'Alsace : Strasbourg et l'Eurométropole, Colmar, Mulhouse, Obernai, la Route des Vins, les Vosges et le Rhin. Utilisez le filtre "Par ville" ou la carte interactive pour trouver les activités proches de votre lieu de travail. Nous ajoutons régulièrement de nouveaux prestataires dans toutes les zones.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Comment puis-je suggérer une activité qui n'est pas encore référencée ? <span class="faq-ico">+</span></div>
+          <div class="faq-a">Deux options : si vous êtes le prestataire, utilisez notre page "Référencer mon activité" pour soumettre votre fiche. Si vous êtes une entreprise et souhaitez suggérer un prestataire que vous avez déjà testé, envoyez-nous un message via ce formulaire avec le nom et les coordonnées du prestataire — nous prendrons contact avec eux.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Prêt à trouver votre<br><em>team building idéal</em> ?</h2>
+  <p>Parcourez toutes nos activités, filtrez selon vos besoins et contactez directement les prestataires.</p>
+  <a href="index.html#activites" class="cta-btn">Explorer les activités →</a>
+</div>
+
+<footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobile-nav').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
+  }
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(this);
+    try {
+      const res = await fetch('https://formspree.io/f/xzdyyqrd', {
+        method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('form-fields').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      }
+    } catch(err) { console.error(err); }
+  });
+</script>
+</body>
+</html>
