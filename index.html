@@ -809,6 +809,53 @@
 
     .modal-cta { margin-top: 28px; display: flex; gap: 12px; }
 
+    /* ── MODALE DEVIS ── */
+    .devis-overlay {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .devis-overlay.open { display: flex; }
+    .devis-modal {
+      background: white; border-radius: 20px; width: 100%; max-width: 520px;
+      max-height: 90vh; overflow-y: auto;
+      animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .devis-header {
+      background: linear-gradient(135deg, var(--violet), var(--violet-clair));
+      padding: 24px 28px; border-radius: 20px 20px 0 0;
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .devis-header h3 { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 800; color: white; margin-bottom: 4px; letter-spacing: -0.02em; }
+    .devis-header .devis-act { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+    .devis-close { background: rgba(255,255,255,0.15); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .devis-close:hover { background: rgba(255,255,255,0.25); }
+    .devis-body { padding: 28px; }
+    .devis-form { display: flex; flex-direction: column; gap: 16px; }
+    .devis-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .devis-field { display: flex; flex-direction: column; gap: 6px; }
+    .devis-field label { font-size: 0.75rem; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.08em; }
+    .devis-field input, .devis-field textarea, .devis-field select {
+      padding: 10px 14px; border: 1.5px solid var(--bordure); border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; color: var(--noir);
+      transition: border-color 0.2s; background: var(--gris-clair); outline: none;
+    }
+    .devis-field input:focus, .devis-field textarea:focus, .devis-field select:focus { border-color: var(--violet); background: white; }
+    .devis-field textarea { resize: vertical; min-height: 90px; }
+    .devis-submit {
+      padding: 13px; background: linear-gradient(135deg, var(--violet), var(--violet-clair));
+      color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.2s;
+      box-shadow: 0 6px 20px rgba(91,46,255,0.3); margin-top: 4px;
+    }
+    .devis-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(91,46,255,0.4); }
+    .devis-note { font-size: 0.72rem; color: #aaa; text-align: center; margin-top: 8px; }
+    .devis-success { text-align: center; padding: 20px 0; display: none; }
+    .devis-success .success-ico { font-size: 3rem; margin-bottom: 12px; display: block; }
+    .devis-success h4 { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--noir); margin-bottom: 8px; }
+    .devis-success p { font-size: 0.85rem; color: #777; }
+    @media (max-width: 480px) { .devis-row { grid-template-columns: 1fr; } }
+
     .btn-primary {
       flex: 1;
       padding: 14px;
@@ -1044,7 +1091,7 @@
       </div>
     </div>
     <a href="blog.html">Blog</a>
-    <a href="#">Contact</a>
+    <a href="contact.html">Contact</a>
     <a href="referencer.html" class="nav-cta">+ Référencer</a>
   </nav>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -1091,7 +1138,7 @@
 
   <a href="blog.html" onclick="toggleMenu()">Blog</a>
   <a href="referencer.html" onclick="toggleMenu()">+ Référencer</a>
-  <a href="#" onclick="toggleMenu()">Contact</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
 
 </div>
 
@@ -1256,7 +1303,68 @@
   </div>
 </div>
 
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+<!-- MODALE DEVIS -->
+<div class="devis-overlay" id="devis-overlay" onclick="closeDevis(event)">
+  <div class="devis-modal">
+    <div class="devis-header">
+      <div>
+        <h3>Demander un devis</h3>
+        <div class="devis-act" id="devis-act-name"></div>
+      </div>
+      <button class="devis-close" onclick="closeDevis(event)">✕</button>
+    </div>
+    <div class="devis-body">
+      <div class="devis-form" id="devis-form-inner">
+        <form id="devis-form-el" class="devis-form">
+          <input type="hidden" name="activite" id="devis-act-field">
+          <div class="devis-row">
+            <div class="devis-field">
+              <label>Prénom & Nom *</label>
+              <input type="text" name="nom" placeholder="Marie Dupont" required>
+            </div>
+            <div class="devis-field">
+              <label>Entreprise</label>
+              <input type="text" name="entreprise" placeholder="Votre entreprise">
+            </div>
+          </div>
+          <div class="devis-row">
+            <div class="devis-field">
+              <label>Email *</label>
+              <input type="email" name="email" placeholder="marie@entreprise.fr" required>
+            </div>
+            <div class="devis-field">
+              <label>Téléphone</label>
+              <input type="tel" name="telephone" placeholder="06 XX XX XX XX">
+            </div>
+          </div>
+          <div class="devis-row">
+            <div class="devis-field">
+              <label>Nombre de participants *</label>
+              <input type="number" name="participants" placeholder="Ex : 20" min="1" required>
+            </div>
+            <div class="devis-field">
+              <label>Date souhaitée</label>
+              <input type="date" name="date">
+            </div>
+          </div>
+          <div class="devis-field">
+            <label>Message</label>
+            <textarea name="message" placeholder="Précisez vos besoins, contraintes particulières, budget..."></textarea>
+          </div>
+          <button type="submit" class="devis-submit">Envoyer ma demande →</button>
+          <p class="devis-note">Nous vous mettons en relation avec le prestataire sous 24h.</p>
+        </form>
+      </div>
+      <div class="devis-success" id="devis-success">
+        <span class="success-ico">🎉</span>
+        <h4>Demande envoyée !</h4>
+        <p>Nous vous contactons sous 24h pour vous mettre en relation avec le prestataire.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay"  onclick="closeModal(event)">
   <div class="modal" id="modal-content"></div>
 </div>
 
@@ -1405,6 +1513,38 @@
   let activeFilters = { objectif: [], univers: [], env: [], format: [], saison: [] };
   let map = null;
   let markers = [];
+
+  // ── MODALE DEVIS ──
+  function openDevis(actTitle) {
+    document.getElementById('devis-act-name').textContent = actTitle;
+    document.getElementById('devis-act-field').value = actTitle;
+    document.getElementById('devis-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDevis(e) {
+    if (!e || e.target === document.getElementById('devis-overlay') || e.currentTarget.classList.contains('devis-close')) {
+      document.getElementById('devis-overlay').classList.remove('open');
+      document.getElementById('devis-success').style.display = 'none';
+      document.getElementById('devis-form-inner').style.display = 'flex';
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('devis-form-el');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+          const res = await fetch('https://formspree.io/f/xwvaajow', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+          if (res.ok) {
+            document.getElementById('devis-form-inner').style.display = 'none';
+            document.getElementById('devis-success').style.display = 'block';
+          }
+        } catch(err) { console.error(err); }
+      });
+    }
+  });
 
   function renderCards(data) {
     const grid = document.getElementById('cards-grid');
@@ -1570,8 +1710,7 @@
         <div class="modal-section-title">Catégories</div>
         <div class="modal-tags">${a.tags.map(t => `<span class="card-tag ${t.cls}">${t.label}</span>`).join('')}</div>
         <div class="modal-cta">
-          <button class="btn-primary">Demander un devis</button>
-          <button class="btn-secondary">♡ Sauvegarder</button>
+          <button class="btn-primary" onclick="openDevis('${a.title}')">Demander un devis</button>
         </div>
       </div>
     `;
