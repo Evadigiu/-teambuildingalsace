@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Building Gastronomie & Vins en Alsace 2025 | TeamBuildingAlsace.fr</title>
+  <meta name="description" content="Dégustation de vins alsaciens, ateliers cuisine, rallyes oenotouristiques. Les meilleures activités de team building gastronomie en Alsace pour vos équipes.">
+  <meta name="keywords" content="team building gastronomie alsace, dégustation vin entreprise alsace, team building oenologie alsace, atelier cuisine entreprise strasbourg, route des vins team building">
+  <link rel="canonical" href="https://www.teambuildingalsace.fr/gastronomie">
+  <meta property="og:title" content="Team Building Gastronomie & Vins Alsace | TeamBuildingAlsace.fr">
+  <meta property="og:description" content="Dégustations, ateliers cuisine, rallyes vignobles. Les meilleures activités gastronomiques pour vos équipes en Alsace.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Team Building Gastronomie & Vins en Alsace",
+    "url": "https://www.teambuildingalsace.fr/gastronomie",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.teambuildingalsace.fr" },
+        { "@type": "ListItem", "position": 2, "name": "Gastronomie & Vins", "item": "https://www.teambuildingalsace.fr/gastronomie" }
+      ]
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --violet: #5B2EFF;
+      --violet-clair: #7B5FFF;
+      --vert: #00E5A0;
+      --or: #C9933A;
+      --or-clair: #E8B86D;
+      --or-pale: #FDF6EC;
+      --bordeaux: #6B1A2A;
+      --bordeaux-clair: #A0384D;
+      --creme: #FAF6F0;
+      --noir: #0D0D0D;
+      --gris-clair: #F4F2FF;
+      --blanc: #FAFAFA;
+      --bordure: #E8E4FF;
+      --bordure-or: #EDD9B5;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--blanc); color: var(--noir); overflow-x: hidden; line-height: 1.7; }
+
+    /* ── HEADER ── */
+    header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
+    .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.02em; }
+    .logo span { color: var(--vert); }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--vert); }
+    .nav-cta { background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; }
+    .nav-cta:hover { background: var(--violet-clair) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { background: white; padding: 14px 40px; border-bottom: 1px solid var(--bordure); font-size: 0.78rem; color: #aaa; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--violet); text-decoration: none; font-weight: 600; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--noir);
+      padding: 80px 40px 70px;
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,147,58,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(107,26,42,0.3) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 40% at 50% 0%, rgba(91,46,255,0.15) 0%, transparent 50%);
+    }
+    .bubble { position: absolute; border-radius: 50%; opacity: 0.07; animation: rise 6s ease-in-out infinite; pointer-events: none; font-size: 3rem; }
+    .bubble:nth-child(1) { top: 15%; right: 12%; animation-delay: 0s; font-size: 4rem; }
+    .bubble:nth-child(2) { top: 55%; right: 6%; animation-delay: 2s; font-size: 2.5rem; }
+    .bubble:nth-child(3) { top: 25%; right: 28%; animation-delay: 4s; font-size: 3.5rem; }
+    .bubble:nth-child(4) { bottom: 15%; right: 18%; animation-delay: 1s; font-size: 5rem; }
+    @keyframes rise { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-18px) rotate(5deg)} }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--or-clair); background: rgba(232,184,109,0.12); border: 1px solid rgba(232,184,109,0.3); padding: 7px 18px; border-radius: 100px; margin-bottom: 24px; font-weight: 600; }
+    .hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; color: white; line-height: 1.05; margin-bottom: 10px; letter-spacing: -0.04em; }
+    .hero h1 .line2 { color: var(--or-clair); display: block; }
+    .hero-sub { color: rgba(255,255,255,0.55); font-size: 1rem; max-width: 580px; line-height: 1.8; margin: 20px 0 36px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-p { padding: 13px 28px; background: linear-gradient(135deg, var(--bordeaux), var(--or)); color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 6px 20px rgba(107,26,42,0.4); }
+    .btn-p:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(107,26,42,0.5); }
+    .btn-s { padding: 13px 28px; background: rgba(255,255,255,0.07); color: white; border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .btn-s:hover { border-color: var(--or-clair); color: var(--or-clair); }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: linear-gradient(135deg, var(--bordeaux), #4A1020); padding: 28px 40px; }
+    .stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .stat { text-align: center; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.12); }
+    .stat:last-child { border-right: none; }
+    .stat-n { font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--or-clair); display: block; letter-spacing: -0.05em; line-height: 1; }
+    .stat-l { font-size: 0.75rem; color: rgba(255,255,255,0.65); font-weight: 500; margin-top: 6px; display: block; line-height: 1.4; }
+    .stat-src { font-size: 0.6rem; color: rgba(255,255,255,0.3); display: block; margin-top: 3px; }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+    section { padding: 72px 0; border-bottom: 1px solid var(--bordure); }
+    section:last-child { border-bottom: none; }
+    .section-label { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--or); font-weight: 700; margin-bottom: 10px; display: block; }
+    .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; color: var(--noir); letter-spacing: -0.03em; margin-bottom: 14px; line-height: 1.1; }
+    .section-title em { color: var(--or); font-style: normal; }
+    .section-intro { color: #555; font-size: 0.95rem; max-width: 640px; line-height: 1.85; margin-bottom: 44px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+
+    /* ── POURQUOI CARDS ── */
+    .why-card { background: white; border: 1.5px solid var(--bordure-or); border-radius: 16px; padding: 28px; position: relative; overflow: hidden; transition: all 0.25s; }
+    .why-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--bordeaux), var(--or)); }
+    .why-card:hover { border-color: var(--or); box-shadow: 0 12px 36px rgba(201,147,58,0.12); transform: translateY(-3px); }
+    .why-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+    .why-card h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 800; color: var(--noir); margin-bottom: 10px; }
+    .why-card p { font-size: 0.83rem; color: #666; line-height: 1.7; }
+    .why-tag { display: inline-block; font-size: 0.65rem; color: var(--or); background: var(--or-pale); padding: 3px 10px; border-radius: 100px; margin-top: 12px; font-weight: 600; border: 1px solid var(--bordure-or); }
+
+    /* ── FORMATS ── */
+    .format-card { background: var(--creme); border: 1.5px solid var(--bordure-or); border-radius: 14px; padding: 24px; transition: all 0.2s; }
+    .format-card:hover { border-color: var(--or); box-shadow: 0 6px 24px rgba(201,147,58,0.1); transform: translateY(-2px); }
+    .format-num { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 900; color: var(--or); letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
+    .format-card h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: var(--noir); margin-bottom: 8px; }
+    .format-card p { font-size: 0.82rem; color: #666; line-height: 1.65; }
+    .format-duree { display: inline-block; font-size: 0.68rem; background: white; color: var(--bordeaux); padding: 3px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; border: 1px solid var(--bordure-or); }
+
+    /* ── DARK BOX ── */
+    .dark-box { background: linear-gradient(135deg, #1A0808, #2E1020); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
+    .dark-box::before { content: ''; position: absolute; top: -50px; right: -50px; width: 180px; height: 180px; background: var(--or); border-radius: 50%; filter: blur(60px); opacity: 0.2; }
+    .dark-box h3 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--or-clair); margin-bottom: 20px; position: relative; z-index: 1; }
+    .dark-box ul { list-style: none; padding: 0; position: relative; z-index: 1; }
+    .dark-box ul li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .dark-box ul li:last-child { border-bottom: none; }
+    .dark-box ul li strong { color: var(--or-clair); }
+
+    /* ── RH CARDS ── */
+    .rh-card { background: white; border: 1.5px solid var(--bordure-or); border-radius: 14px; padding: 22px; display: flex; gap: 16px; align-items: flex-start; transition: all 0.2s; }
+    .rh-card:hover { border-color: var(--or); box-shadow: 0 6px 24px rgba(201,147,58,0.08); }
+    .rh-ico { width: 46px; height: 46px; background: var(--or-pale); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .rh-card h4 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: var(--noir); margin-bottom: 5px; }
+    .rh-card p { font-size: 0.82rem; color: #666; line-height: 1.65; }
+    .rh-stat { display: inline-block; font-size: 0.7rem; background: var(--or-pale); color: var(--or); padding: 3px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; }
+
+    /* ── ACTIVITÉS ── */
+    .act-card { background: white; border: 1.5px solid var(--bordure-or); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(201,147,58,0.15); border-color: var(--or); }
+    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
+    .act-body { padding: 18px; }
+    .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
+    .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
+    .act-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--bordure-or); }
+    .act-price { color: var(--or); font-weight: 800; font-family: 'Outfit', sans-serif; }
+    .act-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; background: var(--or-pale); color: var(--or); }
+
+    /* ── CÉPAGES ALSACIENS ── */
+    .cepage-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .cepage-card { background: white; border: 1.5px solid var(--bordure-or); border-radius: 12px; padding: 18px; text-align: center; transition: all 0.2s; }
+    .cepage-card:hover { border-color: var(--or); box-shadow: 0 4px 16px rgba(201,147,58,0.1); }
+    .cepage-emoji { font-size: 1.8rem; display: block; margin-bottom: 8px; }
+    .cepage-card h4 { font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 800; color: var(--bordeaux); margin-bottom: 5px; }
+    .cepage-card p { font-size: 0.75rem; color: #777; line-height: 1.5; }
+    .cepage-type { display: inline-block; font-size: 0.62rem; background: var(--or-pale); color: var(--or); padding: 2px 8px; border-radius: 100px; margin-top: 6px; font-weight: 700; }
+
+    /* ── FAQ ── */
+    .faq-item { border-bottom: 1px solid var(--bordure-or); }
+    .faq-q { padding: 18px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.93rem; gap: 16px; }
+    .faq-q:hover { color: var(--or); }
+    .faq-ico { font-size: 1.1rem; color: var(--or); transition: transform 0.2s; flex-shrink: 0; }
+    .faq-a { padding: 0 0 18px; font-size: 0.86rem; color: #555; line-height: 1.8; display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-ico { transform: rotate(45deg); }
+
+    /* ── CTA ── */
+    .cta-section { background: linear-gradient(135deg, #1A0808, #2E1020); padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(201,147,58,0.25) 0%, transparent 60%); }
+    .cta-section h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: white; margin-bottom: 14px; letter-spacing: -0.03em; position: relative; z-index: 1; }
+    .cta-section h2 em { color: var(--or-clair); font-style: normal; }
+    .cta-section p { color: rgba(255,255,255,0.5); font-size: 0.93rem; max-width: 460px; margin: 0 auto 28px; position: relative; z-index: 1; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--noir); color: rgba(255,255,255,0.3); text-align: center; padding: 26px; font-size: 0.78rem; border-top: 3px solid var(--violet); }
+    footer span { color: var(--vert); font-weight: 700; }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .breadcrumb, .container { padding-left: 20px; padding-right: 20px; }
+      .hero { padding: 50px 20px 40px; }
+      .stats-bar { padding: 20px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 16px; }
+      .stat { border-right: none; }
+      section { padding: 44px 0; }
+      .grid-2, .grid-3, .cepage-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 50px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="strasbourg.html">Strasbourg</a>
+    <a href="blog.html">Blog</a>
+    <a href="#">Contact</a>
+    <a href="referencer.html" class="nav-cta">+ Référencer</a>
+  </nav>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">Accueil</a> ›
+  <a href="index.html">Univers</a> ›
+  <span>🍽️ Gastronomie & Vins</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <span class="bubble">🍷</span>
+  <span class="bubble">🍾</span>
+  <span class="bubble">🧀</span>
+  <span class="bubble">🥐</span>
+  <div class="hero-content">
+    <div class="hero-label">🍽️ Univers · Gastronomie & Vins</div>
+    <h1>La table, premier espace<br>de cohésion
+      <span class="line2">depuis des siècles.</span>
+    </h1>
+    <p class="hero-sub">L'Alsace est l'une des régions gastronomiques les plus riches de France. 170 km de vignobles, 51 grands crus, une cuisine emblématique. Autant d'expériences pour fédérer vos équipes autour de ce qui rassemble le mieux : le plaisir de la table.</p>
+    <div class="hero-btns">
+      <a href="#activites" class="btn-p">Voir les activités ↓</a>
+      <a href="referencer.html" class="btn-s">Référencer mon activité</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-n">3M+</span>
+      <span class="stat-l">d'œnotouristes par an sur la Route des Vins</span>
+      <span class="stat-src">3ème vignoble le plus visité de France</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">170 km</span>
+      <span class="stat-l">de route des vins, 119 communes, 51 grands crus</span>
+      <span class="stat-src">Route inaugurée en 1953</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">+33%</span>
+      <span class="stat-l">de croissance de l'œnotourisme en France en 10 ans</span>
+      <span class="stat-src">Données filière viticole</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">79%</span>
+      <span class="stat-l">des salariés : le team building améliore les relations</span>
+      <span class="stat-src">Teamland, 2025</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1 : POURQUOI LA GASTRO -->
+<section>
+  <div class="container">
+    <span class="section-label">Pourquoi ça marche</span>
+    <h2 class="section-title">La gastronomie, un levier<br>de cohésion <em>naturellement puissant</em></h2>
+    <p class="section-intro">Partager un repas, identifier un arôme, créer une recette en équipe — ces expériences sensorielles activent des mécanismes profonds de confiance et de coopération. Ce n'est pas du hasard si toutes les cultures du monde célèbrent ensemble autour de la table.</p>
+
+    <div class="grid-3">
+      <div class="why-card">
+        <span class="why-icon">🧠</span>
+        <h3>Le plaisir comme désinhibiteur</h3>
+        <p>Une expérience gastronomique libère de la dopamine et de l'ocytocine — les hormones du plaisir et du lien social. Les barrières hiérarchiques tombent naturellement autour d'un verre de Riesling. Les échanges dépassent le cadre professionnel sans effort.</p>
+        <span class="why-tag">Neurosciences du plaisir</span>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">👂</span>
+        <h3>L'écoute active par les sens</h3>
+        <p>Lors d'une dégustation à l'aveugle, chaque participant doit écouter, argumenter et convaincre. La communication s'améliore spontanément car le sujet est neutre, ludique et partagé. Idéal pour les équipes où la communication est un objectif prioritaire.</p>
+        <span class="why-tag">Communication & écoute</span>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🤝</span>
+        <h3>La création collective comme catalyseur</h3>
+        <p>Assembler une cuvée, préparer un plat ensemble, imaginer une recette en groupe — ces défis culinaires nécessitent répartition des rôles, négociation et décision collective. Les compétences managériales s'expriment sans pression professionnelle.</p>
+        <span class="why-tag">Leadership & collaboration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 : FORMATS -->
+<section style="background:var(--creme)">
+  <div class="container">
+    <span class="section-label">Les formats disponibles</span>
+    <h2 class="section-title">Du afterwork d'une heure<br>au <em>séminaire résidentiel</em></h2>
+    <p class="section-intro">Les activités gastronomiques et oenologiques sont parmi les plus flexibles du team building. Elles s'adaptent à tous les formats, tous les groupes et tous les budgets.</p>
+
+    <div class="grid-2" style="margin-bottom:28px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="format-card">
+          <div class="format-num">⚡</div>
+          <h3>Dégustation express</h3>
+          <p>Un sommelier se déplace dans vos locaux avec une sélection de vins alsaciens. Format afterwork ou pause déjeuner, sans logistique complexe. Idéal pour une première expérience oenologique en équipe.</p>
+          <span class="format-duree">1h à 1h30 · Dans vos locaux</span>
+        </div>
+        <div class="format-card">
+          <div class="format-num">🌅</div>
+          <h3>Atelier demi-journée</h3>
+          <p>Dégustation à l'aveugle, quiz oenologique, assemblage de cuvée ou atelier cuisine alsacienne. Une demi-journée structurée avec objectifs clairs, animation professionnelle et moment de partage autour du repas.</p>
+          <span class="format-duree">3h à 4h · En cave ou restaurant</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="format-card">
+          <div class="format-num">🗺️</div>
+          <h3>Rallye gourmand sur la Route des Vins</h3>
+          <p>Les équipes parcourent la Route des Vins à la découverte de domaines, de spécialités locales et d'énigmes gastronomiques. Une journée mémorable qui marie compétition, découverte culturelle et plaisir partagé.</p>
+          <span class="format-duree">Journée complète · Vignobles alsaciens</span>
+        </div>
+        <div class="format-card">
+          <div class="format-num">🏰</div>
+          <h3>Séminaire résidentiel gastronomique</h3>
+          <p>Un à deux jours dans un domaine viticole alsacien avec hébergement. Programme sur-mesure mêlant ateliers, dégustations, visite de caves et repas gastronomiques. L'expérience premium pour les groupes de direction.</p>
+          <span class="format-duree">1 à 2 jours · Domaines alsaciens</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 : TRADUCTION RH -->
+<section>
+  <div class="container">
+    <span class="section-label">Angle RH</span>
+    <h2 class="section-title">Ce que la gastronomie fait<br>pour vos <em>KPIs RH</em></h2>
+    <p class="section-intro">Au-delà du plaisir, les activités gastronomiques ont des impacts mesurables sur les indicateurs qui comptent pour vos équipes RH.</p>
+
+    <div class="grid-2">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="rh-card">
+          <div class="rh-ico">🚧</div>
+          <div>
+            <h4>Casser les silos hiérarchiques</h4>
+            <p>Autour d'une dégustation, le directeur et le stagiaire sont sur un pied d'égalité. Personne n'est expert, tout le monde découvre. Cette horizontalité spontanée favorise des échanges authentiques impossibles à créer en réunion.</p>
+            <span class="rh-stat">Idéal pour les équipes cloisonnées ou post-fusion</span>
+          </div>
+        </div>
+        <div class="rh-card">
+          <div class="rh-ico">🌍</div>
+          <div>
+            <h4>Intégrer les équipes internationales</h4>
+            <p>Strasbourg et ses institutions européennes regorgent d'équipes multinationales. La gastronomie alsacienne transcende les barrières linguistiques et culturelles. Un baeckeoffe partagé est un meilleur brise-glace que n'importe quel icebreaker classique.</p>
+            <span class="rh-stat">Parfait pour les équipes multinationales</span>
+          </div>
+        </div>
+        <div class="rh-card">
+          <div class="rh-ico">🎉</div>
+          <div>
+            <h4>Célébrer les succès collectifs</h4>
+            <p>Un objectif atteint, une clôture d'année, un anniversaire d'entreprise — la gastronomie est le cadre naturel de la célébration. L'expérience est mémorable, les souvenirs durables, et le retour en interne toujours positif.</p>
+            <span class="rh-stat">ROI image employeur immédiat</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dark-box">
+        <h3>🍷 L'Alsace gastronomique en chiffres</h3>
+        <ul>
+          <li><span>🏆</span><span>L'Alsace est le <strong>3ème vignoble le plus visité de France</strong>, avec plus de 3 millions d'œnotouristes par an — un cadre de prestige pour vos équipes.</span></li>
+          <li><span>🍇</span><span><strong>51 grands crus, 7 cépages emblématiques</strong> : Riesling, Gewurztraminer, Pinot Gris, Crémant… une diversité qui permet des ateliers de dégustation d'une grande richesse pédagogique.</span></li>
+          <li><span>📈</span><span>L'œnotourisme a progressé de <strong>+33% en 10 ans</strong> en France — un marché en plein essor qui attire de nouveaux prestataires de qualité chaque année.</span></li>
+          <li><span>🏅</span><span>La Route des Vins d'Alsace est labellisée <strong>Vignobles & Découvertes</strong> depuis 2019 — un gage de qualité pour vos activités.</span></li>
+          <li><span>🤝</span><span>Les activités oenotouristiques en entreprise génèrent <strong>des souvenirs partagés durables</strong> — l'ingrédient n°1 d'une cohésion d'équipe qui dure au-delà de l'événement.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 : ACTIVITÉS -->
+<section id="activites" style="background:var(--creme)">
+  <div class="container">
+    <span class="section-label">Nos sélections</span>
+    <h2 class="section-title">Activités Gastronomie & Vins<br><em>en Alsace</em></h2>
+    <p class="section-intro">Des expériences sélectionnées pour leur authenticité alsacienne, l'expertise de leurs animateurs et leur impact prouvé sur la cohésion d'équipe.</p>
+
+    <div class="grid-3">
+      <a href="index.html" class="act-card">
+        <div class="act-img" style="background:linear-gradient(135deg,#6B1A2A,#C9933A)">🍷</div>
+        <div class="act-body">
+          <h3>Dégustation de vins alsaciens à l'aveugle</h3>
+          <p>Un sommelier guide vos équipes à travers les cépages emblématiques d'Alsace. Quiz, défis sensoriels, anecdotes — une expérience ludique et mémorable.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 45 €/pers.</span>
+            <span class="act-tag">Gastro · Communication</span>
+          </div>
+        </div>
+      </a>
+      <a href="index.html" class="act-card">
+        <div class="act-img" style="background:linear-gradient(135deg,#3D1A00,#C9933A)">🥘</div>
+        <div class="act-body">
+          <h3>Atelier cuisine alsacienne en équipe</h3>
+          <p>Flammekueche, baeckeoffe, bredele — vos équipes cuisinent ensemble sous la direction d'un chef. Répartition des rôles, créativité et dégustation finale.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 65 €/pers.</span>
+            <span class="act-tag">Gastro · Cohésion</span>
+          </div>
+        </div>
+      </a>
+      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:10px">➕</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité gastronomique en Alsace ?</h3>
+        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
+        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 : CÉPAGES -->
+<section>
+  <div class="container">
+    <span class="section-label">Le terroir alsacien</span>
+    <h2 class="section-title">7 cépages, <em>autant d'histoires</em><br>à raconter à vos équipes</h2>
+    <p class="section-intro">La richesse des vins d'Alsace est une mine d'or pour les ateliers de dégustation. Chaque cépage raconte une histoire différente — une matière pédagogique passionnante même pour les non-initiés.</p>
+
+    <div class="cepage-grid">
+      <div class="cepage-card">
+        <span class="cepage-emoji">🥂</span>
+        <h4>Riesling</h4>
+        <p>Le roi des vins d'Alsace. Sec, minéral, d'une grande élégance. Parfait pour initier les non-connaisseurs à la complexité aromatique.</p>
+        <span class="cepage-type">Blanc sec · Signature alsacienne</span>
+      </div>
+      <div class="cepage-card">
+        <span class="cepage-emoji">🌹</span>
+        <h4>Gewurztraminer</h4>
+        <p>Floral, épicé, reconnaissable entre tous. Le cépage le plus expressif d'Alsace — idéal pour les exercices d'identification d'arômes en équipe.</p>
+        <span class="cepage-type">Blanc · Très expressif</span>
+      </div>
+      <div class="cepage-card">
+        <span class="cepage-emoji">🍑</span>
+        <h4>Pinot Gris</h4>
+        <p>Riche, généreux, avec des notes de fruits mûrs. Un vin qui plaît à tout le monde, excellent pour une première approche gastronomique.</p>
+        <span class="cepage-type">Blanc · Grand public</span>
+      </div>
+      <div class="cepage-card">
+        <span class="cepage-emoji">🍾</span>
+        <h4>Crémant d'Alsace</h4>
+        <p>La bulle alsacienne par excellence. Festif, accessible et de grande qualité. Parfait pour ouvrir ou clore une session team building.</p>
+        <span class="cepage-type">Effervescent · Festif</span>
+      </div>
+      <div class="cepage-card">
+        <span class="cepage-emoji">🍇</span>
+        <h4>Pinot Noir</h4>
+        <p>Le seul rouge d'Alsace. Léger, fruité, souvent étonné les participants lors des dégustations à l'aveugle — excellent pour créer la surprise.</p>
+        <span class="cepage-type">Rouge · Surprise garantie</span>
+      </div>
+      <div class="cepage-card">
+        <span class="cepage-emoji">🌿</span>
+        <h4>Sylvaner & Muscat</h4>
+        <p>Deux cépages discrets mais attachants. Le Sylvaner, frais et désaltérant. Le Muscat, aromatique et unique. Idéaux pour les comparaisons en aveugle.</p>
+        <span class="cepage-type">Blanc · Découverte</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 : FAQ -->
+<section style="background:var(--creme)">
+  <div class="container" style="max-width:760px">
+    <span class="section-label">Vos questions</span>
+    <h2 class="section-title">Les vraies questions des <em>RH</em><br>avant de réserver</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Comment gérer les participants qui ne boivent pas d'alcool ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">C'est une question essentielle que les bons prestataires anticipent systématiquement. La plupart proposent des options mocktails ou dégustations de jus de raisins de qualité pour les non-buveurs. Certains formats comme les ateliers cuisine ou les rallyes gastronomiques sont totalement inclusifs sans alcool. Précisez vos contraintes lors de la demande de devis — un bon prestataire alsacien saura s'adapter sans exclure personne.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Quelle saison pour un team building oenologique en Alsace ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">L'automne est la saison reine — les vendanges (septembre-octobre) offrent un spectacle unique et de nombreux domaines ouvrent leurs portes pour des activités vendanges en équipe. Le printemps est également idéal avec les vignobles en fleurs. L'hiver est parfait pour les formats indoor (dégustation en cave, atelier cuisine) dans l'ambiance féerique des marchés de Noël alsaciens. En réalité, les activités gastronomiques fonctionnent toute l'année.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Pour combien de personnes peut-on organiser un team building gastronomique ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">Les formats varient beaucoup. Une dégustation express dans vos locaux peut accueillir de 8 à 200 personnes en sous-groupes simultanés. Un atelier cuisine artisanal est plus adapté aux groupes de 10 à 30 personnes. Pour les très grands groupes (50+), le rallye gourmand sur la Route des Vins est le format idéal — les équipes sont divisées en groupes de 6 à 8 qui s'affrontent sur un parcours commun. Précisez votre effectif dans la demande de devis.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Est-ce adapté à une équipe qui ne connaît rien au vin ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">C'est même l'idéal ! Les meilleures activités oenologiques sont conçues pour les non-initiés. Le fait de ne rien connaître au vin est un avantage : tout le monde repart de zéro, les experts naturels de l'équipe n'ont pas d'avantage particulier, et les découvertes sont partagées simultanément. L'animateur adapte son discours au niveau du groupe. Aucune compétence préalable n'est requise.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Comment valoriser cette activité dans notre communication RH et marque employeur ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">Les activités gastronomiques sont particulièrement photogéniques et valorisantes pour la marque employeur. Quelques idées concrètes : photos et vidéos pour LinkedIn et les réseaux sociaux de l'entreprise, inclusion dans le rapport RSE si vous choisissez des producteurs locaux et bio, mention dans le livret d'accueil des nouvelles recrues comme exemple de culture d'entreprise, et partage interne via newsletter. Un team building gastronomique en Alsace avec des vins locaux, c'est aussi un message fort sur votre ancrage territorial et votre soutien à l'économie locale.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Prêt à réunir votre équipe<br><em>autour de la table alsacienne</em> ?</h2>
+  <p>Parcourez toutes nos activités gastronomiques, filtrez par format et budget, et contactez directement les prestataires.</p>
+  <div class="cta-btns">
+    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="referencer.html" class="btn-s">Référencer mon activité</a>
+  </div>
+</div>
+
+<footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
+
+<script>
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
