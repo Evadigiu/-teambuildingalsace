@@ -8,6 +8,19 @@ const activities = [
     {
       id: 1,
       revendiquee: true,
+      offre: "categorie",
+      partenaire: {
+        nom: "Pomelo",
+        tagline: "L\'agence événementielle pour faire l\'expérience de la nature",
+        logo: "images/logo_pomelo.png",
+        site: "https://pomelo-events.fr",
+        categorie: "nature",
+        interview: [
+          { q: "Qu\'est-ce qui rend votre activité unique ?", r: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+          { q: "Pour quel type d\'équipe est-ce idéal ?", r: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+          { q: "Votre meilleur souvenir avec une équipe ?", r: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." }
+        ]
+      },
       title: "Potager collaboratif et plus si affinitées",
       location: "Sur votre lieu de travail, Mulhouse",
       lat: 47.75096893310547,
@@ -35,6 +48,7 @@ const activities = [
     {
       id: 2,
       revendiquee: false,
+      offre: "gratuit",
       title: "Survie & Leadership en Forêt Vosgienne",
       location: "Massif des Vosges, Obernai",
       lat: 48.4613,
@@ -61,6 +75,7 @@ const activities = [
     {
       id: 3,
       revendiquee: false,
+      offre: "gratuit",
       title: "Atelier Poterie & Céramique Alsacienne",
       location: "Strasbourg",
       lat: 48.6317,
@@ -88,6 +103,7 @@ const activities = [
     {
   id: 4,
   revendiquee: false,
+  offre: "gratuit",
   title: "Quiz",
   location: "Mulhouse",
   lat: 47.7499531,
@@ -115,6 +131,7 @@ const activities = [
       {
       id: 5,
       revendiquee: false,
+      offre: "gratuit",
       title: "Lancer de hache",
       location: "Wittenheim",
       lat: 47.7982383,
@@ -141,6 +158,7 @@ const activities = [
 {
   id: 6,
   revendiquee: false,
+  offre: "gratuit",
   title: "Escape game dans votre entreprise",
   location: "Dans votre entreprise, Strasbourg",
   lat: 48.5897,
@@ -168,6 +186,11 @@ const activities = [
     {
   id: 7,
   revendiquee: true,
+  offre: "partenaire",
+  partenaire: {
+    nom: "EVA",
+    site: "https://www.eva.gg/fr-FR/your-events/team-building",
+  },
   title: "Team Building Réalité Virtuelle — EVA Mulhouse",
   location: "6 Rue du Nonnenbruch, Wittenheim",
   lat: 47.8089,
@@ -195,6 +218,11 @@ const activities = [
     {
   id: 8,
   revendiquee: true,
+  offre: "partenaire",
+  partenaire: {
+    nom: "Xperience Park",
+    site: "https://www.xperience-park.com/evenements/team-building/",
+  },
   title: "Team Building Trampoline & Sports Indoor - Xperience Park",
   location: "6 Rue du Nonnenbruch, Wittenheim",
   lat: 47.8089,
@@ -247,12 +275,33 @@ const universLabels = {
 };
 
 // ── Rendu d'une carte activité (utilisé sur toutes les pages) ──
+function getOffreBadge(a) {
+  if (!a.revendiquee) return '';
+  const offre = a.offre || 'essentiel';
+  if (offre === 'visible') return '<div class="offre-badge offre-visible">✓ Vérifié</div>';
+  if (offre === 'partenaire') return '<div class="offre-badge offre-partenaire">⭐ Partenaire</div>';
+  if (offre === 'categorie') return '<div class="offre-badge offre-categorie">🏆 Partenaire Officiel</div>';
+  return '';
+}
+
+function getCardClass(a) {
+  if (!a.revendiquee) return 'act-card';
+  const offre = a.offre || 'essentiel';
+  if (offre === 'partenaire') return 'act-card act-card--partenaire';
+  if (offre === 'categorie') return 'act-card act-card--categorie';
+  return 'act-card';
+}
+
 function renderActivityCard(a) {
   const tagHtml = (a.tags || []).map(t =>
     `<span class="card-tag ${t.cls}">${t.label}</span>`
   ).join('');
 
-  const imgStyle = a.image
+  const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
+
+  // Photo : uniquement si offre >= essentiel ET revendiquee
+  const showPhoto = a.revendiquee && a.image && offre !== 'gratuit';
+  const imgStyle = showPhoto
     ? `background-image:url('${a.image}');background-size:cover;background-position:center`
     : `background:${a.gradient}`;
 
@@ -262,11 +311,19 @@ function renderActivityCard(a) {
       <a href="referencer.html" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
     </div>` : '';
 
+  const offreBadge = getOffreBadge(a);
+
+  // Lien site : uniquement visible+
+  const siteLink = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire && a.partenaire.site
+    ? `<a href="${a.partenaire.site}" target="_blank" class="card-site-link" onclick="event.stopPropagation()">🔗 Voir le site</a>`
+    : '';
+
   return `
-    <div class="act-card" onclick="openModal(${a.id})">
+    <div class="${getCardClass(a)}" onclick="openModal(${a.id})">
       <div class="card-img" style="${imgStyle}">
-        ${!a.image ? `<div class="card-img-placeholder">${a.emoji}</div>` : ''}
+        ${!showPhoto ? `<div class="card-img-placeholder">${a.emoji}</div>` : ''}
         <div class="card-badge">${a.duree}</div>
+        ${offreBadge}
         ${unclaimedBanner}
       </div>
       <div class="card-body">
@@ -275,8 +332,18 @@ function renderActivityCard(a) {
         <div class="card-location">📍 ${a.location}</div>
         <div class="card-footer">
           <span class="card-price">À partir de <strong>${a.prixMin} €</strong>/pers.</span>
-          <span class="card-participants">👥 ${a.participantsMin}–${a.participantsMax}</span>
+          ${siteLink || `<span class="card-participants">👥 ${a.participantsMin}–${a.participantsMax}</span>`}
         </div>
       </div>
     </div>`;
+}
+
+// ── Trier les activités par offre (partenaires en premier) ──
+function sortByOffre(acts) {
+  const order = { categorie: 0, partenaire: 1, visible: 2, essentiel: 3, gratuit: 4 };
+  return [...acts].sort((a, b) => {
+    const oa = order[a.offre || (a.revendiquee ? 'essentiel' : 'gratuit')] ?? 4;
+    const ob = order[b.offre || (b.revendiquee ? 'essentiel' : 'gratuit')] ?? 4;
+    return oa - ob;
+  });
 }
