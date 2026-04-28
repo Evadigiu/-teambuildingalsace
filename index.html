@@ -1028,15 +1028,23 @@
         </a>
         <a href="#" class="dropdown-item coming">
           <span class="d-emoji">🌲</span>
-          <span class="d-info"><span class="d-name">Obernai</span><span class="d-count">Bientôt disponible</span></span>
+          <span class="d-info"><span class="d-name">Haguenau</span><span class="d-count">Bientôt disponible</span></span>
         </a>
-        <a href="index.html#activites" onclick="setTimeout(()=>filterVille('mulhouse'),100)" class="dropdown-item">
+        <a href="mulhouse.html" class="dropdown-item">
           <span class="d-emoji">🏭</span>
           <span class="d-info"><span class="d-name">Mulhouse</span><span class="d-count">2 activités disponibles</span></span>
         </a>
         <a href="#" class="dropdown-item coming">
           <span class="d-emoji">⛰️</span>
           <span class="d-info"><span class="d-name">Vosges</span><span class="d-count">Bientôt disponible</span></span>
+        </a>
+        <a href="#" class="dropdown-item coming">
+          <span class="d-emoji">🏰</span>
+          <span class="d-info"><span class="d-name">Sélestat</span><span class="d-count">Bientôt disponible</span></span>
+        </a>
+        <a href="#" class="dropdown-item coming">
+          <span class="d-emoji">🌉</span>
+          <span class="d-info"><span class="d-name">Saint-Louis</span><span class="d-count">Bientôt disponible</span></span>
         </a>
         <div class="dropdown-divider"></div>
         <a href="index.html#activites" class="dropdown-item" style="color:var(--violet)">
@@ -1111,9 +1119,11 @@
     <div class="mob-accordion-content">
       <a href="strasbourg.html" onclick="toggleMenu()">🏛️ Strasbourg</a>
       <a href="#" class="coming">🍷 Colmar</a>
-      <a href="#" class="coming">🌲 Obernai</a>
-      <a href="index.html#activites" onclick="setTimeout(()=>filterVille('mulhouse'),100);toggleMenu()">🏭 Mulhouse</a>
+      <a href="#" class="coming">🌲 Haguenau</a>
+      <a href="mulhouse.html" onclick="toggleMenu()">🏭 Mulhouse</a>
       <a href="#" class="coming">⛰️ Vosges</a>
+      <a href="#" class="coming">🏰 Sélestat</a>
+      <a href="#" class="coming">🌉 Saint-Louis</a>
     </div>
   </div>
 
@@ -1181,9 +1191,11 @@
     <div class="ville-btn active-ville" id="ville-all" onclick="filterVille(null)"><span class="ville-emoji">&#128506;</span><span class="ville-name">Toutes</span><span class="ville-count">3 activités</span></div>
     <div class="ville-btn" id="ville-strasbourg" onclick="filterVille('strasbourg')"><span class="ville-emoji">&#127963;</span><span class="ville-name">Strasbourg</span><span class="ville-count">1 activité</span></div>
     <div class="ville-btn" id="ville-colmar" onclick="filterVille('colmar')"><span class="ville-emoji">&#127863;</span><span class="ville-name">Colmar</span><span class="ville-count">1 activité</span></div>
-    <div class="ville-btn" id="ville-obernai" onclick="filterVille('obernai')"><span class="ville-emoji">&#127794;</span><span class="ville-name">Obernai</span><span class="ville-count">1 activité</span></div>
+    <div class="ville-btn" id="ville-haguenau" onclick="filterVille('haguenau')"><span class="ville-emoji">🌲</span><span class="ville-name">Haguenau</span><span class="ville-count">0 activité</span></div>
     <div class="ville-btn" id="ville-mulhouse" onclick="filterVille('mulhouse')"><span class="ville-emoji">&#127981;</span><span class="ville-name">Mulhouse</span><span class="ville-count">2 activités</span></div>
     <div class="ville-btn" id="ville-vosges" onclick="filterVille('vosges')"><span class="ville-emoji">&#9968;</span><span class="ville-name">Vosges</span><span class="ville-count">1 activité</span></div>
+    <div class="ville-btn" id="ville-selestat" onclick="filterVille('selestat')"><span class="ville-emoji">🏰</span><span class="ville-name">Sélestat</span><span class="ville-count">0 activité</span></div>
+    <div class="ville-btn" id="ville-saint-louis" onclick="filterVille('saint-louis')"><span class="ville-emoji">🌉</span><span class="ville-name">Saint-Louis</span><span class="ville-count">0 activité</span></div>
   </div>
 </div>
 <a href="#activites" class="mobile-cta">Explorer les activités &#8595;</a>
@@ -1850,7 +1862,9 @@
   var villeMap = {
     strasbourg: ['strasbourg', 'souffelweyersheim'],
     colmar: ['colmar', 'route des vins'],
-    obernai: ['obernai', 'massif des vosges'],
+    haguenau: ['haguenau'],
+    selestat: ['selestat', 'sélestat'],
+    'saint-louis': ['saint-louis', 'saint louis'],
     mulhouse: ['mulhouse', 'wittenheim'],
     vosges: ['vosges', 'massif']
   };
@@ -1872,7 +1886,9 @@
   }).concat([
     { type: 'ville', label: 'Strasbourg', sub: 'Activités à Strasbourg', emoji: '🏛️', val: 'strasbourg' },
     { type: 'ville', label: 'Colmar', sub: 'Activités à Colmar', emoji: '🍷', val: 'colmar' },
-    { type: 'ville', label: 'Obernai', sub: 'Activités à Obernai', emoji: '🌲', val: 'obernai' },
+    { type: 'ville', label: 'Haguenau', sub: 'Activités à Haguenau', emoji: '🌲', val: 'haguenau' },
+    { type: 'ville', label: 'Sélestat', sub: 'Activités à Sélestat', emoji: '🏰', val: 'selestat' },
+    { type: 'ville', label: 'Saint-Louis', sub: 'Activités à Saint-Louis', emoji: '🌉', val: 'saint-louis' },
     { type: 'ville', label: 'Mulhouse', sub: 'Activités à Mulhouse', emoji: '🏭', val: 'mulhouse' },
     { type: 'ville', label: 'Vosges', sub: 'Activités dans les Vosges', emoji: '⛰️', val: 'vosges' },
     { type: 'cat', label: 'Nature & Plein air', sub: 'Activités outdoor', emoji: '🌿', val: 'nature' },
