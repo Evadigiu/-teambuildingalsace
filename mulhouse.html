@@ -162,6 +162,43 @@
       section { padding: 40px 0; } .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .cta-section { padding: 48px 20px; }
     }
+  
+    /* ── CARTES ACTIVITÉS DYNAMIQUES ── */
+    .acts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 32px; }
+    .act-card { background: white; border: 1.5px solid var(--bordure); border-radius: 14px; overflow: hidden; cursor: pointer; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(91,46,255,0.12); border-color: var(--violet); }
+    .card-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; position: relative; overflow: hidden; }
+    .card-img-placeholder { font-size: 2.8rem; }
+    .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(13,13,13,0.75); color: white; padding: 4px 10px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; backdrop-filter: blur(4px); }
+    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .card-unclaimed-text { font-size: 0.68rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+    .card-unclaimed-btn { padding: 5px 12px; background: var(--vert); color: var(--noir); border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; cursor: pointer; white-space: nowrap; text-decoration: none; }
+    .card-body { padding: 16px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .card-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; }
+    .card-title { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 6px; color: var(--noir); }
+    .card-location { font-size: 0.78rem; color: #aaa; margin-bottom: 12px; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--bordure); font-size: 0.82rem; }
+    .card-price { color: var(--violet); }
+    .card-price strong { font-family: 'Outfit', sans-serif; font-weight: 800; }
+    .card-participants { color: #aaa; font-size: 0.78rem; }
+    .add-card { background: white; border: 1.5px dashed var(--bordure); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px; text-align: center; min-height: 200px; }
+    .add-card h3 { font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 800; margin: 10px 0 6px; }
+    .add-card p { font-size: 0.8rem; color: #aaa; margin-bottom: 14px; }
+    /* Tag colors */
+    .cat-commercial { background:#FFF3E0;color:#E65100; } .cat-leadership { background:#EDE7F6;color:#4527A0; }
+    .cat-cohesion { background:#E8F5E9;color:#2E7D32; } .cat-innovation { background:#E3F2FD;color:#1565C0; }
+    .cat-communication { background:#FCE4EC;color:#AD1457; } .cat-stress { background:#F3E5F5;color:#6A1B9A; }
+    .cat-onboarding { background:#E8F4FD;color:#1A5276; } .cat-rse { background:#EAFAF1;color:#1E8449; }
+    .cat-management { background:#FEF9E7;color:#9A7D0A; } .cat-nature { background:#E8F8F0;color:#1B5E20; }
+    .cat-gastronomie { background:#FFF8E1;color:#F57F17; } .cat-creatif { background:#E8EAF6;color:#283593; }
+    .cat-bienetre { background:#E0F7FA;color:#006064; } .cat-sport { background:#FFEBEE;color:#B71C1C; }
+    .cat-jeux { background:#ECEFF1;color:#263238; } .cat-culture { background:#F3E5F5;color:#4A148C; }
+    .cat-evenementiel { background:#FFF0F6;color:#C0392B; } .cat-wtf { background:#1A1A2E;color:#00E5A0; }
+    .cat-strategie { background:#E8F0FF;color:#1A237E; } .cat-indoor { background:#F4F2FF;color:#5B2EFF; }
+    .cat-outdoor { background:#E8F5E9;color:#1B5E20; }
+    @media (max-width: 768px) { .acts-grid { grid-template-columns: 1fr; } }
+
   </style>
 </head>
 <body>
@@ -214,120 +251,13 @@
 </div>
 
 <!-- SECTION 1 : MARCHÉ DU TRAVAIL -->
-<section>
-  <div class="container">
-    <span class="section-label">Contexte RH 2025</span>
-    <h2 class="section-title">Mulhouse, ville n°1 en France :<br>ce que ça signifie pour vos <em>équipes RH</em></h2>
-    <p class="section-intro">Pour la deuxième année consécutive, Mulhouse est classée première ville de France en termes d'opportunités emploi-logement. Un atout majeur pour attirer — mais qui crée aussi de nouvelles pressions sur la fidélisation.</p>
-
-    <div class="grid-2">
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <div class="card">
-          <span class="card-icon">🏆</span>
-          <h3>N°1 des opportunités emploi-logement</h3>
-          <p>Classement Meilleurtaux/Météojob 2024 : Mulhouse cumule des offres d'emploi abondantes en CDI, des loyers accessibles et une position géographique exceptionnelle. Un marché qui attire de nouveaux talents — et qui exige de les retenir une fois arrivés.</p>
-          <span class="card-stat">2ème année consécutive — Le Parisien, déc. 2024</span>
-        </div>
-        <div class="card">
-          <span class="card-icon">🌍</span>
-          <h3>Un bassin d'emploi transfrontalier unique</h3>
-          <p>11,3% des salariés mulhousiens travaillent en Suisse ou en Allemagne. Vos collaborateurs ont des alternatives très attractives à portée de main. La fidélisation n'est pas une option — c'est une urgence stratégique. Le team building est l'un des leviers les plus efficaces.</p>
-          <span class="card-stat">France Travail, données 2024</span>
-        </div>
-        <div class="card">
-          <span class="card-icon">🏭</span>
-          <h3>Un tissu industriel dense</h3>
-          <p>Avec 45 797 établissements dans l'agglomération M2A, Mulhouse est portée par l'industrie, la logistique et les services. Stellantis, Cora, Würth France figurent parmi les grands employeurs. Des équipes terrain qui ont besoin de moments de cohésion concrets.</p>
-          <span class="card-stat">INSEE, 2024 · CCI Alsace</span>
-        </div>
-      </div>
-
-      <div class="dark-box">
-        <h3>⚡ Ce que ça signifie pour vos KPIs RH</h3>
-        <ul>
-          <li><span>🔄</span><span>Avec 11,3% des salariés tentés par le marché transfrontalier, <strong>le turnover mulhousien est parmi les plus élevés d'Alsace</strong>. Un team building bien choisi est un signal fort de reconnaissance.</span></li>
-          <li><span>💰</span><span>Le coût moyen d'un départ est de <strong>4 000 à 10 000 €</strong> selon le poste. Investir 40 à 100 €/pers. dans un team building annuel est rentable dès le premier collaborateur retenu.</span></li>
-          <li><span>🤝</span><span>Les équipes mulhousiennes sont souvent <strong>multiculturelles et multilingues</strong> (FR/DE/CH). Les activités qui transcendent les barrières linguistiques — sport, créatif, gastronomie — sont particulièrement adaptées.</span></li>
-          <li><span>📈</span><span><strong>94% des entreprises françaises</strong> estiment que leurs difficultés de recrutement se maintiendront en 2025 (APEC). À Mulhouse, la concurrence suisse et allemande amplifie ce phénomène.</span></li>
-          <li><span>🌱</span><span><strong>85% des salariés</strong> sont plus engagés dans les entreprises qui adoptent des pratiques RSE concrètes (ADEME) — un argument fort pour les activités nature et bien-être dans les Vosges toutes proches.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 2 : TENDANCES -->
-<section style="background:var(--gris-clair)">
-  <div class="container">
-    <span class="section-label">Ce qui marche en 2025</span>
-    <h2 class="section-title">Les activités RH plébiscitées<br>par les <em>entreprises mulhousiennes</em></h2>
-    <p class="section-intro">Le bassin mulhousien a ses spécificités — industriel, transfrontalier, multiculturel. Les activités qui fonctionnent le mieux sont celles qui répondent à ces réalités concrètes.</p>
-
-    <div class="grid-2" style="margin-bottom:20px">
-      <div class="tendance-card">
-        <span class="trend-label">Tendance #1</span>
-        <h3>⚡ Sport & Adrénaline — pour les équipes terrain</h3>
-        <p>Les équipes industrielles et logistiques mulhousiennes plébiscitent les activités physiques : lancer de hache, parcours sportifs, challenges en équipes. Des formats qui valorisent des compétences différentes de celles du bureau et qui créent une vraie égalité entre profils.</p>
-        <span class="stat-badge">84% des salariés : le sport renforce la cohésion</span>
-      </div>
-      <div class="tendance-card">
-        <span class="trend-label">Tendance #2</span>
-        <h3>🎮 Jeux & Digital — pour briser la glace</h3>
-        <p>Escape game, réalité virtuelle, quiz compétitifs — les formats jeux fonctionnent particulièrement bien avec les équipes multinationales car ils dépassent les barrières linguistiques. Mulhouse, ville de la tech et de l'industrie, est friande de ces formats innovants.</p>
-        <span class="stat-badge">1 team building sur 5 = escape game en 2025</span>
-      </div>
-      <div class="tendance-card">
-        <span class="trend-label">Tendance #3</span>
-        <h3>🌿 Nature & Vosges — le ressourcement à 20 min</h3>
-        <p>Le massif vosgien est à portée de main depuis Mulhouse. Les équipes sous pression apprécient particulièrement les activités de pleine nature — randonnée, survie, cohésion outdoor. Un dépaysement total sans perdre une journée en transport.</p>
-        <span class="stat-badge">-25% de cortisol après une session nature</span>
-      </div>
-      <div class="tendance-card">
-        <span class="trend-label">Tendance #4</span>
-        <h3>🎉 Événementiel — célébrer les succès</h3>
-        <p>Dans un marché du travail compétitif, célébrer les résultats collectifs est essentiel. Soirée de fin d'année, afterwork, anniversaire d'entreprise — les événements de reconnaissance fidélisent là où le salaire seul ne suffit plus.</p>
-        <span class="stat-badge">77% des entreprises organisent des événements fidélisation</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 3 : ACTIVITÉS -->
-<section>
+<section id="activites">
   <div class="container">
     <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>près de Mulhouse</em></h2>
-    <p class="section-intro">Des activités sélectionnées à Mulhouse et dans l'agglomération M2A, pour tous les objectifs et tous les groupes.</p>
-
-    <div class="grid-3">
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#1A1A2E,#5B2EFF)">🧠</div>
-        <div class="act-body">
-          <h3>Quiz Convivialité</h3>
-          <p>Manches, jokers et décisions collectives. Communication et cohésion garanties dans un format accessible à tous.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 35 €/pers.</span>
-            <span class="act-tag">Jeux · Indoor</span>
-          </div>
-        </div>
-      </a>
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#B71C1C,#E53935)">🪓</div>
-        <div class="act-body">
-          <h3>Lancer de Hache</h3>
-          <p>L'activité insolite par excellence à Wittenheim. Adrénaline, compétition et fou rire garantis — aucune expérience requise.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 35 €/pers.</span>
-            <span class="act-tag">Sport · WTF</span>
-          </div>
-        </div>
-      </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Mulhouse ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
-      </a>
+    <h2 class="section-title">Activités disponibles <em>dans ce secteur</em></h2>
+    <p id="acts-count" class="section-intro">Chargement...</p>
+    <div class="acts-grid" id="acts-grid">
+      <p style="color:#aaa;font-size:0.9rem">Chargement des activités...</p>
     </div>
   </div>
 </section>
@@ -430,6 +360,7 @@
 
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 
+<script src="activities.js"></script>
 <script>
   function toggleMenu() {
     document.getElementById('hamburger').classList.toggle('open');
@@ -439,6 +370,42 @@
   function toggleFaq(el) {
     el.parentElement.classList.toggle('open');
   }
+</script>
+<script src="activities.js"></script>
+<script>
+  function openModal(id) {
+    window.location.href = 'index.html#activites';
+  }
+
+  function renderLocalCards() {
+  var kws = villeMap['mulhouse'] || ['mulhouse'];
+  var filtered = activities.filter(function(a) {
+    var loc = (a.location || '').toLowerCase();
+    return kws.some(function(k) { return loc.includes(k); });
+  });
+
+    var grid = document.getElementById('acts-grid');
+    if (!grid) return;
+
+    var html = filtered.map(function(a) { return renderActivityCard(a); }).join('');
+
+    // Ajouter la carte "Référencer"
+    html += `
+      <div class="add-card">
+        <div style="font-size:2rem">➕</div>
+        <h3>Vous proposez une activité ici ?</h3>
+        <p>Référencez-la gratuitement.</p>
+        <a href="referencer.html" class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</a>
+      </div>`;
+
+    grid.innerHTML = html;
+
+    // Mettre à jour le compteur
+    var counter = document.getElementById('acts-count');
+    if (counter) counter.textContent = filtered.length + ' activité' + (filtered.length > 1 ? 's' : '') + ' disponible' + (filtered.length > 1 ? 's' : '');
+  }
+
+  document.addEventListener('DOMContentLoaded', renderLocalCards);
 </script>
 </body>
 </html>
