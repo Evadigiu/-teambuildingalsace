@@ -249,33 +249,43 @@
     /* ── BANDEAU PARTENAIRE CATÉGORIE ── */
     .partner-banner {
       background: var(--noir);
-      border-bottom: 1px solid rgba(201,147,58,0.3);
+      border-top: 1px solid rgba(201,147,58,0.2);
+      border-bottom: 1px solid rgba(201,147,58,0.2);
       padding: 0 40px;
     }
     .partner-banner-inner {
       max-width: 1080px; margin: 0 auto;
-      display: grid; grid-template-columns: auto 1fr auto;
-      gap: 40px; align-items: center; padding: 32px 0;
+      display: grid;
+      grid-template-columns: 160px 280px 1fr 300px;
+      gap: 32px; align-items: center; padding: 28px 0;
     }
-    .partner-logo-wrap { display: flex; align-items: center; gap: 16px; }
-    .partner-badge-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.15em; color: #C9933A; font-weight: 700; display: block; margin-bottom: 6px; }
-    .partner-logo { height: 56px; width: auto; object-fit: contain; }
-    .partner-content h3 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: white; margin-bottom: 6px; letter-spacing: -0.02em; }
-    .partner-content p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 500px; }
-    .partner-interview { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,147,58,0.2); border-radius: 12px; padding: 20px; min-width: 280px; }
-    .partner-interview-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #C9933A; font-weight: 700; margin-bottom: 12px; display: block; }
-    .partner-qa { margin-bottom: 12px; }
-    .partner-qa:last-child { margin-bottom: 0; }
-    .partner-q { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 4px; font-style: italic; }
-    .partner-a { font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
-    .partner-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 8px 18px; background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; border-radius: 100px; font-size: 0.78rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+    /* Colonne 1 : logo + badge */
+    .partner-logo-col { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .partner-badge-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em; color: #C9933A; font-weight: 700; display: block; }
+    .partner-logo { height: 70px; width: auto; object-fit: contain; }
+    /* Colonne 2 : photo */
+    .partner-photo-wrap { border-radius: 12px; overflow: hidden; height: 160px; }
+    .partner-photo { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    /* Colonne 3 : texte */
+    .partner-content h3 { font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 800; color: white; margin-bottom: 8px; letter-spacing: -0.02em; line-height: 1.2; }
+    .partner-content p { font-size: 0.83rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 14px; }
+    .partner-cta { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; border-radius: 100px; font-size: 0.78rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
     .partner-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,147,58,0.4); }
-    .partner-photo-wrap { margin-bottom: 14px; border-radius: 12px; overflow: hidden; max-height: 160px; }
-    .partner-photo { width: 100%; height: 160px; object-fit: cover; object-position: center; display: block; }
+    /* Colonne 4 : interview */
+    .partner-interview { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,147,58,0.2); border-radius: 12px; padding: 18px; height: 100%; box-sizing: border-box; }
+    .partner-interview-title { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: #C9933A; font-weight: 700; margin-bottom: 12px; display: block; }
+    .partner-qa { margin-bottom: 10px; }
+    .partner-qa:last-child { margin-bottom: 0; }
+    .partner-q { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-bottom: 3px; font-style: italic; }
+    .partner-a { font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+    @media (max-width: 1024px) {
+      .partner-banner-inner { grid-template-columns: 140px 1fr 280px; }
+      .partner-photo-wrap { display: none; }
+    }
     @media (max-width: 768px) {
       .partner-banner { padding: 0 20px; }
-      .partner-banner-inner { grid-template-columns: 1fr; gap: 20px; padding: 24px 0; }
-      .partner-interview { min-width: 0; }
+      .partner-banner-inner { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
+      .partner-photo-wrap { display: block; height: 140px; }
     }
   </style>
 </head>
@@ -325,17 +335,19 @@
 <div class="partner-banner">
   <div class="partner-banner-inner">
 
-    <div class="partner-logo-wrap">
-      <div>
-        <span class="partner-badge-label">🏆 Partenaire officiel · Nature & Plein air</span>
-        <img src="images/logo_pomelo.png" alt="Pomelo" class="partner-logo">
-      </div>
+    <!-- Col 1 : Logo + badge -->
+    <div class="partner-logo-col">
+      <span class="partner-badge-label">🏆 Partenaire officiel · Nature & Plein air</span>
+      <img src="images/logo_pomelo.png" alt="Pomelo" class="partner-logo">
     </div>
 
+    <!-- Col 2 : Photo -->
+    <div class="partner-photo-wrap">
+      <img src="images/pomelo_header.jpg" alt="Pomelo en action" class="partner-photo">
+    </div>
+
+    <!-- Col 3 : Texte -->
     <div class="partner-content">
-      <div class="partner-photo-wrap">
-        <img src="images/pomelo_header.jpg" alt="Pomelo en action" class="partner-photo">
-      </div>
       <h3>Vivez l'expérience nature avec Pomelo</h3>
       <p>L'agence événementielle pour faire l'expérience de la nature. Pomelo transforme vos espaces de travail en terrains d'aventure verte — et vos équipes en véritables communautés.</p>
       <a href="https://pomelo-events.fr" target="_blank" class="partner-cta">Visiter le site →</a>
