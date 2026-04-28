@@ -1020,31 +1020,31 @@
       <div class="dropdown-menu">
         <a href="strasbourg.html" class="dropdown-item">
           <span class="d-emoji">🏛️</span>
-          <span class="d-info"><span class="d-name">Strasbourg</span><span class="d-count">2 activités disponibles</span></span>
+          <span class="d-info"><span class="d-name">Strasbourg</span><span class="d-count" id="dd-count-strasbourg">0 activité</span></span>
         </a>
-        <a href="#" class="dropdown-item coming">
+        <a href="colmar.html" class="dropdown-item">
           <span class="d-emoji">🍷</span>
-          <span class="d-info"><span class="d-name">Colmar</span><span class="d-count">Bientôt disponible</span></span>
+          <span class="d-info"><span class="d-name">Colmar</span><span class="d-count" id="dd-count-colmar">0 activité</span></span>
         </a>
-        <a href="#" class="dropdown-item coming">
+        <a href="haguenau.html" class="dropdown-item">
           <span class="d-emoji">🌲</span>
-          <span class="d-info"><span class="d-name">Haguenau</span><span class="d-count">Bientôt disponible</span></span>
+          <span class="d-info"><span class="d-name">Haguenau</span><span class="d-count" id="dd-count-haguenau">0 activité</span></span>
         </a>
         <a href="mulhouse.html" class="dropdown-item">
           <span class="d-emoji">🏭</span>
-          <span class="d-info"><span class="d-name">Mulhouse</span><span class="d-count">2 activités disponibles</span></span>
+          <span class="d-info"><span class="d-name">Mulhouse</span><span class="d-count" id="dd-count-mulhouse">0 activité</span></span>
         </a>
-        <a href="#" class="dropdown-item coming">
+        <a href="vosges.html" class="dropdown-item">
           <span class="d-emoji">⛰️</span>
-          <span class="d-info"><span class="d-name">Vosges</span><span class="d-count">Bientôt disponible</span></span>
+          <span class="d-info"><span class="d-name">Vosges</span><span class="d-count" id="dd-count-vosges">0 activité</span></span>
         </a>
-        <a href="#" class="dropdown-item coming">
+        <a href="selestat.html" class="dropdown-item">
           <span class="d-emoji">🏰</span>
-          <span class="d-info"><span class="d-name">Sélestat</span><span class="d-count">Bientôt disponible</span></span>
+          <span class="d-info"><span class="d-name">Sélestat</span><span class="d-count" id="dd-count-selestat">0 activité</span></span>
         </a>
-        <a href="#" class="dropdown-item coming">
+        <a href="saint-louis.html" class="dropdown-item">
           <span class="d-emoji">🌉</span>
-          <span class="d-info"><span class="d-name">Saint-Louis</span><span class="d-count">Bientôt disponible</span></span>
+          <span class="d-info"><span class="d-name">Saint-Louis</span><span class="d-count" id="dd-count-saint-louis">0 activité</span></span>
         </a>
         <div class="dropdown-divider"></div>
         <a href="index.html#activites" class="dropdown-item" style="color:var(--violet)">
@@ -1118,12 +1118,12 @@
     </button>
     <div class="mob-accordion-content">
       <a href="strasbourg.html" onclick="toggleMenu()">🏛️ Strasbourg</a>
-      <a href="#" class="coming">🍷 Colmar</a>
-      <a href="#" class="coming">🌲 Haguenau</a>
+      <a href="colmar.html" onclick="toggleMenu()">🍷 Colmar</a>
+      <a href="haguenau.html" onclick="toggleMenu()">🌲 Haguenau</a>
       <a href="mulhouse.html" onclick="toggleMenu()">🏭 Mulhouse</a>
-      <a href="#" class="coming">⛰️ Vosges</a>
-      <a href="#" class="coming">🏰 Sélestat</a>
-      <a href="#" class="coming">🌉 Saint-Louis</a>
+      <a href="vosges.html" onclick="toggleMenu()">⛰️ Vosges</a>
+      <a href="selestat.html" onclick="toggleMenu()">🏰 Sélestat</a>
+      <a href="saint-louis.html" onclick="toggleMenu()">🌉 Saint-Louis</a>
     </div>
   </div>
 
@@ -1844,6 +1844,39 @@
 
   renderCards(activities);
   document.getElementById('total-count').textContent = activities.length;
+
+  // ══ COMPTEURS AUTOMATIQUES ══
+  function countVille(key) {
+    var kws = villeMap[key] || [key];
+    return activities.filter(function(a) {
+      var loc = (a.location || '').toLowerCase();
+      return kws.some(function(k) { return loc.includes(k); });
+    }).length;
+  }
+
+  function pluriel(n) {
+    return n + ' activité' + (n > 1 ? 's' : '');
+  }
+
+  function updateCounters() {
+    var villes = ['strasbourg','colmar','haguenau','mulhouse','vosges','selestat','saint-louis'];
+    var total = activities.length;
+
+    // Bouton "Toutes"
+    var allBtn = document.querySelector('#ville-all .ville-count');
+    if (allBtn) allBtn.textContent = pluriel(total);
+
+    // Boutons villes + dropdown
+    villes.forEach(function(v) {
+      var count = countVille(v);
+      var btn = document.querySelector('#ville-' + v + ' .ville-count');
+      if (btn) btn.textContent = pluriel(count);
+      var dd = document.getElementById('dd-count-' + v);
+      if (dd) dd.textContent = pluriel(count);
+    });
+  }
+
+  updateCounters();
 
   // ====== DROPDOWN VILLE ======
   function toggleDropdown(e) {
