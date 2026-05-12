@@ -209,19 +209,25 @@
           <label class="check-item"><input type="checkbox" name="objectif" value="innovation"> 💡 Innovation</label>
           <label class="check-item"><input type="checkbox" name="objectif" value="communication"> 🗣️ Communication</label>
           <label class="check-item"><input type="checkbox" name="objectif" value="stress"> ⚡ Gestion du stress</label>
+          <label class="check-item"><input type="checkbox" name="objectif" value="onboarding"> 😊 Onboarding</label>
+          <label class="check-item"><input type="checkbox" name="objectif" value="rse"> 🌱 RSE</label>
+          <label class="check-item"><input type="checkbox" name="objectif" value="management"> 👥 Management</label>
         </div>
       </div>
       <div class="field-group">
-        <label>Ambiance <span class="required">*</span> <span class="optional">(plusieurs choix)</span></label>
-        <div class="check-grid">
-          <label class="check-item"><input type="checkbox" name="ambiance" value="nature"> 🌿 Nature</label>
-          <label class="check-item"><input type="checkbox" name="ambiance" value="gastro"> 🍷 Gastronomie</label>
-          <label class="check-item"><input type="checkbox" name="ambiance" value="challenge"> 🏅 Challenge</label>
-          <label class="check-item"><input type="checkbox" name="ambiance" value="creatif"> 🎨 Créatif</label>
-          <label class="check-item"><input type="checkbox" name="ambiance" value="bienetre"> 🧘 Bien-être</label>
-          <label class="check-item"><input type="checkbox" name="ambiance" value="urbain"> 🏙️ Urbain & Digital</label>
-        </div>
-      </div>
+                <label>Univers <span class="required">*</span> <span class="optional">(plusieurs choix possibles)</span></label>
+          <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="univers" value="nature"> 🌿 Nature & Plein air</label>
+          <label class="check-item"><input type="checkbox" name="univers" value="gastronomie"> 🍷 Gastronomie & Vins</label>
+          <label class="check-item"><input type="checkbox" name="univers" value="creatif"> 🎨 Artistique & Créatif</label>
+          <label class="check-item"><input type="checkbox" name="univers" value="bienetre"> 🧘 Bien-être & Slow</label>
+          <label class="check-item"><input type="checkbox" name="univers" value="sport"> ⚡ Sport & Adrénaline</label>
+          <label class="check-item"><input type="checkbox" name="univers" value="jeux"> 🎮 Jeux & Digital</label>
+          <label class="check-item"><input type="checkbox" name="univers" value="culture"> 🎭 Culture & Patrimoine</label>
+          <label class="check-item"><input type="checkbox" name="univers" value="evenementiel"> 🎉 Événementiel</label>
+          <label class="check-item"><input type="checkbox" name="univers" value="wtf"> 🛸 What the Fuck</label>
+          <label class="check-item"><input type="checkbox" name="univers" value="strategie"> 🧠 Stratégie & Logique</label>
+          </div>
       <div class="field-group">
         <label>Environnement <span class="required">*</span></label>
         <div class="check-grid">
@@ -252,6 +258,8 @@
           <label class="check-item"><input type="checkbox" name="dispo" value="weekend"> 🗓️ Week-end</label>
           <label class="check-item"><input type="checkbox" name="dispo" value="sur-mesure"> ✏️ Sur mesure</label>
           <label class="check-item"><input type="checkbox" name="dispo" value="toute-annee"> 🔄 Toute l'année</label>
+          <label class="check-item"><input type="checkbox" name="dispo" value="printempsete"> 🌸 Printemps / Été</label>
+          <label class="check-item"><input type="checkbox" name="dispo" value="automnehiver"> 🍂 Automne / Hiver</label>
         </div>
       </div>
       <div class="field-group"><label>Informations complémentaires <span class="optional">(optionnel)</span></label><textarea name="complement" placeholder="Accessibilité PMR, langues, options sur mesure..."></textarea></div>
@@ -314,7 +322,7 @@
       </div>
       <div class="recap-block"><h4>Catégories</h4>
         <div class="recap-line"><span>Objectifs</span><strong>${getChecked('objectif')}</strong></div>
-        <div class="recap-line"><span>Ambiance</span><strong>${getChecked('ambiance')}</strong></div>
+        <div class="recap-line"><span>Univers</span><strong>${getChecked('univers')}</strong></div>
         <div class="recap-line"><span>Environnement</span><strong>${getChecked('env')}</strong></div>
       </div>
       <div class="recap-block"><h4>Tarifs</h4>
