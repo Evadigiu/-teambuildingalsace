@@ -1042,7 +1042,7 @@
     .ville-btn.active-ville .ville-name, .ville-btn.active-ville .ville-count { color: white; }
     .ville-emoji { font-size: 1.3rem; }
     .ville-name { font-size: 0.68rem; font-weight: 700; color: var(--noir); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
-    .ville-count { font-size: 0.62rem; color: #aaa; font-weight: 500; }
+    .ville-count { font-size: 0.62rem; color: #767676; font-weight: 500; }
     .mobile-cta { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 500; padding: 13px 28px; background: linear-gradient(135deg, var(--violet), var(--violet-clair)); color: white; border-radius: 100px; font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.88rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 30px rgba(91,46,255,0.5); white-space: nowrap; }
     @media (max-width: 768px) {
       .mobile-cta { display: block; }
@@ -1059,7 +1059,7 @@
   <nav>
     <a href="index.html">Accueil</a>
     <div class="nav-dropdown">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Par ville <span class="arrow">▼</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)" aria-label="Navigation par ville" aria-haspopup="true">Par ville <span class="arrow">▼</span></button>
       <div class="dropdown-menu">
         <a href="strasbourg.html" class="dropdown-item">
           <span class="d-emoji">🏛️</span>
@@ -1094,7 +1094,7 @@
       </div>
     </div>
     <div class="nav-dropdown">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Par univers <span class="arrow">▼</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)" aria-label="Navigation par univers" aria-haspopup="true">Par univers <span class="arrow">▼</span></button>
       <div class="dropdown-menu">
         <a href="nature.html" class="dropdown-item">
           <span class="d-emoji">🌿</span>
@@ -1200,10 +1200,10 @@
   <div class="hero-label">Alsace · Grand Est · France</div>
   <h1>Trouvez le team building <span class="highlight">parfait</span> en Alsace</h1>
   <p>Activités sélectionnées pour fédérer vos équipes, de la forêt vosgienne aux vignobles alsaciens.</p>
-  <div class="search-wrap">
+  <div class="search-wrap" role="search">
     <div class="search-bar">
       <span>&#128269;</span>
-      <input type="text" id="search-input" placeholder="Ex: leadership Strasbourg, activité nature..." autocomplete="off">
+      <input type="text" id="search-input" placeholder="Ex: leadership Strasbourg, activité nature..." autocomplete="off" aria-label="Rechercher une activité de team building">
       <button class="search-btn" id="search-btn">Rechercher</button>
     </div>
     <div class="suggestions" id="suggestions"></div>
@@ -1311,13 +1311,13 @@
         <span class="range-val" id="budget-display">200 €</span>
         <span>200 €+</span>
       </div>
-      <input type="range" id="budget-range" min="0" max="200" value="200" step="10"
+      <input type="range" id="budget-range" min="0" max="200" value="200" step="10" aria-label="Budget maximum par personne en euros"
         oninput="document.getElementById('budget-display').textContent = this.value + (this.value == 200 ? '+' : '') + ' €'; applyFilters()">
     </div>
 
     <div class="filter-group">
       <div class="filter-group-label">👥 Nombre de participants</div>
-      <select class="filter-select" id="participants-select" onchange="applyFilters()">
+      <select class="filter-select" id="participants-select" onchange="applyFilters()" aria-label="Nombre de participants">
         <option value="">Tous les groupes</option>
         <option value="10">Jusqu'à 10 personnes</option>
         <option value="30">Jusqu'à 30 personnes</option>
@@ -1326,7 +1326,7 @@
       </select>
     </div>
 
-    <button class="reset-btn" onclick="resetFilters()">↺ Réinitialiser</button>
+    <button class="reset-btn" onclick="resetFilters()" aria-label="Réinitialiser tous les filtres">↺ Réinitialiser</button>
   </aside>
 
   <div class="content-area">
@@ -1367,7 +1367,7 @@
         <h3>Demander un devis</h3>
         <div class="devis-act" id="devis-act-name"></div>
       </div>
-      <button class="devis-close" onclick="closeDevis(event)">✕</button>
+      <button class="devis-close" onclick="closeDevis(event)" aria-label="Fermer le formulaire de devis">✕</button>
     </div>
     <div class="devis-body">
       <div class="devis-form" id="devis-form-inner">
@@ -1376,36 +1376,36 @@
           <div class="devis-row">
             <div class="devis-field">
               <label>Prénom & Nom *</label>
-              <input type="text" name="nom" placeholder="Marie Dupont" required>
+              <input type="text" name="nom" placeholder="Marie Dupont" required aria-label="Prénom et nom">
             </div>
             <div class="devis-field">
               <label>Entreprise</label>
-              <input type="text" name="entreprise" placeholder="Votre entreprise">
+              <input type="text" name="entreprise" placeholder="Votre entreprise" aria-label="Nom de l'entreprise">
             </div>
           </div>
           <div class="devis-row">
             <div class="devis-field">
               <label>Email *</label>
-              <input type="email" name="email" placeholder="marie@entreprise.fr" required>
+              <input type="email" name="email" placeholder="marie@entreprise.fr" required aria-label="Adresse email">
             </div>
             <div class="devis-field">
               <label>Téléphone</label>
-              <input type="tel" name="telephone" placeholder="06 XX XX XX XX">
+              <input type="tel" name="telephone" placeholder="06 XX XX XX XX" aria-label="Numéro de téléphone">
             </div>
           </div>
           <div class="devis-row">
             <div class="devis-field">
               <label>Nombre de participants *</label>
-              <input type="number" name="participants" placeholder="Ex : 20" min="1" required>
+              <input type="number" name="participants" placeholder="Ex : 20" min="1" required aria-label="Nombre de participants">
             </div>
             <div class="devis-field">
               <label>Date souhaitée</label>
-              <input type="date" name="date">
+              <input type="date" name="date" aria-label="Date souhaitée">
             </div>
           </div>
           <div class="devis-field">
             <label>Message</label>
-            <textarea name="message" placeholder="Précisez vos besoins, contraintes particulières, budget..."></textarea>
+            <textarea name="message" placeholder="Précisez vos besoins, contraintes particulières, budget..." aria-label="Message et précisions"></textarea>
           </div>
           <button type="submit" class="devis-submit">Envoyer ma demande →</button>
           <p class="devis-note">Nous vous mettons en relation avec le prestataire sous 24h.</p>
@@ -1424,6 +1424,7 @@
   <div class="modal" id="modal-content"></div>
 </div>
 
+</main>
 <footer>
   &copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.
   <br>
