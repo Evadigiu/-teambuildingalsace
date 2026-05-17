@@ -695,9 +695,9 @@ function renderActivityCard(a) {
 
   // Photo : uniquement si offre >= essentiel ET revendiquee
   const showPhoto = a.revendiquee && a.image && offre !== 'gratuit';
-  const imgStyle = showPhoto
-    ? `background-image:url('${a.image}');background-size:cover;background-position:center`
-    : `background:${a.gradient}`;
+
+  // Toujours afficher le gradient comme fond (placeholder pendant le chargement)
+  const containerStyle = `background:${a.gradient}`;
 
   const unclaimedBanner = !a.revendiquee ? `
     <div class="card-unclaimed">
@@ -707,6 +707,17 @@ function renderActivityCard(a) {
 
   const offreBadge = getOffreBadge(a);
 
+  // Image avec lazy loading et fondu à l'apparition
+  const imgHtml = showPhoto ? `
+    <img
+      src="${a.image}"
+      alt="${a.title}"
+      loading="lazy"
+      decoding="async"
+      onload="this.classList.add('loaded')"
+      class="card-lazy-img"
+    >` : `<div class="card-img-placeholder">${a.emoji}</div>`;
+
   // Lien site : uniquement visible+
   const siteLink = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire && a.partenaire.site
     ? `<a href="${a.partenaire.site}" target="_blank" class="card-site-link" onclick="event.stopPropagation()">🔗 Voir le site</a>`
@@ -714,8 +725,8 @@ function renderActivityCard(a) {
 
   return `
     <div class="${getCardClass(a)}" onclick="openModal(${a.id})">
-      <div class="card-img" style="${imgStyle}">
-        ${!showPhoto ? `<div class="card-img-placeholder">${a.emoji}</div>` : ''}
+      <div class="card-img" style="${containerStyle}">
+        ${imgHtml}
         <div class="card-badge">${a.duree}</div>
         ${offreBadge}
         ${unclaimedBanner}
