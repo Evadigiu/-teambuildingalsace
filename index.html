@@ -16,8 +16,6 @@
   <meta property="og:locale" content="fr_FR">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
       --violet: #5B2EFF;
@@ -1611,8 +1609,23 @@
     }
   }
 
+  function loadLeaflet(callback) {
+    if (window.L) { callback(); return; }
+    // Charger le CSS Leaflet
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    document.head.appendChild(css);
+    // Charger le JS Leaflet
+    var script = document.createElement('script');
+    script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    script.onload = callback;
+    document.head.appendChild(script);
+  }
+
   function initMap() {
     if (map) return;
+    loadLeaflet(function() {
     map = L.map('map').setView([48.33, 7.44], 9);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors', maxZoom: 18
@@ -1623,9 +1636,11 @@
       iconSize: [34, 34], iconAnchor: [17, 17]
     });
     updateMapMarkers(activities, icon);
+    }); // fin loadLeaflet
   }
 
   function updateMapMarkers(data, customIcon) {
+    if (!map) return;
     markers.forEach(m => map.removeLayer(m));
     markers = [];
     data.forEach(a => {
