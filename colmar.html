@@ -284,8 +284,10 @@
   <div class="container">
     <span class="section-label">Nos sélections</span>
     <h2 class="section-title">Activités disponibles <em>à Colmar</em></h2>
-    <p id="acts-count" class="section-intro">Chargement des activités...</p>
-    <div id="acts-grid" class="grid-3">
+    <p class="section-intro">Une sélection d'activités disponibles dans la zone Colmar. Cliquez pour voir le détail.</p>
+    <div id="acts-grid" class="grid-3"></div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?ville=colmar" class="btn-p">Voir toutes les activités à Colmar →</a>
     </div>
   </div>
 </section>
@@ -378,8 +380,8 @@
   </div>
 </div>
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
-<script src="activities.js" defer></script>
-<script defer>
+<script src="activities.js"></script>
+<script>
   function toggleMenu() {
     document.getElementById('hamburger').classList.toggle('open');
     document.getElementById('mobile-nav').classList.toggle('open');
@@ -387,49 +389,38 @@
   }
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
-  // openModal : redirige vers la page activités avec l'ID en paramètre
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobile-nav').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
+  }
+  function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+  // Redirige vers index.html avec filtre ville + modale ouverte
   function openModal(id) {
-    window.location.href = 'activites.html?activite=' + id;
+    window.location.href = 'index.html?ville=colmar&activite=' + id;
   }
 
-  // Chargement dynamique des activités Colmar depuis activities.js
-  document.addEventListener('DOMContentLoaded', function() {
-    const VILLE = 'colmar';
+  // Affiche les 3 premières activités de Colmar
+  (function() {
+    var VILLE = 'colmar';
+    var MAX = 3;
+    var keywords = villeMap[VILLE] || [VILLE];
+    var filtered = sortByOffre(activities.filter(function(a) {
+      var loc = (a.location || '').toLowerCase();
+      return keywords.some(function(kw) { return loc.includes(kw); });
+    })).slice(0, MAX);
 
-    function matchVille(a) {
-      const keywords = villeMap[VILLE] || [VILLE];
-      const loc = (a.location || '').toLowerCase();
-      return keywords.some(kw => loc.includes(kw));
-    }
-
-    const filtered = sortByOffre(activities.filter(matchVille));
-    const grid = document.getElementById('acts-grid');
-    const count = document.getElementById('acts-count');
+    var grid = document.getElementById('acts-grid');
+    if (!grid) return;
 
     if (filtered.length === 0) {
-      count.textContent = 'Aucune activité référencée à Colmar pour le moment.';
-      grid.innerHTML = `
-        <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;grid-column:1/-1">
-          <div style="font-size:2rem;margin-bottom:10px">➕</div>
-          <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Colmar ?</h3>
-          <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement, elle apparaîtra ici automatiquement.</p>
-          <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
-        </a>`;
+      grid.innerHTML = '<p style="color:#aaa;font-size:0.9rem">Aucune activité référencée à Colmar pour le moment.</p>';
       return;
     }
 
-    count.textContent = filtered.length + ' activité' + (filtered.length > 1 ? 's' : '') + ' disponible' + (filtered.length > 1 ? 's' : '') + ' dans la zone Colmar et alentours.';
-
-    const referenceCard = `
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Colmar ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
-      </a>`;
-
-    grid.innerHTML = filtered.map(a => renderActivityCard(a)).join('') + referenceCard;
-  });
+    grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('');
+  })();
 </script>
 </body>
 </html>
