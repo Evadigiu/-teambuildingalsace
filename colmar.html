@@ -262,40 +262,12 @@
     </div>
   </div>
 </section>
-<section>
+<section id="activites">
   <div class="container">
     <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>dans ce secteur</em></h2>
-    <p class="section-intro">Des activités sélectionnées pour leur qualité et leur impact sur la cohésion d'équipe. Toutes disponibles dans la zone Colmar et alentours.</p>
-    <div class="grid-3">
-      <a href="activites.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#1A1A2E,#5B2EFF)">🍷</div>
-        <div class="act-body">
-          <h3>Activités oenotouristiques</h3>
-          <p>Dégustations, rallyes vignobles, ateliers assemblage de cuvée. Le format star à Colmar, et pour cause.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 55 €/pers.</span>
-            <span class="act-tag">Gastronomie</span>
-          </div>
-        </div>
-      </a>
-      <a href="activites.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#1A2E1A,#00E5A0)">🎯</div>
-        <div class="act-body">
-          <h3>Toutes nos activités en Alsace</h3>
-          <p>Filtrez par univers, format et budget. Outdoor, créatif, culturel, bien-être — tout est là.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 20 €/pers.</span>
-            <span class="act-tag">Tous univers</span>
-          </div>
-        </div>
-      </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité dans ce secteur ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
-      </a>
+    <h2 class="section-title">Activités disponibles <em>à Colmar</em></h2>
+    <p id="acts-count" class="section-intro">Chargement des activités...</p>
+    <div id="acts-grid" class="grid-3">
     </div>
   </div>
 </section>
@@ -388,6 +360,7 @@
   </div>
 </div>
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
+<script src="activities.js"></script>
 <script>
   function toggleMenu() {
     document.getElementById('hamburger').classList.toggle('open');
@@ -395,6 +368,57 @@
     document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
   }
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+  // openModal : redirige vers la page activités avec l'ID en paramètre
+  function openModal(id) {
+    window.location.href = 'activites.html?activite=' + id;
+  }
+
+  // Chargement dynamique des activités Colmar depuis activities.js
+  (function() {
+    const VILLE = 'colmar';
+
+    function matchVille(a) {
+      const keywords = villeMap[VILLE] || [VILLE];
+      const loc = (a.location || '').toLowerCase();
+      return keywords.some(kw => loc.includes(kw));
+    }
+
+    function renderActivites() {
+      if (typeof activities === 'undefined' || typeof villeMap === 'undefined') return;
+
+      const filtered = sortByOffre(activities.filter(matchVille));
+      const grid = document.getElementById('acts-grid');
+      const count = document.getElementById('acts-count');
+
+      if (filtered.length === 0) {
+        count.textContent = 'Aucune activité référencée à Colmar pour le moment.';
+        grid.innerHTML = `
+          <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;grid-column:1/-1">
+            <div style="font-size:2rem;margin-bottom:10px">➕</div>
+            <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Colmar ?</h3>
+            <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement, elle apparaîtra ici automatiquement.</p>
+            <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
+          </a>`;
+        return;
+      }
+
+      count.textContent = filtered.length + ' activité' + (filtered.length > 1 ? 's' : '') + ' disponible' + (filtered.length > 1 ? 's' : '') + ' dans la zone Colmar et alentours.';
+
+      const cardsHtml = filtered.map(a => renderActivityCard(a)).join('');
+      const referenceCard = `
+        <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
+          <div style="font-size:2rem;margin-bottom:10px">➕</div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Colmar ?</h3>
+          <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
+          <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
+        </a>`;
+
+      grid.innerHTML = cardsHtml + referenceCard;
+    }
+
+    renderActivites();
+  })();
 </script>
 </body>
 </html>
