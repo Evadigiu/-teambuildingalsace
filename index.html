@@ -934,7 +934,7 @@
 
 
     /* ── BADGES OFFRE ── */
-    .offre-badge { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 2; }
+    .offre-badge { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; }
     .offre-visible { background: rgba(91,46,255,0.9); color: white; }
     .offre-partenaire { background: linear-gradient(135deg, #5B2EFF, #7B5FFF); color: white; box-shadow: 0 2px 8px rgba(91,46,255,0.4); }
     .offre-categorie { background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; box-shadow: 0 2px 8px rgba(201,147,58,0.4); }
@@ -970,6 +970,7 @@
       object-fit: cover;
       object-position: center;
       opacity: 0;
+      z-index: 1;
       transition: opacity 0.4s ease;
     }
     .card-lazy-img.loaded {
@@ -988,6 +989,7 @@
       object-fit: cover;
       object-position: center;
       opacity: 0;
+      z-index: 1;
       transition: opacity 0.35s ease;
     }
     .card-lazy-img.loaded { opacity: 1; }
