@@ -669,20 +669,20 @@ const universLabels = {
 };
 
 // ── Rendu d'une carte activité (utilisé sur toutes les pages) ──
+// Niveaux : gratuit < essentiel < visible < partenaire < categorie
+
 function getOffreBadge(a) {
-  if (!a.revendiquee) return '';
-  const offre = a.offre || 'essentiel';
-  if (offre === 'visible') return '<div class="offre-badge offre-visible">✓ Vérifié</div>';
+  const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
+  if (offre === 'visible')    return '<div class="offre-badge offre-visible"><span class="badge-tick">✓</span> Vérifié</div>';
   if (offre === 'partenaire') return '<div class="offre-badge offre-partenaire">⭐ Partenaire</div>';
-  if (offre === 'categorie') return '<div class="offre-badge offre-categorie">🏆 Partenaire Officiel</div>';
+  if (offre === 'categorie')  return '<div class="offre-badge offre-categorie">🏆 Partenaire Officiel</div>';
   return '';
 }
 
 function getCardClass(a) {
-  if (!a.revendiquee) return 'act-card';
-  const offre = a.offre || 'essentiel';
+  const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
   if (offre === 'partenaire') return 'act-card act-card--partenaire';
-  if (offre === 'categorie') return 'act-card act-card--categorie';
+  if (offre === 'categorie')  return 'act-card act-card--categorie';
   return 'act-card';
 }
 
@@ -693,22 +693,20 @@ function renderActivityCard(a) {
 
   const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
 
-  // Photo : uniquement si offre >= essentiel ET revendiquee
-  const showPhoto = a.revendiquee && a.image && offre !== 'gratuit';
+  // Photo toujours affichée si image existe — gradient = fallback uniquement
+  const containerStyle = `background:${a.gradient || '#1A1A2E'}`;
 
-  // Toujours afficher le gradient comme fond (placeholder pendant le chargement)
-  const containerStyle = `background:${a.gradient}`;
-
+  // Bannière "non revendiquée" → contact Formspree
   const unclaimedBanner = !a.revendiquee ? `
     <div class="card-unclaimed">
       <span class="card-unclaimed-text">Fiche non revendiquée</span>
-      <a href="referencer.html" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
+      <a href="contact.html?sujet=revendication&activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
     </div>` : '';
 
   const offreBadge = getOffreBadge(a);
 
-  // Image avec lazy loading et fondu à l'apparition
-  const imgHtml = showPhoto ? `
+  // Image toujours affichée si disponible
+  const imgHtml = a.image ? `
     <img
       src="${a.image}"
       alt="${a.title}"
@@ -716,12 +714,7 @@ function renderActivityCard(a) {
       decoding="async"
       onload="this.classList.add('loaded')"
       class="card-lazy-img"
-    >` : `<div class="card-img-placeholder">${a.emoji}</div>`;
-
-  // Lien site : uniquement visible+
-  const siteLink = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire && a.partenaire.site
-    ? `<a href="${a.partenaire.site}" target="_blank" class="card-site-link" onclick="event.stopPropagation()">🔗 Voir le site</a>`
-    : '';
+    >` : `<div class="card-img-placeholder">${a.emoji || '🎯'}</div>`;
 
   return `
     <div class="${getCardClass(a)}" onclick="openModal(${a.id})">
@@ -737,7 +730,7 @@ function renderActivityCard(a) {
         <div class="card-location">📍 ${a.location}</div>
         <div class="card-footer">
           <span class="card-price">À partir de <strong>${a.prixMin} €</strong>/pers.</span>
-          ${siteLink || `<span class="card-participants">👥 ${a.participantsMin}–${a.participantsMax}</span>`}
+          <span class="card-participants">👥 ${a.participantsMin}–${a.participantsMax}</span>
         </div>
       </div>
     </div>`;
