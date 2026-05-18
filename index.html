@@ -1894,6 +1894,22 @@
     showSuggestions(v);
   });
 
+  // ====== GESTION PARAMÈTRES URL ======
+  // Permet d'arriver depuis colmar.html (ou autre page ville) avec filtres pré-appliqués
+  // Exemples : index.html?ville=colmar  /  index.html?ville=colmar&activite=3
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var ville = params.get('ville');
+    var activiteId = params.get('activite');
+    if (ville) {
+      filterVille(ville);
+    }
+    if (activiteId) {
+      // Petit délai pour laisser le DOM se stabiliser après filterVille
+      setTimeout(function() { openModal(parseInt(activiteId)); }, 100);
+    }
+  })();
+
 </script>
 </body>
 </html>
