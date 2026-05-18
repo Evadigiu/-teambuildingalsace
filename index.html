@@ -944,6 +944,22 @@
     .act-card--partenaire { border-color: #5B2EFF !important; box-shadow: 0 4px 20px rgba(91,46,255,0.15) !important; }
     .act-card--categorie { border-color: #C9933A !important; box-shadow: 0 4px 20px rgba(201,147,58,0.2) !important; }
     .card-site-link { font-size: 0.75rem; color: #5B2EFF; text-decoration: none; font-weight: 600; }
+    /* Badge tick vérifié */
+    .badge-tick { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; background: white; color: #5B2EFF; border-radius: 50%; font-size: 0.55rem; font-weight: 900; margin-right: 4px; vertical-align: middle; }
+    /* Badges dans la modale */
+    .modal-badge { display: inline-block; padding: 5px 14px; border-radius: 100px; font-size: 0.72rem; font-weight: 700; margin-bottom: 10px; }
+    .modal-badge--visible    { background: rgba(91,46,255,0.9); color: white; }
+    .modal-badge--partenaire { background: linear-gradient(135deg, #5B2EFF, #7B5FFF); color: white; box-shadow: 0 2px 8px rgba(91,46,255,0.4); }
+    .modal-badge--categorie  { background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; }
+    /* Site link dans la modale */
+    .modal-site-link { display: inline-block; margin: 8px 0 16px; font-size: 0.82rem; color: #5B2EFF; text-decoration: none; font-weight: 600; }
+    .modal-site-link:hover { text-decoration: underline; }
+    /* Galerie photos visible+ */
+    .modal-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; margin-bottom: 16px; }
+    .modal-gallery-img { width: 100%; height: 140px; object-fit: cover; border-radius: 10px; }
+    /* Bouton revendiquer dans la modale */
+    .btn-secondary-modal { display: inline-block; padding: 12px 24px; background: transparent; color: #5B2EFF; border: 2px solid #5B2EFF; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+    .btn-secondary-modal:hover { background: #5B2EFF; color: white; }
 
     /* ── LAZY LOADING IMAGES ── */
     .card-lazy-img {
@@ -1669,33 +1685,68 @@
   function openModal(id) {
     const a = activities.find(x => x.id === id);
     if (!a) return;
-    document.getElementById('modal-content').innerHTML = `
-      <div class="modal-header" style="${a.image ? `background-image:url('${a.image}');background-size:cover;background-position:center;` : `background:${a.gradient};`}">
-        ${a.image ? `<div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);border-radius:20px 20px 0 0;"></div>` : ''}
+    const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
+
+    // ── Header : photo si dispo, sinon gradient ──
+    const headerStyle = a.image
+      ? `background-image:url('${a.image}');background-size:cover;background-position:center;`
+      : `background:${a.gradient || '#1A1A2E'};`;
+    const headerOverlay = a.image
+      ? `<div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);border-radius:20px 20px 0 0;"></div>` : '';
+
+    // ── Badge niveau dans la modale ──
+    const badgeMap = {
+      visible:    '<span class="modal-badge modal-badge--visible"><span class="badge-tick">✓</span> Vérifié</span>',
+      partenaire: '<span class="modal-badge modal-badge--partenaire">⭐ Partenaire</span>',
+      categorie:  '<span class="modal-badge modal-badge--categorie">🏆 Partenaire Officiel</span>',
+    };
+    const modalBadge = badgeMap[offre] || '';
+
+    // ── Bouton principal selon niveau ──
+    // gratuit → revendiquer ; essentiel+ → demander un devis
+    const ctaHtml = a.revendiquee
+      ? `<button class="btn-primary" onclick="openDevis('${a.title.replace(/'/g, "\'")}')">Demander un devis</button>`
+      : `<a href="contact.html?sujet=revendication&activite=${encodeURIComponent(a.title)}" class="btn-secondary-modal">Revendiquer cette fiche →</a>`;
+
+    // ── Site web : visible+ ──
+    const siteHtml = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire && a.partenaire.site
+      ? `<a href="${a.partenaire.site}" target="_blank" class="modal-site-link">🔗 ${a.partenaire.site.replace(/^https?:\/\//, '')}</a>` : '';
+
+    // ── Galerie photos : visible+ (images[1..4]) ──
+    const extraImages = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.images && a.images.length > 1
+      ? `<div class="modal-section-title">Photos</div>
+         <div class="modal-gallery">
+           ${a.images.slice(1, 5).map(src => `<img src="${src}" class="modal-gallery-img" loading="lazy" alt="${a.title}">`).join('')}
+         </div>` : '';
+
+    document.getElementById('modal-content').innerHTML = \`
+      <div class="modal-header" style="\${headerStyle}">
+        \${headerOverlay}
         <div style="position:relative;z-index:1">
           <button class="modal-close" onclick="closeModalDirect()">✕</button>
-          <div style="font-size:2.5rem;margin-bottom:10px">${a.emoji}</div>
-          <h2>${a.title}</h2>
-          <div class="modal-loc">📍 ${a.location}</div>
+          <div style="font-size:2.5rem;margin-bottom:8px">\${a.emoji}</div>
+          \${modalBadge}
+          <h2>\${a.title}</h2>
+          <div class="modal-loc">📍 \${a.location}</div>
         </div>
       </div>
       <div class="modal-body">
         <div class="modal-section-title">Description</div>
-        <p class="modal-desc">${a.description}</p>
+        <p class="modal-desc">\${a.description}</p>
         <div class="modal-section-title">Informations pratiques</div>
         <div class="modal-info-grid">
-          <div class="modal-info-item"><div class="info-label">Durée</div><div class="info-val">${a.duree}</div></div>
-          <div class="modal-info-item"><div class="info-label">Budget</div><div class="info-val">À partir de ${a.prixMin} € / pers.</div></div>
-          <div class="modal-info-item"><div class="info-label">Participants</div><div class="info-val">${a.participantsMin} – ${a.participantsMax} pers.</div></div>
-          <div class="modal-info-item"><div class="info-label">Lieu</div><div class="info-val">${a.location}</div></div>
+          <div class="modal-info-item"><div class="info-label">Durée</div><div class="info-val">\${a.duree}</div></div>
+          <div class="modal-info-item"><div class="info-label">Budget</div><div class="info-val">À partir de \${a.prixMin} € / pers.</div></div>
+          <div class="modal-info-item"><div class="info-label">Participants</div><div class="info-val">\${a.participantsMin} – \${a.participantsMax} pers.</div></div>
+          <div class="modal-info-item"><div class="info-label">Lieu</div><div class="info-val">\${a.location}</div></div>
         </div>
         <div class="modal-section-title">Catégories</div>
-        <div class="modal-tags">${a.tags.map(t => `<span class="card-tag ${t.cls}">${t.label}</span>`).join('')}</div>
-        <div class="modal-cta">
-          <button class="btn-primary" onclick="openDevis('${a.title}')">Demander un devis</button>
-        </div>
+        <div class="modal-tags">\${a.tags.map(t => \`<span class="card-tag \${t.cls}">\${t.label}</span>\`).join('')}</div>
+        \${siteHtml}
+        <div class="modal-cta">\${ctaHtml}</div>
+        \${extraImages}
       </div>
-    `;
+    \`;
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
