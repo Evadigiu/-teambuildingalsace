@@ -1497,21 +1497,21 @@
   var currentData = [];
 
   function buildCard(a) {
-    const imgStyle = a.image
-      ? `background:${a.gradient}`
-      : `background:${a.gradient}`;
     const imgHtml = a.image
       ? `<img src="${a.image}" alt="${a.title}" loading="lazy" decoding="async" class="card-lazy-img" onload="this.classList.add('loaded')">`
       : `<div class="card-img-placeholder">${a.emoji}</div>`;
+    const offreBadge = getOffreBadge(a);
+    const unclaimedBanner = !a.revendiquee ? `<div class="card-unclaimed">
+            <span class="card-unclaimed-text">Fiche non revendiquée</span>
+            <a href="contact.html?sujet=revendication&activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
+          </div>` : '';
     return `
       <div class="card" onclick="openModal(${a.id})">
         <div class="card-img" style="background:${a.gradient}">
           ${imgHtml}
           <div class="card-badge">${a.duree}</div>
-          ${!a.revendiquee ? `<div class="card-unclaimed">
-            <span class="card-unclaimed-text">Fiche non revendiquée</span>
-            <a href="referencer.html" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
-          </div>` : ''}
+          ${offreBadge}
+          ${unclaimedBanner}
         </div>
         <div class="card-body">
           <div class="card-tags">${a.tags.map(t => `<span class="card-tag ${t.cls}">${t.label}</span>`).join('')}</div>
