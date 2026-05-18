@@ -1713,40 +1713,41 @@
       ? `<a href="${a.partenaire.site}" target="_blank" class="modal-site-link">🔗 ${a.partenaire.site.replace(/^https?:\/\//, '')}</a>` : '';
 
     // ── Galerie photos : visible+ (images[1..4]) ──
-    const extraImages = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.images && a.images.length > 1
-      ? `<div class="modal-section-title">Photos</div>
-         <div class="modal-gallery">
-           ${a.images.slice(1, 5).map(src => `<img src="${src}" class="modal-gallery-img" loading="lazy" alt="${a.title}">`).join('')}
-         </div>` : '';
+    var extraImages = '';
+    if ((offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.images && a.images.length > 1) {
+      var galleryImgs = a.images.slice(1, 5).map(function(src) {
+        return '<img src="' + src + '" class="modal-gallery-img" loading="lazy" alt="' + a.title + '">';
+      }).join('');
+      extraImages = '<div class="modal-section-title">Photos</div><div class="modal-gallery">' + galleryImgs + '</div>';
+    }
 
-    document.getElementById('modal-content').innerHTML = \`
-      <div class="modal-header" style="\${headerStyle}">
-        \${headerOverlay}
-        <div style="position:relative;z-index:1">
-          <button class="modal-close" onclick="closeModalDirect()">✕</button>
-          <div style="font-size:2.5rem;margin-bottom:8px">\${a.emoji}</div>
-          \${modalBadge}
-          <h2>\${a.title}</h2>
-          <div class="modal-loc">📍 \${a.location}</div>
-        </div>
-      </div>
-      <div class="modal-body">
-        <div class="modal-section-title">Description</div>
-        <p class="modal-desc">\${a.description}</p>
-        <div class="modal-section-title">Informations pratiques</div>
-        <div class="modal-info-grid">
-          <div class="modal-info-item"><div class="info-label">Durée</div><div class="info-val">\${a.duree}</div></div>
-          <div class="modal-info-item"><div class="info-label">Budget</div><div class="info-val">À partir de \${a.prixMin} € / pers.</div></div>
-          <div class="modal-info-item"><div class="info-label">Participants</div><div class="info-val">\${a.participantsMin} – \${a.participantsMax} pers.</div></div>
-          <div class="modal-info-item"><div class="info-label">Lieu</div><div class="info-val">\${a.location}</div></div>
-        </div>
-        <div class="modal-section-title">Catégories</div>
-        <div class="modal-tags">\${a.tags.map(t => \`<span class="card-tag \${t.cls}">\${t.label}</span>\`).join('')}</div>
-        \${siteHtml}
-        <div class="modal-cta">\${ctaHtml}</div>
-        \${extraImages}
-      </div>
-    \`;
+    var html = '';
+    html += '<div class="modal-header" style="' + headerStyle + '">';
+    html += headerOverlay;
+    html += '<div style="position:relative;z-index:1">';
+    html += '<button class="modal-close" onclick="closeModalDirect()">✕</button>';
+    html += '<div style="font-size:2.5rem;margin-bottom:8px">' + a.emoji + '</div>';
+    html += modalBadge;
+    html += '<h2>' + a.title + '</h2>';
+    html += '<div class="modal-loc">📍 ' + a.location + '</div>';
+    html += '</div></div>';
+    html += '<div class="modal-body">';
+    html += '<div class="modal-section-title">Description</div>';
+    html += '<p class="modal-desc">' + a.description + '</p>';
+    html += '<div class="modal-section-title">Informations pratiques</div>';
+    html += '<div class="modal-info-grid">';
+    html += '<div class="modal-info-item"><div class="info-label">Durée</div><div class="info-val">' + a.duree + '</div></div>';
+    html += '<div class="modal-info-item"><div class="info-label">Budget</div><div class="info-val">À partir de ' + a.prixMin + ' € / pers.</div></div>';
+    html += '<div class="modal-info-item"><div class="info-label">Participants</div><div class="info-val">' + a.participantsMin + ' – ' + a.participantsMax + ' pers.</div></div>';
+    html += '<div class="modal-info-item"><div class="info-label">Lieu</div><div class="info-val">' + a.location + '</div></div>';
+    html += '</div>';
+    html += '<div class="modal-section-title">Catégories</div>';
+    html += '<div class="modal-tags">' + a.tags.map(function(t){ return '<span class="card-tag ' + t.cls + '">' + t.label + '</span>'; }).join('') + '</div>';
+    html += siteHtml;
+    html += '<div class="modal-cta">' + ctaHtml + '</div>';
+    html += extraImages;
+    html += '</div>';
+    document.getElementById('modal-content').innerHTML = html;
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
