@@ -608,6 +608,7 @@
       border-radius: 100px;
       font-weight: 700;
       border: 1px solid rgba(255,255,255,0.15);
+      z-index: 4;
     }
 
     .card-body { padding: 18px; }
@@ -908,6 +909,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
+      z-index: 4;
     }
     .card-unclaimed-text {
       font-size: 0.68rem;
@@ -938,7 +940,7 @@
     .offre-visible { background: rgba(91,46,255,0.9); color: white; }
     .offre-partenaire { background: linear-gradient(135deg, #5B2EFF, #7B5FFF); color: white; box-shadow: 0 2px 8px rgba(91,46,255,0.4); }
     .offre-categorie { background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; box-shadow: 0 2px 8px rgba(201,147,58,0.4); }
-    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 4; }
     .card-unclaimed-text { font-size: 0.68rem; color: rgba(255,255,255,0.55); font-weight: 500; }
     .card-unclaimed-btn { padding: 5px 12px; background: var(--vert); color: var(--noir); border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; cursor: pointer; white-space: nowrap; text-decoration: none; transition: opacity 0.2s; }
     .act-card--partenaire { border-color: #5B2EFF !important; box-shadow: 0 4px 20px rgba(91,46,255,0.15) !important; }
