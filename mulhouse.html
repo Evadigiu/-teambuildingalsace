@@ -199,28 +199,43 @@
     .cat-outdoor { background:#E8F5E9;color:#1B5E20; }
     @media (max-width: 768px) { .acts-grid { grid-template-columns: 1fr; } }
 
+
+    /* ── NAV DROPDOWNS ── */
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.2s; }
+    .nav-dropdown-btn:hover { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: var(--noir); font-size: 0.82rem; font-weight: 600; transition: background 0.15s; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .mob-accordion { width: 100%; }
+    .mob-accordion-btn { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0; }
+    .mob-accordion-btn:hover { color: var(--vert); }
+    .mob-accordion-btn .mob-arrow { font-size: 0.55rem; transition: transform 0.25s; display: inline-block; }
+    .mob-accordion-btn.open { color: var(--vert); }
+    .mob-accordion-btn.open .mob-arrow { transform: rotate(180deg); }
+    .mob-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding-top 0.2s; display: flex; flex-direction: column; gap: 20px; }
+    .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
+    .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+    .mob-accordion-content a:hover { color: var(--vert) !important; }
   </style>
 </head>
 <body>
 
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<header></header>
 
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="referencer.html" onclick="toggleMenu()">Référencer mon activité</a>
-  <a href="contact.html" onclick="toggleMenu()">Contact</a>
-</div>
+<div class="mobile-nav" id="mobile-nav"></div>
 
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <span>Team Building Mulhouse</span>
@@ -250,14 +265,32 @@
   </div>
 </div>
 
+<!-- ENCART SAVIEZ-VOUS -->
+<section style="background:white">
+  <div class="container" style="max-width:860px">
+    <div style="background:linear-gradient(135deg,#0D0D0D,#1a1a3e);border-radius:20px;padding:40px 44px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:var(--violet);border-radius:50%;filter:blur(80px);opacity:0.3"></div>
+      <div style="position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;background:var(--vert);border-radius:50%;filter:blur(60px);opacity:0.2"></div>
+      <div style="position:relative;z-index:1">
+        <span style="font-size:0.67rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--vert);font-weight:700;display:block;margin-bottom:14px">💡 Le saviez-vous ?</span>
+        <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;color:white;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.2">Mulhouse, la ville qui surprend ceux qui ne la connaissent pas encore.</h2>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.85;margin-bottom:16px">Classée <strong style="color:var(--vert)">n°1 des villes avec les meilleures opportunités emploi-logement en France</strong> deux années de suite, Mulhouse n'est plus seulement la ville de l'industrie textile du XIXe siècle. Elle s'est réinventée : capitale mondiale de la chimie de spécialité, berceau du groupe PSA, pôle universitaire en plein essor, et ville frontalière stratégique entre la France, l'Allemagne et la Suisse.</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.85;margin-bottom:16px">Son passé industriel a forgé une culture du travail unique — directe, pragmatique, collective. Les équipes mulhousiennes sont souvent cosmopolites : <strong style="color:white">11,3% des actifs travaillent de l'autre côté de la frontière</strong>, et la ville attire des profils venus de toute l'Europe. Ce brassage en fait un terrain idéal pour des team buildings qui transcendent les cultures.</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.85">Aujourd'hui, Mulhouse c'est aussi une scène culturelle qui monte — la Filature, le Musée de l'Impression sur Étoffes, la Kunsthalle — et une gastronomie qui réconcilie alsacien et cosmopolite. Une ville qui sait qui elle est, et qui n'a plus rien à prouver.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SECTION 1 : MARCHÉ DU TRAVAIL -->
 <section id="activites">
   <div class="container">
     <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>dans ce secteur</em></h2>
-    <p id="acts-count" class="section-intro">Chargement...</p>
-    <div class="acts-grid" id="acts-grid">
-      <p style="color:#aaa;font-size:0.9rem">Chargement des activités...</p>
+    <h2 class="section-title">Activités disponibles <em>à Mulhouse</em></h2>
+    <p class="section-intro">Une sélection d'activités disponibles dans la zone Mulhouse. Cliquez pour voir le détail.</p>
+    <div id="acts-grid" class="grid-3"></div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?ville=mulhouse" class="btn-p">Voir toutes les activités à Mulhouse →</a>
     </div>
   </div>
 </section>
@@ -265,55 +298,58 @@
 <!-- SECTION 4 : LIEUX -->
 <section style="background:var(--gris-clair)">
   <div class="container">
-    <div class="grid-2">
+    <span class="section-label">Les quartiers & alentours</span>
+    <h2 class="section-title">S'épanouir <em>à Mulhouse</em></h2>
+    <p class="section-intro">Mulhouse offre une diversité de cadres souvent méconnue — du centre historique redessiné aux collines verdoyantes de Riedisheim, chaque quartier a sa propre personnalité.</p>
+    <div class="grid-2" style="margin-top:32px">
       <div>
-        <span class="section-label">Logistique</span>
-        <h2 class="section-title">Les cadres idéaux<br><em>autour de Mulhouse</em></h2>
-        <p class="section-intro">Mulhouse est entourée de cadres exceptionnels accessibles en quelques minutes — un avantage rare pour les team buildings outdoor.</p>
-        <div>
           <div class="lieu">
-            <div class="lieu-ico">⛰️</div>
+            <div class="lieu-ico">🏛️</div>
             <div>
-              <h4>Massif des Vosges</h4>
-              <p>Forêts, sentiers et panoramas. Idéal pour les activités nature, survie, randonnée leadership et cohésion outdoor en pleine montagne.</p>
-              <span class="distance">20 min de Mulhouse</span>
+              <h4>Le centre historique</h4>
+              <p>La place de la Réunion, le Temple Saint-Étienne, les rues commerçantes réaménagées. Un centre-ville en pleine renaissance, idéal pour les rallyes découverte, chasses au trésor urbaines et activités culturelles.</p>
+              <span class="distance">Centre-ville</span>
             </div>
           </div>
           <div class="lieu">
-            <div class="lieu-ico">🏭</div>
+            <div class="lieu-ico">🌳</div>
             <div>
-              <h4>Wittenheim & Parc des Collines</h4>
-              <p>Zone d'activités dynamique avec plusieurs prestataires team building — lancer de hache, réalité virtuelle, sports indoor. Tout à proximité immédiate.</p>
-              <span class="distance">5 min de Mulhouse</span>
-            </div>
-          </div>
-          <div class="lieu">
-            <div class="lieu-ico">🍷</div>
-            <div>
-              <h4>Route des Vins — Colmar & Guebwiller</h4>
-              <p>Les vignobles du Haut-Rhin sont parmi les plus beaux d'Alsace. Rallyes œnotouristiques, dégustations et culture alsacienne à portée de route.</p>
-              <span class="distance">20 min de Mulhouse</span>
-            </div>
-          </div>
-          <div class="lieu">
-            <div class="lieu-ico">🌊</div>
-            <div>
-              <h4>Le Rhin & la frontière franco-allemande</h4>
-              <p>La position transfrontalière de Mulhouse est un atout unique — organisez des activités des deux côtés du Rhin pour des équipes franco-allemandes.</p>
+              <h4>Le Rebberg & ses parcs</h4>
+              <p>Le quartier résidentiel le plus agréable de Mulhouse, avec le zoo de Mulhouse (l'un des plus anciens de France), le parc Miquey et le parc du Réservoir. Un espace vert exceptionnel pour les activités outdoor et cohésion nature.</p>
               <span class="distance">10 min du centre</span>
             </div>
           </div>
-        </div>
+          <div class="lieu">
+            <div class="lieu-ico">🏗️</div>
+            <div>
+              <h4>La zone DMC</h4>
+              <p>L'ancienne filature Dollfus-Mieg reconvertie en quartier créatif et économique. Lofts, espaces événementiels, coworking — le lieu parfait pour les team buildings hybrides mêlant travail et créativité dans un cadre industriel chic.</p>
+              <span class="distance">5 min du centre</span>
+            </div>
+          </div>
+          <div class="lieu">
+            <div class="lieu-ico">🌿</div>
+            <div>
+              <h4>Les collines de Riedisheim & le Sundgau</h4>
+              <p>Juste au sud de Mulhouse, les collines verdoyantes de Riedisheim et les paysages du Sundgau offrent un dépaysement immédiat. Randonnées, activités nature, fermes locales et étangs du Sundgau pour des team buildings ressourçants loin du bitume.</p>
+              <span class="distance">10–20 min de Mulhouse</span>
+            </div>
+          </div>
       </div>
-
-      <div class="dark-box">
-        <h3>🗓️ Quand organiser votre team building à Mulhouse ?</h3>
-        <ul>
-          <li><span>🌸</span><span><strong style="color:white">Printemps (avr–juin)</strong> — <strong>Le top.</strong> Les Vosges sont à leur plus belle, la météo est clémente. Idéal pour le outdoor et les premières activités de l'année.</span></li>
-          <li><span>☀️</span><span><strong style="color:white">Été (juil–août)</strong> — Parfait pour les activités sportives et nautiques. Attention aux congés d'été dans le secteur industriel — planifier avant mi-juillet.</span></li>
-          <li><span>🍂</span><span><strong style="color:white">Automne (sept–nov)</strong> — <strong>Notre préféré.</strong> Vignobles en couleurs, randonnées en Vosges, dégustations de vins de vendange. Le moment idéal pour clôturer un projet.</span></li>
-          <li><span>❄️</span><span><strong style="color:white">Hiver (déc–mars)</strong> — Activités indoor parfaites (escape game, lancer de hache, quiz). Soirées de Noël dans un cadre alsacien authentique.</span></li>
-        </ul>
+      <div>
+        <div style="background:linear-gradient(135deg,#0D0D0D,#1a1a3e);border-radius:16px;padding:32px;height:100%;display:flex;flex-direction:column;gap:16px">
+          <h3 style="font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:white">🌍 Mulhouse, ville des trois frontières</h3>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.84rem;line-height:1.8">À 30 km de Bâle et Fribourg-en-Brisgau, Mulhouse est l'une des rares villes au monde où vous pouvez déjeuner en France, faire une activité en Suisse et terminer en Allemagne — le tout dans la même journée.</p>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.84rem;line-height:1.8">Cette position unique fait de Mulhouse une ville exceptionnellement cosmopolite. Les équipes y sont habituées à travailler dans plusieurs langues et cultures — un atout pour les team buildings interculturels.</p>
+          <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div style="text-align:center"><span style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:var(--vert);display:block">30 min</span><span style="font-size:0.72rem;color:#aaa;text-transform:uppercase;letter-spacing:0.08em">de Bâle & Fribourg</span></div>
+              <div style="text-align:center"><span style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:var(--vert);display:block">3 pays</span><span style="font-size:0.72rem;color:#aaa;text-transform:uppercase;letter-spacing:0.08em">accessibles à vélo</span></div>
+              <div style="text-align:center"><span style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:var(--violet);display:block">1er</span><span style="font-size:0.72rem;color:#aaa;text-transform:uppercase;letter-spacing:0.08em">pôle chimie de spécialité</span></div>
+              <div style="text-align:center"><span style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:var(--violet);display:block">50+</span><span style="font-size:0.72rem;color:#aaa;text-transform:uppercase;letter-spacing:0.08em">nationalités représentées</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -362,50 +398,38 @@
 
 <script src="activities.js"></script>
 <script>
-  function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobile-nav').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
-  }
-  function toggleFaq(el) {
-    el.parentElement.classList.toggle('open');
-  }
-</script>
-<script src="activities.js"></script>
-<script>
+  function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
   function openModal(id) {
-    window.location.href = 'index.html#activites';
+    window.location.href = 'index.html?ville=mulhouse&activite=' + id;
   }
 
-  function renderLocalCards() {
-  var kws = villeMap['mulhouse'] || ['mulhouse'];
-  var filtered = activities.filter(function(a) {
-    var loc = (a.location || '').toLowerCase();
-    return kws.some(function(k) { return loc.includes(k); });
-  });
+  window.addEventListener('load', function() {
+    var VILLE = 'mulhouse';
+    var MAX = 3;
+    var keywords = villeMap[VILLE] || [VILLE];
+    var filtered = sortByOffre(activities.filter(function(a) {
+      var loc = (a.location || '').toLowerCase();
+      return keywords.some(function(kw) { return loc.includes(kw); });
+    })).slice(0, MAX);
 
     var grid = document.getElementById('acts-grid');
     if (!grid) return;
 
-    var html = filtered.map(function(a) { return renderActivityCard(a); }).join('');
+    if (filtered.length === 0) {
+      grid.innerHTML = '<p style="color:#aaa;font-size:0.9rem;grid-column:1/-1">Aucune activité référencée à Mulhouse pour le moment.</p>';
+      return;
+    }
 
-    // Ajouter la carte "Référencer"
-    html += `
-      <div class="add-card">
-        <div style="font-size:2rem">➕</div>
-        <h3>Vous proposez une activité ici ?</h3>
-        <p>Référencez-la gratuitement.</p>
-        <a href="referencer.html" class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</a>
-      </div>`;
+    var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">'
+      + '<div style="font-size:2rem;margin-bottom:10px">➕</div>'
+      + '<h3 style="font-family:Outfit,sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Mulhouse ?</h3>'
+      + '<p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>'
+      + '<span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
 
-    grid.innerHTML = html;
-
-    // Mettre à jour le compteur
-    var counter = document.getElementById('acts-count');
-    if (counter) counter.textContent = filtered.length + ' activité' + (filtered.length > 1 ? 's' : '') + ' disponible' + (filtered.length > 1 ? 's' : '');
-  }
-
-  document.addEventListener('DOMContentLoaded', renderLocalCards);
+    grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('') + referenceCard;
+  });
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
