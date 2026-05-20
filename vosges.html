@@ -419,12 +419,10 @@
   window.addEventListener('load', function() {
     var VILLE = 'vosges';
     var MAX = 3;
-    var keywords = villeMap[VILLE] || ['vosges', 'munster', 'hohneck', 'obernai'];
+    var keywords = ['vosges', 'munster', 'obernai', 'hohneck', 'schlucht', 'orbey', 'gérardmer', 'thann'];
     var filtered = sortByOffre(activities.filter(function(a) {
       var loc = (a.location || '').toLowerCase();
-      var univers = a.univers || [];
-      return keywords.some(function(kw) { return loc.includes(kw); })
-        || univers.includes('nature') || univers.includes('sport');
+      return keywords.some(function(kw) { return loc.includes(kw); });
     })).slice(0, MAX);
 
     var grid = document.getElementById('acts-grid');
