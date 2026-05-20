@@ -13,7 +13,7 @@ const activities = [
         nom: "Pomelo",
         tagline: "L\'agence événementielle pour faire l\'expérience de la nature",
         logo: "images/logo_pomelo.png",
-        site: "https://pomelo-events.fr",
+        site: "https://www.pomelo-events.fr",
         categorie: "nature",
         interview: [
           { q: "Qu\'est-ce qui rend votre activité unique ?", r: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
@@ -83,7 +83,7 @@ const activities = [
       description: "Découvrez l'art de la poterie alsacienne dans un atelier artisanal authentique. En équipes, concevez et réalisez des pièces inspirées des motifs traditionnels d'Alsace. Un moment de créativité, de détente et de partage qui favorise l'expression individuelle et la coopération. Session de bien-être incluse.",
       objectifs: ["communication", "cohesion"],
       univers: ["creatif", "bienetre"],
-      format: ["moins2h"],
+      format: ["demijournee"],
       saison: ["toutesaisons"],
       env: ["indoor"],
       prixMin: 55,
@@ -152,6 +152,7 @@ const activities = [
       tags: [
         { label: "Cohésion", cls: "cat-cohesion" },
         { label: "Sport & Adrénaline", cls: "cat-sport" },
+        { label: "What the Fuck", cls: "cat-wtf" },
         { label: "Indoor", cls: "cat-indoor" }
       ]
     },
