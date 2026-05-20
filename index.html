@@ -127,16 +127,18 @@
     .nav-dropdown-btn:hover { color: var(--vert); }
     .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
     .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
     .nav-dropdown:hover .arrow { transform: rotate(180deg); }
     .dropdown-menu {
       position: absolute;
-      top: calc(100% + 14px);
+      top: 100%;
       left: 50%;
       transform: translateX(-50%);
       background: white;
       border-radius: 14px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.2);
       padding: 10px;
+      padding-top: 18px;
       min-width: 220px;
       display: none;
       z-index: 2000;
@@ -145,14 +147,11 @@
     .dropdown-menu::before {
       content: '';
       position: absolute;
-      top: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 12px; height: 12px;
-      background: white;
-      border-left: 1px solid var(--bordure);
-      border-top: 1px solid var(--bordure);
-      transform: translateX(-50%) rotate(45deg);
+      top: -14px;
+      left: 0;
+      right: 0;
+      height: 14px;
+      background: transparent;
     }
     .nav-dropdown:hover .dropdown-menu { display: block; }
     .nav-dropdown.open .dropdown-menu { display: block; }
@@ -1875,13 +1874,6 @@
 
   function filterVille(ville) {
     activeVille = ville;
-
-    // Réinitialiser tous les filtres sidebar
-    activeFilters = { objectif: [], univers: [], env: [], format: [], saison: [] };
-    document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
-    document.getElementById('budget-range').value = 200;
-    document.getElementById('budget-display').textContent = '200+ €';
-    document.getElementById('participants-select').value = '';
 
     // Mettre à jour le bouton ville actif
     document.querySelectorAll('.ville-btn').forEach(function(b) {
