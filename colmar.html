@@ -149,26 +149,42 @@
       section { padding: 40px 0; } .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .cta-section { padding: 48px 20px; }
     }
+
+    /* ── NAV DROPDOWNS ── */
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.2s; }
+    .nav-dropdown-btn:hover { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: var(--noir); font-size: 0.82rem; font-weight: 600; transition: background 0.15s; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    /* ── MOBILE ACCORDION ── */
+    .mob-accordion { width: 100%; }
+    .mob-accordion-btn { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0; }
+    .mob-accordion-btn:hover { color: var(--vert); }
+    .mob-accordion-btn .mob-arrow { font-size: 0.55rem; transition: transform 0.25s; display: inline-block; }
+    .mob-accordion-btn.open { color: var(--vert); }
+    .mob-accordion-btn.open .mob-arrow { transform: rotate(180deg); }
+    .mob-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding-top 0.2s; display: flex; flex-direction: column; gap: 20px; }
+    .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
+    .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+    .mob-accordion-content a:hover { color: var(--vert) !important; }
   </style>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="referencer.html" onclick="toggleMenu()">Référencer</a>
-  <a href="contact.html" onclick="toggleMenu()">Contact</a>
-</div>
+<header></header>
+<div class="mobile-nav" id="mobile-nav"></div>
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <span>Team Building Colmar</span>
 </div>
@@ -382,18 +398,10 @@
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 <script src="activities.js"></script>
 <script>
-  function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobile-nav').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
-  }
+  // toggleMenu défini dans nav.js
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
-  function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobile-nav').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
-  }
+  // toggleMenu défini dans nav.js
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
   // Redirige vers index.html avec filtre ville + modale ouverte
@@ -422,5 +430,6 @@
     grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('');
   })();
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
