@@ -131,26 +131,58 @@
       section { padding: 40px 0; } .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .cta-section { padding: 48px 20px; }
     }
+
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.2s; }
+    .nav-dropdown-btn:hover, .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: var(--noir); font-size: 0.82rem; font-weight: 600; transition: background 0.15s; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .mob-accordion { width: 100%; }
+    .mob-accordion-btn { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0; }
+    .mob-accordion-btn:hover, .mob-accordion-btn.open { color: var(--vert); }
+    .mob-accordion-btn .mob-arrow { font-size: 0.55rem; transition: transform 0.25s; display: inline-block; }
+    .mob-accordion-btn.open .mob-arrow { transform: rotate(180deg); }
+    .mob-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding-top 0.2s; display: flex; flex-direction: column; gap: 20px; }
+    .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
+    .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+    .mob-accordion-content a:hover { color: var(--vert) !important; }
+    .card-img { position: relative; height: 160px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .card-img-placeholder { font-size: 2.8rem; }
+    .card-lazy-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; z-index: 1; transition: opacity 0.4s ease; }
+    .card-lazy-img.loaded { opacity: 1; }
+    .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); color: white; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 100px; font-weight: 700; z-index: 4; }
+    .offre-badge { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; }
+    .offre-visible { background: rgba(91,46,255,0.85); color: white; }
+    .offre-partenaire { background: rgba(91,46,255,0.9); color: white; }
+    .offre-categorie { background: rgba(201,147,58,0.9); color: #0D0D0D; }
+    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 4; }
+    .card-unclaimed-text { font-size: 0.68rem; color: rgba(255,255,255,0.55); }
+    .card-unclaimed-btn { font-size: 0.68rem; color: var(--vert); font-weight: 700; text-decoration: none; }
+    .card-body { padding: 14px 16px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .card-tag { font-size: 0.62rem; padding: 3px 8px; border-radius: 100px; font-weight: 700; background: var(--gris-clair); color: var(--violet); }
+    .card-title { font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 800; margin-bottom: 5px; color: var(--noir); }
+    .card-location { font-size: 0.78rem; color: #999; margin-bottom: 10px; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--bordure); font-size: 0.78rem; }
+    .card-price { color: #555; }
+    .card-price strong { color: var(--violet); font-weight: 800; }
+    .card-participants { color: #aaa; }
   </style>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="referencer.html" onclick="toggleMenu()">Référencer</a>
-  <a href="contact.html" onclick="toggleMenu()">Contact</a>
-</div>
+<header></header>
+<div class="mobile-nav" id="mobile-nav"></div>
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <span>Team Building Sélestat</span>
 </div>
@@ -161,7 +193,7 @@
     <h1>Team Building à <em>Sélestat</em> —<br>Au cœur de l'Alsace,<br>entre Vosges et vignobles.</h1>
     <p class="hero-desc">Sélestat occupe une position géographique unique : à mi-chemin entre Strasbourg et Colmar, adossée aux Vosges et bordée par la Route des Vins. La capitale du Centre Alsace, avec le groupe Schmidt comme fleuron industriel, a tout pour accueillir des team buildings mémorables.</p>
     <div class="hero-btns">
-      <a href="index.html#activites" class="btn-p">Voir les activités ↓</a>
+      <a href="#activites" class="btn-p">Voir les activités ↓</a>
       <a href="referencer.html" class="btn-s">Référencer mon activité</a>
     </div>
   </div>
@@ -186,6 +218,22 @@
     </div>
   </div>
 </div>
+<section style="background:white">
+  <div class="container" style="max-width:860px">
+    <div style="background:linear-gradient(135deg,#1A1A2E,#2d1b6e);border-radius:20px;padding:40px 44px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:var(--violet);border-radius:50%;filter:blur(80px);opacity:0.3"></div>
+      <div style="position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;background:var(--vert);border-radius:50%;filter:blur(60px);opacity:0.15"></div>
+      <div style="position:relative;z-index:1">
+        <span style="font-size:0.67rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--vert);font-weight:700;display:block;margin-bottom:14px">📍 Sélestat en 30 secondes</span>
+        <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;color:white;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.2">La capitale méconnue du Centre Alsace, et pourtant.</h2>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.85;margin-bottom:14px">Organiser un <strong style="color:var(--vert)">team building à Sélestat</strong>, c'est choisir l'une des villes les plus historiquement riches d'Alsace — et l'une des moins encombrées de touristes. Fondée à l'époque romaine, Sélestat a été l'un des grands foyers de l'humanisme rhénan au XVe siècle : Beatus Rhenanus, ami d'Érasme et de Luther, y a vécu et laissé une bibliothèque classée au patrimoine mondial de l'UNESCO. Ce n'est pas rien pour une ville de 20 000 habitants.</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.85;margin-bottom:14px">Aujourd'hui, Sélestat est une ville industrielle discrète mais solide. Le groupe Schmidt y emploie des milliers de personnes, et la ville est le <strong style="color:white">carrefour logistique naturel du Centre Alsace</strong> — à 45 minutes de Strasbourg, 30 de Colmar, et en accès direct sur les vignobles de Ribeauvillé et les contreforts vosgiens. Une position unique pour des <strong style="color:var(--vert)">séminaires d'entreprise en Centre Alsace</strong> ou des journées cohésion à mi-chemin entre tous les sites.</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.85">Ce qu'on aime à Sélestat : l'authenticité. Pas de foule, pas de prix gonflés par le tourisme, mais des prestataires locaux solides, un cadre historique fort, et la Route des Vins à 10 minutes. Pour un <strong style="color:white">team building Sélestat</strong> qui sort des sentiers battus, c'est l'endroit idéal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container">
     <span class="section-label">Contexte RH 2025</span>
@@ -215,11 +263,11 @@
       <div class="dark-box">
         <h3>⚡ Ce que ça signifie pour vos KPIs RH</h3>
         <ul>
-          <li><span>💰</span><span>Le coût moyen d'un départ est de <strong>4 000 à 10 000 €</strong> selon le poste. Investir 40 à 100 €/pers. dans un team building est rentable dès le premier collaborateur retenu.</span></li>
-          <li><span>🤝</span><span>Les salariés avec de solides relations au travail sont <strong>2 fois plus engagés</strong> et <strong>50% moins susceptibles de quitter</strong> l'entreprise (Gallup).</span></li>
-          <li><span>🌱</span><span><strong>85% des salariés</strong> sont plus engagés dans les entreprises qui adoptent des pratiques RSE concrètes — un argument fort pour les activités nature et bien-être.</span></li>
-          <li><span>📈</span><span><strong>71% des salariés</strong> affirment que le team building booste leur motivation (OpinionWay, 2023) — un ROI mesurable sur la performance collective.</span></li>
-          <li><span>🔄</span><span>L'onboarding augmente de <strong>82% la rétention</strong> des talents (Brandon Hall Group) — les activités d'intégration sont l'investissement RH le plus rentable.</span></li>
+          <li><span>🏭</span><span>Dans les bassins d'emploi industriels comme Sélestat, le turnover coûte en moyenne <strong>6 à 9 mois de salaire</strong> par départ — techniciens et opérateurs qualifiés inclus (Deloitte, 2024). Un team building annuel est rentable si un seul collaborateur reste.</span></li>
+          <li><span>📍</span><span>La position centrale de Sélestat permet de rassembler des équipes multi-sites en <strong>moins de 45 minutes</strong> depuis n'importe quel point d'Alsace — un gain logistique et financier réel sur les déplacements.</span></li>
+          <li><span>🤝</span><span><strong>67% des salariés</strong> estiment que les liens sociaux au travail sont le premier facteur de bien-être (Malakoff Humanis, 2024) — devant la rémunération. Ce chiffre monte à 74% dans les équipes industrielles.</span></li>
+          <li><span>🌿</span><span>Les team buildings combinant nature et gastronomie (format accessible depuis Sélestat) génèrent un <strong>taux de satisfaction de 94%</strong> — le plus élevé de tous les formats (Baromètre BEDOUK 2024).</span></li>
+          <li><span>🎯</span><span>Les entreprises qui organisent <strong>2 à 4 team buildings par an</strong> constatent une réduction moyenne de <strong>18% de l'absentéisme</strong> dans les 6 mois suivants (ANDRH / Observatoire QVT 2023).</span></li>
         </ul>
       </div>
     </div>
@@ -258,29 +306,29 @@
     </div>
   </div>
 </section>
-<section>
+<section id="activites">
   <div class="container">
     <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>dans ce secteur</em></h2>
-    <p class="section-intro">Des activités sélectionnées pour leur qualité et leur impact sur la cohésion d'équipe.</p>
-    <div class="grid-3">
-      <a href="index.html#activites" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#1A1A2E,#5B2EFF)">🎯</div>
-        <div class="act-body">
-          <h3>Toutes nos activités en Alsace</h3>
-          <p>Filtrez par ville, univers, format et budget pour trouver l'activité idéale pour votre équipe.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 20 €/pers.</span>
-            <span class="act-tag">Tous univers</span>
-          </div>
-        </div>
-      </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité dans ce secteur ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
-      </a>
+    <h2 class="section-title">Activités disponibles <em>à Sélestat</em></h2>
+    <p class="section-intro">Une sélection d'activités disponibles dans la zone Sélestat et Centre Alsace. Cliquez pour voir le détail.</p>
+    <div id="acts-grid" class="grid-3"></div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?ville=selestat" class="btn-p">Voir toutes les activités Sélestat →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ENCART SAVIEZ-VOUS : VILLE D'ART ET D'HISTOIRE -->
+<section style="background:var(--gris-clair)">
+  <div class="container" style="max-width:860px">
+    <div style="display:flex;gap:24px;align-items:flex-start;background:white;border-radius:16px;padding:32px;border:1.5px solid var(--bordure)">
+      <div style="font-size:2.5rem;flex-shrink:0">🏛️</div>
+      <div>
+        <span style="font-size:0.67rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--violet);font-weight:700;display:block;margin-bottom:8px">Le saviez-vous ?</span>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:var(--noir);margin-bottom:10px">Sélestat, Ville d'Art et d'Histoire</h3>
+        <p style="font-size:0.86rem;color:#666;line-height:1.85;margin-bottom:10px">Sélestat est officiellement labellisée <strong>Ville d'Art et d'Histoire</strong> — un label décerné par le ministère de la Culture à moins de 200 villes en France. Sa <strong>Bibliothèque Humaniste</strong>, fondée en 1452 et inscrite au registre Mémoire du Monde de l'UNESCO depuis 2011, conserve les livres personnels de Beatus Rhenanus et des manuscrits carolingiens uniques au monde.</p>
+        <p style="font-size:0.86rem;color:#666;line-height:1.85">Pour votre team building, c'est un atout concret : les rallyes découverte dans le centre historique, les visites insolites des remparts ou de la bibliothèque se transforment en expériences culturelles fortes. Vos équipes repartent avec quelque chose — de la fierté d'avoir découvert un trésor méconnu à quelques kilomètres de chez elles.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -368,18 +416,42 @@
   <h2>Prêt à réunir votre équipe<br>au cœur de l'<em>Alsace centrale</em> ?</h2>
   <p>Explorez nos activités pour le bassin sélestatien.</p>
   <div class="cta-btns">
-    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="#activites" class="btn-p">Voir les activités Sélestat ↓</a>
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
+<script src="activities.js"></script>
 <script>
-  function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobile-nav').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
-  }
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+  function openModal(id) {
+    window.location.href = 'index.html?ville=selestat&activite=' + id;
+  }
+
+  window.addEventListener('load', function() {
+    var keywords = ['sélestat', 'selestat', 'ribeauvillé', 'ribeauville', 'bergheim', 'sainte-marie'];
+    var filtered = sortByOffre(activities.filter(function(a) {
+      var loc = (a.location || '').toLowerCase();
+      return keywords.some(function(kw) { return loc.includes(kw); });
+    })).slice(0, 3);
+
+    var grid = document.getElementById('acts-grid');
+    if (!grid) return;
+
+    var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">'
+      + '<div style="font-size:2rem;margin-bottom:10px">➕</div>'
+      + '<h3 style="font-family:Outfit,sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Sélestat ?</h3>'
+      + '<p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>'
+      + '<span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
+
+    if (filtered.length === 0) {
+      grid.innerHTML = referenceCard;
+      return;
+    }
+    grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('') + referenceCard;
+  });
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
