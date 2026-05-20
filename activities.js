@@ -13,7 +13,7 @@ const activities = [
         nom: "Pomelo",
         tagline: "L\'agence événementielle pour faire l\'expérience de la nature",
         logo: "images/logo_pomelo.png",
-        site: "https://www.pomelo-events.fr",
+        site: "https://www.pomelolab.fr",
         categorie: "nature",
         interview: [
           { q: "Qu\'est-ce qui rend votre activité unique ?", r: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
