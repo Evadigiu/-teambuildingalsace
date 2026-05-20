@@ -1067,8 +1067,25 @@
     @media (max-width: 768px) {
       .mobile-cta { display: block; }
       .villes-section { padding: 24px 16px; }
-      .ville-btn { padding: 10px 14px; min-width: 80px; }
       .search-wrap { margin: 16px 0 0; }
+
+      /* Villes : grille 2 colonnes sur mobile */
+      .villes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        max-width: 100%;
+      }
+      .ville-btn {
+        max-width: 100%;
+        flex: unset;
+        padding: 12px 10px;
+        min-width: 0;
+      }
+
+      /* Blob vert qui déborde du hero sur mobile : masqué */
+      .hero-shape-2 { display: none; }
+      .hero { overflow: hidden; }
     }
   </style>
 </head>
