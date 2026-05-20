@@ -1604,7 +1604,14 @@
       if (activeFilters.univers.length > 0 && !activeFilters.univers.some(u => (a.univers || []).includes(u))) return false;
       if (activeFilters.env.length > 0 && !activeFilters.env.some(e => a.env.includes(e))) return false;
       if (activeFilters.format.length > 0 && !activeFilters.format.some(f => (a.format || []).includes(f))) return false;
-      if (activeFilters.saison.length > 0 && !activeFilters.saison.some(s => (a.saison || ['toutesaisons']).includes(s))) return false;
+      if (activeFilters.saison.length > 0) {
+        var saisonMatch = activeFilters.saison.some(function(s) {
+          var actSaison = a.saison || ['toutesaisons'];
+          if (actSaison.includes('toutesaisons')) return true;
+          return actSaison.includes(s);
+        });
+        if (!saisonMatch) return false;
+      }
       if (budget < 200 && a.prixMin > budget) return false;
       if (partVal) {
         const nb = parseInt(partVal);
