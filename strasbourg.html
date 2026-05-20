@@ -210,27 +210,43 @@
     .cat-outdoor { background:#E8F5E9;color:#1B5E20; }
     @media (max-width: 768px) { .acts-grid { grid-template-columns: 1fr; } }
 
+
+    /* ── NAV DROPDOWNS ── */
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.2s; }
+    .nav-dropdown-btn:hover { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: var(--noir); font-size: 0.82rem; font-weight: 600; transition: background 0.15s; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .mob-accordion { width: 100%; }
+    .mob-accordion-btn { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0; }
+    .mob-accordion-btn:hover { color: var(--vert); }
+    .mob-accordion-btn .mob-arrow { font-size: 0.55rem; transition: transform 0.25s; display: inline-block; }
+    .mob-accordion-btn.open { color: var(--vert); }
+    .mob-accordion-btn.open .mob-arrow { transform: rotate(180deg); }
+    .mob-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding-top 0.2s; display: flex; flex-direction: column; gap: 20px; }
+    .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
+    .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+    .mob-accordion-content a:hover { color: var(--vert) !important; }
   </style>
 </head>
 <body>
 
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="blog.html">Blog</a>
-    <a href="#">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<header></header>
 
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="referencer.html" onclick="toggleMenu()">Référencer mon activité</a>
-  <a href="#" onclick="toggleMenu()">Contact</a>
-</div>
+<div class="mobile-nav" id="mobile-nav"></div>
 
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <span>Team Building Strasbourg</span>
@@ -265,10 +281,11 @@
 <section id="activites">
   <div class="container">
     <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>dans ce secteur</em></h2>
-    <p id="acts-count" class="section-intro">Chargement...</p>
-    <div class="acts-grid" id="acts-grid">
-      <p style="color:#aaa;font-size:0.9rem">Chargement des activités...</p>
+    <h2 class="section-title">Activités disponibles <em>à Strasbourg</em></h2>
+    <p class="section-intro">Une sélection d'activités disponibles dans la zone Strasbourg. Cliquez pour voir le détail.</p>
+    <div id="acts-grid" class="grid-3"></div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?ville=strasbourg" class="btn-p">Voir toutes les activités à Strasbourg →</a>
     </div>
   </div>
 </section>
@@ -283,19 +300,19 @@
         <p class="section-intro">Vous êtes à Strasbourg — vous avez de la chance. En moins de 30 minutes, vous accédez à des cadres exceptionnels pour toutes les ambiances.</p>
         <div>
           <div class="lieu">
-            <div class="lieu-ico">🍷</div>
+            <div class="lieu-ico">🌿</div>
             <div>
-              <h4>Route des Vins d'Alsace</h4>
-              <p>Idéale pour les activités gastronomiques, rallyes ou dégustations. Un cadre alsacien authentique qui impressionne toujours les équipes, y compris les non-alsaciens.</p>
-              <span class="distance">20 min de Strasbourg</span>
+              <h4>La Robertsau & Parc de l'Orangerie</h4>
+              <p>Le poumon vert de Strasbourg, à 10 minutes du centre. Idéal pour les activités outdoor, rallyes nature, ateliers bien-être ou cohésion en plein air. Accessible à pied depuis la plupart des entreprises du Wacken.</p>
+              <span class="distance">10 min du centre</span>
             </div>
           </div>
           <div class="lieu">
-            <div class="lieu-ico">🌲</div>
+            <div class="lieu-ico">🇪🇺</div>
             <div>
-              <h4>Massif des Vosges & Obernai</h4>
-              <p>Pour les activités outdoor, survie en forêt, leadership en pleine nature. Obernai est un point de départ idéal avec ses infrastructures d'accueil.</p>
-              <span class="distance">30 min de Strasbourg</span>
+              <h4>Quartier Européen & Wacken</h4>
+              <p>Le quartier d'affaires strasbourgeois, entre Parlement européen et grandes entreprises. Cadre idéal pour les team buildings interculturels, rallyes découverte des institutions ou ateliers en salle premium.</p>
+              <span class="distance">15 min du centre</span>
             </div>
           </div>
           <div class="lieu">
@@ -373,50 +390,34 @@
 
 <script src="activities.js"></script>
 <script>
-  function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobile-nav').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
-  }
-  function toggleFaq(el) {
-    el.parentElement.classList.toggle('open');
-  }
-</script>
-<script src="activities.js"></script>
-<script>
+  function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
   function openModal(id) {
-    window.location.href = 'index.html#activites';
+    window.location.href = 'index.html?ville=strasbourg&activite=' + id;
   }
 
-  function renderLocalCards() {
-  var kws = villeMap['strasbourg'] || ['strasbourg'];
-  var filtered = activities.filter(function(a) {
-    var loc = (a.location || '').toLowerCase();
-    return kws.some(function(k) { return loc.includes(k); });
-  });
+  (function() {
+    var VILLE = 'strasbourg';
+    var MAX = 3;
+    var keywords = villeMap[VILLE] || [VILLE];
+    var filtered = sortByOffre(activities.filter(function(a) {
+      var loc = (a.location || '').toLowerCase();
+      return keywords.some(function(kw) { return loc.includes(kw); });
+    })).slice(0, MAX);
 
     var grid = document.getElementById('acts-grid');
     if (!grid) return;
 
-    var html = filtered.map(function(a) { return renderActivityCard(a); }).join('');
+    if (filtered.length === 0) {
+      grid.innerHTML = '<p style="color:#aaa;font-size:0.9rem;grid-column:1/-1">Aucune activité référencée à Strasbourg pour le moment.</p>';
+      return;
+    }
 
-    // Ajouter la carte "Référencer"
-    html += `
-      <div class="add-card">
-        <div style="font-size:2rem">➕</div>
-        <h3>Vous proposez une activité ici ?</h3>
-        <p>Référencez-la gratuitement.</p>
-        <a href="referencer.html" class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</a>
-      </div>`;
+    var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center"><div style="font-size:2rem;margin-bottom:10px">➕</div><h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Strasbourg ?</h3><p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p><span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
 
-    grid.innerHTML = html;
-
-    // Mettre à jour le compteur
-    var counter = document.getElementById('acts-count');
-    if (counter) counter.textContent = filtered.length + ' activité' + (filtered.length > 1 ? 's' : '') + ' disponible' + (filtered.length > 1 ? 's' : '');
-  }
-
-  document.addEventListener('DOMContentLoaded', renderLocalCards);
+    grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('') + referenceCard;
+  })();
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
