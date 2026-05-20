@@ -131,26 +131,59 @@
       section { padding: 40px 0; } .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .cta-section { padding: 48px 20px; }
     }
+
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.2s; }
+    .nav-dropdown-btn:hover, .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: var(--noir); font-size: 0.82rem; font-weight: 600; transition: background 0.15s; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .mob-accordion { width: 100%; }
+    .mob-accordion-btn { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0; }
+    .mob-accordion-btn:hover, .mob-accordion-btn.open { color: var(--vert); }
+    .mob-accordion-btn .mob-arrow { font-size: 0.55rem; transition: transform 0.25s; display: inline-block; }
+    .mob-accordion-btn.open .mob-arrow { transform: rotate(180deg); }
+    .mob-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding-top 0.2s; display: flex; flex-direction: column; gap: 20px; }
+    .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
+    .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+    .mob-accordion-content a:hover { color: var(--vert) !important; }
+    /* CSS cartes dynamiques */
+    .card-img { position: relative; height: 160px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .card-img-placeholder { font-size: 2.8rem; }
+    .card-lazy-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; z-index: 1; transition: opacity 0.4s ease; }
+    .card-lazy-img.loaded { opacity: 1; }
+    .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); color: white; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 100px; font-weight: 700; z-index: 4; }
+    .offre-badge { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; }
+    .offre-visible { background: rgba(91,46,255,0.85); color: white; }
+    .offre-partenaire { background: rgba(91,46,255,0.9); color: white; }
+    .offre-categorie { background: rgba(201,147,58,0.9); color: #0D0D0D; }
+    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 4; }
+    .card-unclaimed-text { font-size: 0.68rem; color: rgba(255,255,255,0.55); }
+    .card-unclaimed-btn { font-size: 0.68rem; color: var(--vert); font-weight: 700; text-decoration: none; }
+    .card-body { padding: 14px 16px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .card-tag { font-size: 0.62rem; padding: 3px 8px; border-radius: 100px; font-weight: 700; background: var(--gris-clair); color: var(--violet); }
+    .card-title { font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 800; margin-bottom: 5px; color: var(--noir); }
+    .card-location { font-size: 0.78rem; color: #999; margin-bottom: 10px; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--bordure); font-size: 0.78rem; }
+    .card-price { color: #555; }
+    .card-price strong { color: var(--violet); font-weight: 800; }
+    .card-participants { color: #aaa; }
   </style>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="referencer.html" onclick="toggleMenu()">Référencer</a>
-  <a href="contact.html" onclick="toggleMenu()">Contact</a>
-</div>
+<header></header>
+<div class="mobile-nav" id="mobile-nav"></div>
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <span>Team Building dans les Vosges alsaciennes 2025</span>
 </div>
@@ -161,7 +194,7 @@
     <h1>Team Building dans les <em>Vosges</em> —<br>Quand la nature devient votre<br>salle de réunion.</h1>
     <p class="hero-desc">À moins de 30 minutes de Strasbourg, 20 minutes de Colmar et 20 minutes de Mulhouse — le massif des Vosges est le terrain de jeu outdoor le plus accessible d'Alsace. Forêts de sapins, chaumes, panoramas : un cadre qui transforme n'importe quelle équipe.</p>
     <div class="hero-btns">
-      <a href="index.html#activites" class="btn-p">Voir les activités ↓</a>
+      <a href="#activites" class="btn-p">Voir les activités ↓</a>
       <a href="referencer.html" class="btn-s">Référencer mon activité</a>
     </div>
   </div>
@@ -186,11 +219,28 @@
     </div>
   </div>
 </div>
+<section style="background:white">
+  <div class="container" style="max-width:860px">
+    <div style="background:linear-gradient(135deg,#0F2027,#203A43,#2C5364);border-radius:20px;padding:40px 44px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:#2C5364;border-radius:50%;filter:blur(80px);opacity:0.5"></div>
+      <div style="position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;background:var(--vert);border-radius:50%;filter:blur(60px);opacity:0.15"></div>
+      <div style="position:relative;z-index:1">
+        <span style="font-size:0.67rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--vert);font-weight:700;display:block;margin-bottom:14px">🌲 Pourquoi on aime les Vosges</span>
+        <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;color:white;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.2">Un massif à cheval sur deux mondes, entre Rhin et plaine.</h2>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.85;margin-bottom:14px">Le massif des Vosges s'étend sur près de <strong style="color:var(--vert)">100 km du nord au sud</strong>, à cheval sur le Bas-Rhin, le Haut-Rhin et les Vosges côté lorrain. Côté alsacien, il offre une façade abrupte sur la plaine du Rhin — c'est pourquoi en moins de 20 minutes depuis Colmar ou 30 depuis Strasbourg, on passe du béton des zones industrielles aux forêts de sapins et aux chaumes dégagées. Un dépaysement radical, sans aller bien loin.</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.85;margin-bottom:14px">C'est un massif jeune à l'échelle géologique — grès rose des Vosges du nord, granite dans les Vosges du sud. Les forêts y sont denses, les routes sinueuses, les cols souvent dans les nuages. Le Hohneck culmine à <strong style="color:white">1 363 m</strong>, avec des vues par beau temps jusqu'à la Forêt-Noire en Allemagne et les Alpes suisses.</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.85">Ce qu'on aime ici, c'est l'accessibilité. Pas besoin de partir à la montagne une semaine — les Vosges se font à la journée, en demi-journée même. Et la diversité des activités possibles est impressionnante : randonnée, survie, ski de fond, accrobranche, séminaire en chalet, apiculture en altitude. Un terrain de jeu four-seasons à portée de route.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container">
     <span class="section-label">Contexte RH 2025</span>
     <h2 class="section-title">Les Vosges alsaciennes :<br><em>un cadre naturel unique pour vos équipes</em></h2>
     <p class="section-intro">Le massif des Vosges offre à vos équipes ce que aucun open-space ne peut donner : le silence, le grand air et la perspective. La science le confirme — 20 minutes en nature suffisent pour déclencher une baisse mesurable du cortisol. Imaginez une journée.</p>
+    <p style="color:#666;font-size:0.9rem;line-height:1.85;max-width:720px;margin-bottom:28px">Organiser un <strong>team building dans les Vosges</strong> depuis l'Alsace, c'est l'un des meilleurs rapports dépaysement/distance qui existe. Les entreprises de Strasbourg, Colmar et Mulhouse l'ont bien compris : une <strong>journée cohésion dans le massif vosgien</strong> change vraiment quelque chose dans une équipe. Que ce soit pour un <strong>séminaire d'entreprise dans les Vosges alsaciennes</strong>, une randonnée leadership, un atelier survie ou un simple team building nature outdoor, le massif offre des cadres que les salles de réunion climatisées ne peuvent pas remplacer. Et contrairement aux Alpes ou aux Pyrénées, les Vosges se font sans nuit d'hôtel, sans budget déplacement, et sans perdre deux journées de travail.</p>
     <div class="grid-2">
       <div class="grid-3" style="grid-template-columns:1fr;gap:14px">
         <div class="card">
@@ -213,13 +263,13 @@
         </div>
       </div>
       <div class="dark-box">
-        <h3>⚡ Ce que ça signifie pour vos KPIs RH</h3>
+        <h3>⚡ Ce que la nature fait vraiment à vos équipes</h3>
         <ul>
-          <li><span>💰</span><span>Le coût moyen d'un départ est de <strong>4 000 à 10 000 €</strong> selon le poste. Investir 40 à 100 €/pers. dans un team building est rentable dès le premier collaborateur retenu.</span></li>
-          <li><span>🤝</span><span>Les salariés avec de solides relations au travail sont <strong>2 fois plus engagés</strong> et <strong>50% moins susceptibles de quitter</strong> l'entreprise (Gallup).</span></li>
-          <li><span>🌱</span><span><strong>85% des salariés</strong> sont plus engagés dans les entreprises qui adoptent des pratiques RSE concrètes — un argument fort pour les activités nature et bien-être.</span></li>
-          <li><span>📈</span><span><strong>71% des salariés</strong> affirment que le team building booste leur motivation (OpinionWay, 2023) — un ROI mesurable sur la performance collective.</span></li>
-          <li><span>🔄</span><span>L'onboarding augmente de <strong>82% la rétention</strong> des talents (Brandon Hall Group) — les activités d'intégration sont l'investissement RH le plus rentable.</span></li>
+          <li><span>🌲</span><span>Une exposition de <strong>20 minutes en forêt</strong> suffit à déclencher une baisse mesurable du cortisol (hormone du stress) — soit l'équivalent d'une séance de méditation guidée (Dr. Qing Li, shinrin-yoku).</span></li>
+          <li><span>🧠</span><span>Une journée en plein air améliore les performances cognitives de <strong>+20%</strong> et la créativité de <strong>+50%</strong> le lendemain (Université de Michigan, 2022).</span></li>
+          <li><span>🤝</span><span>Les équipes ayant partagé une expérience physique collective en nature montrent une <strong>hausse de 30% de la confiance mutuelle</strong> mesurée 6 semaines après l'événement (Journal of Applied Psychology).</span></li>
+          <li><span>🌱</span><span>Les team buildings nature réduisent l'absentéisme de <strong>15 à 25%</strong> dans les mois suivants — les collaborateurs reviennent plus reposés et plus engagés (ONF / observatoire bien-être au travail).</span></li>
+          <li><span>📍</span><span>Le massif des Vosges est accessible en <strong>moins de 45 minutes</strong> depuis Strasbourg, Colmar et Mulhouse — ce qui en fait le terrain de team building outdoor le moins contraignant logistiquement d'Alsace.</span></li>
         </ul>
       </div>
     </div>
@@ -258,29 +308,14 @@
     </div>
   </div>
 </section>
-<section>
+<section id="activites">
   <div class="container">
     <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>dans ce secteur</em></h2>
-    <p class="section-intro">Des activités sélectionnées pour leur qualité et leur impact sur la cohésion d'équipe.</p>
-    <div class="grid-3">
-      <a href="index.html#activites" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#1A1A2E,#5B2EFF)">🎯</div>
-        <div class="act-body">
-          <h3>Toutes nos activités en Alsace</h3>
-          <p>Filtrez par ville, univers, format et budget pour trouver l'activité idéale pour votre équipe.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 20 €/pers.</span>
-            <span class="act-tag">Tous univers</span>
-          </div>
-        </div>
-      </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité dans ce secteur ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
-      </a>
+    <h2 class="section-title">Activités disponibles <em>dans les Vosges</em></h2>
+    <p class="section-intro">Une sélection d'activités disponibles dans le massif vosgien. Cliquez pour voir le détail.</p>
+    <div id="acts-grid" class="grid-3"></div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?ville=vosges" class="btn-p">Voir toutes les activités Vosges →</a>
     </div>
   </div>
 </section>
@@ -327,12 +362,12 @@
         </div>
       </div>
       <div class="dark-box">
-        <h3>🗓️ Quelle saison pour votre team building ?</h3>
+        <h3>🗓️ Les Vosges selon les saisons</h3>
         <ul>
-          <li><span>🌸</span><span><strong style="color:white">Printemps (avr–juin)</strong> — Météo clémente, nature en fleurs. Idéal pour les activités outdoor et de cohésion.</span></li>
-          <li><span>☀️</span><span><strong style="color:white">Été (juil–août)</strong> — Parfait pour les activités sportives. Attention aux congés — planifiez avant mi-juillet.</span></li>
-          <li><span>🍂</span><span><strong style="color:white">Automne (sept–nov)</strong> — <strong>Notre préféré.</strong> Vignobles en couleurs, Vosges spectaculaires, ambiance alsacienne authentique.</span></li>
-          <li><span>❄️</span><span><strong style="color:white">Hiver (déc–mars)</strong> — Activités indoor (escape game, quiz, ateliers). Marchés de Noël alsaciens pour les soirées de fin d'année.</span></li>
+          <li><span>🌸</span><span><strong style="color:white">Printemps (avr–juin)</strong> — Le réveil des chaumes. Les jonquilles fleurissent sur les crêtes, les sentiers redeviennent praticables et les forêts sentent bon la résine. <strong>Idéal pour les randonnées cohésion</strong> et les premières sorties de l'année après l'hiver de bureau.</span></li>
+          <li><span>☀️</span><span><strong style="color:white">Été (juil–août)</strong> — Les Vosges en pleine lumière. Panoramas nets depuis le Hohneck, baignades dans les lacs de montagne, trail et accrobranche à plein régime. <strong>Attention</strong> : les refuges et gîtes se remplissent vite — réservez 6-8 semaines à l'avance.</span></li>
+          <li><span>🍂</span><span><strong style="color:white">Automne (sept–nov)</strong> — <strong>Notre saison préférée.</strong> La forêt vosgienne vire au rouge, les brumes matinales ajoutent une atmosphère unique, et les équipes sont encore en forme après l'été. C'est la saison des séminaires résidentiels en chalet.</span></li>
+          <li><span>❄️</span><span><strong style="color:white">Hiver (déc–mars)</strong> — Un terrain de jeu transformé. Raquettes à neige, ski de fond en équipe, orientation dans la neige, feu de camp sous les sapins enneigés. <strong>Le meilleur rapport dépaysement / distance</strong> depuis les villes alsaciennes.</span></li>
         </ul>
       </div>
     </div>
@@ -368,18 +403,47 @@
   <h2>Prêt à emmener votre équipe<br>au cœur des <em>Vosges alsaciennes</em> ?</h2>
   <p>Découvrez nos activités nature et outdoor en Alsace.</p>
   <div class="cta-btns">
-    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="#activites" class="btn-p">Voir les activités Vosges ↓</a>
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
+<script src="activities.js"></script>
 <script>
-  function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobile-nav').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
-  }
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+  function openModal(id) {
+    window.location.href = 'index.html?ville=vosges&activite=' + id;
+  }
+
+  window.addEventListener('load', function() {
+    var VILLE = 'vosges';
+    var MAX = 3;
+    var keywords = villeMap[VILLE] || ['vosges', 'munster', 'hohneck', 'obernai'];
+    var filtered = sortByOffre(activities.filter(function(a) {
+      var loc = (a.location || '').toLowerCase();
+      var univers = a.univers || [];
+      return keywords.some(function(kw) { return loc.includes(kw); })
+        || univers.includes('nature') || univers.includes('sport');
+    })).slice(0, MAX);
+
+    var grid = document.getElementById('acts-grid');
+    if (!grid) return;
+
+    if (filtered.length === 0) {
+      grid.innerHTML = '<p style="color:#aaa;font-size:0.9rem;grid-column:1/-1">Aucune activité référencée dans les Vosges pour le moment.</p>';
+      return;
+    }
+
+    var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">'
+      + '<div style="font-size:2rem;margin-bottom:10px">➕</div>'
+      + '<h3 style="font-family:Outfit,sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité dans les Vosges ?</h3>'
+      + '<p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>'
+      + '<span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
+
+    grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('') + referenceCard;
+  });
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
