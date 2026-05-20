@@ -396,7 +396,7 @@
     window.location.href = 'index.html?ville=strasbourg&activite=' + id;
   }
 
-  (function() {
+  window.addEventListener('load', function() {
     var VILLE = 'strasbourg';
     var MAX = 3;
     var keywords = villeMap[VILLE] || [VILLE];
@@ -413,10 +413,14 @@
       return;
     }
 
-    var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center"><div style="font-size:2rem;margin-bottom:10px">➕</div><h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Strasbourg ?</h3><p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p><span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
+    var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">'
+      + '<div style="font-size:2rem;margin-bottom:10px">➕</div>'
+      + '<h3 style="font-family:Outfit,sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité à Strasbourg ?</h3>'
+      + '<p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>'
+      + '<span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
 
     grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('') + referenceCard;
-  })();
+  });
 </script>
 <script src="nav.js"></script>
 </body>
