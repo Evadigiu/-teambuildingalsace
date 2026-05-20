@@ -228,6 +228,7 @@
           <label class="check-item"><input type="checkbox" name="univers" value="wtf"> 🛸 What the Fuck</label>
           <label class="check-item"><input type="checkbox" name="univers" value="strategie"> 🧠 Stratégie & Logique</label>
           </div>
+      </div>
       <div class="field-group">
         <label>Environnement <span class="required">*</span></label>
         <div class="check-grid">
@@ -301,7 +302,37 @@
   function prevStep(from) { goToStep(from-1); }
   function validateStep(step) {
     let valid = true;
-    document.getElementById('step-'+step).querySelectorAll('[required]').forEach(f => { f.style.borderColor=''; if(!f.value.trim()){f.style.borderColor='var(--violet)';valid=false;} });
+    const section = document.getElementById('step-' + step);
+
+    // Champs texte/number/textarea requis
+    section.querySelectorAll('input[required]:not([type=checkbox]):not([type=radio]), textarea[required]').forEach(f => {
+      f.style.borderColor = '';
+      if (!f.value.trim()) { f.style.borderColor = 'var(--violet)'; valid = false; }
+    });
+
+    // Groupes radio requis (au moins un coché dans le groupe)
+    const radioGroups = {};
+    section.querySelectorAll('input[type=radio][required]').forEach(r => {
+      if (!radioGroups[r.name]) radioGroups[r.name] = [];
+      radioGroups[r.name].push(r);
+    });
+    Object.entries(radioGroups).forEach(([name, radios]) => {
+      const checked = radios.some(r => r.checked);
+      radios.forEach(r => { r.closest('.check-item').style.borderColor = checked ? '' : 'var(--violet)'; });
+      if (!checked) valid = false;
+    });
+
+    // Groupes checkbox requis (au moins un coché)
+    const cbGroups = {};
+    section.querySelectorAll('input[type=checkbox][required]').forEach(c => {
+      if (!cbGroups[c.name]) cbGroups[c.name] = [];
+      cbGroups[c.name].push(c);
+    });
+    Object.entries(cbGroups).forEach(([name, boxes]) => {
+      const checked = boxes.some(b => b.checked);
+      if (!checked) valid = false;
+    });
+
     return valid;
   }
   function buildRecap() {
