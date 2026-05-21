@@ -38,6 +38,7 @@ const activities = [
       emoji: "🌱",
       gradient: "linear-gradient(135deg, #134E5E, #71B280)",
       image: "images/pomelo.png",
+      images: ["images/pomelo.png", "images/pomelo-2.jpg", "images/pomelo-3.jpg", "images/pomelo-4.jpg", "images/pomelo-5.jpg"],
       tags: [
         { label: "Cohésion", cls: "cat-cohesion" },
         { label: "RSE", cls: "cat-rse" },
@@ -208,7 +209,8 @@ const activities = [
   duree: "40 min à demi-journée",
   emoji: "🥽",
   gradient: "linear-gradient(135deg, #0D0D0D, #5B2EFF)",
-  image: "images/EVA.webp",
+  image: "images/EVA-1.jpg",
+  images: ["images/EVA-1.jpg", "images/EVA-2.jpg", "images/EVA-3.jpg", "images/EVA-4.jpg", "images/EVA-5.jpg"],
   tags: [
     { label: "Jeux & Digital", cls: "cat-jeux" },
     { label: "Sport & Adrénaline", cls: "cat-sport" },
@@ -240,7 +242,8 @@ const activities = [
   duree: "Demi-journée ou journée",
   emoji: "🤸",
   gradient: "linear-gradient(135deg, #B71C1C, #E53935)",
-  image: "images/Xperiencepark.jpg",
+  image: "images/xperience-1.jpg",
+  images: ["images/xperience-1.jpg", "images/xperience-2.jpg", "images/xperience-3.jpg", "images/xperience-4.jpg", "images/xperience-5.jpg"],
   tags: [
     { label: "Sport & Adrénaline", cls: "cat-sport" },
     { label: "Cohésion", cls: "cat-cohesion" },
