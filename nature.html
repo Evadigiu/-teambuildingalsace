@@ -287,22 +287,65 @@
       .partner-banner-inner { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
       .partner-photo-wrap { display: block; height: 140px; }
     }
+
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.2s; }
+    .nav-dropdown-btn:hover, .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: var(--noir); font-size: 0.82rem; font-weight: 600; transition: background 0.15s; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .mob-accordion { width: 100%; }
+    .mob-accordion-btn { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0; }
+    .mob-accordion-btn:hover, .mob-accordion-btn.open { color: var(--vert); }
+    .mob-accordion-btn .mob-arrow { font-size: 0.55rem; transition: transform 0.25s; display: inline-block; }
+    .mob-accordion-btn.open .mob-arrow { transform: rotate(180deg); }
+    .mob-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding-top 0.2s; display: flex; flex-direction: column; gap: 20px; }
+    .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
+    .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+    .mob-accordion-content a:hover { color: var(--vert) !important; }
+    /* CSS cartes activités */
+    .card-img { position: relative; height: 160px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .card-img-placeholder { font-size: 2.8rem; }
+    .card-lazy-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; z-index: 1; transition: opacity 0.4s ease; }
+    .card-lazy-img.loaded { opacity: 1; }
+    .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); color: white; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 100px; font-weight: 700; z-index: 4; }
+    .offre-badge { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; }
+    .offre-visible { background: rgba(91,46,255,0.85); color: white; }
+    .offre-partenaire { background: rgba(91,46,255,0.9); color: white; }
+    .offre-categorie { background: rgba(201,147,58,0.9); color: #0D0D0D; }
+    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 4; }
+    .card-unclaimed-text { font-size: 0.68rem; color: rgba(255,255,255,0.55); }
+    .card-unclaimed-btn { font-size: 0.68rem; color: var(--vert); font-weight: 700; text-decoration: none; }
+    .card-body { padding: 14px 16px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .card-tag { font-size: 0.62rem; padding: 3px 8px; border-radius: 100px; font-weight: 700; background: var(--gris-clair); color: var(--violet); }
+    .card-title { font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 800; margin-bottom: 5px; color: var(--noir); }
+    .card-location { font-size: 0.78rem; color: #999; margin-bottom: 10px; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--bordure); font-size: 0.78rem; }
+    .card-price { color: #555; }
+    .card-price strong { color: var(--violet); font-weight: 800; }
+    .card-participants { color: #aaa; }
+    /* Galerie Pomelo */
+    .partner-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 24px; }
+    .partner-gallery img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
+    @media (max-width: 768px) { .partner-gallery { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="#">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<header></header>
 
+<div class="mobile-nav" id="mobile-nav"></div>
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> ›
   <a href="index.html">Univers</a> ›
@@ -332,43 +375,49 @@
 <!-- STATS BAR -->
 
 <!-- BANDEAU PARTENAIRE CATÉGORIE : POMELO -->
-<div class="partner-banner">
-  <div class="partner-banner-inner">
-
-    <!-- Col 1 : Logo + badge -->
-    <div class="partner-logo-col">
-      <span class="partner-badge-label">🏆 Partenaire officiel · Nature & Plein air</span>
-      <img src="images/logo_pomelo.png" alt="Pomelo" class="partner-logo">
+<div style="background:white;border-bottom:1px solid var(--bordure);padding:56px 0">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:32px">
+      <span style="font-size:0.67rem;text-transform:uppercase;letter-spacing:0.2em;color:#C9933A;font-weight:700">🏆 Partenaire Officiel · Nature & Plein air</span>
     </div>
-
-    <!-- Col 2 : Photo -->
-    <div class="partner-photo-wrap">
-      <img src="images/pomelo_header.jpg" alt="Pomelo en action" class="partner-photo">
-    </div>
-
-    <!-- Col 3 : Texte -->
-    <div class="partner-content">
-      <h3>Vivez l'expérience nature avec Pomelo</h3>
-      <p>L'agence événementielle pour faire l'expérience de la nature. Pomelo transforme vos espaces de travail en terrains d'aventure verte — et vos équipes en véritables communautés.</p>
-      <a href="https://pomelo-events.fr" target="_blank" class="partner-cta">Visiter le site →</a>
-    </div>
-
-    <div class="partner-interview">
-      <span class="partner-interview-title">💬 3 questions à Pomelo</span>
-      <div class="partner-qa">
-        <div class="partner-q">Qu'est-ce qui rend votre activité unique ?</div>
-        <div class="partner-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <!-- Colonne gauche : titre + photo principale -->
+      <div>
+        <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--noir);letter-spacing:-0.03em;line-height:1.1;margin-bottom:24px">Vivez l'expérience<br><em style="color:var(--vert-nature);font-style:normal">nature</em> avec Pomelo</h2>
+        <img src="images/pomelo.png" alt="Pomelo — team building nature Alsace" style="width:100%;border-radius:16px;object-fit:cover;height:320px;display:block">
       </div>
-      <div class="partner-qa">
-        <div class="partner-q">Pour quel type d'équipe est-ce idéal ?</div>
-        <div class="partner-a">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</div>
-      </div>
-      <div class="partner-qa">
-        <div class="partner-q">Votre meilleur souvenir avec une équipe ?</div>
-        <div class="partner-a">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.</div>
+      <!-- Colonne droite : texte + interview -->
+      <div>
+        <img src="images/logo_pomelo.png" alt="Pomelo" style="height:48px;margin-bottom:20px;display:block">
+        <p style="font-size:1rem;color:#444;line-height:1.85;margin-bottom:20px">L'agence événementielle pour faire l'expérience de la nature. Pomelo transforme vos espaces de travail en terrains d'aventure verte, et vos équipes en véritables communautés.</p>
+        <a href="https://www.pomelolab.fr/" target="_blank" style="display:inline-block;padding:11px 24px;background:var(--vert-nature);color:white;border-radius:100px;font-size:0.85rem;font-weight:700;text-decoration:none;margin-bottom:32px">Visiter le site →</a>
+
+        <div style="border-top:1px solid var(--bordure);padding-top:24px">
+          <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--violet);font-weight:700;display:block;margin-bottom:18px">💬 3 questions à Pomelo</span>
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--noir);margin-bottom:6px">Qu'est-ce qui rend votre activité unique ?</div>
+              <div style="font-size:0.82rem;color:#666;line-height:1.75">Chez Pomelo, on ne crée pas simplement des animations, on imagine des expériences vivantes. Notre force, c'est de mélanger nature, scénographie, créativité et participation collective pour proposer des team buildings que les équipes n'oublient pas. Chaque projet est pensé comme un concept immersif où les collaborateurs manipulent, construisent, plantent, créent et vivent quelque chose ensemble.</div>
+            </div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--noir);margin-bottom:6px">Pour quel type d'équipe est-ce idéal ?</div>
+              <div style="font-size:0.82rem;color:#666;line-height:1.75">Nos formats fonctionnent particulièrement bien pour les équipes qui veulent sortir du cadre classique du team building. Que ce soit pour une startup, une PME, un grand groupe, une école ou une collectivité, nos expériences s'adaptent à tous les profils. Les activités Pomelo sont idéales pour renforcer la cohésion, créer du lien entre différents services, intégrer de nouveaux collaborateurs ou simplement offrir un moment collectif plus authentique et engageant.</div>
+            </div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--noir);margin-bottom:6px">Votre meilleur souvenir avec une équipe ?</div>
+              <div style="font-size:0.82rem;color:#666;line-height:1.75">Un de nos plus beaux souvenirs reste une installation de potager, réalisée lors d'un team building à Mulhouse : au départ, les participants étaient assez réservés, puis progressivement tout le monde s'est pris au jeu. Certains construisaient, d'autres plantaient, d'autres encore improvisaient des idées complètement folles autour du projet. À la fin, l'espace s'était transformé en œuvre collective vivante, belle… et surtout, les équipes continuaient à échanger et rire ensemble longtemps après l'activité. C'est exactement ce qu'on cherche avec Pomelo : créer des moments sincères qui laissent une trace humaine durable.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
+    <!-- Galerie 4 photos -->
+    <div class="partner-gallery" style="margin-top:32px">
+      <img src="images/pomelo-2.jpg" alt="Pomelo team building nature 2" loading="lazy">
+      <img src="images/pomelo-3.jpg" alt="Pomelo team building nature 3" loading="lazy">
+      <img src="images/pomelo-4.jpg" alt="Pomelo team building nature 4" loading="lazy">
+      <img src="images/pomelo-5.jpg" alt="Pomelo team building nature 5" loading="lazy">
+    </div>
   </div>
 </div>
 <div class="stats-bar">
@@ -429,50 +478,48 @@
   </div>
 </section>
 
-<!-- SECTION 2 : TRADUCTION RH -->
-<section style="background:var(--gris-clair)">
+<!-- SECTION 2 : RECONNECTEZ -->
+<section style="background:var(--vert-pale)">
   <div class="container">
-    <span class="section-label">Pourquoi c'est stratégique</span>
-    <h2 class="section-title">Ce que ça change <em>concrètement</em><br>pour votre entreprise</h2>
-    <p class="section-intro">Les bienfaits de la nature en équipe ne sont pas qu'une question de bien-être. Ce sont des leviers RH mesurables qui impactent directement vos KPIs.</p>
-
-    <div class="grid-2">
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div class="rh-card">
-          <div class="rh-ico">📉</div>
-          <div>
-            <h4>Absentéisme réduit</h4>
-            <p>Le stress chronique est la 1ère cause d'absentéisme en France. Une journée en nature agit directement sur le système nerveux et réduit les marqueurs biologiques du burnout. Un investissement préventif bien plus économique qu'un remplacement.</p>
-            <span class="rh-stat">3 500 €/an/salarié = coût moyen de l'absentéisme</span>
-          </div>
-        </div>
-        <div class="rh-card">
-          <div class="rh-ico">🌱</div>
-          <div>
-            <h4>Argument RSE concret</h4>
-            <p>Organiser des activités en plein air, c'est aussi sensibiliser vos équipes à l'environnement. Un signal fort pour attirer et retenir les talents des générations Y et Z qui privilégient les employeurs engagés.</p>
-            <span class="rh-stat">85% des salariés plus engagés en entreprise RSE (ADEME)</span>
-          </div>
-        </div>
-        <div class="rh-card">
-          <div class="rh-ico">🔗</div>
-          <div>
-            <h4>Cohésion renforcée durablement</h4>
-            <p>Partager une expérience physique en plein air crée des souvenirs partagés impossibles à recréer en salle. Les liens tissés en forêt ou sur un sentier perdurent bien après le retour au bureau.</p>
-            <span class="rh-stat">79% des salariés : améliore les relations (Teamland 2025)</span>
-          </div>
-        </div>
+    <span class="section-label">Pourquoi le plein air change tout</span>
+    <h2 class="section-title">Reconnectez vos équipes <em>autrement</em></h2>
+    <p class="section-intro">Un <strong>team building nature en Alsace</strong>, ce n'est pas juste une sortie agréable. C'est une décision RH prouvée scientifiquement. Voici ce que le plein air favorise naturellement.</p>
+    <div class="grid-3" style="margin-top:36px">
+      <div style="background:white;border-radius:16px;padding:28px;border:1.5px solid rgba(45,106,79,0.15)">
+        <div style="font-size:2rem;margin-bottom:12px">🗣️</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--noir);margin-bottom:8px">Communication entre collaborateurs</h3>
+        <p style="font-size:0.83rem;color:#666;line-height:1.7;margin-bottom:12px">Sans les hiérarchies formelles du bureau, la parole se libère. Les activités outdoor créent naturellement des situations où chacun doit écouter, proposer, décider ensemble.</p>
+        <span style="font-size:0.78rem;font-weight:700;color:var(--vert-nature)">+34% de communication informelle (MIT, 2023)</span>
       </div>
-
-      <div class="dark-box">
-        <h3>📈 Le marché en 2025</h3>
-        <ul>
-          <li><span>🚀</span><span>Le team building écologique connaît un <strong>essor sans précédent</strong> depuis janvier 2025 — il représente désormais 20% des activités organisées.</span></li>
-          <li><span>♻️</span><span><strong>72% des entreprises</strong> organisant des événements d'entreprise choisissent désormais des sites éco-certifiés (GreenEv, 2025).</span></li>
-          <li><span>👥</span><span><strong>70% des Gen Y & Z</strong> considèrent l'engagement environnemental d'une entreprise avant de postuler (Deloitte, 2024).</span></li>
-          <li><span>🌍</span><span>En Alsace, les Vosges sont accessibles en <strong>moins de 30 minutes</strong> depuis Strasbourg — un avantage logistique rare pour les activités outdoor.</span></li>
-          <li><span>🌲</span><span><strong>75% des Français</strong> vivent à moins de 30 minutes d'une forêt (ONF) — la nature n'a jamais été aussi accessible pour vos équipes.</span></li>
-        </ul>
+      <div style="background:white;border-radius:16px;padding:28px;border:1.5px solid rgba(45,106,79,0.15)">
+        <div style="font-size:2rem;margin-bottom:12px">🤝</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--noir);margin-bottom:8px">Esprit d'équipe</h3>
+        <p style="font-size:0.83rem;color:#666;line-height:1.7;margin-bottom:12px">Relever un défi en plein air ensemble — construire, planter, survivre — crée des liens durables. Les équipes ayant partagé une expérience physique collective montrent une hausse de 30% de confiance mutuelle.</p>
+        <span style="font-size:0.78rem;font-weight:700;color:var(--vert-nature)">+30% de confiance (Journal of Applied Psychology)</span>
+      </div>
+      <div style="background:white;border-radius:16px;padding:28px;border:1.5px solid rgba(45,106,79,0.15)">
+        <div style="font-size:2rem;margin-bottom:12px">🧘</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--noir);margin-bottom:8px">Gestion du stress</h3>
+        <p style="font-size:0.83rem;color:#666;line-height:1.7;margin-bottom:12px">20 minutes en nature suffisent pour déclencher une baisse mesurable du cortisol. Une journée de <strong>team building outdoor en Alsace</strong> agit directement sur les marqueurs biologiques du stress.</p>
+        <span style="font-size:0.78rem;font-weight:700;color:var(--vert-nature)">-12,4% de cortisol (Dr. Qing Li)</span>
+      </div>
+      <div style="background:white;border-radius:16px;padding:28px;border:1.5px solid rgba(45,106,79,0.15)">
+        <div style="font-size:2rem;margin-bottom:12px">🚀</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--noir);margin-bottom:8px">Motivation collective</h3>
+        <p style="font-size:0.83rem;color:#666;line-height:1.7;margin-bottom:12px">79% des salariés confirment que le team building améliore leurs relations professionnelles — et la motivation suit. Les équipes reviennent du plein air plus engagées et plus soudées.</p>
+        <span style="font-size:0.78rem;font-weight:700;color:var(--vert-nature)">79% d'amélioration des relations (Teamland, 2025)</span>
+      </div>
+      <div style="background:white;border-radius:16px;padding:28px;border:1.5px solid rgba(45,106,79,0.15)">
+        <div style="font-size:2rem;margin-bottom:12px">🌿</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--noir);margin-bottom:8px">Déconnexion du quotidien</h3>
+        <p style="font-size:0.83rem;color:#666;line-height:1.7;margin-bottom:12px">Sortir physiquement du cadre de travail permet au cerveau de se régénérer. Les activités <strong>nature et plein air</strong> créent une rupture bénéfique — les souvenirs formés dehors sont plus forts et durables.</p>
+        <span style="font-size:0.78rem;font-weight:700;color:var(--vert-nature)">+50% de créativité le lendemain (Univ. Michigan)</span>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--vert-nature),#52b788);border-radius:16px;padding:28px;color:white">
+        <div style="font-size:2rem;margin-bottom:12px">📍</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:white;margin-bottom:8px">L'Alsace, terrain idéal</h3>
+        <p style="font-size:0.83rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:12px">Les Vosges à 30 min, la forêt de Haguenau, les bords du Rhin, les vignobles… En Alsace, vos équipes n'ont jamais besoin de parcourir plus d'une heure pour se retrouver en pleine nature.</p>
+        <span style="font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.9)">100km de forêts accessibles depuis Strasbourg</span>
       </div>
     </div>
   </div>
@@ -482,10 +529,11 @@
 <section id="activites">
   <div class="container">
     <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>dans ce secteur</em></h2>
-    <p id="acts-count" class="section-intro">Chargement...</p>
-    <div class="acts-grid" id="acts-grid">
-      <p style="color:#aaa;font-size:0.9rem">Chargement des activités...</p>
+    <h2 class="section-title">Activités <em>nature & plein air</em> en Alsace</h2>
+    <p class="section-intro">Une sélection d'activités de <strong>team building nature en Alsace</strong>. Cliquez pour voir le détail et demander un devis.</p>
+    <div id="acts-grid" class="grid-3"></div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?univers=nature" class="btn-p">Voir toutes les activités nature →</a>
     </div>
   </div>
 </section>
@@ -572,7 +620,7 @@
   <h2>Prêt à emmener votre équipe<br><em>au vert en Alsace</em> ?</h2>
   <p>Parcourez toutes nos activités nature, filtrez par format et budget, et contactez directement les prestataires.</p>
   <div class="cta-btns">
-    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="#activites" class="btn-p">Voir les activités nature ↓</a>
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
@@ -581,41 +629,33 @@
 
 <script src="activities.js"></script>
 <script>
-  function toggleFaq(el) {
-    el.parentElement.classList.toggle('open');
-  }
-</script>
-<script src="activities.js"></script>
-<script>
+  function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
   function openModal(id) {
-    window.location.href = 'index.html#activites';
+    window.location.href = 'index.html?univers=nature&activite=' + id;
   }
 
-  function renderLocalCards() {
-  var filtered = sortByOffre(activities.filter(function(a) { return (a.univers || []).includes('nature'); }));
+  window.addEventListener('load', function() {
+    var filtered = sortByOffre(
+      activities.filter(function(a) { return (a.univers || []).includes('nature'); })
+    ).slice(0, 3);
 
     var grid = document.getElementById('acts-grid');
     if (!grid) return;
 
-    var html = filtered.map(function(a) { return renderActivityCard(a); }).join('');
+    var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">'
+      + '<div style="font-size:2rem;margin-bottom:10px">➕</div>'
+      + '<h3 style="font-family:Outfit,sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité nature ?</h3>'
+      + '<p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>'
+      + '<span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
 
-    // Ajouter la carte "Référencer"
-    html += `
-      <div class="add-card">
-        <div style="font-size:2rem">➕</div>
-        <h3>Vous proposez une activité ici ?</h3>
-        <p>Référencez-la gratuitement.</p>
-        <a href="referencer.html" class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</a>
-      </div>`;
-
-    grid.innerHTML = html;
-
-    // Mettre à jour le compteur
-    var counter = document.getElementById('acts-count');
-    if (counter) counter.textContent = filtered.length + ' activité' + (filtered.length > 1 ? 's' : '') + ' disponible' + (filtered.length > 1 ? 's' : '');
-  }
-
-  document.addEventListener('DOMContentLoaded', renderLocalCards);
+    if (filtered.length === 0) {
+      grid.innerHTML = referenceCard;
+      return;
+    }
+    grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('') + referenceCard;
+  });
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
