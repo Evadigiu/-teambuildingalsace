@@ -1967,18 +1967,40 @@
   });
 
   // ====== GESTION PARAMÈTRES URL ======
-  // Permet d'arriver depuis colmar.html (ou autre page ville) avec filtres pré-appliqués
-  // Exemples : index.html?ville=colmar  /  index.html?ville=colmar&activite=3
+  // Depuis pages villes : index.html?ville=colmar&activite=3
+  // Depuis pages univers : index.html?univers=nature&scroll=activites
+  //                        index.html?univers=gastronomie&activite=9&scroll=activites
   (function() {
     var params = new URLSearchParams(window.location.search);
-    var ville = params.get('ville');
+    var ville    = params.get('ville');
+    var univers  = params.get('univers');
     var activiteId = params.get('activite');
+    var scroll   = params.get('scroll');
+
+    // Appliquer filtre ville
     if (ville) {
       filterVille(ville);
     }
+
+    // Appliquer filtre univers (clique sur le tag correspondant)
+    if (univers) {
+      var tag = document.querySelector('.tag[data-filter="univers"][data-val="' + univers + '"]');
+      if (tag) {
+        tag.click();
+      }
+    }
+
+    // Scroller vers la section activités
+    if (scroll === 'activites' || ville || univers) {
+      setTimeout(function() {
+        var section = document.getElementById('activites');
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+    }
+
+    // Ouvrir la modale après filtres + scroll
     if (activiteId) {
-      // Petit délai pour laisser le DOM se stabiliser après filterVille
-      setTimeout(function() { openModal(parseInt(activiteId)); }, 100);
+      setTimeout(function() { openModal(parseInt(activiteId)); }, 300);
     }
   })();
 
