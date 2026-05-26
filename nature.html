@@ -547,7 +547,7 @@
     <p class="section-intro">Une sélection d'activités de <strong>team building nature en Alsace</strong>. Cliquez pour voir le détail et demander un devis.</p>
     <div id="acts-grid" class="grid-3"></div>
     <div style="text-align:center;margin-top:32px">
-      <a href="index.html?univers=nature" class="btn-p">Voir toutes les activités nature →</a>
+      <a href="index.html?univers=nature&scroll=activites" class="btn-p">Voir toutes les activités nature →</a>
     </div>
   </div>
 </section>
@@ -672,7 +672,7 @@
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
   function openModal(id) {
-    window.location.href = 'index.html?univers=nature&activite=' + id;
+    window.location.href = 'index.html?univers=nature&activite=' + id + '&scroll=activites';
   }
 
   window.addEventListener('load', function() {
