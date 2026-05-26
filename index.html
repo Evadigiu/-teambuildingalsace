@@ -1893,6 +1893,20 @@
     document.getElementById('activites').scrollIntoView({ behavior: 'smooth' });
   }
 
+  function filterUnivers(univers) {
+    // Même mécanique que filterVille
+    activeFilters.univers = univers ? [univers] : [];
+    document.querySelectorAll('.tag[data-filter="univers"]').forEach(function(t) {
+      t.classList.remove('active');
+    });
+    if (univers) {
+      var tag = document.querySelector('.tag[data-filter="univers"][data-val="' + univers + '"]');
+      if (tag) tag.classList.add('active');
+    }
+    applyFilters();
+    document.getElementById('activites').scrollIntoView({ behavior: 'smooth' });
+  }
+
   // ====== SEARCH ======
   var searchData = activities.map(function(a) {
     return { type: 'activite', label: a.title, sub: a.location, emoji: a.emoji, id: a.id };
@@ -1967,42 +1981,25 @@
   });
 
   // ====== GESTION PARAMÈTRES URL ======
-  // Depuis pages villes : index.html?ville=colmar&activite=3
-  // Depuis pages univers : index.html?univers=nature&scroll=activites
-  document.addEventListener('DOMContentLoaded', function() {
+  // Depuis pages villes  : index.html?ville=colmar&activite=3
+  // Depuis pages univers : index.html?univers=nature&activite=1
+  (function() {
     var params = new URLSearchParams(window.location.search);
     var ville     = params.get('ville');
     var univers   = params.get('univers');
     var activiteId = params.get('activite');
 
-    // Filtre ville
     if (ville) {
       filterVille(ville);
+    } else if (univers) {
+      filterUnivers(univers);
     }
 
-    // Filtre univers : modifier activeFilters directement + activer le tag visuellement
-    if (univers) {
-      var tag = document.querySelector('.tag[data-filter="univers"][data-val="' + univers + '"]');
-      if (tag) {
-        activeFilters.univers = [univers];
-        tag.classList.add('active');
-        applyFilters();
-      }
-    }
-
-    // Scroll vers la section activités si ville ou univers
-    if (ville || univers) {
-      setTimeout(function() {
-        var section = document.getElementById('activites');
-        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    }
-
-    // Ouvrir la modale (après le scroll)
     if (activiteId) {
-      setTimeout(function() { openModal(parseInt(activiteId)); }, 400);
+      setTimeout(function() { openModal(parseInt(activiteId)); }, 200);
     }
-  });
+  })();
+
 
 </script>
 </body>
