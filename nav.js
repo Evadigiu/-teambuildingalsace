@@ -5,6 +5,83 @@
 // ============================================================
 
 (function() {
+
+  // ── Injecter le CSS mobile-nav (une seule fois) ──
+  if (!document.getElementById('nav-shared-styles')) {
+    var style = document.createElement('style');
+    style.id = 'nav-shared-styles';
+    style.textContent = `
+      #mobile-nav {
+        display: none;
+        position: fixed;
+        top: 68px; left: 0; right: 0; bottom: 0;
+        background: #0D0D0D;
+        z-index: 999;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 28px;
+        padding: 0 40px;
+        overflow-y: auto;
+      }
+      #mobile-nav.open { display: flex; }
+      #mobile-nav > a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 600;
+        width: 100%;
+      }
+      #mobile-nav > a:hover { color: #00E5A0; }
+      .mob-accordion { width: 100%; }
+      .mob-accordion-btn {
+        background: none;
+        border: none;
+        color: rgba(255,255,255,0.7);
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .mob-accordion-btn:hover,
+      .mob-accordion-btn.open { color: #00E5A0; }
+      .mob-arrow { font-size: 0.55rem; transition: transform 0.25s; display: inline-block; }
+      .mob-accordion-btn.open .mob-arrow { transform: rotate(180deg); }
+      .mob-accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding-top 0.2s;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-left: 16px;
+      }
+      .mob-accordion-content.open { max-height: 700px; padding-top: 14px; }
+      .mob-accordion-content a {
+        color: rgba(255,255,255,0.55);
+        text-decoration: none;
+        font-size: 0.88rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .mob-accordion-content a:hover { color: #00E5A0 !important; }
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    `;
+    document.head.appendChild(style);
+  }
+
   // ── Injecter le header ──
   var header = document.querySelector('header');
   if (header) {
@@ -148,6 +225,7 @@
     document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
     if (!isOpen) dd.classList.add('open');
   };
+
   document.addEventListener('click', function() {
     document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
   });
