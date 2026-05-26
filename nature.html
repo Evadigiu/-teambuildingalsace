@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Team Building Nature & Plein air en Alsace — Activités outdoor | TeamBuildingAlsace.fr</title>
   <meta name="description" content="Découvrez les meilleures activités de team building nature en Alsace. Forêt vosgienne, plein air, randonnée, survie. Des activités prouvées scientifiquement pour vos équipes.">
-  <meta name="keywords" content="team building nature alsace, team building outdoor alsace, team building forêt vosges, activité plein air entreprise alsace">
+  <meta name="keywords" content="team building nature alsace, team building outdoor alsace, team building nature strasbourg, team building plein air mulhouse, activité outdoor entreprise alsace, journée cohésion nature alsace, team building forêt vosges, activité nature équipe strasbourg">
   <link rel="canonical" href="https://teambuildingalsace.fr/nature">
   <meta property="og:title" content="Team Building Nature & Plein air Alsace | TeamBuildingAlsace.fr">
   <meta property="og:description" content="La science le prouve : vos équipes ont besoin de nature. Activités outdoor sélectionnées en Alsace.">
@@ -345,7 +345,13 @@
     /* Galerie Pomelo */
     .partner-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 24px; }
     .partner-gallery img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
-    @media (max-width: 768px) { .partner-gallery { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .partner-gallery { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr; }
+      .partner-2col { grid-template-columns: 1fr !important; gap: 28px !important; }
+      .partner-2col > div:first-child .partner-main-img { height: 220px !important; }
+      .partner-2col > div:first-child .partner-mini-grid { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -384,16 +390,16 @@
 <!-- BANDEAU PARTENAIRE CATÉGORIE : POMELO -->
 <div style="background:white;border-bottom:1px solid var(--bordure);padding:56px 0">
   <div class="container">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:32px">
-      <span style="font-size:0.67rem;text-transform:uppercase;letter-spacing:0.2em;color:#C9933A;font-weight:700">🏆 Partenaire Officiel · Nature & Plein air</span>
-    </div>
     <!-- Layout : photo+galerie à gauche | interview à droite -->
-    <div style="display:grid;grid-template-columns:1.1fr 1.2fr;gap:48px;align-items:start">
+    <div class="partner-2col" style="display:grid;grid-template-columns:1.1fr 1.2fr;gap:48px;align-items:start">
 
       <!-- Colonne 1 : titre + photo principale + galerie 2x2 -->
       <div>
         <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:900;color:var(--noir);letter-spacing:-0.03em;line-height:1.1;margin-bottom:20px">Vivez l'expérience<br><em style="color:var(--vert-nature);font-style:normal">nature</em> avec Pomelo</h2>
-        <img src="images/pomelo.png" alt="Pomelo — team building nature Alsace" style="width:100%;border-radius:14px;object-fit:cover;height:280px;display:block;margin-bottom:8px">
+        <div style="position:relative;display:inline-block;width:100%">
+          <img src="images/pomelo.png" alt="Pomelo — team building nature Alsace" style="width:100%;border-radius:14px;object-fit:cover;height:280px;display:block;margin-bottom:8px">
+          <span style="position:absolute;bottom:16px;left:12px;font-size:0.67rem;text-transform:uppercase;letter-spacing:0.12em;color:white;font-weight:700;background:linear-gradient(135deg,#C9933A,#F0C060);padding:6px 14px;border-radius:100px;box-shadow:0 2px 8px rgba(0,0,0,0.3)">🏆 Partenaire Officiel · Nature & Plein air</span>
+        </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
           <img src="images/pomelo-2.jpg" alt="Pomelo team building nature" loading="lazy" style="width:100%;height:120px;object-fit:cover;border-radius:10px">
           <img src="images/pomelo-3.jpg" alt="Pomelo team building nature" loading="lazy" style="width:100%;height:120px;object-fit:cover;border-radius:10px">
@@ -632,6 +638,32 @@
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
+
+<!-- SECTION SEO/AIO -->
+<section style="background:var(--gris-clair);padding:56px 0">
+  <div class="container" style="max-width:860px">
+    <span class="section-label">Pour aller plus loin</span>
+    <h2 class="section-title" style="margin-bottom:20px">Tout ce qu'il faut savoir sur le<br><em>team building nature en Alsace</em></h2>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:white;border-radius:14px;padding:24px 28px;border:1.5px solid var(--bordure)">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;color:var(--noir);margin-bottom:10px">Qu'est-ce qu'un team building nature ?</h3>
+        <p style="font-size:0.85rem;color:#555;line-height:1.8">Un <strong>team building nature</strong> est une activité collective organisée en plein air ou en lien avec l'environnement naturel. Randonnée leadership, survie en forêt, potager collaboratif, accrobranche en équipe : ces formats utilisent le contact avec la nature pour renforcer la cohésion, réduire le stress et stimuler la créativité collective. En Alsace, les Vosges, la forêt de Haguenau et les vignobles offrent des cadres exceptionnels pour ce type d'expérience.</p>
+      </div>
+      <div style="background:white;border-radius:14px;padding:24px 28px;border:1.5px solid var(--bordure)">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;color:var(--noir);margin-bottom:10px">Pourquoi choisir un team building outdoor plutôt qu'un format indoor ?</h3>
+        <p style="font-size:0.85rem;color:#555;line-height:1.8">Les <strong>activités outdoor en entreprise</strong> présentent des avantages mesurables que les formats en salle ne peuvent pas reproduire : baisse du cortisol, amélioration de la créativité (+50% le lendemain selon l'université du Michigan), renforcement de la confiance mutuelle. La rupture avec le cadre de travail habituel est aussi plus franche, ce qui favorise les échanges authentiques entre collaborateurs.</p>
+      </div>
+      <div style="background:white;border-radius:14px;padding:24px 28px;border:1.5px solid var(--bordure)">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;color:var(--noir);margin-bottom:10px">Où organiser un team building nature en Alsace ?</h3>
+        <p style="font-size:0.85rem;color:#555;line-height:1.8">Depuis Strasbourg, Colmar ou Mulhouse, les Vosges sont accessibles en moins de 30 minutes. Pour un <strong>team building outdoor Strasbourg</strong>, la forêt de la Robertsau, le parc de l'Orangerie ou les bords de l'Ill offrent des cadres accessibles en quelques minutes. Pour une <strong>journée nature plus immersive</strong>, les sentiers vosgiens autour d'Obernai, Munster ou Sainte-Marie-aux-Mines sont idéaux.</p>
+      </div>
+      <div style="background:white;border-radius:14px;padding:24px 28px;border:1.5px solid var(--bordure)">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;color:var(--noir);margin-bottom:10px">Quels types d'équipes bénéficient le plus du team building nature ?</h3>
+        <p style="font-size:0.85rem;color:#555;line-height:1.8">Toutes les équipes, mais particulièrement les équipes soumises à une forte pression (commerciaux, équipes projet, management), les équipes multiculturelles (la nature est un langage universel), et les équipes qui travaillent à distance ou en mode hybride et ont peu d'occasions de se retrouver physiquement. Le plein air crée des conditions de confiance que les réunions Zoom n'atteindront jamais.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 
