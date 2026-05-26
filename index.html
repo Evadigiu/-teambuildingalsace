@@ -1983,7 +1983,7 @@
   // ====== GESTION PARAMÈTRES URL ======
   // Depuis pages villes  : index.html?ville=colmar&activite=3
   // Depuis pages univers : index.html?univers=nature&activite=1
-  (function() {
+  window.addEventListener('load', function() {
     var params = new URLSearchParams(window.location.search);
     var ville     = params.get('ville');
     var univers   = params.get('univers');
@@ -1998,7 +1998,7 @@
     if (activiteId) {
       setTimeout(function() { openModal(parseInt(activiteId)); }, 200);
     }
-  })();
+  });
 
 
 </script>
