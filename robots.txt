@@ -1,0 +1,10 @@
+User-agent: *
+
+# Bloquer les URLs de revendication (paramètres ?sujet=revendication)
+Disallow: /contact.html?*
+
+# Bloquer les URLs avec paramètres de l'index (filtres, modales)
+Disallow: /index.html?*
+
+# Sitemap
+Sitemap: https://teambuildingalsace.fr/sitemap.xml
