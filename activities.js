@@ -704,7 +704,7 @@ function renderActivityCard(a) {
   const unclaimedBanner = !a.revendiquee ? `
     <div class="card-unclaimed">
       <span class="card-unclaimed-text">Fiche non revendiquée</span>
-      <a href="contact.html?sujet=revendication&activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
+      <a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
     </div>` : '';
 
   const offreBadge = getOffreBadge(a);
