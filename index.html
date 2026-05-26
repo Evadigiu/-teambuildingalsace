@@ -1521,7 +1521,7 @@
     const offreBadge = getOffreBadge(a);
     const unclaimedBanner = !a.revendiquee ? `<div class="card-unclaimed">
             <span class="card-unclaimed-text">Fiche non revendiquée</span>
-            <a href="contact.html?sujet=revendication&activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
+            <a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
           </div>` : '';
     return `
       <div class="card" onclick="openModal(${a.id})">
@@ -1733,7 +1733,7 @@
     // gratuit → revendiquer ; essentiel+ → demander un devis
     const ctaHtml = a.revendiquee
       ? `<button class="btn-primary" onclick="openDevis('${a.title.replace(/'/g, "\'")}')">Demander un devis</button>`
-      : `<a href="contact.html?sujet=revendication&activite=${encodeURIComponent(a.title)}" class="btn-secondary-modal">Revendiquer cette fiche →</a>`;
+      : `<a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="btn-secondary-modal">Revendiquer cette fiche →</a>`;
 
     // ── Site web : visible+ ──
     const siteHtml = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire && a.partenaire.site
@@ -1983,7 +1983,7 @@
   // ====== GESTION PARAMÈTRES URL ======
   // Depuis pages villes  : index.html?ville=colmar&activite=3
   // Depuis pages univers : index.html?univers=nature&activite=1
-  window.addEventListener('load', function() {
+  (function() {
     var params = new URLSearchParams(window.location.search);
     var ville     = params.get('ville');
     var univers   = params.get('univers');
@@ -1998,7 +1998,7 @@
     if (activiteId) {
       setTimeout(function() { openModal(parseInt(activiteId)); }, 200);
     }
-  });
+  })();
 
 
 </script>
