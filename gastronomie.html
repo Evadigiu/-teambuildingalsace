@@ -358,7 +358,7 @@
     <p class="section-intro">Des expériences sélectionnées pour leur authenticité alsacienne et leur impact prouvé sur la cohésion d'équipe. Cliquez pour voir le détail.</p>
     <div id="acts-grid" class="grid-3"></div>
     <div style="text-align:center;margin-top:32px">
-      <a href="index.html?univers=gastronomie" class="btn-p">Voir toutes les activités gastronomie →</a>
+      <a href="index.html?univers=gastronomie&scroll=activites" class="btn-p">Voir toutes les activités gastronomie →</a>
     </div>
   </div>
 </section>
@@ -619,7 +619,7 @@
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
   function openModal(id) {
-    window.location.href = 'index.html?univers=gastronomie&activite=' + id;
+    window.location.href = 'index.html?univers=gastronomie&activite=' + id + '&scroll=activites';
   }
 
   window.addEventListener('load', function() {
