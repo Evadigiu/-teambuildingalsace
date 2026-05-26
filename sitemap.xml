@@ -3,7 +3,7 @@
 
   <!-- ── PAGE PRINCIPALE ── -->
   <url>
-    <loc>https://www.teambuildingalsace.fr/</loc>
+    <loc>https://teambuildingalsace.fr/</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,37 +11,37 @@
 
   <!-- ── PAGES VILLES ── -->
   <url>
-    <loc>https://www.teambuildingalsace.fr/strasbourg.html</loc>
+    <loc>https://teambuildingalsace.fr/strasbourg.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/mulhouse.html</loc>
+    <loc>https://teambuildingalsace.fr/mulhouse.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/colmar.html</loc>
+    <loc>https://teambuildingalsace.fr/colmar.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/selestat.html</loc>
+    <loc>https://teambuildingalsace.fr/selestat.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/saint-louis.html</loc>
+    <loc>https://teambuildingalsace.fr/saint-louis.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/vosges.html</loc>
+    <loc>https://teambuildingalsace.fr/vosges.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -49,61 +49,61 @@
 
   <!-- ── PAGES UNIVERS ── -->
   <url>
-    <loc>https://www.teambuildingalsace.fr/nature.html</loc>
+    <loc>https://teambuildingalsace.fr/nature.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/gastronomie.html</loc>
+    <loc>https://teambuildingalsace.fr/gastronomie.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/creatif.html</loc>
+    <loc>https://teambuildingalsace.fr/creatif.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/bienetre.html</loc>
+    <loc>https://teambuildingalsace.fr/bienetre.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/sport.html</loc>
+    <loc>https://teambuildingalsace.fr/sport.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/jeux.html</loc>
+    <loc>https://teambuildingalsace.fr/jeux.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/culture.html</loc>
+    <loc>https://teambuildingalsace.fr/culture.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/evenementiel.html</loc>
+    <loc>https://teambuildingalsace.fr/evenementiel.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/wtf.html</loc>
+    <loc>https://teambuildingalsace.fr/wtf.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/strategie.html</loc>
+    <loc>https://teambuildingalsace.fr/strategie.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -111,25 +111,25 @@
 
   <!-- ── PAGES UTILITAIRES ── -->
   <url>
-    <loc>https://www.teambuildingalsace.fr/contact.html</loc>
+    <loc>https://teambuildingalsace.fr/contact.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/referencer.html</loc>
+    <loc>https://teambuildingalsace.fr/referencer.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/blog.html</loc>
+    <loc>https://teambuildingalsace.fr/blog.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.teambuildingalsace.fr/mentions-legales.html</loc>
+    <loc>https://teambuildingalsace.fr/mentions-legales.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
