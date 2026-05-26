@@ -14,12 +14,12 @@
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Team Building Gastronomie & Vins en Alsace",
-    "url": "https://www.teambuildingalsace.fr/gastronomie",
+    "url": "https://teambuildingalsace.fr/gastronomie",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.teambuildingalsace.fr" },
-        { "@type": "ListItem", "position": 2, "name": "Gastronomie & Vins", "item": "https://www.teambuildingalsace.fr/gastronomie" }
+        { "@type": "ListItem", "position": 2, "name": "Gastronomie & Vins", "item": "https://teambuildingalsace.fr/gastronomie" }
       ]
     }
   }
@@ -205,22 +205,63 @@
       .grid-2, .grid-3, .cepage-grid { grid-template-columns: 1fr; }
       .cta-section { padding: 50px 20px; }
     }
+
+    .mobile-nav { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--noir); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.2s; }
+    .nav-dropdown-btn:hover, .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: var(--noir); font-size: 0.82rem; font-weight: 600; transition: background 0.15s; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .mob-accordion { width: 100%; }
+    .mob-accordion-btn { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0; }
+    .mob-accordion-btn:hover, .mob-accordion-btn.open { color: var(--vert); }
+    .mob-accordion-btn .mob-arrow { font-size: 0.55rem; transition: transform 0.25s; display: inline-block; }
+    .mob-accordion-btn.open .mob-arrow { transform: rotate(180deg); }
+    .mob-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding-top 0.2s; display: flex; flex-direction: column; gap: 20px; }
+    .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
+    .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+    .mob-accordion-content a:hover { color: var(--vert) !important; }
+    /* Cartes dynamiques */
+    .card-img { position: relative; height: 160px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .card-img-placeholder { font-size: 2.8rem; }
+    .card-lazy-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; z-index: 1; transition: opacity 0.4s ease; }
+    .card-lazy-img.loaded { opacity: 1; }
+    .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); color: white; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 100px; font-weight: 700; z-index: 4; }
+    .offre-badge { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; }
+    .offre-visible { background: rgba(91,46,255,0.85); color: white; }
+    .offre-partenaire { background: rgba(91,46,255,0.9); color: white; }
+    .offre-categorie { background: rgba(201,147,58,0.9); color: #0D0D0D; }
+    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 4; }
+    .card-unclaimed-text { font-size: 0.68rem; color: rgba(255,255,255,0.55); }
+    .card-unclaimed-btn { font-size: 0.68rem; color: white; font-weight: 700; text-decoration: none; background: var(--or); padding: 4px 10px; border-radius: 100px; }
+    .card-body { padding: 14px 16px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .card-tag { font-size: 0.62rem; padding: 3px 8px; border-radius: 100px; font-weight: 700; background: var(--or-pale); color: var(--or); }
+    .card-title { font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 800; margin-bottom: 5px; color: var(--noir); }
+    .card-location { font-size: 0.78rem; color: #999; margin-bottom: 10px; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--bordure-or); font-size: 0.78rem; }
+    .card-price strong { color: var(--or); font-weight: 800; }
+    .card-participants { color: #aaa; }
   </style>
 </head>
 <body>
 
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="#">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<header></header>
 
+<div class="mobile-nav" id="mobile-nav"></div>
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> ›
   <a href="index.html">Univers</a> ›
@@ -273,18 +314,24 @@
   </div>
 </div>
 
+<!-- BOUTON PARTENAIRE OFFICIEL -->
+<div style="background:var(--or-pale);border-bottom:1px solid var(--bordure-or);padding:20px 40px;text-align:center">
+  <span style="font-size:0.85rem;color:#666;margin-right:16px">Vous êtes acteur de la gastronomie alsacienne et souhaitez toucher des équipes RH ?</span>
+  <a href="contact.html" style="display:inline-block;padding:10px 24px;background:var(--or);color:white;border-radius:100px;font-size:0.82rem;font-weight:700;text-decoration:none">Devenir Partenaire Officiel →</a>
+</div>
+
 <!-- SECTION 1 : POURQUOI LA GASTRO -->
 <section>
   <div class="container">
     <span class="section-label">Pourquoi ça marche</span>
     <h2 class="section-title">La gastronomie, un levier<br>de cohésion <em>naturellement puissant</em></h2>
-    <p class="section-intro">Partager un repas, identifier un arôme, créer une recette en équipe — ces expériences sensorielles activent des mécanismes profonds de confiance et de coopération. Ce n'est pas du hasard si toutes les cultures du monde célèbrent ensemble autour de la table.</p>
+    <p class="section-intro">Partager un repas, identifier un arôme, créer une recette en équipe, ces expériences sensorielles activent des mécanismes profonds de confiance et de coopération. Ce n'est pas du hasard si toutes les cultures du monde célèbrent ensemble autour de la table.</p>
 
     <div class="grid-3">
       <div class="why-card">
         <span class="why-icon">🧠</span>
         <h3>Le plaisir comme désinhibiteur</h3>
-        <p>Une expérience gastronomique libère de la dopamine et de l'ocytocine — les hormones du plaisir et du lien social. Les barrières hiérarchiques tombent naturellement autour d'un verre de Riesling. Les échanges dépassent le cadre professionnel sans effort.</p>
+        <p>Une expérience gastronomique libère de la dopamine et de l'ocytocine, les hormones du plaisir et du lien social. Les barrières hiérarchiques tombent naturellement autour d'un verre de Riesling. Les échanges dépassent le cadre professionnel sans effort.</p>
         <span class="why-tag">Neurosciences du plaisir</span>
       </div>
       <div class="why-card">
@@ -296,7 +343,7 @@
       <div class="why-card">
         <span class="why-icon">🤝</span>
         <h3>La création collective comme catalyseur</h3>
-        <p>Assembler une cuvée, préparer un plat ensemble, imaginer une recette en groupe — ces défis culinaires nécessitent répartition des rôles, négociation et décision collective. Les compétences managériales s'expriment sans pression professionnelle.</p>
+        <p>Assembler une cuvée, préparer un plat ensemble, imaginer une recette en groupe, ces défis culinaires nécessitent répartition des rôles, négociation et décision collective. Les compétences managériales s'expriment sans pression professionnelle.</p>
         <span class="why-tag">Leadership & collaboration</span>
       </div>
     </div>
@@ -372,7 +419,7 @@
           <div class="rh-ico">🎉</div>
           <div>
             <h4>Célébrer les succès collectifs</h4>
-            <p>Un objectif atteint, une clôture d'année, un anniversaire d'entreprise — la gastronomie est le cadre naturel de la célébration. L'expérience est mémorable, les souvenirs durables, et le retour en interne toujours positif.</p>
+            <p>Un objectif atteint, une clôture d'année, un anniversaire d'entreprise, la gastronomie est le cadre naturel de la célébration. L'expérience est mémorable, les souvenirs durables, et le retour en interne toujours positif.</p>
             <span class="rh-stat">ROI image employeur immédiat</span>
           </div>
         </div>
@@ -381,11 +428,11 @@
       <div class="dark-box">
         <h3>🍷 L'Alsace gastronomique en chiffres</h3>
         <ul>
-          <li><span>🏆</span><span>L'Alsace est le <strong>3ème vignoble le plus visité de France</strong>, avec plus de 3 millions d'œnotouristes par an — un cadre de prestige pour vos équipes.</span></li>
+          <li><span>🏆</span><span>L'Alsace est le <strong>3ème vignoble le plus visité de France</strong>, avec plus de 3 millions d'œnotouristes par an, un cadre de prestige pour vos équipes.</span></li>
           <li><span>🍇</span><span><strong>51 grands crus, 7 cépages emblématiques</strong> : Riesling, Gewurztraminer, Pinot Gris, Crémant… une diversité qui permet des ateliers de dégustation d'une grande richesse pédagogique.</span></li>
-          <li><span>📈</span><span>L'œnotourisme a progressé de <strong>+33% en 10 ans</strong> en France — un marché en plein essor qui attire de nouveaux prestataires de qualité chaque année.</span></li>
-          <li><span>🏅</span><span>La Route des Vins d'Alsace est labellisée <strong>Vignobles & Découvertes</strong> depuis 2019 — un gage de qualité pour vos activités.</span></li>
-          <li><span>🤝</span><span>Les activités oenotouristiques en entreprise génèrent <strong>des souvenirs partagés durables</strong> — l'ingrédient n°1 d'une cohésion d'équipe qui dure au-delà de l'événement.</span></li>
+          <li><span>📈</span><span>L'œnotourisme a progressé de <strong>+33% en 10 ans</strong> en France, un marché en plein essor qui attire de nouveaux prestataires de qualité chaque année.</span></li>
+          <li><span>🏅</span><span>La Route des Vins d'Alsace est labellisée <strong>Vignobles & Découvertes</strong> depuis 2019, un gage de qualité pour vos activités.</span></li>
+          <li><span>🤝</span><span>Les activités oenotouristiques en entreprise génèrent <strong>des souvenirs partagés durables</strong>, l'ingrédient n°1 d'une cohésion d'équipe qui dure au-delà de l'événement.</span></li>
         </ul>
       </div>
     </div>
@@ -397,37 +444,10 @@
   <div class="container">
     <span class="section-label">Nos sélections</span>
     <h2 class="section-title">Activités Gastronomie & Vins<br><em>en Alsace</em></h2>
-    <p class="section-intro">Des expériences sélectionnées pour leur authenticité alsacienne, l'expertise de leurs animateurs et leur impact prouvé sur la cohésion d'équipe.</p>
-
-    <div class="grid-3">
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#6B1A2A,#C9933A)">🍷</div>
-        <div class="act-body">
-          <h3>Dégustation de vins alsaciens à l'aveugle</h3>
-          <p>Un sommelier guide vos équipes à travers les cépages emblématiques d'Alsace. Quiz, défis sensoriels, anecdotes — une expérience ludique et mémorable.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 45 €/pers.</span>
-            <span class="act-tag">Gastro · Communication</span>
-          </div>
-        </div>
-      </a>
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#3D1A00,#C9933A)">🥘</div>
-        <div class="act-body">
-          <h3>Atelier cuisine alsacienne en équipe</h3>
-          <p>Flammekueche, baeckeoffe, bredele — vos équipes cuisinent ensemble sous la direction d'un chef. Répartition des rôles, créativité et dégustation finale.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 65 €/pers.</span>
-            <span class="act-tag">Gastro · Cohésion</span>
-          </div>
-        </div>
-      </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité gastronomique en Alsace ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
-      </a>
+    <p class="section-intro">Des expériences sélectionnées pour leur authenticité alsacienne et leur impact prouvé sur la cohésion d'équipe. Cliquez pour voir le détail.</p>
+    <div id="acts-grid" class="grid-3"></div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?univers=gastronomie" class="btn-p">Voir toutes les activités gastronomie →</a>
     </div>
   </div>
 </section>
@@ -436,8 +456,8 @@
 <section>
   <div class="container">
     <span class="section-label">Le terroir alsacien</span>
-    <h2 class="section-title">7 cépages, <em>autant d'histoires</em><br>à raconter à vos équipes</h2>
-    <p class="section-intro">La richesse des vins d'Alsace est une mine d'or pour les ateliers de dégustation. Chaque cépage raconte une histoire différente — une matière pédagogique passionnante même pour les non-initiés.</p>
+    <h2 class="section-title">6 cépages, <em>autant d'histoires</em><br>à raconter à vos équipes</h2>
+    <p class="section-intro">La richesse des vins d'Alsace est une mine d'or pour les ateliers de dégustation. Chaque cépage raconte une histoire différente, une matière pédagogique passionnante même pour les non-initiés.</p>
 
     <div class="cepage-grid">
       <div class="cepage-card">
@@ -449,7 +469,7 @@
       <div class="cepage-card">
         <span class="cepage-emoji">🌹</span>
         <h4>Gewurztraminer</h4>
-        <p>Floral, épicé, reconnaissable entre tous. Le cépage le plus expressif d'Alsace — idéal pour les exercices d'identification d'arômes en équipe.</p>
+        <p>Floral, épicé, reconnaissable entre tous. Le cépage le plus expressif d'Alsace, idéal pour les exercices d'identification d'arômes en équipe.</p>
         <span class="cepage-type">Blanc · Très expressif</span>
       </div>
       <div class="cepage-card">
@@ -467,7 +487,7 @@
       <div class="cepage-card">
         <span class="cepage-emoji">🍇</span>
         <h4>Pinot Noir</h4>
-        <p>Le seul rouge d'Alsace. Léger, fruité, souvent étonné les participants lors des dégustations à l'aveugle — excellent pour créer la surprise.</p>
+        <p>Le seul rouge d'Alsace. Léger, fruité, souvent étonné les participants lors des dégustations à l'aveugle, excellent pour créer la surprise.</p>
         <span class="cepage-type">Rouge · Surprise garantie</span>
       </div>
       <div class="cepage-card">
@@ -480,23 +500,69 @@
   </div>
 </section>
 
+<!-- SECTION SEO/AIO : GASTRONOMIE -->
+<section style="background:white">
+  <div class="container" style="max-width:860px">
+    <span class="section-label">Pourquoi choisir la gastronomie</span>
+    <h2 class="section-title">Pourquoi choisir un <em>team building gastronomie</em> ?</h2>
+    <p style="color:#555;font-size:0.92rem;line-height:1.85;margin-bottom:28px">Les expériences culinaires favorisent naturellement ce que tous les DRH cherchent à développer :</p>
+    <div class="grid-3" style="margin-bottom:36px">
+      <div style="background:var(--or-pale);border-radius:14px;padding:22px;border:1.5px solid var(--bordure-or)">
+        <div style="font-size:1.8rem;margin-bottom:10px">🗣️</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.92rem;font-weight:800;color:var(--noir);margin-bottom:8px">Échanges entre collaborateurs</h3>
+        <p style="font-size:0.8rem;color:#666;line-height:1.7">La table libère la parole. Autour d'un verre ou d'une casserole, les hiérarchies s'estompent et les vraies conversations commencent.</p>
+      </div>
+      <div style="background:var(--or-pale);border-radius:14px;padding:22px;border:1.5px solid var(--bordure-or)">
+        <div style="font-size:1.8rem;margin-bottom:10px">💬</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.92rem;font-weight:800;color:var(--noir);margin-bottom:8px">Communication informelle</h3>
+        <p style="font-size:0.8rem;color:#666;line-height:1.7">Les activités sensorielles déclenchent des échanges spontanés. Chacun a un avis sur un arôme, une texture, une saveur. La communication s'établit sans effort.</p>
+      </div>
+      <div style="background:var(--or-pale);border-radius:14px;padding:22px;border:1.5px solid var(--bordure-or)">
+        <div style="font-size:1.8rem;margin-bottom:10px">🤝</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.92rem;font-weight:800;color:var(--noir);margin-bottom:8px">Cohésion d'équipe</h3>
+        <p style="font-size:0.8rem;color:#666;line-height:1.7">Cuisiner, assembler une cuvée, relever un défi gustatif ensemble crée des souvenirs partagés durables. C'est la matière première de la cohésion.</p>
+      </div>
+      <div style="background:var(--or-pale);border-radius:14px;padding:22px;border:1.5px solid var(--bordure-or)">
+        <div style="font-size:1.8rem;margin-bottom:10px">😌</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.92rem;font-weight:800;color:var(--noir);margin-bottom:8px">Détente et lâcher-prise</h3>
+        <p style="font-size:0.8rem;color:#666;line-height:1.7">Contrairement aux formats très compétitifs, les activités gastronomiques rassemblent tous les profils dans une ambiance accessible et conviviale.</p>
+      </div>
+      <div style="background:var(--or-pale);border-radius:14px;padding:22px;border:1.5px solid var(--bordure-or)">
+        <div style="font-size:1.8rem;margin-bottom:10px">📸</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.92rem;font-weight:800;color:var(--noir);margin-bottom:8px">Souvenirs communs</h3>
+        <p style="font-size:0.8rem;color:#666;line-height:1.7">Un repas bien choisi reste gravé. Les expériences gastronomiques créent des anecdotes partagées qui continuent de souder l'équipe longtemps après.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--or),var(--bordeaux));border-radius:14px;padding:22px;color:white">
+        <div style="font-size:1.8rem;margin-bottom:10px">📍</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.92rem;font-weight:800;color:white;margin-bottom:8px">Où organiser en Alsace ?</h3>
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.85);line-height:1.7">Colmar et la Route des Vins, Strasbourg pour l'urbain et le premium, Mulhouse pour le moderne et l'accessible, Sélestat entre nature et terroir.</p>
+      </div>
+    </div>
+    <div style="background:var(--or-pale);border-radius:16px;padding:28px 32px;border:1.5px solid var(--bordure-or)">
+      <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--noir);margin-bottom:12px">Organisez un team building gastronomique mémorable en Alsace</h3>
+      <p style="font-size:0.86rem;color:#555;line-height:1.8;margin-bottom:12px">Entre terroir, convivialité et découverte, les <strong>activités gastronomiques en Alsace</strong> sont une excellente façon de renforcer la cohésion tout en valorisant l'expérience collaborateur. Dégustations de vins alsaciens, ateliers cuisine, rallyes sur la Route des Vins : chaque format est une invitation à explorer le patrimoine gastronomique alsacien en équipe.</p>
+      <p style="font-size:0.86rem;color:#555;line-height:1.8">Découvrez des idées de <strong>team building gastronomie et vin en Alsace</strong> adaptées à tous les types d'entreprises, de la startup à la multinationale, du groupe de 8 à 200 personnes.</p>
+    </div>
+  </div>
+</section>
+
 <!-- SECTION 6 : FAQ -->
 <section style="background:var(--creme)">
   <div class="container" style="max-width:760px">
     <span class="section-label">Vos questions</span>
-    <h2 class="section-title">Les vraies questions des <em>RH</em><br>avant de réserver</h2>
+    <h2 class="section-title">Les questions importantes pour un<br><em>team building gastronomie & vins en Alsace</em></h2>
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Comment gérer les participants qui ne boivent pas d'alcool ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">C'est une question essentielle que les bons prestataires anticipent systématiquement. La plupart proposent des options mocktails ou dégustations de jus de raisins de qualité pour les non-buveurs. Certains formats comme les ateliers cuisine ou les rallyes gastronomiques sont totalement inclusifs sans alcool. Précisez vos contraintes lors de la demande de devis — un bon prestataire alsacien saura s'adapter sans exclure personne.</div>
+      <div class="faq-a">C'est une question essentielle que les bons prestataires anticipent systématiquement. La plupart proposent des options mocktails ou dégustations de jus de raisins de qualité pour les non-buveurs. Certains formats comme les ateliers cuisine ou les rallyes gastronomiques sont totalement inclusifs sans alcool. Précisez vos contraintes lors de la demande de devis, un bon prestataire alsacien saura s'adapter sans exclure personne.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Quelle saison pour un team building oenologique en Alsace ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">L'automne est la saison reine — les vendanges (septembre-octobre) offrent un spectacle unique et de nombreux domaines ouvrent leurs portes pour des activités vendanges en équipe. Le printemps est également idéal avec les vignobles en fleurs. L'hiver est parfait pour les formats indoor (dégustation en cave, atelier cuisine) dans l'ambiance féerique des marchés de Noël alsaciens. En réalité, les activités gastronomiques fonctionnent toute l'année.</div>
+      <div class="faq-a">L'automne est la saison reine, les vendanges (septembre-octobre) offrent un spectacle unique et de nombreux domaines ouvrent leurs portes pour des activités vendanges en équipe. Le printemps est également idéal avec les vignobles en fleurs. L'hiver est parfait pour les formats indoor (dégustation en cave, atelier cuisine) dans l'ambiance féerique des marchés de Noël alsaciens. En réalité, les activités gastronomiques fonctionnent toute l'année.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Pour combien de personnes peut-on organiser un team building gastronomique ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Les formats varient beaucoup. Une dégustation express dans vos locaux peut accueillir de 8 à 200 personnes en sous-groupes simultanés. Un atelier cuisine artisanal est plus adapté aux groupes de 10 à 30 personnes. Pour les très grands groupes (50+), le rallye gourmand sur la Route des Vins est le format idéal — les équipes sont divisées en groupes de 6 à 8 qui s'affrontent sur un parcours commun. Précisez votre effectif dans la demande de devis.</div>
+      <div class="faq-a">Les formats varient beaucoup. Une dégustation express dans vos locaux peut accueillir de 8 à 200 personnes en sous-groupes simultanés. Un atelier cuisine artisanal est plus adapté aux groupes de 10 à 30 personnes. Pour les très grands groupes (50+), le rallye gourmand sur la Route des Vins est le format idéal, les équipes sont divisées en groupes de 6 à 8 qui s'affrontent sur un parcours commun. Précisez votre effectif dans la demande de devis.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Est-ce adapté à une équipe qui ne connaît rien au vin ? <span class="faq-ico">+</span></div>
@@ -514,17 +580,39 @@
   <h2>Prêt à réunir votre équipe<br><em>autour de la table alsacienne</em> ?</h2>
   <p>Parcourez toutes nos activités gastronomiques, filtrez par format et budget, et contactez directement les prestataires.</p>
   <div class="cta-btns">
-    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="#activites" class="btn-p">Voir les activités gastronomie ↓</a>
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
 
-<footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
+<footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span>, La référence du team building en Alsace.</footer>
 
+<script src="activities.js"></script>
 <script>
-  function toggleFaq(el) {
-    el.parentElement.classList.toggle('open');
+  function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+  function openModal(id) {
+    window.location.href = 'index.html?univers=gastronomie&activite=' + id;
   }
+
+  window.addEventListener('load', function() {
+    var filtered = sortByOffre(
+      activities.filter(function(a) { return (a.univers || []).includes('gastronomie'); })
+    ).slice(0, 3);
+
+    var grid = document.getElementById('acts-grid');
+    if (!grid) return;
+
+    var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">'
+      + '<div style="font-size:2rem;margin-bottom:10px">➕</div>'
+      + '<h3 style="font-family:Outfit,sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité gastronomique ?</h3>'
+      + '<p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>'
+      + '<span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
+
+    if (filtered.length === 0) { grid.innerHTML = referenceCard; return; }
+    grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('') + referenceCard;
+  });
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
