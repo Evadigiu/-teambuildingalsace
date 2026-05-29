@@ -498,7 +498,8 @@
     document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.progress-step').forEach((s, i) => { s.classList.remove('active','done'); if(i+1<n) s.classList.add('done'); if(i+1===n) s.classList.add('active'); });
     document.getElementById('step-'+n).classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
+    const form = document.querySelector('.form-container');
+    if (form) window.scrollTo({top: form.offsetTop - 90, behavior:'smooth'});
   }
   function nextStep(from) { if(!validateStep(from)) return; if(from===4) buildRecap(); goToStep(from+1); }
   function prevStep(from) { goToStep(from-1); }
