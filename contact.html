@@ -20,20 +20,31 @@
     header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
     .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.02em; }
     .logo span { color: var(--vert); }
-    nav { display: flex; align-items: center; gap: 28px; }
-    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav { display: flex; align-items: center; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; margin-left: 28px; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
     nav a:hover { color: var(--vert); }
-    nav a.active { color: white; }
-    .nav-cta { background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; }
-    .nav-cta:hover { background: var(--violet-clair) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-nav { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--noir); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+    .nav-cta { margin-left: 20px !important; background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta:hover { background: var(--violet-clair) !important; transform: scale(1.04); }
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; background: none; border: none; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 5px; padding: 0; transition: color 0.2s; white-space: nowrap; }
+    .nav-dropdown-btn:hover { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; text-decoration: none; color: var(--noir); font-size: 0.85rem; font-weight: 600; transition: all 0.15s; cursor: pointer; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all 0.3s; border-radius: 2px; }
 
     /* BREADCRUMB */
     .breadcrumb { background: white; padding: 14px 40px; border-bottom: 1px solid var(--bordure); font-size: 0.78rem; color: #aaa; display: flex; align-items: center; gap: 8px; }
@@ -138,23 +149,8 @@
 </head>
 <body>
 
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html" class="active">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="referencer.html" onclick="toggleMenu()">Référencer mon activité</a>
-  <a href="contact.html" onclick="toggleMenu()">Contact</a>
-</div>
+<header></header>
+<div id="mobile-nav"></div>
 
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <span>Contact</span>
@@ -326,11 +322,7 @@
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobile-nav').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
-  }
+
   function toggleFaq(el) {
     el.parentElement.classList.toggle('open');
   }
@@ -348,5 +340,6 @@
     } catch(err) { console.error(err); }
   });
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
