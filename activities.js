@@ -691,7 +691,7 @@ const activities = [
     duree: "2 heures",
     emoji: "🌿",
     gradient: "linear-gradient(135deg, #134E5E, #71B280)",
-    image: "images/atelier-tableau-vegetal-hesingue.jpg",
+    image: "images/atelier-tableau-vegetal-hesingue.webp",
     tags: [
       { label: "Cohésion", cls: "cat-cohesion" },
       { label: "RSE", cls: "cat-rse" },
