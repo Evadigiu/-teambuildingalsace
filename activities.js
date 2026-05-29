@@ -719,7 +719,7 @@ const activities = [
     duree: "2 à 4 heures",
     emoji: "🎨",
     gradient: "linear-gradient(135deg, #f093fb, #f5576c)",
-    image: "images/echappee-coloree-saint-louis.jpg",
+    image: "images/atelier-peinture.webp",
     tags: [
       { label: "Bien-être & Slow", cls: "cat-bienetre" },
       { label: "Artistique & Créatif", cls: "cat-creatif" },
