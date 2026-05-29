@@ -746,7 +746,7 @@ const activities = [
     duree: "2 à 3 heures",
     emoji: "🏎️",
     gradient: "linear-gradient(135deg, #0f0c29, #302b63)",
-    image: "images/sundgau-kart-saint-louis.jpg",
+    image: "images/karting.webp",
     tags: [
       { label: "Sport & Adrénaline", cls: "cat-sport" },
       { label: "Cohésion", cls: "cat-cohesion" },
@@ -773,7 +773,7 @@ const activities = [
     duree: "2 à 3 heures",
     emoji: "⚽",
     gradient: "linear-gradient(135deg, #0D0D0D, #1a6b1a)",
-    image: "images/five-football-saint-louis.jpg",
+    image: "images/five.webp",
     tags: [
       { label: "Sport & Adrénaline", cls: "cat-sport" },
       { label: "Cohésion", cls: "cat-cohesion" },
