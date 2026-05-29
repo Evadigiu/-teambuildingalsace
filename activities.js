@@ -663,7 +663,7 @@ const activities = [
     duree: "1h15",
     emoji: "⛵",
     gradient: "linear-gradient(135deg, #1a3a5c, #2980b9)",
-    image: "images/croisiere-rhin-bale.jpg",
+    image: "images/croisiere-rhin-bale.webp",
     tags: [
       { label: "Cohésion", cls: "cat-cohesion" },
       { label: "Gastronomie & Vins", cls: "cat-gastronomie" },
