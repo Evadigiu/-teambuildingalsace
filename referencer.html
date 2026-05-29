@@ -159,18 +159,8 @@
 </head>
 <body>
 
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav><a href="index.html">← Retour aux activités</a></nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="referencer.html" onclick="toggleMenu()">Référencer mon activité</a>
-  <a href="#" onclick="toggleMenu()">Contact</a>
-</div>
+<header></header>
+<div id="mobile-nav"></div>
 
 <div class="hero">
   <div class="hero-shape hero-shape-1"></div>
@@ -216,7 +206,7 @@
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Lien vers votre site</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Transmission des leads</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--secondary" onclick="window.scrollTo({top:document.getElementById('main-form').offsetTop-80,behavior:'smooth'});return false;">Commencer →</a>
+      <a href="#form-start" class="tarif-cta tarif-cta--secondary" onclick="selectNiveau('gratuit');return false;">Commencer →</a>
     </div>
 
     <!-- Essentiel -->
@@ -239,7 +229,7 @@
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Lien vers votre site</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Transmission des leads</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--secondary" onclick="window.scrollTo({top:document.getElementById('main-form').offsetTop-80,behavior:'smooth'});return false;">Commencer →</a>
+      <a href="#form-start" class="tarif-cta tarif-cta--secondary" onclick="selectNiveau('essentiel');return false;">Choisir →</a>
     </div>
 
     <!-- Visible -->
@@ -263,7 +253,7 @@
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Position prioritaire</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Mise en avant sur la home</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--primary" onclick="window.scrollTo({top:document.getElementById('main-form').offsetTop-80,behavior:'smooth'});return false;">Choisir Visible →</a>
+      <a href="#form-start" class="tarif-cta tarif-cta--primary" onclick="selectNiveau('visible');return false;">Choisir →</a>
     </div>
 
     <!-- Partenaire -->
@@ -286,7 +276,7 @@
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Page univers dédiée</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Article de blog mensuel</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--primary" onclick="window.scrollTo({top:document.getElementById('main-form').offsetTop-80,behavior:'smooth'});return false;">Choisir Partenaire →</a>
+      <a href="#form-start" class="tarif-cta tarif-cta--primary" onclick="selectNiveau('partenaire');return false;">Choisir →</a>
     </div>
 
     <!-- Partenaire Officiel -->
@@ -308,7 +298,7 @@
         <div class="tarif-feature"><span class="ico">✓</span><span>1 article de blog par mois</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Visibilité maximale sur le site</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--primary" style="background:linear-gradient(135deg,#C9933A,#F0C060);color:#0D0D0D;box-shadow:0 4px 14px rgba(201,147,58,0.35)" onclick="window.scrollTo({top:document.getElementById('main-form').offsetTop-80,behavior:'smooth'});return false;">Choisir Officiel →</a>
+      <a href="#form-start" class="tarif-cta tarif-cta--primary" style="background:linear-gradient(135deg,#C9933A,#F0C060);color:#0D0D0D;box-shadow:0 4px 14px rgba(201,147,58,0.35)" onclick="selectNiveau('categorie');return false;">Choisir →</a>
     </div>
 
   </div>
@@ -343,27 +333,27 @@
         <div class="field-group"><label>Siret <span class="optional">(optionnel)</span></label><input type="text" name="siret" placeholder="123 456 789 00012"></div>
       </div>
       <div class="field-group" style="margin-top:8px">
-        <label>Niveau de référencement souhaité <span class="required">*</span></label>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px" id="niveau-grid">
+        <label>Niveau choisi <span class="required">*</span> <span class="optional">— vous pouvez changer en haut de page</span></label>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:8px" id="niveau-grid">
           <label class="check-item niveau-item" data-val="gratuit">
             <input type="radio" name="niveau" value="gratuit" required>
-            <div><strong>Gratuit — 0€/mois</strong><br><span style="font-size:0.75rem;color:#aaa">Fiche basique, filtres, carte</span></div>
+            <div><strong>Gratuit</strong><br><span style="font-size:0.75rem;color:#aaa">0€/mois</span></div>
           </label>
           <label class="check-item niveau-item" data-val="essentiel">
             <input type="radio" name="niveau" value="essentiel">
-            <div><strong>Essentiel — 39€/mois</strong><br><span style="font-size:0.75rem;color:#aaa">1 photo, nom affiché, emplacement</span></div>
+            <div><strong>Essentiel</strong><br><span style="font-size:0.75rem;color:#aaa">39€/mois</span></div>
           </label>
           <label class="check-item niveau-item" data-val="visible" style="border-color:var(--violet)">
             <input type="radio" name="niveau" value="visible">
-            <div><strong style="color:var(--violet)">Visible — 69€/mois ⭐</strong><br><span style="font-size:0.75rem;color:#aaa">5 photos, badge vérifié, leads</span></div>
+            <div><strong style="color:var(--violet)">Visible ⭐</strong><br><span style="font-size:0.75rem;color:#aaa">69€/mois</span></div>
           </label>
           <label class="check-item niveau-item" data-val="partenaire">
             <input type="radio" name="niveau" value="partenaire">
-            <div><strong>Partenaire — 99€/mois</strong><br><span style="font-size:0.75rem;color:#aaa">Position prioritaire, home</span></div>
+            <div><strong>Partenaire</strong><br><span style="font-size:0.75rem;color:#aaa">99€/mois</span></div>
           </label>
           <label class="check-item niveau-item" data-val="categorie" style="border-color:#C9933A">
             <input type="radio" name="niveau" value="categorie">
-            <div><strong style="color:#C9933A">Partenaire Officiel — 149€/mois 🏆</strong><br><span style="font-size:0.75rem;color:#aaa">Page univers + article blog/mois</span></div>
+            <div><strong style="color:#C9933A">Officiel 🏆</strong><br><span style="font-size:0.75rem;color:#aaa">149€/mois</span></div>
           </label>
         </div>
       </div>
@@ -481,6 +471,14 @@
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 
 <script>
+  function selectNiveau(val) {
+    const radio = document.querySelector(`input[name="niveau"][value="${val}"]`);
+    if (radio) {
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', {bubbles:true}));
+    }
+    window.scrollTo({top: document.getElementById('main-form').offsetTop - 80, behavior: 'smooth'});
+  }
   function goToStep(n) {
     document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.progress-step').forEach((s, i) => { s.classList.remove('active','done'); if(i+1<n) s.classList.add('done'); if(i+1===n) s.classList.add('active'); });
@@ -501,13 +499,16 @@
 
     // Groupes radio requis (au moins un coché dans le groupe)
     const radioGroups = {};
-    section.querySelectorAll('input[type=radio][required]').forEach(r => {
+    // Inclure aussi les radios sans required si le groupe a au moins un required
+    section.querySelectorAll('input[type=radio]').forEach(r => {
       if (!radioGroups[r.name]) radioGroups[r.name] = [];
       radioGroups[r.name].push(r);
     });
     Object.entries(radioGroups).forEach(([name, radios]) => {
+      const hasRequired = radios.some(r => r.required);
+      if (!hasRequired) return;
       const checked = radios.some(r => r.checked);
-      radios.forEach(r => { r.closest('.check-item').style.borderColor = checked ? '' : 'var(--violet)'; });
+      radios.forEach(r => { r.closest('.check-item').style.borderColor = checked ? '' : 'tomato'; });
       if (!checked) valid = false;
     });
 
@@ -556,11 +557,7 @@
     .then(r => { if(r.ok){ document.getElementById('main-form').style.display='none'; document.querySelector('.progress-bar').style.display='none'; document.getElementById('success-screen').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); } else { alert('Erreur. Réessayez.'); } })
     .catch(() => alert('Erreur. Réessayez.'));
   });
-  function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobile-nav').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
-  }
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
