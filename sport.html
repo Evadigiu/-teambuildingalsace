@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Team Building Sport & Adrénaline en Alsace 2025 | TeamBuildingAlsace.fr</title>
-  <meta name="description" content="Lancer de hache, accrobranche, paintball, survie. Les meilleures activités sportives et adrénaline pour vos équipes en Alsace.">
-  <meta name="keywords" content="team building sport alsace, lancer de hache entreprise alsace, team building adrénaline strasbourg, paintball entreprise alsace">
-  <link rel="canonical" href="https://teambuildingalsace.fr/sport">
+  <title>Team Building Sport & Adrénaline en Alsace — Karting, Lancer de Hache, VR | TeamBuildingAlsace.fr</title>
+  <meta name="description" content="Lancer de hache, karting, VR, survie en forêt vosgienne — les meilleures activités sportives et adrénaline pour vos équipes en Alsace. Parce que la cohésion, ça se mérite.">
+  <meta name="keywords" content="team building sport alsace, team building adrénaline strasbourg, lancer de hache entreprise alsace, karting team building alsace, réalité virtuelle entreprise mulhouse, survie forêt vosgienne équipe, activité sportive cohésion alsace, team building défi physique">
+  <link rel="canonical" href="https://teambuildingalsace.fr/sport.html">
+  <meta name="topic" content="team building sportif Alsace, activité adrénaline entreprise, cohésion équipe sport, défi physique team building">
+  <meta property="og:title" content="Team Building Sport & Adrénaline en Alsace | TeamBuildingAlsace.fr">
+  <meta property="og:description" content="Lancer de hache, karting, VR, survie vosgienne — quand la cohésion se mérite à la sueur du front.">
+  <meta property="og:type" content="website">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,13 +39,31 @@
     header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
     .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.02em; }
     .logo span { color: var(--vert); }
-    nav { display: flex; align-items: center; gap: 28px; }
-    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav { display: flex; align-items: center; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; margin-left: 28px; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
     nav a:hover { color: var(--vert); }
-    .nav-cta { background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; }
-    .nav-cta:hover { background: var(--violet-clair) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+    .nav-cta { margin-left: 20px !important; background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta:hover { background: var(--violet-clair) !important; transform: scale(1.04); }
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; background: none; border: none; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 5px; padding: 0; transition: color 0.2s; white-space: nowrap; }
+    .nav-dropdown-btn:hover { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; text-decoration: none; color: var(--noir); font-size: 0.85rem; font-weight: 600; transition: all 0.15s; cursor: pointer; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all 0.3s; border-radius: 2px; }
     .breadcrumb { background: white; padding: 14px 40px; border-bottom: 1px solid var(--bordure); font-size: 0.78rem; color: #aaa; display: flex; align-items: center; gap: 8px; }
     .breadcrumb a { color: var(--violet); text-decoration: none; font-weight: 600; }
     .hero { background: var(--noir); padding: 80px 40px 70px; position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; }
@@ -135,17 +157,8 @@
   </style>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<header></header>
+<div id="mobile-nav"></div>
 
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <a href="index.html">Univers</a> › <span>⚡ Univers · Sport & Adrénaline</span>
@@ -189,148 +202,197 @@
   </div>
 </div>
 
+<!-- SAVIEZ-VOUS -->
 <section>
   <div class="container">
-    <span class="section-label">Pourquoi ça marche</span>
-    <h2 class="section-title">Ce que cet univers apporte <em>concrètement</em> à vos équipes</h2>
-    <p class="section-intro">Au-delà du plaisir et de la convivialité, ces activités ont des impacts mesurables sur la cohésion, la performance et le bien-être de vos collaborateurs.</p>
-    <div class="grid-3">
-      <div class="why-card">
-        <span class="why-icon">⚡</span>
-        <h3>Le dépassement de soi comme catalyseur</h3>
-        <p>Réussir un lancer de hache, franchir un obstacle, tenir sous pression — ces micro-victoires partagées créent une fierté collective que aucune réunion ne peut reproduire. Le défi physique révèle le meilleur de chaque individu.</p>
-        <span class="why-tag">Confiance & accomplissement</span>
+    <span class="section-label">Le saviez-vous ?</span>
+    <h2 class="section-title">Ce que le sport fait<br><em>au cerveau de votre équipe</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
+      <div>
+        <p style="font-size:1rem;font-weight:300;line-height:2;color:#333;margin-bottom:20px;letter-spacing:-0.01em">Quand on transpire ensemble, il ne se passe pas que du cardio. Il se passe de la chimie — au sens littéral du terme.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9;margin-bottom:16px">L'effort physique déclenche une cascade de neurotransmetteurs : endorphines (l'euphorie), dopamine (la motivation), sérotonine (la bonne humeur), ocytocine (le lien social). En groupe, cet effet est multiplié. C'est pour ça qu'un vestiaire après un match ressemble à une réunion de cohésion que personne n'a planifiée.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9;margin-bottom:20px">Le sport réduit le cortisol — l'hormone du stress — et restaure la capacité d'attention et de créativité. Concrètement : une équipe qui fait du sport ensemble revient au bureau avec une qualité de présence différente. Moins d'irritabilité, plus d'écoute, meilleure gestion des désaccords.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9">Et surtout : les souvenirs émotionnels forts — ceux nés dans l'effort, l'inconfort ou le rire partagé — sont encodés différemment par le cerveau. Ils durent. C'est pour ça qu'on se souvient de son premier lancer de hache réussi. Mais jamais de la présentation PowerPoint de mardi dernier.</p>
       </div>
-      <div class="why-card">
-        <span class="why-icon">🧠</span>
-        <h3>La gestion du stress en situation réelle</h3>
-        <p>Sous adrénaline, le cerveau apprend à gérer la pression différemment. Les collaborateurs développent des réflexes de coopération et de communication qui se transfèrent directement dans leur quotidien professionnel.</p>
-        <span class="why-tag">Gestion du stress & performance</span>
-      </div>
-      <div class="why-card">
-        <span class="why-icon">🤝</span>
-        <h3>Les liens nés sous l'effort durent</h3>
-        <p>Surmonter un défi physique ensemble crée un souvenir commun fort. Ces liens émotionnels entre collègues — nés dans l'effort, la sueur et le rire — sont les plus durables et les plus authentiques qui soient.</p>
-        <span class="why-tag">Cohésion durable</span>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;display:flex;gap:14px;align-items:flex-start">
+          <div style="width:44px;height:44px;background:var(--cp);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0">🧠</div>
+          <div>
+            <strong style="font-size:0.88rem;color:var(--noir);display:block;margin-bottom:4px">Dopamine & motivation</strong>
+            <p style="font-size:0.78rem;color:#777;line-height:1.65">L'effort physique stimule la production de dopamine — le neurotransmetteur de la récompense et de la motivation. Une équipe qui transpire ensemble est une équipe qui veut recommencer.</p>
+          </div>
+        </div>
+        <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;display:flex;gap:14px;align-items:flex-start">
+          <div style="width:44px;height:44px;background:var(--cp);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0">🤝</div>
+          <div>
+            <strong style="font-size:0.88rem;color:var(--noir);display:block;margin-bottom:4px">Ocytocine & confiance</strong>
+            <p style="font-size:0.78rem;color:#777;line-height:1.65">L'effort partagé — surtout quand il implique une légère vulnérabilité — libère de l'ocytocine, l'hormone du lien social. C'est le même mécanisme que dans les situations de survie. Moins dramatique, mais efficace.</p>
+          </div>
+        </div>
+        <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;display:flex;gap:14px;align-items:flex-start">
+          <div style="width:44px;height:44px;background:var(--cp);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0">⚡</div>
+          <div>
+            <strong style="font-size:0.88rem;color:var(--noir);display:block;margin-bottom:4px">Adrénaline & mémoire</strong>
+            <p style="font-size:0.78rem;color:#777;line-height:1.65">Un souvenir émotionnel fort est encodé plus profondément dans le cerveau. C'est pour ça que les moments de défi ou de peur légère créent des liens durables — votre équipe s'en souviendra encore dans 3 ans.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ALSACE TERRE DE SPORT -->
 <section style="background:var(--creme)">
   <div class="container">
-    <span class="section-label">Les formats disponibles</span>
-    <h2 class="section-title">Des activités pour <em>toutes les occasions</em></h2>
-    <p class="section-intro">Ces activités s'adaptent à tous les formats, tous les groupes et tous les budgets — de l'afterwork d'une heure au séminaire résidentiel.</p>
-    <div class="grid-4">
-      <div class="format-card">
-        <div class="format-icon">🪓</div>
-        <h3>Lancer de hache</h3>
-        <p>Une activité insolite et adrénaline accessible à tous. Aucune expérience requise — l'animateur guide chaque participant. Compétition par équipes, classement, débrief. Un moment mémorable garanti.</p>
-        <span class="format-duree">1h30 · Indoor</span>
+    <span class="section-label">Terrain de jeu</span>
+    <h2 class="section-title">L'Alsace, <em>terre de sport</em></h2>
+    <p class="section-intro">Avant de choisir votre activité de team building, sachez que vous êtes dans l'une des régions les mieux équipées de France pour pratiquer à peu près n'importe quel sport. Certains disent même que c'est pour compenser la choucroute.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px">
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:20px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:10px">🚴</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:800;margin-bottom:6px">Route des Vins à vélo</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">200 km de pistes cyclables entre Marlenheim et Thann, vignobles à perte de vue. L'activité officielle de tous ceux qui prétendent "faire du sport" tout en s'arrêtant dans chaque cave.</p>
       </div>
-      <div class="format-card">
-        <div class="format-icon">🏃</div>
-        <h3>Bootcamp & challenges sportifs</h3>
-        <p>Parcours du combattant, épreuves physiques par équipes, challenges multi-activités. Le format Koh-Lanta version entreprise — entraide, stratégie et dépassement de soi au programme.</p>
-        <span class="format-duree">Demi-journée · Outdoor</span>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:20px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:10px">🏃</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:800;margin-bottom:6px">Trail & Randonnée</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Le Tour d'Alsace, l'Ultra-Trail des Vosges, les 700 km de GR traversant le massif — pour les équipes qui veulent souffrir ensemble dans de beaux paysages.</p>
       </div>
-      <div class="format-card">
-        <div class="format-icon">🌲</div>
-        <h3>Accrobranche & parcours aventure</h3>
-        <p>Dans les forêts vosgiennes, vos équipes affrontent des parcours aériens qui développent la confiance, le courage et l'entraide. Plusieurs niveaux de difficulté pour intégrer tout le monde.</p>
-        <span class="format-duree">Demi-journée · Outdoor</span>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:20px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:10px">🧗</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:800;margin-bottom:6px">Escalade & Via Ferrata</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Les falaises vosgiennesoffrent des sites d'escalade pour tous niveaux. La via ferrata de Barr et celle du Nideck permettent un encadrement parfait pour les groupes.</p>
       </div>
-      <div class="format-card">
-        <div class="format-icon">🎯</div>
-        <h3>Tir à l'arc & adresse</h3>
-        <p>Concentration, respiration, précision — le tir à l'arc développe des qualités peu sollicitées au bureau. Un format calme en apparence, intense en réalité, idéal pour les équipes cherchant un défi différent.</p>
-        <span class="format-duree">1h30 · Outdoor</span>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:20px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:10px">🛶</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:800;margin-bottom:6px">Kayak & Canoë</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">La Bruche, la Lauter, l'Ill et le Rhin offrent des parcours pour tous niveaux. Le kayak en équipe est l'une des meilleures métaphores de la coordination collective qui existent.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:20px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:10px">⛷️</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:800;margin-bottom:6px">Ski & Luge</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">La Schlucht, le Markstein, le Champ du Feu — des stations accessibles à moins d'1h30 de Strasbourg. Un team building hivernal avec vue sur la plaine d'Alsace, c'est assez rare pour être noté.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:20px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:10px">🎯</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:800;margin-bottom:6px">Tir à l'arc & Airsoft</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Des terrains d'airsoft dans le Bas-Rhin et le Haut-Rhin, des clubs de tir à l'arc ouverts aux groupes — pour les équipes qui préfèrent la précision à la vitesse.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:20px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:10px">🏌️</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:800;margin-bottom:6px">Golf & Mini-Golf</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">L'Alsace compte plusieurs parcours de golf accessibles aux groupes d'entreprise, dont le Golf Club d'Alsace à Illkirch et le domaine de Soufflenheim. Pour les équipes qui aiment prendre leur temps.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--c1),var(--c2));border-radius:14px;padding:20px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:10px">🍺</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:800;margin-bottom:6px;color:white">Le sport le plus local</h3>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.75);line-height:1.6">Le lever de coude. Pratiqué intensément lors de chaque Stammtisch, il renforce la cohésion, développe l'endurance et laisse des souvenirs flous mais chaleureux. Déconseillé comme activité principale. Mais acceptable en clôture de journée.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- QU'EST-CE QU'UN TEAM BUILDING SPORTIF -->
 <section>
   <div class="container">
-    <span class="section-label">Angle RH</span>
-    <h2 class="section-title">Ce que ça change pour <em>vos KPIs RH</em></h2>
-    <p class="section-intro">Au-delà du plaisir, ces activités ont des impacts mesurables sur les indicateurs qui comptent pour vos équipes RH.</p>
-    <div class="grid-2">
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div class="rh-card">
-          <div class="rh-ico">💪</div>
-          <div>
-            <h4>Révéler les leaders sous pression</h4>
-            <p>Les activités sportives et adrénaline font émerger naturellement les profils de leaders, d'organisateurs et de soutiens. Une observation précieuse pour les managers qui souhaitent mieux connaître leur équipe dans des conditions réelles.</p>
-            <span class="rh-stat">Révélateur managérial</span>
-          </div>
+    <span class="section-label">En théorie & en pratique</span>
+    <h2 class="section-title">Qu'est-ce qu'on entend par<br><em>team building sportif ?</em></h2>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:32px;max-width:900px">
+
+      <!-- ÉTAPE 1 -->
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:16px;padding:30px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--c1),var(--c2))"></div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+          <div style="width:36px;height:36px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:900;font-size:1rem;color:var(--c1);flex-shrink:0">1</div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--noir)">Quels avantages ça représente ?</h3>
         </div>
-        <div class="rh-card">
-          <div class="rh-ico">🔥</div>
-          <div>
-            <h4>Booster la motivation post-objectif</h4>
-            <p>Après une période intense, un team building adrénaline fonctionne comme une soupape. La décharge d'endorphines collective remet les compteurs à zéro et relance la motivation pour les prochains défis professionnels.</p>
-            <span class="rh-stat">Remobilisation</span>
-          </div>
-        </div>
-        <div class="rh-card">
-          <div class="rh-ico">🤜</div>
-          <div>
-            <h4>Briser les silos par le défi commun</h4>
-            <p>Face à un défi physique, les titres et les fonctions n'existent plus. Le directeur et le stagiaire suent ensemble, s'encouragent et se félicitent. Ces moments d'égalité sont les plus efficaces pour briser les silos.</p>
-            <span class="rh-stat">Transversalité</span>
-          </div>
+        <p style="font-size:0.88rem;color:#555;line-height:1.85;margin-bottom:14px">Le team building sportif, c'est le seul format où tout le monde est sur le même pied d'égalité — parce que le classement à la fin ne dépend pas du titre sur la carte de visite. Le directeur qui rate son lancer de hache et le stagiaire qui le réussit du premier coup créent un moment de connexion authentique qu'aucun jeu de rôle en salle ne peut simuler.</p>
+        <p style="font-size:0.88rem;color:#555;line-height:1.85">Côté ROI : une équipe qui partage un souvenir fort — physique, émotionnel, légèrement inconfortable — revient au bureau avec une qualité de relation différente. La confiance s'est construite en dehors du cadre professionnel. Elle se transfère dedans. C'est documenté, c'est mesurable, et c'est pour ça que 84% des salariés citent le sport comme premier levier de cohésion.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
+          <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:4px 12px;border-radius:100px;font-weight:700">Cohésion durable</span>
+          <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:4px 12px;border-radius:100px;font-weight:700">Égalité hiérarchique</span>
+          <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:4px 12px;border-radius:100px;font-weight:700">Souvenirs partagés</span>
+          <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:4px 12px;border-radius:100px;font-weight:700">Dopamine collective</span>
         </div>
       </div>
-      <div class="dark-box">
-        <h3>⚡ Sport & adrénaline en chiffres</h3>
-        <ul>
-          <li><span>💪</span><span><strong>84% des salariés</strong> affirment que le sport permet de renforcer la cohésion d'équipe — c'est le levier n°1 identifié (Harmonie Mutuelle).</span></li>
-          <li><span>📈</span><span>Les équipes soudées sont <strong>2 fois plus productives</strong> que les équipes classiques — l'investissement team building se mesure.</span></li>
-          <li><span>🏃</span><span>Les bootcamps en extérieur et les défis sportifs sont <strong>parmi les formats les plus en vogue en 2025</strong> (Spart.life, 2025).</span></li>
-          <li><span>🎯</span><span><strong>1 team building sur 5</strong> est désormais une activité immersive à fort impact émotionnel (Châteauform', 2024).</span></li>
-          <li><span>🤝</span><span>Le dépassement physique collectif crée des <strong>souvenirs communs durables</strong> — l'ingrédient n°1 d'une vraie cohésion d'équipe.</span></li>
-        </ul>
+
+      <!-- ÉTAPE 2 -->
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:16px;padding:30px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--c1),var(--c2))"></div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+          <div style="width:36px;height:36px;background:var(--cp);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:900;font-size:1rem;color:var(--c1);flex-shrink:0">2</div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--noir)">Concrètement, à quoi ça peut ressembler ?</h3>
+        </div>
+        <p style="font-size:0.88rem;color:#555;line-height:1.85;margin-bottom:16px">Le spectre est large. D'un côté, les formats "adrénaline pure" : karting extérieur, lancer de hache, airsoft, survie en forêt, réalité virtuelle sportive. De l'autre, les formats "cohésion active" : olympiades d'entreprise, parcours d'orientation, relais d'équipe, jeux sportifs collectifs. Et entre les deux : le bubble foot, le foot billard, le bowling d'entreprise — des formats hybrides où l'aspect compétitif est tempéré par l'humour.</p>
+        <p style="font-size:0.88rem;color:#555;line-height:1.85">Ce qui fait la différence entre un bon et un mauvais team building sportif, c'est souvent le débrief. L'activité crée l'expérience — le débrief la transforme en apprentissage. Qui a pris des initiatives ? Comment l'équipe a-t-elle géré l'échec ? Qu'est-ce qui a fonctionné dans la communication ? Ces questions, posées en collectif après l'effort, ancrent le souvenir et lui donnent du sens.</p>
       </div>
+
+      <!-- ÉTAPE 3 -->
+      <div style="background:linear-gradient(135deg,#1A1A2E,#0D0D0D);border-radius:16px;padding:30px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:var(--c1);border-radius:50%;filter:blur(50px);opacity:0.2"></div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+          <div style="width:36px;height:36px;background:rgba(239,154,154,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:900;font-size:1rem;color:#EF9A9A;flex-shrink:0;border:1px solid rgba(239,154,154,0.3)">3</div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:white">Comment inclure tout le monde ? La vraie question.</h3>
+        </div>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.85;margin-bottom:14px;position:relative;z-index:1">Soyons honnêtes : "accessible à tous" est souvent une formule de prestataire. La réalité est plus nuancée. Une personne en situation de handicap moteur, une collaboratrice enceinte, un salarié en surpoids qui craint le regard des autres — ils méritent mieux qu'une formule rassurante dans une brochure.</p>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.85;margin-bottom:14px;position:relative;z-index:1">Les bonnes pratiques : choisir des activités où plusieurs rôles existent (arbitre, stratège, encourageur, photographe officiel), prévoir des alternatives en parallèle pour ceux qui ne souhaitent pas participer physiquement, et surtout — demander à votre équipe avant de réserver. Un simple sondage anonyme "y a-t-il des contraintes physiques ou des inconforts à signaler ?" change tout.</p>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.45);line-height:1.85;position:relative;z-index:1;font-style:italic">La question la plus courageuse à poser avant un team building sportif : "est-ce que tout le monde a envie, ou est-ce que certains vont juste faire bonne figure ?" Ce n'est pas une question rhétorique.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
+<!-- ACTIVITÉS RÉELLES -->
 <section id="activites" style="background:var(--creme)">
   <div class="container">
-    <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>en Alsace</em></h2>
-    <p class="section-intro">Des activités sélectionnées pour leur qualité, leur impact sur la cohésion et leur ancrage alsacien.</p>
+    <span class="section-label">Sélection sport</span>
+    <h2 class="section-title">Trois activités pour <em>commencer à transpirer</em></h2>
+    <p class="section-intro">Des activités réelles disponibles en Alsace — cliquez pour voir la fiche complète.</p>
     <div class="grid-3">
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#B71C1C,#E53935)">🪓</div>
-        <div class="act-body">
-          <h3>Lancer de hache</h3>
-          <p>Une activité insolite et adrénaline à Wittenheim. Accessible à tous, mémorable pour tous.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 35 €/pers.</span>
-            <span class="act-tag">Sport · Adrénaline</span>
-          </div>
-        </div>
-      </a>
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#1B4332,#40916C)">🌲</div>
+
+      <a href="index.html?univers=sport&activite=2&scroll=activites" class="act-card" onclick="openFromUnivers(event,2,'sport')">
+        <div class="act-img" style="background:linear-gradient(135deg,#0F2027,#203A43,#2C5364)">🌲</div>
         <div class="act-body">
           <h3>Survie & Leadership en Forêt Vosgienne</h3>
-          <p>Techniques de survie et navigation dans le massif vosgien. Leadership en situation réelle.</p>
+          <p>Orienteering, construction de camp, gestion de crise simulée. Pour les équipes qui veulent vraiment sortir de leur zone de confort — et pas juste le dire.</p>
           <div class="act-footer">
             <span class="act-price">Dès 95 €/pers.</span>
             <span class="act-tag">Sport · Leadership</span>
           </div>
         </div>
       </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité en Alsace ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
+
+      <a href="index.html?univers=sport&activite=5&scroll=activites" class="act-card" onclick="openFromUnivers(event,5,'sport')">
+        <div class="act-img" style="background:linear-gradient(135deg,#134E5E,#71B280)">🪓</div>
+        <div class="act-body">
+          <h3>Lancer de Hache</h3>
+          <p>Une hache. Une cible. Pas besoin d'être viking pour réussir — juste d'un peu de lâcher-prise. L'activité la plus mémorable au rapport mémorabilité/effort fourni.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 20 €/pers.</span>
+            <span class="act-tag">Sport · Adrénaline</span>
+          </div>
+        </div>
       </a>
+
+      <a href="index.html?univers=sport&activite=7&scroll=activites" class="act-card" onclick="openFromUnivers(event,7,'sport')">
+        <div class="act-img" style="background:linear-gradient(135deg,#0D0D0D,#5B2EFF);overflow:hidden;padding:0">
+          <img src="images/EVA-1.jpg" alt="Réalité virtuelle EVA Mulhouse" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="act-body">
+          <h3>Team Building Réalité Virtuelle — EVA</h3>
+          <p>Du sport sans transpirer (beaucoup). Des missions immersives en VR, accessibles à tous, avec un facteur adrénaline surprenant pour ceux qui l'ont sous-estimé.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 19 €/pers.</span>
+            <span class="act-tag">Sport · Digital</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?univers=sport&scroll=activites" class="btn-p">Voir toutes les activités sport & adrénaline →</a>
     </div>
   </div>
 </section>
@@ -366,7 +428,7 @@
   <h2>Prêt à faire sortir votre équipe<br><em>de sa zone de confort en Alsace ?</em></h2>
   <p>Parcourez toutes nos activités, filtrez selon vos besoins et contactez directement les prestataires.</p>
   <div class="cta-btns">
-    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="index.html?univers=sport&scroll=activites" class="btn-p">Voir toutes les activités sport</a>
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
@@ -374,6 +436,11 @@
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+  function openFromUnivers(e, id, univers) {
+    e.preventDefault();
+    window.location.href = 'index.html?univers=' + univers + '&activite=' + id + '&scroll=activites';
+  }
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
