@@ -35,13 +35,31 @@
     header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
     .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.02em; }
     .logo span { color: var(--vert); }
-    nav { display: flex; align-items: center; gap: 28px; }
-    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav { display: flex; align-items: center; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; margin-left: 28px; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
     nav a:hover { color: var(--vert); }
-    .nav-cta { background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; }
-    .nav-cta:hover { background: var(--violet-clair) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+    .nav-cta { margin-left: 20px !important; background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta:hover { background: var(--violet-clair) !important; transform: scale(1.04); }
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; background: none; border: none; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 5px; padding: 0; transition: color 0.2s; white-space: nowrap; }
+    .nav-dropdown-btn:hover { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; text-decoration: none; color: var(--noir); font-size: 0.85rem; font-weight: 600; transition: all 0.15s; cursor: pointer; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all 0.3s; border-radius: 2px; }
     .breadcrumb { background: white; padding: 14px 40px; border-bottom: 1px solid var(--bordure); font-size: 0.78rem; color: #aaa; display: flex; align-items: center; gap: 8px; }
     .breadcrumb a { color: var(--violet); text-decoration: none; font-weight: 600; }
     .hero { background: var(--noir); padding: 80px 40px 70px; position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; }
@@ -99,7 +117,8 @@
     .dark-box ul li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
     .dark-box ul li:last-child { border-bottom: none; }
     .dark-box ul li strong { color: #4DB6AC; }
-    .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
     .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px #0060641E; border-color: var(--c1); }
     .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
     .act-body { padding: 18px; }
@@ -135,17 +154,8 @@
   </style>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<header></header>
+<div id="mobile-nav"></div>
 
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <a href="index.html">Univers</a> › <span>🧘 Univers · Bien-être & Slow</span>
@@ -217,109 +227,207 @@
   </div>
 </section>
 
+<!-- BURNOUT -->
 <section style="background:var(--creme)">
   <div class="container">
-    <span class="section-label">Les formats disponibles</span>
-    <h2 class="section-title">Des activités pour <em>toutes les occasions</em></h2>
-    <p class="section-intro">Ces activités s'adaptent à tous les formats, tous les groupes et tous les budgets — de l'afterwork d'une heure au séminaire résidentiel.</p>
-    <div class="grid-4">
-      <div class="format-card">
-        <div class="format-icon">🧘</div>
-        <h3>Séance yoga en équipe</h3>
-        <p>Un professeur se déplace dans vos locaux ou dans un cadre naturel alsacien. Aucun niveau requis, adapté à tous. Un moment de reconnexion corps-esprit qui améliore la posture, la respiration et la gestion du stress.</p>
-        <span class="format-duree">1h à 1h30 · Partout</span>
+    <span class="section-label">Comprendre pour agir</span>
+    <h2 class="section-title">Le burnout en entreprise — <em>ce qu'on ne dit pas assez</em></h2>
+    <p class="section-intro">Le burnout n'arrive pas du jour au lendemain. Il s'installe silencieusement, souvent chez les collaborateurs les plus engagés. Savoir le reconnaître — et savoir agir — c'est le premier acte de prévention.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#FF6B6B,#FF8E53)"></div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:12px;color:var(--noir)">🚨 Les signaux d'alerte</h3>
+          <p style="font-size:0.83rem;color:#555;line-height:1.8;margin-bottom:10px">Le burnout se manifeste sur trois plans qui se renforcent mutuellement. L'épuisement émotionnel d'abord — cette fatigue qui ne part pas avec le week-end. Puis la dépersonnalisation : un collaborateur qui se détache de son travail, de ses collègues, parfois de lui-même. Enfin la perte d'accomplissement : le sentiment que rien de ce qu'on fait ne compte vraiment.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+            <span style="font-size:0.72rem;background:#FFF0EE;color:#FF6B6B;border:1px solid #FFDAD6;padding:4px 12px;border-radius:100px;font-weight:700">Fatigue persistante</span>
+            <span style="font-size:0.72rem;background:#FFF0EE;color:#FF6B6B;border:1px solid #FFDAD6;padding:4px 12px;border-radius:100px;font-weight:700">Cynisme inhabituel</span>
+            <span style="font-size:0.72rem;background:#FFF0EE;color:#FF6B6B;border:1px solid #FFDAD6;padding:4px 12px;border-radius:100px;font-weight:700">Isolement</span>
+            <span style="font-size:0.72rem;background:#FFF0EE;color:#FF6B6B;border:1px solid #FFDAD6;padding:4px 12px;border-radius:100px;font-weight:700">Erreurs inhabituelles</span>
+            <span style="font-size:0.72rem;background:#FFF0EE;color:#FF6B6B;border:1px solid #FFDAD6;padding:4px 12px;border-radius:100px;font-weight:700">Absentéisme répété</span>
+          </div>
+        </div>
+        <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--c1),var(--c2))"></div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:12px;color:var(--noir)">💡 Ce que peut faire l'entreprise</h3>
+          <p style="font-size:0.83rem;color:#555;line-height:1.8">La prévention du burnout n'est pas une question de séances de yoga obligatoires ou de corbeilles de fruits. C'est une culture — celle qui donne aux collaborateurs le droit de dire "je suis à bout" sans en avoir honte. Les activités bien-être collectives jouent un rôle précis : elles créent un espace où la vulnérabilité est normale, où le corps a le droit d'exister au travail, où le silence n'est pas une perte de temps.</p>
+        </div>
       </div>
-      <div class="format-card">
-        <div class="format-icon">🌬️</div>
-        <h3>Atelier cohérence cardiaque & respiration</h3>
-        <p>Technique de respiration pour réguler le stress et l'anxiété. Immédiatement applicable au quotidien — vos collaborateurs repartent avec des outils concrets pour gérer la pression au bureau.</p>
-        <span class="format-duree">45 min · En salle</span>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">🌿</div>
-        <h3>Journée slow & reconnexion nature</h3>
-        <p>Combinaison d'activités douces en plein air : marche consciente, méditation guidée, ateliers créatifs slow. Une journée complète de ressourcement en profondeur, idéale avant ou après une période intense.</p>
-        <span class="format-duree">Journée · En nature</span>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">💆</div>
-        <h3>Atelier massage & bien-être</h3>
-        <p>Techniques de do-in (auto-massage), relaxation oculaire, étirements doux. Un atelier accessible à tous, sans équipement, réalisable dans vos locaux pendant une pause déjeuner.</p>
-        <span class="format-duree">1h · Sur site</span>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px">
+          <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:16px;color:var(--noir)">🌬️ Interventions rapides — ce qui fonctionne</h3>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;gap:12px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--cb)">
+              <div style="width:40px;height:40px;background:var(--cp);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🫁</div>
+              <div><strong style="font-size:0.85rem;color:var(--noir)">Cohérence cardiaque</strong><p style="font-size:0.78rem;color:#777;margin-top:3px;line-height:1.6">5 secondes d'inspiration, 5 secondes d'expiration, 5 minutes. Cette technique de respiration régule le système nerveux autonome et réduit le cortisol mesurément. Peut s'enseigner en 20 minutes, praticable n'importe où.</p></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--cb)">
+              <div style="width:40px;height:40px;background:var(--cp);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🧘</div>
+              <div><strong style="font-size:0.85rem;color:var(--noir)">Sophrologie en groupe</strong><p style="font-size:0.78rem;color:#777;margin-top:3px;line-height:1.6">Combinaison de relaxation dynamique, de visualisation positive et de respiration. Une séance d'1h en groupe crée une décompression collective rapide, particulièrement efficace en période de pic d'activité ou après une réorganisation.</p></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--cb)">
+              <div style="width:40px;height:40px;background:var(--cp);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">💆</div>
+              <div><strong style="font-size:0.85rem;color:var(--noir)">Massage en entreprise</strong><p style="font-size:0.78rem;color:#777;margin-top:3px;line-height:1.6">Le massage assis (amma) se pratique habillé, sur une chaise dédiée, en 15 à 20 minutes par personne. Nuque, épaules, dos — les zones de tension du travail sédentaire. Plusieurs prestataires interviennent directement en open-space. Impact immédiat et mesurable sur le moral de l'équipe.</p></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:40px;height:40px;background:var(--cp);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🌿</div>
+              <div><strong style="font-size:0.85rem;color:var(--noir)">Marche consciente</strong><p style="font-size:0.78rem;color:#777;margin-top:3px;line-height:1.6">30 minutes en silence ou en écoute guidée dans un parc. La marche lente active le système parasympathique, stimule la créativité et désamorce les ruminations. Simple, gratuit, redoutablement efficace. Les forêts vosgiennes, le parc de l'Orangerie à Strasbourg ou les vignobles d'Alsace offrent des cadres exceptionnels.</p></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ACTIVITÉS QUI DÉTENDENT -->
 <section>
   <div class="container">
-    <span class="section-label">Angle RH</span>
-    <h2 class="section-title">Ce que ça change pour <em>vos KPIs RH</em></h2>
-    <p class="section-intro">Au-delà du plaisir, ces activités ont des impacts mesurables sur les indicateurs qui comptent pour vos équipes RH.</p>
-    <div class="grid-2">
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div class="rh-card">
-          <div class="rh-ico">📉</div>
-          <div>
-            <h4>Réduire l'absentéisme</h4>
-            <p>Le stress chronique coûte 3 500€ par salarié et par an. Un programme bien-être régulier agit sur ses causes profondes. Les entreprises qui investissent dans le bien-être constatent une baisse mesurable de l'absentéisme dès les premiers mois.</p>
-            <span class="rh-stat">ROI mesurable</span>
-          </div>
-        </div>
-        <div class="rh-card">
-          <div class="rh-ico">💚</div>
-          <div>
-            <h4>Prévenir le burnout</h4>
-            <p>Entre 2017 et 2022, les burnouts ont bondi de 515% en France. Une séance mensuelle de yoga ou de méditation collective est un signal fort envoyé aux équipes : leur santé mentale compte, et l'entreprise agit concrètement.</p>
-            <span class="rh-stat">Prévention burnout</span>
-          </div>
-        </div>
-        <div class="rh-card">
-          <div class="rh-ico">🌟</div>
-          <div>
-            <h4>Attirer et fidéliser les talents</h4>
-            <p>Les nouvelles générations placent le bien-être au travail en tête de leurs critères. Une entreprise qui propose des activités bien-être régulières envoie un message fort sur sa culture — un argument de recrutement et de fidélisation concret.</p>
-            <span class="rh-stat">Marque employeur</span>
-          </div>
-        </div>
+    <span class="section-label">En pratique</span>
+    <h2 class="section-title">Les activités qui <em>détendent vraiment</em> en équipe</h2>
+    <p class="section-intro">Pas toutes les activités bien-être se valent. Voici celles qui ont fait leurs preuves en contexte professionnel — pour leur effet immédiat, leur accessibilité et leur impact durable sur la dynamique de groupe.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px">
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:12px">🛁</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:8px">Bains nordiques & spa privatisé</h3>
+        <p style="font-size:0.82rem;color:#666;line-height:1.7;margin-bottom:10px">Certains établissements en Alsace proposent des espaces aquatiques privatisables pour groupes : jacuzzi extérieur, sauna finlandais, bain nordique. La chaleur et l'eau ont un effet de cohésion remarquable — les hiérarchies s'effacent dans une bassine d'eau chaude.</p>
+        <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:3px 10px;border-radius:100px;font-weight:700">2 à 3h · 6 à 20 personnes</span>
       </div>
-      <div class="dark-box">
-        <h3>🧘 Le bien-être en entreprise en 2025</h3>
-        <ul>
-          <li><span>📊</span><span><strong>88% des salariés</strong> considèrent le bien-être et la QVCT comme prioritaires (Preventica, 2024) — une attente que les entreprises ne peuvent plus ignorer.</span></li>
-          <li><span>🔥</span><span>Les burnouts ont bondi de <strong>515% en France</strong> entre 2017 et 2022 — un signal d'alarme qui transforme le bien-être en enjeu stratégique.</span></li>
-          <li><span>💤</span><span><strong>20,8% des 18-24 ans</strong> étaient concernés par la dépression en 2021 — la santé mentale des jeunes actifs est le défi RH de 2025.</span></li>
-          <li><span>💰</span><span>Starbucks offre <strong>20 séances de psychothérapie gratuites</strong> par an à ses 350 000 salariés — le bien-être est devenu un avantage concurrentiel.</span></li>
-          <li><span>🌱</span><span>Les entreprises qui investissent dans le bien-être constatent <strong>une réduction de l'absentéisme et du turnover</strong> dès les premiers mois.</span></li>
-        </ul>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:12px">🎵</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:8px">Bains sonores collectifs</h3>
+        <p style="font-size:0.82rem;color:#666;line-height:1.7;margin-bottom:10px">Allongés sur des tapis, les participants laissent les vibrations des bols tibétains traverser le corps. C'est une expérience déroutante au début — si peu d'entreprises proposent de simplement être là, sans rien produire. Puis arrive le relâchement profond. Durée : 45 min à 1h30.</p>
+        <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:3px 10px;border-radius:100px;font-weight:700">45 min · Partout · Tous niveaux</span>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:12px">🌲</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:8px">Sylvothérapie & bain de forêt</h3>
+        <p style="font-size:0.82rem;color:#666;line-height:1.7;margin-bottom:10px">Le "Shinrin-yoku" japonais — littéralement "bain de forêt" — consiste à marcher lentement en forêt en activant tous les sens. Les phytoncides libérés par les arbres renforcent l'immunité, réduisent le cortisol et restaurent la capacité d'attention. Le Massif des Vosges offre un terrain idéal.</p>
+        <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:3px 10px;border-radius:100px;font-weight:700">Demi-journée · Outdoor · Vosges</span>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:12px">🎋</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:8px">Qi Gong & yoga doux</h3>
+        <p style="font-size:0.82rem;color:#666;line-height:1.7;margin-bottom:10px">Mouvements lents, respiration synchronisée, pleine conscience du corps. Le Qi Gong est particulièrement adapté aux collaborateurs qui "ne font pas de sport" — accessible à tous les âges, praticcable en costume, sans transpiration. Idéal en ouverture de séminaire.</p>
+        <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:3px 10px;border-radius:100px;font-weight:700">1h · Indoor/Outdoor · Débutants</span>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:12px">🍵</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:8px">Cérémonie du thé & slow rituel</h3>
+        <p style="font-size:0.82rem;color:#666;line-height:1.7;margin-bottom:10px">La cérémonie du thé japonaise comme prétexte au ralentissement. Chaque geste est intentionnel, chaque silence respecté. Un format intimiste pour petits groupes (6 à 12) qui crée une qualité de présence rare en entreprise. Très efficace pour des équipes de direction.</p>
+        <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:3px 10px;border-radius:100px;font-weight:700">1h30 · 6-12 pers. · Très calme</span>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2rem;margin-bottom:12px">🌸</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:8px">Art floral & Ikebana</h3>
+        <p style="font-size:0.82rem;color:#666;line-height:1.7;margin-bottom:10px">L'art de l'arrangement floral japonais comme méditation active. Chaque participant compose sa propre création avec des fleurs et des branches de saison. Un atelier silencieux et concentré qui développe la patience, l'esthétique et l'attention au détail — et produit quelque chose de beau.</p>
+        <span style="font-size:0.68rem;background:var(--cp);color:var(--c1);border:1px solid var(--cb);padding:3px 10px;border-radius:100px;font-weight:700">2h · Indoor · Petit groupe</span>
+      </div>
+    </div>
+
+    <!-- ENCART MAILLOT DE BAIN -->
+    <div style="background:linear-gradient(135deg,#006064,#00897B);border-radius:16px;padding:28px 32px;display:flex;gap:24px;align-items:center">
+      <div style="font-size:2.5rem;flex-shrink:0">🩱</div>
+      <div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:white;margin-bottom:8px">Peut-on organiser un team building en maillot de bain ?</h3>
+        <p style="font-size:0.83rem;color:rgba(255,255,255,0.7);line-height:1.75">Spa privatisé, bains nordiques, aquagym d'entreprise — la question se pose. Et elle soulève des enjeux réels : confort de chacun avec son corps, rapport à l'intimité, mixité, perceptions hiérarchiques. La réponse courte : oui, à condition que ce soit 100% optionnel, que les alternatives non-aquatiques soient proposées en parallèle, et que le lieu soit suffisamment privatif pour que personne ne se sente exposé. Les équipes qui le font en gardent souvent un souvenir fort. Celles pour qui c'est une contrainte en gardent une gêne. La clé, c'est le choix.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ACTIVITÉS RÉELLES -->
 <section id="activites" style="background:var(--creme)">
   <div class="container">
-    <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>en Alsace</em></h2>
-    <p class="section-intro">Des activités sélectionnées pour leur qualité, leur impact sur la cohésion et leur ancrage alsacien.</p>
+    <span class="section-label">Sélection bien-être</span>
+    <h2 class="section-title">Trois activités pour <em>commencer</em></h2>
+    <p class="section-intro">Des activités réelles disponibles en Alsace — cliquez pour voir la fiche complète.</p>
     <div class="grid-3">
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#006064,#00897B)">🌱</div>
+
+      <a href="index.html?univers=bienetre&activite=1&scroll=activites" class="act-card" onclick="openFromUnivers(event,1,'bienetre')">
+        <div class="act-img" style="background:linear-gradient(135deg,#134E5E,#71B280);overflow:hidden;padding:0">
+          <img src="images/pomelo.png" alt="Potager collaboratif Mulhouse" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
         <div class="act-body">
           <h3>Potager Collaboratif & Permaculture</h3>
-          <p>Créez un espace vert sur votre lieu de travail. Slow, RSE et reconnexion à l'essentiel.</p>
+          <p>Planter ensemble, choisir les espèces, mettre les mains dans la terre — un slow workshop ancré dans le vivant.</p>
           <div class="act-footer">
             <span class="act-price">Dès 80 €/pers.</span>
             <span class="act-tag">Bien-être · RSE</span>
           </div>
         </div>
       </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité en Alsace ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
+
+      <a href="index.html?univers=bienetre&activite=3&scroll=activites" class="act-card" onclick="openFromUnivers(event,3,'bienetre')">
+        <div class="act-img" style="background:linear-gradient(135deg,#8E2DE2,#4A00E0)">🏺</div>
+        <div class="act-body">
+          <h3>Atelier Poterie & Céramique Alsacienne</h3>
+          <p>Argile, tour de potier, lenteur du geste — un atelier méditatif où la concentration remplace le stress.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 55 €/pers.</span>
+            <span class="act-tag">Bien-être · Créatif</span>
+          </div>
+        </div>
       </a>
+
+      <a href="index.html?univers=bienetre&activite=18&scroll=activites" class="act-card" onclick="openFromUnivers(event,18,'bienetre')">
+        <div class="act-img" style="background:linear-gradient(135deg,#FF7E5F,#FEB47B);overflow:hidden;padding:0">
+          <img src="images/fresque-collaborative-mulhouse.webp" alt="Fresque collaborative Mulhouse" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="act-body">
+          <h3>Création de Fresque Collaborative</h3>
+          <p>Peindre ensemble une œuvre qui se révèle à la fin — un moment de création lente et joyeuse.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 35 €/pers.</span>
+            <span class="act-tag">Bien-être · Créatif</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?univers=bienetre&scroll=activites" class="btn-p">Voir toutes les activités bien-être →</a>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUELLES ÉQUIPES -->
+<section>
+  <div class="container">
+    <span class="section-label">À qui ça s'adresse</span>
+    <h2 class="section-title">Pour quelles <em>équipes</em> ?</h2>
+    <p class="section-intro">Certaines équipes en ont besoin sans le savoir. D'autres le savent mais n'osent pas le demander.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px">
+      <div style="background:var(--creme);border:1.5px solid var(--cb);border-radius:14px;padding:22px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:1.8rem;margin-bottom:12px">🔥</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:8px">Équipes en surcharge</h3>
+        <p style="font-size:0.8rem;color:#777;line-height:1.65">Réunions qui s'enchaînent, délais compressés, charge mentale diffuse. Une session de cohérence cardiaque ou de yoga agit en 45 minutes sur ce que trois réunions de cohésion ne résoudront pas.</p>
+      </div>
+      <div style="background:var(--creme);border:1.5px solid var(--cb);border-radius:14px;padding:22px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:1.8rem;margin-bottom:12px">🏥</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:8px">Métiers à forte pression</h3>
+        <p style="font-size:0.8rem;color:#777;line-height:1.65">Urgences, commercial, finance, management intermédiaire — des secteurs où le bien-être collectif est rarement prioritaire mais toujours décisif.</p>
+      </div>
+      <div style="background:var(--creme);border:1.5px solid var(--cb);border-radius:14px;padding:22px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:1.8rem;margin-bottom:12px">🔄</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:8px">Entreprises en transformation</h3>
+        <p style="font-size:0.8rem;color:#777;line-height:1.65">Restructuration, fusion, changement de direction — les périodes de transition créent une anxiété collective souvent tue. Un atelier bien-être offre un espace de décompression sans être une réunion de plus.</p>
+      </div>
+      <div style="background:var(--creme);border:1.5px solid var(--cb);border-radius:14px;padding:22px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:1.8rem;margin-bottom:12px">🌱</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:8px">Démarche QVT & RSE</h3>
+        <p style="font-size:0.8rem;color:#777;line-height:1.65">Le bien-être collectif ancré dans la nature valorise simultanément la santé des collaborateurs et l'engagement environnemental. Un argument solide pour votre rapport RSE.</p>
+      </div>
+      <div style="background:var(--creme);border:1.5px solid var(--cb);border-radius:14px;padding:22px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:1.8rem;margin-bottom:12px">👋</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:8px">Onboarding humain</h3>
+        <p style="font-size:0.8rem;color:#777;line-height:1.65">Accueillir des nouveaux avec une session yoga plutôt qu'une journée PowerPoint — c'est une manière de montrer, dès le premier jour, la culture qu'on veut construire ensemble.</p>
+      </div>
+      <div style="background:var(--creme);border:1.5px solid var(--cb);border-radius:14px;padding:22px;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:1.8rem;margin-bottom:12px">📋</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:8px">Séminaires RH & DRH</h3>
+        <p style="font-size:0.8rem;color:#777;line-height:1.65">Les professionnels RH qui accompagnent les autres dans leur bien-être oublient souvent de s'occuper du leur. Un séminaire bien-être pensé pour les équipes RH a une dimension symbolique — et très efficace.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -355,7 +463,7 @@
   <h2>Prêt à offrir à votre équipe<br><em>un vrai moment de ressourcement ?</em></h2>
   <p>Parcourez toutes nos activités, filtrez selon vos besoins et contactez directement les prestataires.</p>
   <div class="cta-btns">
-    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="index.html?univers=bienetre&scroll=activites" class="btn-p">Voir toutes les activités bien-être</a>
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
@@ -363,6 +471,11 @@
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+  function openFromUnivers(e, id, univers) {
+    e.preventDefault();
+    window.location.href = 'index.html?univers=' + univers + '&activite=' + id + '&scroll=activites';
+  }
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
