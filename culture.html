@@ -3,21 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Team Building Culture & Patrimoine en Alsace 2025 | TeamBuildingAlsace.fr</title>
-  <meta name="description" content="Visites guidées insolites, ateliers alsaciens, découverte du patrimoine UNESCO. Les meilleures activités culturelles pour vos équipes en Alsace.">
-  <meta name="keywords" content="team building culture alsace, visite guidée entreprise strasbourg, team building patrimoine alsace, rallye culturel équipe strasbourg">
-  <link rel="canonical" href="https://teambuildingalsace.fr/culture">
+  <title>Team Building Culture & Patrimoine en Alsace — Rallyes, Vignobles, UNESCO | TeamBuildingAlsace.fr</title>
+  <meta name="description" content="Rallye découverte, route des vins, écomusée d'Ungersheim, patrimoine UNESCO — les meilleures activités culture & patrimoine pour vos équipes en Alsace. Parce que l'Alsace mérite mieux qu'une diapo PowerPoint.">
+  <meta name="keywords" content="team building culture alsace, rallye découverte entreprise strasbourg, team building patrimoine alsace, écomusée ungersheim groupe, visite guidée équipe alsace, team building vignoble route des vins, activité culturelle cohésion alsace, rallye voitures vintage alsace, team building UNESCO strasbourg">
+  <link rel="canonical" href="https://teambuildingalsace.fr/culture.html">
+  <meta name="topic" content="team building culture patrimoine Alsace, activité découverte équipe, rallye culturel alsace, écomusée ungersheim team building">
+  <meta property="og:title" content="Team Building Culture & Patrimoine en Alsace | TeamBuildingAlsace.fr">
+  <meta property="og:description" content="Cigognes, colombages, vignobles et châteaux forts — l'Alsace est la région la plus chargée de sens pour un team building culturel. On vous explique pourquoi.">
+  <meta property="og:type" content="website">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Team Building Culture & Patrimoine en Alsace 2025",
-    "url": "https://www.teambuildingalsace.fr/culture",
+    "name": "Team Building Culture & Patrimoine en Alsace",
+    "url": "https://www.teambuildingalsace.fr/culture.html",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.teambuildingalsace.fr" },
-        { "@type": "ListItem", "position": 2, "name": "Team Building Culture & Patrimoine en Alsace 2025", "item": "https://www.teambuildingalsace.fr/culture" }
+        { "@type": "ListItem", "position": 2, "name": "Team Building Culture & Patrimoine en Alsace", "item": "https://www.teambuildingalsace.fr/culture.html" }
       ]
     }
   }
@@ -35,13 +39,32 @@
     header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
     .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.02em; }
     .logo span { color: var(--vert); }
-    nav { display: flex; align-items: center; gap: 28px; }
-    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav { display: flex; align-items: center; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; margin-left: 28px; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
     nav a:hover { color: var(--vert); }
-    .nav-cta { background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; }
-    .nav-cta:hover { background: var(--violet-clair) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+    .nav-cta { margin-left: 20px !important; background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta:hover { background: var(--violet-clair) !important; transform: scale(1.04); }
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; background: none; border: none; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 5px; padding: 0; transition: color 0.2s; white-space: nowrap; }
+    .nav-dropdown-btn:hover { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; text-decoration: none; color: var(--noir); font-size: 0.85rem; font-weight: 600; transition: all 0.15s; cursor: pointer; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all 0.3s; border-radius: 2px; }
+
     .breadcrumb { background: white; padding: 14px 40px; border-bottom: 1px solid var(--bordure); font-size: 0.78rem; color: #aaa; display: flex; align-items: center; gap: 8px; }
     .breadcrumb a { color: var(--violet); text-decoration: none; font-weight: 600; }
     .hero { background: var(--noir); padding: 80px 40px 70px; position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; }
@@ -52,7 +75,7 @@
     .hero h1 .line2 { color: #CE93D8; display: block; }
     .hero-sub { color: rgba(255,255,255,0.55); font-size: 1rem; max-width: 600px; line-height: 1.8; margin: 20px 0 36px; }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-p { padding: 13px 28px; background: linear-gradient(135deg, #4A148C, #7B1FA2); color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 6px 20px #4A148C66; }
+    .btn-p { padding: 13px 28px; background: linear-gradient(135deg, #4A148C, #7B1FA2); color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 6px 20px #4A148C66; display: inline-block; }
     .btn-p:hover { transform: translateY(-2px); box-shadow: 0 10px 28px #4A148C88; }
     .btn-s { padding: 13px 28px; background: rgba(255,255,255,0.07); color: white; border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
     .btn-s:hover { border-color: #CE93D8; color: #CE93D8; }
@@ -65,49 +88,21 @@
     .stat-src { font-size: 0.6rem; color: rgba(255,255,255,0.35); display: block; margin-top: 3px; }
     .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
     section { padding: 72px 0; border-bottom: 1px solid var(--bordure); }
-    section:last-child { border-bottom: none; }
+    section:last-of-type { border-bottom: none; }
     .section-label { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--c1); font-weight: 700; margin-bottom: 10px; display: block; }
     .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--noir); letter-spacing: -0.03em; margin-bottom: 14px; line-height: 1.1; }
     .section-title em { color: var(--c1); font-style: normal; }
     .section-intro { color: #555; font-size: 0.95rem; max-width: 640px; line-height: 1.85; margin-bottom: 44px; }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
-    .why-card { background: white; border: 1.5px solid var(--cb); border-radius: 16px; padding: 26px; position: relative; overflow: hidden; transition: all 0.25s; }
-    .why-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--c1), var(--c2)); }
-    .why-card:hover { border-color: var(--c1); box-shadow: 0 12px 36px #4A148C1A; transform: translateY(-3px); }
-    .why-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
-    .why-card h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 800; color: var(--noir); margin-bottom: 10px; }
-    .why-card p { font-size: 0.83rem; color: #666; line-height: 1.7; }
-    .why-tag { display: inline-block; font-size: 0.65rem; color: var(--c1); background: var(--cp); padding: 3px 10px; border-radius: 100px; margin-top: 12px; font-weight: 600; border: 1px solid var(--cb); }
-    .format-card { background: var(--creme); border: 1.5px solid var(--cb); border-radius: 14px; padding: 22px; transition: all 0.2s; }
-    .format-card:hover { border-color: var(--c1); box-shadow: 0 6px 24px #4A148C1A; transform: translateY(-2px); }
-    .format-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-    .format-card h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: var(--noir); margin-bottom: 8px; }
-    .format-card p { font-size: 0.82rem; color: #666; line-height: 1.65; }
-    .format-duree { display: inline-block; font-size: 0.68rem; background: white; color: var(--c1); padding: 3px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; border: 1px solid var(--cb); }
-    .rh-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; padding: 22px; display: flex; gap: 16px; align-items: flex-start; transition: all 0.2s; }
-    .rh-card:hover { border-color: var(--c1); box-shadow: 0 6px 24px #4A148C14; }
-    .rh-ico { width: 46px; height: 46px; background: var(--cp); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
-    .rh-card h4 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: var(--noir); margin-bottom: 5px; }
-    .rh-card p { font-size: 0.82rem; color: #666; line-height: 1.65; }
-    .rh-stat { display: inline-block; font-size: 0.7rem; background: var(--cp); color: var(--c1); padding: 3px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; }
-    .dark-box { background: linear-gradient(135deg, #0D0D0D, #1A1A2E); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
-    .dark-box::before { content: ''; position: absolute; top: -50px; right: -50px; width: 180px; height: 180px; background: #4A148C; border-radius: 50%; filter: blur(60px); opacity: 0.25; }
-    .dark-box h3 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: #CE93D8; margin-bottom: 20px; position: relative; z-index: 1; }
-    .dark-box ul { list-style: none; padding: 0; position: relative; z-index: 1; }
-    .dark-box ul li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
-    .dark-box ul li:last-child { border-bottom: none; }
-    .dark-box ul li strong { color: #CE93D8; }
-    .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; }
     .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px #4A148C1E; border-color: var(--c1); }
-    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
+    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; overflow: hidden; }
     .act-body { padding: 18px; }
     .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
     .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
     .act-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--cb); }
-    .act-price { color: var(--c1); font-weight: 800; font-family: 'Outfit', sans-serif; }
+    .act-price { color: var(--c1); font-weight: 800; font-family: 'Outfit', sans-serif; font-size: 0.88rem; }
     .act-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; background: var(--cp); color: var(--c1); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
     .faq-item { border-bottom: 1px solid var(--cb); }
     .faq-q { padding: 18px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.93rem; gap: 16px; }
     .faq-q:hover { color: var(--c1); }
@@ -124,28 +119,45 @@
     .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
     footer { background: var(--noir); color: rgba(255,255,255,0.3); text-align: center; padding: 26px; font-size: 0.78rem; border-top: 3px solid var(--violet); }
     footer span { color: var(--vert); font-weight: 700; }
+
+    /* ── CARROUSEL MOBILE ── */
     @media (max-width: 768px) {
-      header { padding: 0 20px; } nav { display: none; } .hamburger { display: flex; }
-      .breadcrumb, .container { padding-left: 20px; padding-right: 20px; }
-      .hero { padding: 50px 20px 40px; } .stats-bar { padding: 20px; }
-      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 16px; } .stat { border-right: none; }
-      section { padding: 44px 0; } .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .cta-section { padding: 50px 20px; }
+      html, body { overflow-x: hidden; }
+      header { padding: 0 16px; } nav { display: none; } .hamburger { display: flex; }
+      .breadcrumb, .container { padding-left: 16px; padding-right: 16px; }
+      .hero { padding: 44px 16px 36px; }
+      .stats-bar { padding: 16px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 12px; } .stat { border-right: none; padding: 0 8px; }
+      section { padding: 44px 0; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .cta-section { padding: 44px 16px; }
+      .cta-btns { flex-direction: column; align-items: center; }
+      .partner-banner { flex-direction: column !important; text-align: center; padding: 16px !important; gap: 12px !important; }
+      .mob-stack { grid-template-columns: 1fr !important; gap: 20px !important; }
+      /* carrousels */
+      .mob-carousel {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px !important;
+        padding: 0 16px 16px !important;
+        margin: 0 -16px !important;
+        scrollbar-width: none;
+      }
+      .mob-carousel::-webkit-scrollbar { display: none; }
+      .mob-carousel > * {
+        flex: 0 0 82vw !important;
+        max-width: 82vw !important;
+        scroll-snap-align: start;
+        min-width: 0;
+      }
     }
   </style>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<header></header>
+<div id="mobile-nav"></div>
 
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <a href="index.html">Univers</a> › <span>🎭 Univers · Culture & Patrimoine</span>
@@ -155,8 +167,8 @@
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-label">🎭 Univers · Culture & Patrimoine</div>
-    <h1>L'Alsace est un décor<span class="line2">exceptionnel pour votre cohésion.</span></h1>
-    <p class="hero-sub">Capitale européenne classée UNESCO, route des vins, traditions millénaires — l'Alsace offre un cadre culturel unique en France pour des team buildings mémorables qui enrichissent autant qu'ils fédèrent.</p>
+    <h1>Ahhhh, l'Alsace…<span class="line2">la plus belle région du monde.</span></h1>
+    <p class="hero-sub">On sait, on sait — tout le monde dit ça de sa région. Sauf que l'Alsace, c'est UNESCO, Route des Vins, châteaux forts, cigognes sur les clochers et choucroute à volonté. On ne dit pas qu'on a gagné, on dit juste que la concurrence est faible.</p>
     <div class="hero-btns">
       <a href="#activites" class="btn-p">Voir les activités ↓</a>
       <a href="referencer.html" class="btn-s">Référencer mon activité</a>
@@ -189,173 +201,250 @@
   </div>
 </div>
 
+<!-- BANDEAU PARTENAIRE -->
+<div class="partner-banner" style="background:#FAF0FF;border-top:1px solid #E1BEE7;border-bottom:1px solid #E1BEE7;padding:22px 40px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap">
+  <p style="font-size:0.9rem;color:#555;font-family:'Plus Jakarta Sans',sans-serif">Vous proposez une activité culturelle ou patrimoniale en Alsace et souhaitez toucher des équipes RH ?</p>
+  <a href="referencer.html" style="background:linear-gradient(135deg,#4A148C,#7B1FA2);color:white;padding:11px 24px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px rgba(74,20,140,0.35)">Devenir Partenaire Officiel →</a>
+</div>
+
+<!-- 30 SECONDES POUR COMPRENDRE L'ALSACE -->
 <section>
   <div class="container">
-    <span class="section-label">Pourquoi ça marche</span>
-    <h2 class="section-title">Ce que cet univers apporte <em>concrètement</em> à vos équipes</h2>
-    <p class="section-intro">Au-delà du plaisir et de la convivialité, ces activités ont des impacts mesurables sur la cohésion, la performance et le bien-être de vos collaborateurs.</p>
-    <div class="grid-3">
-      <div class="why-card">
-        <span class="why-icon">🏛️</span>
-        <h3>Un cadre qui impressionne</h3>
-        <p>Strasbourg et l'Alsace offrent un cadre culturel qui en impose — à vos collaborateurs, mais aussi à vos clients ou partenaires si vous les intégrez à l'événement. Un team building culturel alsacien est aussi un outil de représentation.</p>
-        <span class="why-tag">Image & prestige</span>
+    <span class="section-label">Chauvinisme assumé</span>
+    <h2 class="section-title">30 secondes pour comprendre <em>la culture alsacienne</em></h2>
+    <p class="section-intro">Guide de survie pour ceux qui débarquent. À lire avant de prononcer "choucroûte" devant un Alsacien.</p>
+    <div class="mob-carousel" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:8px">
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">🌸</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">Le géranium</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Chaque fenêtre en a. C'est une religion. Si vous visitez un village alsacien et ne voyez pas de géranium rouge, vérifiez que vous êtes bien en Alsace.</p>
       </div>
-      <div class="why-card">
-        <span class="why-icon">🤝</span>
-        <h3>La culture comme terrain neutre</h3>
-        <p>Les activités culturelles créent un terrain d'échange neutre et enrichissant. La découverte partagée d'un lieu, d'une histoire ou d'un savoir-faire génère des conversations authentiques, sans pression professionnelle.</p>
-        <span class="why-tag">Lien social & découverte</span>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">🦢</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">Les cigognes</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Emblème officiel de la région. Elles nichent en haut des clochers, sur les cheminées, sur les lampadaires. Les Alsaciens leur construisent des plateformes. Il ne faut pas les contrarier.</p>
       </div>
-      <div class="why-card">
-        <span class="why-icon">🌍</span>
-        <h3>Valoriser l'ancrage alsacien</h3>
-        <p>Pour une entreprise ancrée en Alsace, organiser un team building culturel local envoie un message fort : vous êtes fiers de votre territoire et vous en faites profiter vos équipes. Un argument de marque employeur puissant.</p>
-        <span class="why-tag">Fierté & appartenance</span>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">🏠</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">Les colombages</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Bois + plâtre + géraniums = maison alsacienne. Un art de construire millénaire qui fait craquer les touristes du monde entier. Et qui donne de sacrées photos Instagram.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">🥣</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">La choucroute</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Chou fermenté + charcuterie + Riesling. L'équation parfaite. Certains la trouvent acquise d'entrée. Les Alsaciens les plaignent sincèrement.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">🥨</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">Le bretzel</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Snack d'apéro, symbole de ville, cadeau de bienvenue. Le bretzel alsacien — mou et saupoudré de gros sel — n'a rien à voir avec ce truc dur qu'on trouve dans les avions.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">💬</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">Le "Hoplà !"</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Interjection alsacienne universelle. Peut signifier "allez !", "voilà !", "eh bien !", "c'est comme ça !" ou "on y va". Un seul mot, mille nuances. Glissez-le dans une conversation et vous serez immédiatement adopté.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">🍷</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">Le bon vin</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Riesling, Gewurztraminer, Pinot Gris, Crémant — 7 cépages AOC pour une seule région. L'Alsace produit certains des meilleurs blancs de France. Ce n'est pas de la modestie, c'est de la géologie.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">🇩🇪</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">L'influence allemande</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Trois fois française, deux fois allemande entre 1870 et 1945 — l'Alsace a fait de cette ambivalence une richesse. Architecture wilhelmienne à Strasbourg, dialecte alémanique, cuisine germano-alsacienne. Une identité unique au monde.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">🌿</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">Vignes & Vosges</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">À l'ouest, le Massif des Vosges — forêts de hêtres, lacs de montagne, crêtes à 1 400m. À l'est, la plaine du Rhin et ses vignobles. Entre les deux, 67km de bonheur. Diversité des paysages : score maximum.</p>
+      </div>
+      <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;text-align:center;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--cb)';this.style.transform=''">
+        <div style="font-size:2.2rem;margin-bottom:10px">🏰</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px">Les châteaux</h3>
+        <p style="font-size:0.75rem;color:#777;line-height:1.6">Plus de 70 châteaux forts sur 170 km de Route des Vins. Le Haut-Kœnigsbourg restauré par Guillaume II, le Hohlandsbourg, l'Ortenbourg, le Ramstein — perchés sur les contreforts vosgiens comme des sentinelles. En ruines ou restaurés, ils sont spectaculaires.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#4A148C,#7B1FA2);border-radius:14px;padding:22px;text-align:center">
+        <div style="font-size:2.2rem;margin-bottom:10px">🏆</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:6px;color:white">Et on arrête là</h3>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.7);line-height:1.6">On pourrait continuer — le marché de Noël le plus célèbre d'Europe, la cathédrale gothique, le kougelhopf, les bredele… Mais on ne veut pas paraître arrogants. On est juste un peu chauvinement objectifs.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PATRIMOINE CULTUREL -->
 <section style="background:var(--creme)">
   <div class="container">
-    <span class="section-label">Les formats disponibles</span>
-    <h2 class="section-title">Des activités pour <em>toutes les occasions</em></h2>
-    <p class="section-intro">Ces activités s'adaptent à tous les formats, tous les groupes et tous les budgets — de l'afterwork d'une heure au séminaire résidentiel.</p>
-    <div class="grid-4">
-      <div class="format-card">
-        <div class="format-icon">🗺️</div>
-        <h3>Rallye découverte Strasbourg</h3>
-        <p>Par équipes, vos collaborateurs explorent Strasbourg avec des défis culturels, des énigmes historiques et des points d'intérêt insolites. Un format actif, ludique et riche en découvertes.</p>
-        <span class="format-duree">2h à 3h · Strasbourg</span>
+    <span class="section-label">Le fond du sujet</span>
+    <h2 class="section-title">L'état du patrimoine <em>culturel alsacien</em></h2>
+    <div class="mob-stack" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+      <div>
+        <p style="font-size:1rem;font-weight:300;line-height:2;color:#333;margin-bottom:20px;letter-spacing:-0.01em">L'Alsace est l'une des régions françaises les mieux dotées en termes de patrimoine classé, reconnu et entretenu. Ce n'est pas un hasard — c'est le résultat d'une histoire complexe et d'investissements publics considérables.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9;margin-bottom:16px">La Grande Île de Strasbourg est inscrite au Patrimoine Mondial de l'UNESCO depuis 1988 — première ville française à l'obtenir en totalité (et pas seulement un monument). La cathédrale Notre-Dame de Strasbourg, en grès rose des Vosges, est l'une des plus visitées de France avec 2,5 millions de visiteurs par an.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9;margin-bottom:16px">Le musée Unterlinden de Colmar abrite le retable d'Issenheim — une des œuvres les plus énigmatiques et les plus puissantes de l'art occidental. Le MAMCS de Strasbourg, l'une des plus grandes collections d'art moderne en France. Le musée alsacien, les écomusées, les musées de la vigne et du vin...</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9">Et puis il y a l'humain. Les équipes multiculturelles — si nombreuses en Alsace, aux portes de l'Allemagne et de la Suisse — trouvent dans ce patrimoine frontalier un terrain d'échange rare : une identité qui n'a jamais été uniquement française, ni uniquement allemande, mais résolument les deux.</p>
       </div>
-      <div class="format-card">
-        <div class="format-icon">🏺</div>
-        <h3>Atelier savoir-faire alsacien</h3>
-        <p>Poterie traditionnelle, fabrication de bredele, initiation à la brasserie artisanale — découvrez les savoir-faire qui font l'identité alsacienne. Un moment authentique ancré dans le terroir.</p>
-        <span class="format-duree">2h · En atelier</span>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">🕵️</div>
-        <h3>Visite guidée insolite</h3>
-        <p>Un guide-conférencier révèle les secrets et anecdotes méconnues de Strasbourg ou des villages alsaciens. Histoires cachées, architectures secrètes, légendes locales — une visite qui surprend même les alsaciens.</p>
-        <span class="format-duree">1h30 à 2h · Alsace</span>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">🎄</div>
-        <h3>Rallye marché de Noël</h3>
-        <p>En novembre-décembre, le marché de Noël de Strasbourg offre un cadre unique pour un rallye découverte festif et chaleureux. Le plus vieux marché de Noël de France — une expérience inoubliable.</p>
-        <span class="format-duree">2h · Strasbourg (hiver)</span>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:22px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--c1),var(--c2))"></div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:8px">🏛️ Institutions culturelles majeures</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+            <div style="font-size:0.78rem;color:#555;line-height:1.6;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>Musée Unterlinden</strong> — Colmar. Le retable d'Issenheim, chef-d'œuvre du XVe siècle.</div>
+            <div style="font-size:0.78rem;color:#555;line-height:1.6;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>MAMCS Strasbourg</strong> — Art moderne et contemporain sur les bords de l'Ill. Klimt, Modigliani, Dubuffet.</div>
+            <div style="font-size:0.78rem;color:#555;line-height:1.6;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>Haut-Kœnigsbourg</strong> — Le château fort le plus visité d'Alsace. Restauré par Guillaume II d'Allemagne en 1908.</div>
+            <div style="font-size:0.78rem;color:#555;line-height:1.6;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>Écomusée d'Alsace</strong> — Ungersheim. 70 maisons à colombage reconstituées. Le passé alsacien habitable.</div>
+            <div style="font-size:0.78rem;color:#555;line-height:1.6"><strong>TNS — Théâtre National de Strasbourg</strong> — L'une des 5 scènes nationales françaises. Créations exigeantes, rayonnement européen.</div>
+          </div>
+        </div>
+        <div style="background:linear-gradient(135deg,#0D0D0D,#1A1A2E);border-radius:14px;padding:22px">
+          <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:12px;color:#CE93D8">Pourquoi c'est parfait pour les équipes multiculturelles</h3>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);line-height:1.75">L'Alsace a vécu l'entre-deux cultural pendant des siècles. Ses musées, ses monuments, son architecture racontent une histoire d'appartenance multiple — exactement ce que vivent les équipes internationales aujourd'hui. Pas besoin d'expliquer la diversité : l'Alsace l'incarne. C'est un terrain de team building unique pour les entreprises dont les équipes viennent de partout.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ACTIVITÉS -->
+<section id="activites">
   <div class="container">
-    <span class="section-label">Angle RH</span>
-    <h2 class="section-title">Ce que ça change pour <em>vos KPIs RH</em></h2>
-    <p class="section-intro">Au-delà du plaisir, ces activités ont des impacts mesurables sur les indicateurs qui comptent pour vos équipes RH.</p>
-    <div class="grid-2">
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div class="rh-card">
-          <div class="rh-ico">🌍</div>
-          <div>
-            <h4>Intégrer les équipes internationales</h4>
-            <p>Strasbourg accueille des institutions européennes et de nombreuses entreprises internationales. Un team building culturel alsacien est le meilleur moyen d'intégrer les collaborateurs étrangers — ils découvrent leur région d'accueil, les alsaciens partagent leur fierté.</p>
-            <span class="rh-stat">Inclusion internationale</span>
-          </div>
-        </div>
-        <div class="rh-card">
-          <div class="rh-ico">🏅</div>
-          <div>
-            <h4>Valoriser l'ancrage local</h4>
-            <p>Dans un contexte de mondialisation, valoriser le territoire local est un message fort. Un team building culturel dit à vos équipes : nous sommes fiers d'être en Alsace, et nous voulons vous le faire partager.</p>
-            <span class="rh-stat">Culture d'entreprise</span>
-          </div>
-        </div>
-        <div class="rh-card">
-          <div class="rh-ico">📸</div>
-          <div>
-            <h4>Un contenu mémorable et partageable</h4>
-            <p>Les activités culturelles en Alsace sont particulièrement photogéniques — Petite France, vignobles en fleurs, marchés de Noël. Un contenu authentique et valorisant pour votre marque employeur sur LinkedIn et les réseaux sociaux.</p>
-            <span class="rh-stat">Marque employeur</span>
-          </div>
-        </div>
-      </div>
-      <div class="dark-box">
-        <h3>🎭 L'Alsace culturelle en chiffres</h3>
-        <ul>
-          <li><span>🏛️</span><span>Strasbourg est la <strong>7ème ville de France</strong> et la capitale du Parlement Européen — un cadre de prestige international pour vos événements d'entreprise.</span></li>
-          <li><span>🌍</span><span>La Grande Île de Strasbourg est classée au <strong>patrimoine mondial UNESCO</strong> — un décor exceptionnel pour des team buildings mémorables.</span></li>
-          <li><span>🎄</span><span>Le marché de Noël de Strasbourg, <strong>le plus vieux de France</strong>, attire plus de 2 millions de visiteurs chaque année — un cadre unique pour vos événements de fin d'année.</span></li>
-          <li><span>🍷</span><span>La Route des Vins d'Alsace s'étend sur <strong>170 km et 119 communes</strong> — un patrimoine culturel et paysager sans équivalent pour vos rallyes d'équipe.</span></li>
-          <li><span>🤝</span><span>Les activités culturelles créent des <strong>souvenirs partagés durables</strong> — l'ingrédient n°1 d'une cohésion d'équipe qui dure au-delà de l'événement.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="activites" style="background:var(--creme)">
-  <div class="container">
-    <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>en Alsace</em></h2>
-    <p class="section-intro">Des activités sélectionnées pour leur qualité, leur impact sur la cohésion et leur ancrage alsacien.</p>
+    <span class="section-label">Sélection culture</span>
+    <h2 class="section-title">Trois activités pour <em>explorer l'Alsace</em></h2>
+    <p class="section-intro">Des activités réelles disponibles en Alsace — cliquez pour voir la fiche complète.</p>
     <div class="grid-3">
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#4A148C,#7B1FA2)">🏺</div>
+
+      <a href="index.html?univers=culture&activite=9&scroll=activites" class="act-card" onclick="openFromUnivers(event,9,'culture')">
+        <div class="act-img" style="background:linear-gradient(135deg,#F2994A,#F2C94C);overflow:hidden;padding:0">
+          <img src="images/rallye-gourmand-colmar.webp" alt="Rallye gourmand Colmar" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
         <div class="act-body">
-          <h3>Atelier Poterie & Céramique Alsacienne</h3>
-          <p>Découvrez l'artisanat traditionnel alsacien à Souffelweyersheim. Culture, créativité et partage.</p>
+          <h3>Rallye Gourmand dans le Centre Historique</h3>
+          <p>Colmar à pied, en équipe, avec des étapes gastronomiques entre deux énigmes. Découverte culturelle + estomac content = équipe contente.</p>
           <div class="act-footer">
-            <span class="act-price">Dès 55 €/pers.</span>
-            <span class="act-tag">Culture · Créatif</span>
+            <span class="act-price">Dès 35 €/pers.</span>
+            <span class="act-tag">Culture · Gastronomie</span>
           </div>
         </div>
       </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité en Alsace ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
+
+      <a href="index.html?univers=culture&activite=12&scroll=activites" class="act-card" onclick="openFromUnivers(event,12,'culture')">
+        <div class="act-img" style="background:linear-gradient(135deg,#7F00FF,#E100FF);overflow:hidden;padding:0">
+          <img src="images/chasse-tresor-vignoble.webp" alt="Chasse au trésor vignoble" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="act-body">
+          <h3>Chasse au Trésor dans le Vignoble</h3>
+          <p>Ribeauvillé, ses vignes et ses châteaux forts en arrière-plan. Une chasse au trésor qui mêle patrimoine local et esprit d'équipe, entre les ceps et les ruelles médiévales.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 30 €/pers.</span>
+            <span class="act-tag">Culture · Nature</span>
+          </div>
+        </div>
       </a>
+
+      <a href="index.html?univers=culture&activite=17&scroll=activites" class="act-card" onclick="openFromUnivers(event,17,'culture')">
+        <div class="act-img" style="background:linear-gradient(135deg,#8360c3,#2ebf91);overflow:hidden;padding:0">
+          <img src="images/rallye-voitures-vintage-alsace.webp" alt="Rallye voitures vintage Alsace" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="act-body">
+          <h3>Rallye en Voitures Vintage</h3>
+          <p>Parcourir l'Alsace à bord de véhicules d'époque, cartes papier en main, en équipe. Classe, mémorable, et légèrement nostalgique d'une époque où il n'y avait pas de GPS.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 80 €/pers.</span>
+            <span class="act-tag">Culture · Prestige</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?univers=culture&scroll=activites" class="btn-p">Voir toutes les activités culture & patrimoine →</a>
     </div>
   </div>
 </section>
 
+<!-- ÉCOMUSÉE D'UNGERSHEIM -->
+<section style="background:var(--creme)">
+  <div class="container">
+    <span class="section-label">Rendez-vous incontournable</span>
+    <h2 class="section-title">Vous voulez plonger dans les <em>racines de l'Alsace</em> ?</h2>
+    <div class="mob-stack" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+      <div>
+        <p style="font-size:1rem;font-weight:300;line-height:2;color:#333;margin-bottom:20px;letter-spacing:-0.01em">Rendez-vous à l'Écomusée d'Alsace, à Ungersheim. C'est le plus grand musée à ciel ouvert de France — et probablement l'une des expériences les plus singulières que vous puissiez offrir à votre équipe.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9;margin-bottom:16px">Sur 16 hectares, 70 maisons à colombage ont été démontées pierre par pierre dans des villages alsaciens voués à la destruction, puis reconstituées ici dans leur état d'origine. Chaque bâtiment raconte une histoire — celle d'une famille, d'un artisan, d'une époque. On ne visite pas un musée. On entre dans le passé.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9;margin-bottom:24px">Des animaux de ferme déambulent entre les ruelles. Des artisans en costume d'époque travaillent le bois, le fer, la laine. Un four à pain commun cuit encore. Pour les équipes, c'est une expérience de cohésion naturelle — on explore ensemble, on découvre, on s'interroge, on rit. Pas besoin d'animateur.</p>
+        <a href="https://www.ecomusee.alsace" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:700;color:var(--c1);text-decoration:none;border:1.5px solid var(--cb);padding:10px 18px;border-radius:100px;background:white;transition:all 0.2s" onmouseover="this.style.borderColor='var(--c1)';this.style.background='var(--cp)'" onmouseout="this.style.borderColor='var(--cb)';this.style.background='white'">Visiter ecomusee.alsace →</a>
+      </div>
+      <div style="background:var(--noir);border-radius:20px;padding:36px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:var(--c1);border-radius:50%;filter:blur(50px);opacity:0.2"></div>
+        <div style="position:relative;z-index:1">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <div style="font-size:2.5rem">🏡</div>
+            <div>
+              <div style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:white">Écomusée d'Alsace</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase">Ungersheim · Haut-Rhin</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.06)">
+              <span style="color:#CE93D8;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:2px">📐</span>
+              <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.6"><strong style="color:rgba(255,255,255,0.8)">16 hectares</strong> — le plus grand musée à ciel ouvert de France</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.06)">
+              <span style="color:#CE93D8;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:2px">🏠</span>
+              <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.6"><strong style="color:rgba(255,255,255,0.8)">70 maisons</strong> à colombage reconstituées à l'identique depuis des villages alsaciens</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.06)">
+              <span style="color:#CE93D8;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:2px">👥</span>
+              <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.6"><strong style="color:rgba(255,255,255,0.8)">Groupes entreprise</strong> bienvenus — visites guidées, chasses au trésor thématiques, ateliers sur mesure</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="color:#CE93D8;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:2px">📍</span>
+              <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.6"><strong style="color:rgba(255,255,255,0.8)">À 20 min de Mulhouse</strong>, 40 min de Colmar, 1h de Strasbourg</span>
+            </div>
+          </div>
+          <div style="margin-top:20px;background:rgba(206,147,216,0.1);border:1px solid rgba(206,147,216,0.2);border-radius:10px;padding:14px">
+            <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.7;font-style:italic">"C'est le seul endroit en Alsace où vous pouvez faire entrer votre équipe dans une maison du XVIIe siècle, toucher les outils d'un forgeron d'époque et manger du pain cuit au feu de bois — le même jour."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
 <section>
   <div class="container" style="max-width:760px">
     <span class="section-label">Vos questions</span>
-    <h2 class="section-title">Les vraies questions des <em>RH</em><br>avant de réserver</h2>
+    <h2 class="section-title">Les vraies questions<br><em>avant de réserver</em></h2>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Quelles activités culturelles pour une équipe internationale ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Strasbourg est particulièrement bien équipée pour les équipes multiculturelles. Les rallyes découverte avec des guides bilingues (français/anglais/allemand) sont idéaux. Les ateliers savoir-faire alsacien transcendent les barrières linguistiques — tout le monde fabrique, goûte ou découvre ensemble. Précisez la composition linguistique de votre groupe dans la demande de devis.</div>
+      <div class="faq-a">Strasbourg est particulièrement bien équipée pour les équipes multiculturelles. Les rallyes découverte avec guides bilingues (français/anglais/allemand) sont idéaux. Les ateliers savoir-faire alsacien transcendent les barrières linguistiques — tout le monde fabrique, goûte ou découvre ensemble. Précisez la composition linguistique de votre groupe dans la demande de devis.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Les activités culturelles fonctionnent-elles pour tous les âges ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Oui — c'est l'un des avantages majeurs des activités culturelles. Elles ne demandent aucune condition physique particulière et plaisent à tous les profils. Les rallyes peuvent être adaptés en termes de rythme et de difficulté. C'est le format idéal pour les équipes multigénérationnelles.</div>
+      <div class="faq-a">Oui — c'est l'un de leurs avantages majeurs. Elles ne demandent aucune condition physique particulière et plaisent à tous les profils. Les rallyes peuvent être adaptés en termes de rythme et de difficulté. Format idéal pour les équipes multigénérationnelles — du stagiaire au directeur général.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Comment combiner culture et gastronomie pour une journée complète ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">C'est le combo le plus apprécié en Alsace ! Matin : rallye découverte ou visite guidée insolite. Midi : déjeuner dans un restaurant alsacien avec dégustation. Après-midi : atelier savoir-faire ou route des vins. Soirée : dîner dans un domaine viticole. Une journée complète qui marie culture, gastronomie et cohésion — contactez-nous pour construire ce programme.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">La visite guidée est-elle interactive ou juste passive ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Les meilleurs guides-conférenciers proposent des formats interactifs avec quiz, challenges, anecdotes participatives et moments de découverte active. Ce n'est pas une conférence — c'est une expérience. Demandez systématiquement si le format inclut des éléments participatifs dans votre devis.</div>
+      <div class="faq-a">C'est le combo le plus apprécié en Alsace. Matin : rallye découverte ou visite guidée insolite. Midi : déjeuner dans un winstub avec dégustation de vins. Après-midi : atelier savoir-faire ou route des vins en voitures vintage. Soirée : dîner dans un domaine viticole. Contactez directement les prestataires pour construire ce programme sur mesure.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Peut-on combiner avec un programme de séminaire ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Absolument. Les activités culturelles sont parfaitement complémentaires d'un séminaire : en matinée pour créer de la cohésion avant les ateliers de travail, en après-midi pour décompresser après une journée intensive, ou en soirée de gala pour clôturer un événement. Dites-nous le contexte et nous vous proposerons le format le plus adapté.</div>
+      <div class="faq-a">Absolument. Les activités culturelles sont parfaitement complémentaires d'un séminaire : en matinée pour créer de la cohésion avant les ateliers de travail, en après-midi pour décompresser, ou en soirée de gala pour clôturer. L'Alsace offre des hôtels de caractère, des domaines viticoles et des châteaux privatisables pour des séminaires mémorables.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">La visite guidée, c'est interactif ou on subit ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">Ça dépend entièrement du prestataire — et c'est LA question à poser avant de réserver. Les bons guides-conférenciers proposent des formats avec quiz, challenges, anecdotes participatives et moments de découverte active. Ce n'est pas une conférence — c'est une expérience. Demandez systématiquement si le format inclut des éléments participatifs dans votre devis. Et si la réponse est vague, changez de prestataire.</div>
     </div>
   </div>
 </section>
 
 <div class="cta-section">
   <h2>Prêt à faire découvrir l'Alsace<br><em>à votre équipe ?</em></h2>
-  <p>Parcourez toutes nos activités, filtrez selon vos besoins et contactez directement les prestataires.</p>
+  <p>Rallyes, vignobles, écomusée, châteaux — filtrez par univers et trouvez l'activité qui leur fera dire "hoplà !"</p>
   <div class="cta-btns">
-    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="index.html?univers=culture&scroll=activites" class="btn-p">Voir toutes les activités culture</a>
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
@@ -363,6 +452,11 @@
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+  function openFromUnivers(e, id, univers) {
+    e.preventDefault();
+    window.location.href = 'index.html?univers=' + univers + '&activite=' + id + '&scroll=activites';
+  }
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
