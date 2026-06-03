@@ -147,13 +147,53 @@
     .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
     footer { background: var(--noir); color: rgba(255,255,255,0.3); text-align: center; padding: 26px; font-size: 0.78rem; border-top: 3px solid var(--violet); }
     footer span { color: var(--vert); font-weight: 700; }
+
+    /* ── CARROUSEL MOBILE ── */
+    .mob-carousel {
+      display: grid; /* desktop : inchangé, défini inline */
+    }
     @media (max-width: 768px) {
-      header { padding: 0 20px; } nav { display: none; } .hamburger { display: flex; }
-      .breadcrumb, .container { padding-left: 20px; padding-right: 20px; }
-      .hero { padding: 50px 20px 40px; } .stats-bar { padding: 20px; }
-      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 16px; } .stat { border-right: none; }
-      section { padding: 44px 0; } .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .cta-section { padding: 50px 20px; }
+      html, body { overflow-x: hidden; }
+      .mob-carousel {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px !important;
+        padding: 0 16px 16px !important;
+        margin: 0 -16px !important;
+        scrollbar-width: none;
+      }
+      .mob-carousel::-webkit-scrollbar { display: none; }
+      .mob-carousel > * {
+        flex: 0 0 82vw !important;
+        max-width: 82vw !important;
+        scroll-snap-align: start;
+      }
+      .mob-carousel.mob-carousel--sm > * {
+        flex: 0 0 72vw !important;
+        max-width: 72vw !important;
+      }
+      .mob-stack {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      .partner-banner {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 16px !important;
+        gap: 12px !important;
+      }
+    }
+    @media (max-width: 768px) {
+      header { padding: 0 16px; } nav { display: none; } .hamburger { display: flex; }
+      .breadcrumb, .container { padding-left: 16px; padding-right: 16px; }
+      .hero { padding: 44px 16px 36px; } .stats-bar { padding: 16px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 12px; } .stat { border-right: none; padding: 0 8px; }
+      section { padding: 40px 0; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .cta-section { padding: 44px 16px; }
+      .cta-btns { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -203,7 +243,7 @@
   </div>
 </div>
 
-<div style="background:#FDF6FF;border-top:1px solid #E8D5FF;border-bottom:1px solid #E8D5FF;padding:22px 40px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap">
+<div class="partner-banner" style="background:#FDF6FF;border-top:1px solid #E8D5FF;border-bottom:1px solid #E8D5FF;padding:22px 40px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap">
   <p style="font-size:0.9rem;color:#555;font-family:'Plus Jakarta Sans',sans-serif">Vous êtes artiste, animateur ou prestataire créatif en Alsace et souhaitez toucher des équipes RH ?</p>
   <a href="referencer.html" style="background:linear-gradient(135deg,#4A0080,#8B2FC9);color:white;padding:11px 24px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px rgba(74,0,128,0.35);transition:all 0.2s">Devenir Partenaire Officiel →</a>
 </div>
@@ -215,7 +255,7 @@
     <span class="section-label" style="color:var(--cl)">L'Alsace a du talent</span>
     <h2 class="section-title" style="color:white;margin-bottom:6px">L'art intemporel <em style="color:var(--cl)">alsacien</em></h2>
     <p style="color:rgba(255,255,255,0.4);font-size:0.88rem;margin-bottom:40px;max-width:560px">Avant d'être une région viticole ou gastronomique, l'Alsace est une région d'artisans. Certaines traditions remontent au Moyen Âge et sont toujours vivantes.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+    <div class="mob-carousel" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
       <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;transition:border-color 0.2s" onmouseover="this.style.borderColor='rgba(181,123,240,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
         <div style="font-size:2rem;margin-bottom:14px">🏺</div>
         <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:white;margin-bottom:10px">La faïence de Soufflenheim</h3>
@@ -262,7 +302,7 @@
     <span class="section-label">L'Alsace a du talent</span>
     <h2 class="section-title">L'Alsace <em>moderne</em></h2>
     <p class="section-intro">La scène artistique alsacienne contemporaine est bien plus vivante qu'on ne le croit. Entre foires internationales, street art institutionnel et culture industrielle sublimée — la région tient son rang.</p>
-    <div class="grid-2" style="gap:28px;align-items:start">
+    <div class="grid-2 mob-stack" style="gap:28px;align-items:start">
       <div style="display:flex;flex-direction:column;gap:20px">
         <div style="background:white;border:1.5px solid var(--cb);border-radius:16px;padding:26px;position:relative;overflow:hidden">
           <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--c1),var(--c2))"></div>
@@ -335,7 +375,7 @@
     <span class="section-label">Pourquoi ça marche</span>
     <h2 class="section-title">Ce que cet univers apporte <em>concrètement</em> à vos équipes</h2>
     <p class="section-intro">Au-delà du plaisir et de la convivialité, ces activités ont des impacts mesurables sur la cohésion, la performance et le bien-être de vos collaborateurs.</p>
-    <div class="grid-3">
+    <div class="grid-3 mob-carousel">
       <div class="why-card">
         <span class="why-icon">🎭</span>
         <h3>Sortir du cadre professionnel</h3>
@@ -363,7 +403,7 @@
     <span class="section-label">Sélection créatif</span>
     <h2 class="section-title">Les activités artistiques <em>du moment</em></h2>
     <p class="section-intro">Trois activités pensées pour libérer la créativité de vos équipes — sans talent requis, sans prise de tête.</p>
-    <div class="grid-3" id="acts-grid">
+    <div class="grid-3 mob-carousel" id="acts-grid">
 
       <a href="index.html?univers=creatif&activite=3&scroll=activites" class="act-card" onclick="openFromUnivers(event, 3, 'creatif')">
         <div class="act-img" style="background:linear-gradient(135deg, #8E2DE2, #4A00E0)">🏺</div>
