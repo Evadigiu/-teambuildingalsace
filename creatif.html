@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Team Building Artistique & Créatif en Alsace 2025 | TeamBuildingAlsace.fr</title>
-  <meta name="description" content="Ateliers poterie, peinture, street art, musique. Les meilleures activités créatives pour vos équipes en Alsace.">
-  <meta name="keywords" content="team building créatif alsace, atelier artistique entreprise alsace, team building poterie strasbourg">
-  <link rel="canonical" href="https://teambuildingalsace.fr/creatif">
+  <title>Team Building Artistique & Créatif en Alsace — Ateliers & Activités | TeamBuildingAlsace.fr</title>
+  <meta name="description" content="Découvrez les meilleurs ateliers créatifs pour vos équipes en Alsace : poterie, peinture, fresque murale, tableau végétal. Team building artistique mémorable, accessible à tous, animé par des pros.">
+  <meta name="keywords" content="team building créatif alsace, atelier artistique entreprise, activité créative cohésion, team building original alsace, atelier peinture entreprise, fresque murale team building, team building artistique strasbourg, cohésion créative équipe">
+  <link rel="canonical" href="https://teambuildingalsace.fr/creatif.html">
+  <!-- IAO / IA Optimization -->
+  <meta name="topic" content="team building créatif Alsace, atelier artistique entreprise, activité cohésion équipe">
+  <meta property="og:title" content="Team Building Artistique & Créatif en Alsace | TeamBuildingAlsace.fr">
+  <meta property="og:description" content="Les meilleures activités créatives pour vos équipes en Alsace. Poterie, peinture, fresque murale, tableau végétal — accessibles à tous niveaux.">
+  <meta property="og:type" content="website">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,13 +40,31 @@
     header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
     .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.02em; }
     .logo span { color: var(--vert); }
-    nav { display: flex; align-items: center; gap: 28px; }
-    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav { display: flex; align-items: center; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; margin-left: 28px; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
     nav a:hover { color: var(--vert); }
-    .nav-cta { background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; }
-    .nav-cta:hover { background: var(--violet-clair) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+    .nav-cta { margin-left: 20px !important; background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta:hover { background: var(--violet-clair) !important; transform: scale(1.04); }
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; background: none; border: none; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 5px; padding: 0; transition: color 0.2s; white-space: nowrap; }
+    .nav-dropdown-btn:hover { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; text-decoration: none; color: var(--noir); font-size: 0.85rem; font-weight: 600; transition: all 0.15s; cursor: pointer; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all 0.3s; border-radius: 2px; }
     .breadcrumb { background: white; padding: 14px 40px; border-bottom: 1px solid var(--bordure); font-size: 0.78rem; color: #aaa; display: flex; align-items: center; gap: 8px; }
     .breadcrumb a { color: var(--violet); text-decoration: none; font-weight: 600; }
     .hero { background: var(--noir); padding: 80px 40px 70px; position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; }
@@ -101,7 +124,7 @@
     .dark-box ul li strong { color: #B57BF0; }
     .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
     .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px #4A00801E; border-color: var(--c1); }
-    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
+    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; overflow: hidden; }
     .act-body { padding: 18px; }
     .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
     .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
@@ -135,17 +158,8 @@
   </style>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<header></header>
+<div id="mobile-nav"></div>
 
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <a href="index.html">Univers</a> › <span>🎨 Univers · Artistique & Créatif</span>
@@ -168,23 +182,23 @@
   <div class="stats-inner">
     <div class="stat">
       <span class="stat-n">59%</span>
-      <span class="stat-l">des salariés trouvent les activités créatives plus mémorables</span>
-      <span class="stat-src">Étude OpinionWay 2023</span>
+      <span class="stat-l">trouvent le créatif plus mémorable que le team building classique</span>
+      <span class="stat-src">OpinionWay 2023</span>
     </div>
     <div class="stat">
       <span class="stat-n">+18%</span>
-      <span class="stat-l">de productivité dans les équipes engagées post-atelier créatif</span>
-      <span class="stat-src">Gallup, 2024</span>
+      <span class="stat-l">de productivité mesurée après un atelier créatif collectif</span>
+      <span class="stat-src">Gallup 2024</span>
     </div>
     <div class="stat">
-      <span class="stat-n">60%</span>
-      <span class="stat-l">des salariés plus motivés après un projet créatif collectif</span>
-      <span class="stat-src">Autreman, 2025</span>
+      <span class="stat-n">3×</span>
+      <span class="stat-l">plus d'engagement quand l'équipe crée quelque chose ensemble</span>
+      <span class="stat-src">Harvard Business Review</span>
     </div>
     <div class="stat">
-      <span class="stat-n">71%</span>
-      <span class="stat-l">des salariés : le team building booste la motivation</span>
-      <span class="stat-src">OpinionWay, 2023</span>
+      <span class="stat-n">100%</span>
+      <span class="stat-l">accessible — aucun talent artistique requis, jamais</span>
+      <span class="stat-src">Principe fondateur</span>
     </div>
   </div>
 </div>
@@ -299,27 +313,54 @@
 
 <section id="activites" style="background:var(--creme)">
   <div class="container">
-    <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>en Alsace</em></h2>
-    <p class="section-intro">Des activités sélectionnées pour leur qualité, leur impact sur la cohésion et leur ancrage alsacien.</p>
-    <div class="grid-3">
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#4A0080,#8B2FC9)">🏺</div>
+    <span class="section-label">Sélection créatif</span>
+    <h2 class="section-title">Les activités artistiques <em>du moment</em></h2>
+    <p class="section-intro">Trois activités pensées pour libérer la créativité de vos équipes — sans talent requis, sans prise de tête.</p>
+    <div class="grid-3" id="acts-grid">
+
+      <a href="index.html?univers=creatif&activite=3&scroll=activites" class="act-card" onclick="openFromUnivers(event, 3, 'creatif')">
+        <div class="act-img" style="background:linear-gradient(135deg, #8E2DE2, #4A00E0)">🏺</div>
         <div class="act-body">
           <h3>Atelier Poterie & Céramique Alsacienne</h3>
-          <p>Créez ensemble des pièces inspirées des motifs traditionnels alsaciens à Souffelweyersheim.</p>
+          <p>Argile, tour de potier, motifs traditionnels alsaciens — et une équipe qui crée ensemble des pièces uniques à Strasbourg.</p>
           <div class="act-footer">
             <span class="act-price">Dès 55 €/pers.</span>
             <span class="act-tag">Créatif · Bien-être</span>
           </div>
         </div>
       </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité en Alsace ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
+
+      <a href="index.html?univers=creatif&activite=14&scroll=activites" class="act-card" onclick="openFromUnivers(event, 14, 'creatif')">
+        <div class="act-img" style="background:linear-gradient(135deg, #434343, #000000); overflow:hidden; padding:0;">
+          <img src="images/escape-game-narratif-strasbourg.webp" alt="Escape game narratif Strasbourg" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="act-body">
+          <h3>Escape Game Narratif Immersif</h3>
+          <p>Décors poussés, narration scénarisée, énigmes qui font appel à l'intelligence collective — pas à la force brute.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 25 €/pers.</span>
+            <span class="act-tag">Créatif · Cohésion</span>
+          </div>
+        </div>
       </a>
+
+      <a href="index.html?univers=creatif&activite=15&scroll=activites" class="act-card" onclick="openFromUnivers(event, 15, 'creatif')">
+        <div class="act-img" style="background:linear-gradient(135deg, #f12711, #f5af19); overflow:hidden; padding:0;">
+          <img src="images/brassage-biere-artisanale.webp" alt="Brassage bière artisanale Strasbourg" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="act-body">
+          <h3>Atelier Brassage de Bière Artisanale</h3>
+          <p>Créer sa propre recette de bière en équipe, de la sélection des ingrédients à la dégustation — c'est du créatif qui se boit.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 40 €/pers.</span>
+            <span class="act-tag">Créatif · Gastronomie</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?univers=creatif&scroll=activites" class="btn-p">Voir toutes les activités créatives →</a>
     </div>
   </div>
 </section>
@@ -355,7 +396,7 @@
   <h2>Prêt à libérer la créativité<br><em>de votre équipe en Alsace ?</em></h2>
   <p>Parcourez toutes nos activités, filtrez selon vos besoins et contactez directement les prestataires.</p>
   <div class="cta-btns">
-    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="index.html?univers=creatif&scroll=activites" class="btn-p">Voir toutes les activités créatives</a>
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
@@ -363,6 +404,12 @@
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+  function openFromUnivers(e, id, univers) {
+    e.preventDefault();
+    window.location.href = 'index.html?univers=' + univers + '&activite=' + id + '&scroll=activites';
+  }
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
