@@ -6,6 +6,19 @@
 
 (function() {
 
+  // ── Google Analytics ──
+  if (!document.getElementById('gtag-script')) {
+    var gtagScript = document.createElement('script');
+    gtagScript.id = 'gtag-script';
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-X6RP21L6W8';
+    document.head.appendChild(gtagScript);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X6RP21L6W8');
+  }
+
   // ── Injecter le CSS mobile-nav (une seule fois) ──
   if (!document.getElementById('nav-shared-styles')) {
     var style = document.createElement('style');
