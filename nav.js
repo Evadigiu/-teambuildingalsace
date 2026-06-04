@@ -167,10 +167,6 @@
           <span class="d-emoji">🎭</span>
           <span class="d-info"><span class="d-name">Culture & Patrimoine</span><span class="d-count">Alsace, histoire</span></span>
         </a>
-        <a href="evenementiel.html" class="dropdown-item">
-          <span class="d-emoji">🎉</span>
-          <span class="d-info"><span class="d-name">Événementiel</span><span class="d-count">Soirée, séminaire</span></span>
-        </a>
         <a href="wtf.html" class="dropdown-item">
           <span class="d-emoji">🛸</span>
           <span class="d-info"><span class="d-name">What the Fuck</span><span class="d-count">Activités inclassables</span></span>
@@ -220,7 +216,6 @@
       <a href="sport.html" onclick="toggleMenu()">⚡ Sport & Adrénaline</a>
       <a href="jeux.html" onclick="toggleMenu()">🎮 Jeux & Digital</a>
       <a href="culture.html" onclick="toggleMenu()">🎭 Culture & Patrimoine</a>
-      <a href="evenementiel.html" onclick="toggleMenu()">🎉 Événementiel</a>
       <a href="wtf.html" onclick="toggleMenu()">🛸 What the Fuck</a>
       <a href="strategie.html" onclick="toggleMenu()">🧠 Stratégie & Logique</a>
     </div>
