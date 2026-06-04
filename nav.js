@@ -190,7 +190,7 @@
     </div>
     <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
+    <a href="referencer.html" class="nav-cta" onclick="if(typeof gtag!=='undefined')gtag('event','referencer_clic',{source:'nav_desktop'})">+ Référencer</a>
   </nav>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -232,7 +232,7 @@
     </div>
   </div>
   <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="referencer.html" onclick="toggleMenu()">+ Référencer</a>
+  <a href="referencer.html" onclick="if(typeof gtag!=='undefined')gtag('event','referencer_clic',{source:'nav_mobile'});toggleMenu()">+ Référencer</a>
   <a href="contact.html" onclick="toggleMenu()">Contact</a>`;
   }
 
