@@ -19,6 +19,17 @@
     gtag('config', 'G-X6RP21L6W8');
   }
 
+
+  // ── Microsoft Clarity ──
+  if (!document.getElementById('clarity-script')) {
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      t.id='clarity-script';
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x1sywk2trp");
+  }
+
   // ── Injecter le CSS mobile-nav (une seule fois) ──
   if (!document.getElementById('nav-shared-styles')) {
     var style = document.createElement('style');
