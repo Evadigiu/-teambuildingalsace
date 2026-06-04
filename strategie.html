@@ -3,24 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Team Building Stratégie & Logique en Alsace 2025 | TeamBuildingAlsace.fr</title>
-  <meta name="description" content="Jeux de construction, serious games, simulations stratégiques. Les meilleures activités intellectuelles pour développer les compétences de vos équipes en Alsace.">
-  <meta name="keywords" content="team building stratégie alsace, serious game entreprise strasbourg, jeu de construction équipe alsace, team building logique strasbourg">
-  <link rel="canonical" href="https://teambuildingalsace.fr/strategie">
+  <title>Team Building Stratégie & Logique en Alsace — Escape Game, Survie, Quiz | TeamBuildingAlsace.fr</title>
+  <meta name="description" content="Escape game, survie en forêt vosgienne, quiz stratégiques — les meilleures activités de réflexion et de logique pour vos équipes en Alsace. Parce que les vrais liens se nouent quand on réfléchit ensemble.">
+  <meta name="keywords" content="team building stratégie alsace, escape game entreprise strasbourg, team building logique alsace, activité réflexion équipe alsace, jeu coopératif team building, serious game entreprise alsace, team building prise de décision, activité intellectuelle cohésion alsace, team building survie forêt vosgienne, quiz stratégique équipe strasbourg">
+  <link rel="canonical" href="https://teambuildingalsace.fr/strategie.html">
+  <meta name="topic" content="team building stratégie logique Alsace, escape game entreprise, jeux coopératifs cohésion équipe, serious game team building Alsace">
+  <meta property="og:title" content="Team Building Stratégie & Logique en Alsace | TeamBuildingAlsace.fr">
+  <meta property="og:description" content="Les activités où l'intelligence collective prime. Escape game, survie, quiz — pour les équipes qui veulent comprendre comment elles pensent vraiment.">
+  <meta property="og:type" content="website">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Team Building Stratégie & Logique en Alsace 2025",
-    "url": "https://www.teambuildingalsace.fr/strategie",
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.teambuildingalsace.fr" },
-        { "@type": "ListItem", "position": 2, "name": "Team Building Stratégie & Logique en Alsace 2025", "item": "https://www.teambuildingalsace.fr/strategie" }
-      ]
-    }
-  }
+  {"@context":"https://schema.org","@type":"WebPage","name":"Team Building Stratégie & Logique en Alsace","url":"https://www.teambuildingalsace.fr/strategie.html","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.teambuildingalsace.fr"},{"@type":"ListItem","position":2,"name":"Team Building Stratégie & Logique en Alsace","item":"https://www.teambuildingalsace.fr/strategie.html"}]}}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -35,13 +27,31 @@
     header { background: var(--noir); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--violet); }
     .logo { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.02em; }
     .logo span { color: var(--vert); }
-    nav { display: flex; align-items: center; gap: 28px; }
-    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
+    nav { display: flex; align-items: center; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; margin-left: 28px; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
     nav a:hover { color: var(--vert); }
-    .nav-cta { background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; }
-    .nav-cta:hover { background: var(--violet-clair) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+    .nav-cta { margin-left: 20px !important; background: var(--violet); color: white !important; padding: 8px 18px; border-radius: 100px; font-size: 0.78rem !important; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta:hover { background: var(--violet-clair) !important; transform: scale(1.04); }
+    .nav-dropdown { position: relative; margin-left: 28px; }
+    .nav-dropdown-btn { color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: pointer; background: none; border: none; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 5px; padding: 0; transition: color 0.2s; white-space: nowrap; }
+    .nav-dropdown-btn:hover { color: var(--vert); }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert); }
+    .nav-dropdown-btn { padding-bottom: 12px; margin-bottom: -12px; }
+    .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); padding: 10px; padding-top: 18px; min-width: 220px; display: none; z-index: 2000; border: 1px solid var(--bordure); }
+    .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; text-decoration: none; color: var(--noir); font-size: 0.85rem; font-weight: 600; transition: all 0.15s; cursor: pointer; }
+    .dropdown-item:hover { background: var(--gris-clair); color: var(--violet); }
+    .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .dropdown-item .d-info { flex: 1; }
+    .dropdown-item .d-name { display: block; }
+    .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+    .dropdown-divider { height: 1px; background: var(--bordure); margin: 6px 0; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all 0.3s; border-radius: 2px; }
     .breadcrumb { background: white; padding: 14px 40px; border-bottom: 1px solid var(--bordure); font-size: 0.78rem; color: #aaa; display: flex; align-items: center; gap: 8px; }
     .breadcrumb a { color: var(--violet); text-decoration: none; font-weight: 600; }
     .hero { background: var(--noir); padding: 80px 40px 70px; position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; }
@@ -52,12 +62,12 @@
     .hero h1 .line2 { color: #7BAAF7; display: block; }
     .hero-sub { color: rgba(255,255,255,0.55); font-size: 1rem; max-width: 600px; line-height: 1.8; margin: 20px 0 36px; }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-p { padding: 13px 28px; background: linear-gradient(135deg, #1A3A6B, #2E5FAA); color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 6px 20px #1A3A6B66; }
+    .btn-p { padding: 13px 28px; background: linear-gradient(135deg, #1A3A6B, #2E5FAA); color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 6px 20px #1A3A6B66; display: inline-block; }
     .btn-p:hover { transform: translateY(-2px); box-shadow: 0 10px 28px #1A3A6B88; }
     .btn-s { padding: 13px 28px; background: rgba(255,255,255,0.07); color: white; border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
     .btn-s:hover { border-color: #7BAAF7; color: #7BAAF7; }
     .stats-bar { background: linear-gradient(135deg, #1A3A6B, #2E5FAA); padding: 28px 40px; }
-    .stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); }
     .stat { text-align: center; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15); }
     .stat:last-child { border-right: none; }
     .stat-n { font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 900; color: white; display: block; letter-spacing: -0.05em; line-height: 1; }
@@ -65,14 +75,12 @@
     .stat-src { font-size: 0.6rem; color: rgba(255,255,255,0.35); display: block; margin-top: 3px; }
     .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
     section { padding: 72px 0; border-bottom: 1px solid var(--bordure); }
-    section:last-child { border-bottom: none; }
+    section:last-of-type { border-bottom: none; }
     .section-label { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--c1); font-weight: 700; margin-bottom: 10px; display: block; }
     .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--noir); letter-spacing: -0.03em; margin-bottom: 14px; line-height: 1.1; }
     .section-title em { color: var(--c1); font-style: normal; }
     .section-intro { color: #555; font-size: 0.95rem; max-width: 640px; line-height: 1.85; margin-bottom: 44px; }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
     .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
     .why-card { background: white; border: 1.5px solid var(--cb); border-radius: 16px; padding: 26px; position: relative; overflow: hidden; transition: all 0.25s; }
     .why-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--c1), var(--c2)); }
     .why-card:hover { border-color: var(--c1); box-shadow: 0 12px 36px #1A3A6B1A; transform: translateY(-3px); }
@@ -80,33 +88,14 @@
     .why-card h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 800; color: var(--noir); margin-bottom: 10px; }
     .why-card p { font-size: 0.83rem; color: #666; line-height: 1.7; }
     .why-tag { display: inline-block; font-size: 0.65rem; color: var(--c1); background: var(--cp); padding: 3px 10px; border-radius: 100px; margin-top: 12px; font-weight: 600; border: 1px solid var(--cb); }
-    .format-card { background: var(--creme); border: 1.5px solid var(--cb); border-radius: 14px; padding: 22px; transition: all 0.2s; }
-    .format-card:hover { border-color: var(--c1); box-shadow: 0 6px 24px #1A3A6B1A; transform: translateY(-2px); }
-    .format-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-    .format-card h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: var(--noir); margin-bottom: 8px; }
-    .format-card p { font-size: 0.82rem; color: #666; line-height: 1.65; }
-    .format-duree { display: inline-block; font-size: 0.68rem; background: white; color: var(--c1); padding: 3px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; border: 1px solid var(--cb); }
-    .rh-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; padding: 22px; display: flex; gap: 16px; align-items: flex-start; transition: all 0.2s; }
-    .rh-card:hover { border-color: var(--c1); box-shadow: 0 6px 24px #1A3A6B14; }
-    .rh-ico { width: 46px; height: 46px; background: var(--cp); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
-    .rh-card h4 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: var(--noir); margin-bottom: 5px; }
-    .rh-card p { font-size: 0.82rem; color: #666; line-height: 1.65; }
-    .rh-stat { display: inline-block; font-size: 0.7rem; background: var(--cp); color: var(--c1); padding: 3px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; }
-    .dark-box { background: linear-gradient(135deg, #0D0D0D, #1A1A2E); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
-    .dark-box::before { content: ''; position: absolute; top: -50px; right: -50px; width: 180px; height: 180px; background: #1A3A6B; border-radius: 50%; filter: blur(60px); opacity: 0.25; }
-    .dark-box h3 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: #7BAAF7; margin-bottom: 20px; position: relative; z-index: 1; }
-    .dark-box ul { list-style: none; padding: 0; position: relative; z-index: 1; }
-    .dark-box ul li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
-    .dark-box ul li:last-child { border-bottom: none; }
-    .dark-box ul li strong { color: #7BAAF7; }
-    .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; }
     .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px #1A3A6B1E; border-color: var(--c1); }
-    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
+    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; overflow: hidden; }
     .act-body { padding: 18px; }
     .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
     .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
     .act-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--cb); }
-    .act-price { color: var(--c1); font-weight: 800; font-family: 'Outfit', sans-serif; }
+    .act-price { color: var(--c1); font-weight: 800; font-family: 'Outfit', sans-serif; font-size: 0.88rem; }
     .act-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; background: var(--cp); color: var(--c1); }
     .faq-item { border-bottom: 1px solid var(--cb); }
     .faq-q { padding: 18px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.93rem; gap: 16px; }
@@ -125,27 +114,28 @@
     footer { background: var(--noir); color: rgba(255,255,255,0.3); text-align: center; padding: 26px; font-size: 0.78rem; border-top: 3px solid var(--violet); }
     footer span { color: var(--vert); font-weight: 700; }
     @media (max-width: 768px) {
-      header { padding: 0 20px; } nav { display: none; } .hamburger { display: flex; }
-      .breadcrumb, .container { padding-left: 20px; padding-right: 20px; }
-      .hero { padding: 50px 20px 40px; } .stats-bar { padding: 20px; }
-      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 16px; } .stat { border-right: none; }
-      section { padding: 44px 0; } .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .cta-section { padding: 50px 20px; }
+      html, body { overflow-x: hidden; }
+      header { padding: 0 16px; } nav { display: none; } .hamburger { display: flex; }
+      .breadcrumb, .container { padding-left: 16px; padding-right: 16px; }
+      .hero { padding: 44px 16px 36px; } .stats-bar { padding: 16px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 12px; } .stat { border-right: none; padding: 0 8px; }
+      section { padding: 44px 0; } .grid-3 { grid-template-columns: 1fr; }
+      .cta-section { padding: 44px 16px; } .cta-btns { flex-direction: column; align-items: center; }
+      .partner-banner { flex-direction: column !important; text-align: center; padding: 16px !important; gap: 12px !important; }
+      .mob-stack { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .mob-carousel {
+        display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; gap: 12px !important;
+        padding: 0 16px 16px !important; margin: 0 -16px !important; scrollbar-width: none;
+      }
+      .mob-carousel::-webkit-scrollbar { display: none; }
+      .mob-carousel > * { flex: 0 0 82vw !important; max-width: 82vw !important; scroll-snap-align: start; min-width: 0; }
     }
   </style>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="strasbourg.html">Strasbourg</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="referencer.html" class="nav-cta">+ Référencer</a>
-  </nav>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<header></header>
+<div id="mobile-nav"></div>
 
 <div class="breadcrumb">
   <a href="index.html">Accueil</a> › <a href="index.html">Univers</a> › <span>🧠 Univers · Stratégie & Logique</span>
@@ -156,7 +146,7 @@
   <div class="hero-content">
     <div class="hero-label">🧠 Univers · Stratégie & Logique</div>
     <h1>La vraie cohésion se construit<span class="line2">quand on réfléchit ensemble.</span></h1>
-    <p class="hero-sub">Les activités stratégiques révèlent comment votre équipe prend réellement des décisions, gère l'incertitude et répartit les rôles. Un miroir précieux pour tout manager qui veut comprendre — et améliorer — sa dynamique d'équipe.</p>
+    <p class="hero-sub">Les activités stratégiques révèlent comment votre équipe prend réellement des décisions, gère l'incertitude et répartit les rôles. Un miroir précieux — et parfois surprenant — pour tout manager qui veut comprendre sa dynamique d'équipe.</p>
     <div class="hero-btns">
       <a href="#activites" class="btn-p">Voir les activités ↓</a>
       <a href="referencer.html" class="btn-s">Référencer mon activité</a>
@@ -167,195 +157,244 @@
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat">
+      <span class="stat-n">80%</span>
+      <span class="stat-l">des stratégies évoluent en cours de jeu — l'adaptabilité prime sur la planification</span>
+      <span class="stat-src">Études comportementales</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">5</span>
+      <span class="stat-l">compétences clés sollicitées : décision, communication, leadership, créativité, gestion du stress</span>
+      <span class="stat-src">Serious game research</span>
+    </div>
+    <div class="stat">
       <span class="stat-n">×2</span>
-      <span class="stat-l">plus productives les équipes qui maîtrisent la prise de décision</span>
-      <span class="stat-src">Études managériales</span>
+      <span class="stat-l">plus rapide en équipe pour trouver une solution complexe qu'en solo</span>
+      <span class="stat-src">Journal of Applied Psychology</span>
     </div>
     <div class="stat">
-      <span class="stat-n">35%</span>
-      <span class="stat-l">des entreprises utilisent l'IA ou les serious games en formation</span>
-      <span class="stat-src">France Travail, 2023</span>
-    </div>
-    <div class="stat">
-      <span class="stat-n">71%</span>
-      <span class="stat-l">des salariés : le team building booste la motivation</span>
-      <span class="stat-src">OpinionWay, 2023</span>
-    </div>
-    <div class="stat">
-      <span class="stat-n">60%</span>
-      <span class="stat-l">des budgets team building vont augmenter en 2025</span>
-      <span class="stat-src">Baromètre RH, 2024</span>
+      <span class="stat-n">15→20</span>
+      <span class="stat-l">échanges de communication par tour dans un jeu coopératif vs 5→7 en compétitif</span>
+      <span class="stat-src">Game research, 2026</span>
     </div>
   </div>
 </div>
 
+<!-- BANDEAU PARTENAIRE -->
+<div class="partner-banner" style="background:var(--creme);border-top:1px solid var(--cb);border-bottom:1px solid var(--cb);padding:22px 40px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap">
+  <p style="font-size:0.9rem;color:#555;font-family:'Plus Jakarta Sans',sans-serif">Vous proposez un jeu de stratégie, un escape game ou un serious game en Alsace ?</p>
+  <a href="referencer.html" style="background:linear-gradient(135deg,#1A3A6B,#2E5FAA);color:white;padding:11px 24px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px rgba(26,58,107,0.35)">Devenir Partenaire Officiel →</a>
+</div>
+
+<!-- POURQUOI ÇA MARCHE -->
 <section>
   <div class="container">
     <span class="section-label">Pourquoi ça marche</span>
     <h2 class="section-title">Ce que cet univers apporte <em>concrètement</em> à vos équipes</h2>
-    <p class="section-intro">Au-delà du plaisir et de la convivialité, ces activités ont des impacts mesurables sur la cohésion, la performance et le bien-être de vos collaborateurs.</p>
+    <p class="section-intro">Au-delà du plaisir, les activités stratégiques ont des impacts documentés sur la prise de décision collective, la communication et la révélation des dynamiques d'équipe.</p>
     <div class="grid-3">
       <div class="why-card">
         <span class="why-icon">♟️</span>
         <h3>Révéler les décideurs naturels</h3>
-        <p>Dans un jeu de stratégie, les leaders naturels, les analystes et les créatifs émergent spontanément. Une observation précieuse pour les managers qui cherchent à mieux comprendre les dynamiques de leur équipe — sans la pression du contexte professionnel.</p>
-        <span class="why-tag">Révélateur managérial</span>
+        <p>Sous pression, qui prend l'initiative ? Qui cherche le consensus ? Qui bloque sur les détails ? Une activité stratégique révèle en 20 minutes ce que des mois de travail commun n'a pas encore montré clairement. C'est une cartographie des rôles naturels — sans questionnaire, sans théorie.</p>
+        <span class="why-tag">Leadership & rôles</span>
       </div>
       <div class="why-card">
         <span class="why-icon">🧩</span>
-        <h3>Entraîner la pensée collective</h3>
-        <p>La prise de décision en groupe est une compétence qui se développe. Les activités stratégiques entraînent l'équipe à écouter, synthétiser et choisir collectivement — exactement les compétences dont les équipes ont besoin en réunion.</p>
-        <span class="why-tag">Prise de décision</span>
+        <h3>Entraîner la communication sous contrainte</h3>
+        <p>Un jeu stratégique impose une contrainte de temps et d'information partielle. Dans ces conditions, la communication habituelle ne suffit plus — l'équipe doit apprendre à être précise, rapide et à faire confiance. Ces réflexes se transfèrent directement en réunion de crise ou en période de rush.</p>
+        <span class="why-tag">Communication & efficacité</span>
       </div>
       <div class="why-card">
-        <span class="why-icon">⚡</span>
-        <h3>Gérer l'incertitude ensemble</h3>
-        <p>Les meilleurs serious games placent les équipes face à des situations ambiguës, des informations incomplètes et des contraintes de temps. Un entraînement direct aux défis du monde professionnel réel.</p>
-        <span class="why-tag">Résilience & adaptabilité</span>
+        <span class="why-icon">🔄</span>
+        <h3>Apprendre à pivoter ensemble</h3>
+        <p>80% des stratégies évoluent en cours de jeu. Les équipes les plus efficaces ne sont pas celles qui ont le meilleur plan initial — ce sont celles qui s'adaptent le plus vite quand le plan s'effondre. Une compétence directement transférable à la réalité d'entreprise.</p>
+        <span class="why-tag">Adaptabilité & résilience</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- COOPÉRATION VS COMPÉTITION -->
 <section style="background:var(--creme)">
   <div class="container">
-    <span class="section-label">Les formats disponibles</span>
-    <h2 class="section-title">Des activités pour <em>toutes les occasions</em></h2>
-    <p class="section-intro">Ces activités s'adaptent à tous les formats, tous les groupes et tous les budgets — de l'afterwork d'une heure au séminaire résidentiel.</p>
-    <div class="grid-4">
-      <div class="format-card">
-        <div class="format-icon">🏗️</div>
-        <h3>Jeux de construction en équipe</h3>
-        <p>Lego Serious Play, construction de ponts ou de tours avec des contraintes — chaque format révèle la façon dont l'équipe s'organise, répartit les rôles et gère les conflits. Un débrief riche en insights managériaux.</p>
-        <span class="format-duree">1h30 à 2h · Partout</span>
+    <span class="section-label">La science du jeu</span>
+    <h2 class="section-title">Jouer ensemble crée des liens <em>plus profonds</em> que jouer les uns contre les autres</h2>
+    <p class="section-intro">Ce n'est pas une intuition — c'est mesuré. Et les mécanismes derrière sont fascinants.</p>
+    <div class="mob-stack" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+      <div>
+        <p style="font-size:1rem;font-weight:300;line-height:2;color:#333;margin-bottom:20px;letter-spacing:-0.01em">La recherche en psychologie sociale est claire : les jeux coopératifs génèrent des liens sociaux significativement plus forts et plus durables que les jeux compétitifs. Et ce n'est pas qu'une question d'ambiance.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9;margin-bottom:16px">Les jeux coopératifs génèrent <strong>15 à 20 échanges de communication par tour</strong>, contre 5 à 7 dans un jeu compétitif. Cette densité de dialogue crée mécaniquement plus d'occasions de négocier, d'expliquer, d'écouter — et donc de se connaître.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9;margin-bottom:16px">Sur le plan neurologique, l'effort partagé contre un adversaire commun (le jeu lui-même) libère de l'<strong>ocytocine</strong> — l'hormone du lien social. La vulnérabilité légère d'un "on peut perdre ensemble" est un puissant accélérateur de confiance. C'est le même mécanisme que dans les situations de crise réelle, sans les conséquences.</p>
+        <p style="font-size:0.93rem;color:#555;line-height:1.9">La <strong>Social Interdependence Theory</strong> (Johnson & Johnson) documente depuis les années 80 que les objectifs partagés créent une identification au groupe bien plus forte que la compétition. Quand tout le monde gagne ou perd ensemble, l'appartenance est réelle.</p>
       </div>
-      <div class="format-card">
-        <div class="format-icon">♟️</div>
-        <h3>Serious game & simulation stratégique</h3>
-        <p>Des simulations de gestion d'entreprise, de crise ou de négociation qui plongent les équipes dans des scénarios complexes. L'objectif est de prendre de meilleures décisions collectives — avec un débrief structuré.</p>
-        <span class="format-duree">Demi-journée · Partout</span>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">🧩</div>
-        <h3>Escape room intellectuelle</h3>
-        <p>Pas d'adrénaline, pas d'urgence physique — juste des énigmes complexes, de la logique pure et une coopération fine. Le format idéal pour les équipes analytiques qui veulent un défi à leur mesure.</p>
-        <span class="format-duree">1h · Indoor</span>
-      </div>
-      <div class="format-card">
-        <div class="format-icon">📊</div>
-        <h3>Business game & jeu de rôle</h3>
-        <p>Négociation, gestion de crise, prise de décision — des simulations réalistes qui entraînent les réflexes professionnels dans un cadre sécurisé et ludique. Très apprécié des comités de direction.</p>
-        <span class="format-duree">Demi-journée à journée</span>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#00897B,#00E5A0)"></div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:12px;color:var(--noir)">✅ Jeux coopératifs — ce qu'ils créent</h3>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:0.8rem;color:#555;line-height:1.65;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>Confiance interpersonnelle</strong> — partager une défaite possible crée une vulnérabilité saine et accélère la confiance.</div>
+            <div style="font-size:0.8rem;color:#555;line-height:1.65;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>Communication dense</strong> — 3× plus d'échanges par tour, ce qui force l'écoute active et la précision.</div>
+            <div style="font-size:0.8rem;color:#555;line-height:1.65;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>Identité de groupe forte</strong> — "on l'a fait ensemble" est un souvenir collectif fondateur.</div>
+            <div style="font-size:0.8rem;color:#555;line-height:1.65"><strong>Comportements prosociaux durables</strong> — les études montrent que le jeu coopératif augmente l'entraide au-delà de la session.</div>
+          </div>
+        </div>
+        <div style="background:white;border:1.5px solid var(--cb);border-radius:14px;padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#E53935,#FF8A65)"></div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:12px;color:var(--noir)">⚠️ Jeux compétitifs — les nuances</h3>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:0.8rem;color:#555;line-height:1.65;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>Bon pour le leadership individuel</strong> — la compétition révèle les stratèges et les leaders naturels.</div>
+            <div style="font-size:0.8rem;color:#555;line-height:1.65;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>Risque de division</strong> — dans des équipes avec des tensions préexistantes, la compétition peut les amplifier.</div>
+            <div style="font-size:0.8rem;color:#555;line-height:1.65;padding-bottom:8px;border-bottom:1px solid var(--cb)"><strong>Moins de communication</strong> — l'information est une ressource à protéger, pas à partager.</div>
+            <div style="font-size:0.8rem;color:#555;line-height:1.65"><strong>Intéressant en format hybride</strong> — équipes qui coopèrent en interne mais se font face. Le meilleur des deux mondes.</div>
+          </div>
+        </div>
+        <div style="background:var(--c1);border-radius:14px;padding:20px 24px">
+          <p style="font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.75;font-style:italic">"Les équipes qui jouent coopérativement sont 2× plus rapides pour trouver une solution complexe que les équipes qui ont travaillé en compétition sur la même durée."</p>
+          <span style="font-size:0.68rem;color:rgba(255,255,255,0.35);margin-top:8px;display:block">Journal of Applied Psychology</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOCUS JEUX -->
 <section>
   <div class="container">
-    <span class="section-label">Angle RH</span>
-    <h2 class="section-title">Ce que ça change pour <em>vos KPIs RH</em></h2>
-    <p class="section-intro">Au-delà du plaisir, ces activités ont des impacts mesurables sur les indicateurs qui comptent pour vos équipes RH.</p>
-    <div class="grid-2">
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div class="rh-card">
-          <div class="rh-ico">🎯</div>
-          <div>
-            <h4>Identifier les profils de décision</h4>
-            <p>Comment votre équipe prend-elle des décisions collectives ? Qui analyse, qui décide, qui exécute, qui conteste ? Les activités stratégiques révèlent ces profils naturellement — une cartographie précieuse pour optimiser vos réunions.</p>
-            <span class="rh-stat">Connaissance des talents</span>
-          </div>
+    <span class="section-label">Deux jeux à connaître</span>
+    <h2 class="section-title">Pandemic & Diplomacy — <em>pourquoi ces jeux ?</em></h2>
+    <p class="section-intro">Deux jeux de plateau qui sont devenus des références en team building stratégique. Explication.</p>
+    <div class="mob-stack" style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+
+      <div style="background:var(--noir);border-radius:20px;overflow:hidden;position:relative">
+        <div style="background:linear-gradient(135deg,#1B5E20,#388E3C);padding:28px 28px 20px;position:relative">
+          <div style="font-size:3rem;margin-bottom:12px">🦠</div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:900;color:white;margin-bottom:6px">Pandemic</h3>
+          <p style="font-size:0.75rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Coopératif · 2 à 4 joueurs · 45 min</p>
         </div>
-        <div class="rh-card">
-          <div class="rh-ico">📈</div>
-          <div>
-            <h4>Développer les compétences managériales</h4>
-            <p>Les serious games sont reconnus comme l'un des formats de développement des compétences les plus efficaces. Les participants apprennent en faisant, dans un contexte sécurisé qui autorise l'erreur.</p>
-            <span class="rh-stat">Développement RH</span>
+        <div style="padding:28px">
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:16px">Votre équipe est une cellule de crise sanitaire mondiale. Quatre maladies se propagent simultanément sur le globe. Chaque joueur a un rôle différent (médecin, scientifique, spécialiste logistique...) avec des compétences uniques. L'objectif : trouver les antidotes avant que les épidémies ne rendent la situation ingérable.</p>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:20px">Ce qui rend Pandemic fascinant en contexte team building : <strong style="color:#7BAAF7">l'équipe peut perdre même si chaque joueur a fait les bons choix individuellement</strong>. La coordination est la vraie compétence testée. Sans communication fluide, sans délégation intelligente, sans gestion collective des priorités — vous perdez. Systématiquement.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-size:0.68rem;background:rgba(255,255,255,0.08);color:#7BAAF7;padding:4px 12px;border-radius:100px;font-weight:700;border:1px solid rgba(123,170,247,0.2)">Communication</span>
+            <span style="font-size:0.68rem;background:rgba(255,255,255,0.08);color:#7BAAF7;padding:4px 12px;border-radius:100px;font-weight:700;border:1px solid rgba(123,170,247,0.2)">Gestion de crise</span>
+            <span style="font-size:0.68rem;background:rgba(255,255,255,0.08);color:#7BAAF7;padding:4px 12px;border-radius:100px;font-weight:700;border:1px solid rgba(123,170,247,0.2)">Délégation</span>
+            <span style="font-size:0.68rem;background:rgba(255,255,255,0.08);color:#7BAAF7;padding:4px 12px;border-radius:100px;font-weight:700;border:1px solid rgba(123,170,247,0.2)">Priorités</span>
           </div>
-        </div>
-        <div class="rh-card">
-          <div class="rh-ico">🌐</div>
-          <div>
-            <h4>Adapter au monde VUCA</h4>
-            <p>Volatil, Incertain, Complexe, Ambigu — le monde professionnel de 2025 exige des équipes capables de naviguer dans l'incertitude. Les activités stratégiques entraînent exactement ces compétences.</p>
-            <span class="rh-stat">Adaptation & résilience</span>
-          </div>
+          <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);margin-top:16px;font-style:italic">Créé en 2008 par Matt Leacock · Plus de 9 millions d'exemplaires vendus</p>
         </div>
       </div>
-      <div class="dark-box">
-        <h3>🧠 Stratégie & logique en chiffres</h3>
-        <ul>
-          <li><span>🚀</span><span><strong>35% des entreprises françaises</strong> utilisaient déjà l'IA ou les serious games en formation en 2023 — une adoption en forte accélération (France Travail).</span></li>
-          <li><span>📈</span><span>Les équipes qui maîtrisent la prise de décision collective sont <strong>significativement plus performantes</strong> selon les études de management.</span></li>
-          <li><span>🎯</span><span>Le Lego Serious Play est utilisé par <strong>des centaines de grandes entreprises mondiales</strong> (Google, Disney, Toyota) pour améliorer la pensée collective.</span></li>
-          <li><span>💡</span><span>Les <strong>serious games</strong> génèrent un taux de rétention des apprentissages de <strong>75%</strong> vs 10% pour une formation classique.</span></li>
-          <li><span>🤝</span><span>Un débrief structuré après une activité stratégique <strong>transforme le jeu en apprentissage professionnel durable</strong> — c'est le format le plus impactant du team building.</span></li>
-        </ul>
+
+      <div style="background:var(--noir);border-radius:20px;overflow:hidden;position:relative">
+        <div style="background:linear-gradient(135deg,#4A148C,#7B1FA2);padding:28px 28px 20px;position:relative">
+          <div style="font-size:3rem;margin-bottom:12px">🗺️</div>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:900;color:white;margin-bottom:6px">Diplomacy</h3>
+          <p style="font-size:0.75rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Négociation · 2 à 7 joueurs · 4 à 6h</p>
+        </div>
+        <div style="padding:28px">
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:16px">Europe 1914. Chaque joueur représente une grande puissance. Aucun dé, aucun hasard — <strong style="color:#CE93D8">les seules variables sont les alliances, les promesses et les trahisons</strong>. Pour gagner, il faut négocier, convaincre, bluffer et parfois poignarder dans le dos. Le jeu qui a inspiré des générations de diplomates et de négociateurs.</p>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:20px">Ce qui est intéressant en team building : Diplomacy crée des liens complexes. L'alliance puis la trahison puis la réconciliation — c'est exactement la dynamique des relations professionnelles durables. Ce jeu n'est pas recommandé pour les équipes fragiles, mais pour les équipes solides qui veulent aller plus loin dans la compréhension mutuelle.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-size:0.68rem;background:rgba(255,255,255,0.08);color:#CE93D8;padding:4px 12px;border-radius:100px;font-weight:700;border:1px solid rgba(206,147,216,0.2)">Négociation</span>
+            <span style="font-size:0.68rem;background:rgba(255,255,255,0.08);color:#CE93D8;padding:4px 12px;border-radius:100px;font-weight:700;border:1px solid rgba(206,147,216,0.2)">Confiance</span>
+            <span style="font-size:0.68rem;background:rgba(255,255,255,0.08);color:#CE93D8;padding:4px 12px;border-radius:100px;font-weight:700;border:1px solid rgba(206,147,216,0.2)">Vision long terme</span>
+            <span style="font-size:0.68rem;background:rgba(255,255,255,0.08);color:#CE93D8;padding:4px 12px;border-radius:100px;font-weight:700;border:1px solid rgba(206,147,216,0.2)">Lecture des autres</span>
+          </div>
+          <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);margin-top:16px;font-style:italic">Créé en 1959 par Allan B. Calhamer · Étudié par Harvard et Meta AI pour ses mécaniques sociales</p>
+        </div>
       </div>
+
+    </div>
+    <div style="margin-top:20px;background:var(--creme);border:1.5px solid var(--cb);border-radius:14px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start">
+      <div style="font-size:1.5rem;flex-shrink:0">💡</div>
+      <p style="font-size:0.85rem;color:#555;line-height:1.75"><strong>Et en France ?</strong> Côté jeux coopératifs français, <strong>Turing Machine</strong> (2022, Scorpion Masqué) est une pépite — logique pure, déduction collective, accessible en 30 minutes. <strong>Unlock!</strong> (Space Cowboys, Grenoble) reproduit la mécanique d'escape game en format portable, parfait pour les groupes en déplacement. <strong>The Mind</strong> (sans mots, sans communication verbale) est l'expérience la plus déroutante et la plus révélatrice des 5 dernières années.</p>
     </div>
   </div>
 </section>
 
+<!-- ACTIVITÉS -->
 <section id="activites" style="background:var(--creme)">
   <div class="container">
-    <span class="section-label">Nos sélections</span>
-    <h2 class="section-title">Activités disponibles <em>en Alsace</em></h2>
-    <p class="section-intro">Des activités sélectionnées pour leur qualité, leur impact sur la cohésion et leur ancrage alsacien.</p>
+    <span class="section-label">Sélection stratégie</span>
+    <h2 class="section-title">Trois activités pour <em>penser autrement ensemble</em></h2>
+    <p class="section-intro">Des activités réelles disponibles en Alsace — cliquez pour voir la fiche complète.</p>
     <div class="grid-3">
-      <a href="index.html" class="act-card">
-        <div class="act-img" style="background:linear-gradient(135deg,#1A3A6B,#2E5FAA)">🧠</div>
+
+      <a href="index.html?univers=strategie&activite=2&scroll=activites" class="act-card" onclick="openFromUnivers(event,2,'strategie')">
+        <div class="act-img" style="background:linear-gradient(135deg,#0F2027,#203A43,#2C5364)">🌲</div>
         <div class="act-body">
-          <h3>Serious Game sur mesure</h3>
-          <p>Simulation stratégique adaptée à vos enjeux spécifiques. Décision, résilience et collaboration.</p>
+          <h3>Survie & Leadership en Forêt Vosgienne</h3>
+          <p>Orienteering, construction de camp, gestion de crise simulée — un environnement qui force la prise de décision rapide et le leadership naturel. La stratégie sans filet.</p>
           <div class="act-footer">
-            <span class="act-price">Sur devis</span>
+            <span class="act-price">Dès 95 €/pers.</span>
             <span class="act-tag">Stratégie · Leadership</span>
           </div>
         </div>
       </a>
-      <a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">
-        <div style="font-size:2rem;margin-bottom:10px">➕</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité en Alsace ?</h3>
-        <p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>
-        <span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span>
+
+      <a href="index.html?univers=strategie&activite=4&scroll=activites" class="act-card" onclick="openFromUnivers(event,4,'strategie')">
+        <div class="act-img" style="background:linear-gradient(135deg,#1A1A2E,#5B2EFF)">🧠</div>
+        <div class="act-body">
+          <h3>Quiz</h3>
+          <p>Manches thématiques, jokers stratégiques, décisions collectives sous pression chrono. Le format qui révèle comment une équipe prend ses décisions quand le temps manque et que tout le monde a un avis.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 35 €/pers.</span>
+            <span class="act-tag">Stratégie · Communication</span>
+          </div>
+        </div>
       </a>
+
+      <a href="index.html?univers=strategie&activite=6&scroll=activites" class="act-card" onclick="openFromUnivers(event,6,'strategie')">
+        <div class="act-img" style="background:linear-gradient(135deg,#1A1A2E,#5B2EFF)">🧩</div>
+        <div class="act-body">
+          <h3>Escape Game dans votre Entreprise</h3>
+          <p>L'escape game qui vient à vous. Énigmes, logique, pression temporelle — et une équipe qui découvre comment elle résout les problèmes quand personne n'a toutes les réponses.</p>
+          <div class="act-footer">
+            <span class="act-price">Dès 33 €/pers.</span>
+            <span class="act-tag">Stratégie · Logique</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="index.html?univers=strategie&scroll=activites" class="btn-p">Voir toutes les activités stratégie & logique →</a>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
 <section>
   <div class="container" style="max-width:760px">
     <span class="section-label">Vos questions</span>
-    <h2 class="section-title">Les vraies questions des <em>RH</em><br>avant de réserver</h2>
+    <h2 class="section-title">Les vraies questions<br><em>avant de réserver</em></h2>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Les activités stratégiques sont-elles réservées aux cadres ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Non — et c'est même l'un de leurs atouts. Les jeux de construction ou de logique révèlent souvent des talents inattendus chez des profils non-cadres. Un opérateur qui excelle dans la planification d'une simulation stratégique peut être une révélation pour son manager. Ces activités valorisent les compétences cognitives, pas le statut.</div>
+      <div class="faq-q" onclick="toggleFaq(this)">Comment choisir entre un format coopératif et compétitif ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">La règle générale : si votre équipe a des tensions latentes ou traverse une période de changement, préférez le coopératif — l'ennemi commun soude. Si votre équipe est solide et cherche à mieux comprendre les dynamiques individuelles, la compétition (en sous-groupes) est un révélateur précieux. Les formats hybrides — équipes qui coopèrent en interne et s'affrontent — combinent les deux avantages.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Quel format pour un comité de direction ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Les comités de direction apprécient particulièrement les simulations stratégiques réalistes : gestion de crise, négociation complexe, business game. Ces formats les placent dans des situations proches de leur quotidien, mais avec le droit à l'erreur. Le débrief structuré qui suit est souvent aussi précieux que l'activité elle-même.</div>
+      <div class="faq-q" onclick="toggleFaq(this)">Peut-on faire un escape game pour 50 personnes ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">Oui — les formats mallette et escape game mobile s'adaptent à de grands groupes. Plusieurs équipes tournent en parallèle sur des scénarios identiques ou différents, avec un classement final et un débrief collectif. Certains prestataires proposent également des formats outdoor avec des points de contrôle dispersés sur un campus ou dans un centre-ville.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Comment intégrer un débrief managérial efficace ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Le débrief est la partie la plus impactante d'une activité stratégique. Il doit durer au moins 30 minutes et couvrir : comment la décision a été prise, qui a joué quel rôle, ce qui aurait pu être fait différemment. Idéalement animé par le prestataire ou un coach externe. C'est ce débrief qui transforme le jeu en apprentissage professionnel transférable.</div>
+      <div class="faq-q" onclick="toggleFaq(this)">Comment intégrer un débrief managérial après l'activité ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">C'est la partie la plus précieuse et la plus négligée. Réservez 20 à 30 minutes après l'activité pour poser les bonnes questions : comment vous êtes-vous organisés ? Qui a pris les décisions ? Qu'auriez-vous fait différemment ? Où la communication a-t-elle failli ? Ce débrief transforme un jeu en apprentissage collectif durable. Certains prestataires le proposent en option — demandez-le systématiquement.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Peut-on adapter le serious game à notre secteur d'activité ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">Oui — c'est même recommandé. Les meilleurs prestataires créent des simulations sur mesure intégrant votre secteur, vos enjeux et votre vocabulaire. Un serious game sur la gestion de la chaîne logistique pour une entreprise industrielle, sur la relation client pour une banque, sur l'innovation produit pour une startup — l'adaptation crée un impact bien supérieur à un format générique.</div>
+      <div class="faq-q" onclick="toggleFaq(this)">Les serious games fonctionnent-ils vraiment en formation ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">Oui — la recherche montre que l'apprentissage par le jeu est 2 à 3 fois plus efficace en termes de rétention que les méthodes passives (conférence, e-learning). L'engagement émotionnel du jeu ancre les apprentissages différemment. Les serious games sont particulièrement efficaces pour les compétences comportementales (communication, gestion de crise, négociation) — là où les formations classiques peinent le plus.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Quelle différence avec un escape game classique ? <span class="faq-ico">+</span></div>
-      <div class="faq-a">L'escape game met l'accent sur la résolution d'énigmes et l'adrénaline du compte à rebours. La stratégie et la logique mettent l'accent sur la prise de décision collective, l'analyse et la planification. Les deux révèlent des dynamiques d'équipe, mais sous des angles différents. Pour une équipe qui cherche à améliorer sa façon de décider ensemble, les activités stratégiques sont plus adaptées. Pour créer de la cohésion par l'expérience immersive, l'escape game est plus efficace.</div>
+      <div class="faq-q" onclick="toggleFaq(this)">Quelle activité stratégie pour une équipe de direction ? <span class="faq-ico">+</span></div>
+      <div class="faq-a">Les CODIR apprécient les formats qui les mettent dans une posture inhabituelle — décider sans toutes les informations, gérer l'incertitude, déléguer sans contrôle. La survie en forêt vosgienne est particulièrement efficace : elle prive les managers de leurs outils habituels (email, tableaux de bord, réunions) et révèle des comportements qu'aucune journée de travail normale ne ferait émerger.</div>
     </div>
   </div>
 </section>
 
 <div class="cta-section">
-  <h2>Prêt à révéler la vraie dynamique<br><em>de votre équipe en Alsace ?</em></h2>
-  <p>Parcourez toutes nos activités, filtrez selon vos besoins et contactez directement les prestataires.</p>
+  <h2>Prêt à découvrir comment<br><em>votre équipe réfléchit vraiment ?</em></h2>
+  <p>Filtrez par univers stratégie et découvrez toutes les activités disponibles en Alsace.</p>
   <div class="cta-btns">
-    <a href="index.html#activites" class="btn-p">Voir toutes les activités</a>
+    <a href="index.html?univers=strategie&scroll=activites" class="btn-p">Voir toutes les activités stratégie</a>
     <a href="referencer.html" class="btn-s">Référencer mon activité</a>
   </div>
 </div>
@@ -363,6 +402,11 @@
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+  function openFromUnivers(e, id, univers) {
+    e.preventDefault();
+    window.location.href = 'index.html?univers=' + univers + '&activite=' + id + '&scroll=activites';
+  }
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
