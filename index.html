@@ -641,7 +641,6 @@
     .card-tag.cat-sport         { background: #FFEBEE; color: #B71C1C; }
     .card-tag.cat-jeux          { background: #ECEFF1; color: #263238; }
     .card-tag.cat-culture       { background: #F3E5F5; color: #4A148C; }
-    .card-tag.cat-evenementiel  { background: #FFF0F6; color: #C0392B; }
     .card-tag.cat-wtf           { background: #1A1A2E; color: #00E5A0; }
     .card-tag.cat-strategie     { background: #E8F0FF; color: #1A237E; }
     /* Environnement */
@@ -1160,10 +1159,7 @@
           <span class="d-emoji">🎭</span>
           <span class="d-info"><span class="d-name">Culture & Patrimoine</span><span class="d-count" id="dd-ucount-culture">Disponible</span></span>
         </a>
-        <a href="evenementiel.html" class="dropdown-item">
-          <span class="d-emoji">🎉</span>
-          <span class="d-info"><span class="d-name">Événementiel</span><span class="d-count" id="dd-ucount-evenementiel">Disponible</span></span>
-        </a>
+
         <a href="wtf.html" class="dropdown-item">
           <span class="d-emoji">🛸</span>
           <span class="d-info"><span class="d-name">What the Fuck</span><span class="d-count" id="dd-ucount-wtf">Disponible</span></span>
@@ -1215,7 +1211,6 @@
       <a href="sport.html" onclick="toggleMenu()">⚡ Sport & Adrénaline</a>
       <a href="jeux.html" onclick="toggleMenu()">🎮 Jeux & Digital</a>
       <a href="culture.html" onclick="toggleMenu()">🎭 Culture & Patrimoine</a>
-      <a href="evenementiel.html" onclick="toggleMenu()">🎉 Événementiel</a>
       <a href="wtf.html" onclick="toggleMenu()">🛸 What the Fuck</a>
       <a href="strategie.html" onclick="toggleMenu()">🧠 Stratégie & Logique</a>
     </div>
@@ -1307,7 +1302,6 @@
         <div class="tag" data-filter="univers" data-val="sport">⚡ Sport & Adrénaline</div>
         <div class="tag" data-filter="univers" data-val="jeux">🎮 Jeux & Digital</div>
         <div class="tag" data-filter="univers" data-val="culture">🎭 Culture & Patrimoine</div>
-        <div class="tag" data-filter="univers" data-val="evenementiel">🎉 Événementiel</div>
         <div class="tag" data-filter="univers" data-val="wtf">🛸 What the Fuck</div>
         <div class="tag" data-filter="univers" data-val="strategie">🧠 Stratégie & Logique</div>
       </div>
@@ -1828,7 +1822,7 @@
 
   function updateCounters() {
     var villes = ['strasbourg','colmar','mulhouse','vosges','selestat','saint-louis'];
-    var univers = ['nature','gastronomie','creatif','bienetre','sport','jeux','culture','evenementiel','wtf','strategie'];
+    var univers = ['nature','gastronomie','creatif','bienetre','sport','jeux','culture','wtf','strategie'];
     var total = activities.length;
 
     // ── Bouton "Toutes" ──
@@ -1924,7 +1918,6 @@
     { type: 'cat', label: 'Sport & Adrénaline', sub: 'Défis sportifs', emoji: '⚡', val: 'sport' },
     { type: 'cat', label: 'Jeux & Digital', sub: 'Quiz, escape game', emoji: '🎮', val: 'jeux' },
     { type: 'cat', label: 'Culture & Patrimoine', sub: 'Alsace et histoire', emoji: '🎭', val: 'culture' },
-    { type: 'cat', label: 'Événementiel', sub: 'Noël, anniversaire', emoji: '🎉', val: 'evenementiel' },
     { type: 'cat', label: 'What the Fuck', sub: 'Activités inclassables', emoji: '🛸', val: 'wtf' },
     { type: 'cat', label: 'Stratégie & Logique', sub: 'Jeux de construction, logique', emoji: '🧠', val: 'strategie' }
   ]);
