@@ -1471,6 +1471,8 @@
 
   // ── MODALE DEVIS ──
   function openDevis(actTitle) {
+    // GA4 — devis ouvert
+    if (typeof gtag !== 'undefined') gtag('event', 'devis_ouvert', { activite_titre: actTitle });
     // Fermer la modale activité d'abord
     document.getElementById('modal-overlay').classList.remove('open');
     // Ouvrir la modale devis
@@ -1496,6 +1498,11 @@
         try {
           const res = await fetch('https://formspree.io/f/xwvaajow', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
           if (res.ok) {
+            // GA4 — devis soumis
+            if (typeof gtag !== 'undefined') {
+              var actName = document.getElementById('devis-act-field') ? document.getElementById('devis-act-field').value : '';
+              gtag('event', 'devis_soumis', { activite_titre: actName });
+            }
             document.getElementById('devis-form-inner').style.display = 'none';
             document.getElementById('devis-success').style.display = 'block';
           }
@@ -1515,7 +1522,7 @@
     const offreBadge = getOffreBadge(a);
     const unclaimedBanner = !a.revendiquee ? `<div class="card-unclaimed">
             <span class="card-unclaimed-text">Fiche non revendiquée</span>
-            <a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
+            <a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation();if(typeof gtag!=='undefined')gtag('event','revendiquer_clic',{activite_titre:a.title,source:'carte'})">Revendiquer →</a>
           </div>` : '';
     return `
       <div class="card" onclick="openModal(${a.id})">
@@ -1591,6 +1598,18 @@
   });
 
   function applyFilters() {
+    // GA4 — filtre appliqué (throttled 2s)
+    if (typeof gtag !== 'undefined') {
+      clearTimeout(window._gaFilterTimer);
+      window._gaFilterTimer = setTimeout(function() {
+        gtag('event', 'filtre_applique', {
+          filtres_univers: activeFilters.univers.join(',') || 'aucun',
+          filtres_objectif: activeFilters.objectif.join(',') || 'aucun',
+          filtres_env: activeFilters.env.join(',') || 'aucun',
+          budget_max: document.getElementById('budget-range').value
+        });
+      }, 2000);
+    }
     const budget = parseInt(document.getElementById('budget-range').value);
     const partVal = document.getElementById('participants-select').value;
     let filtered = activities.filter(a => {
@@ -1706,6 +1725,13 @@
   function openModal(id) {
     const a = activities.find(x => x.id === id);
     if (!a) return;
+    // GA4 — fiche ouverte
+    if (typeof gtag !== 'undefined') gtag('event', 'fiche_ouverte', {
+      activite_id: a.id,
+      activite_titre: a.title,
+      activite_offre: a.offre || 'gratuit',
+      activite_revendiquee: !!a.revendiquee
+    });
     const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
 
     // ── Header : photo si dispo, sinon gradient ──
@@ -1727,7 +1753,7 @@
     // gratuit → revendiquer ; essentiel+ → demander un devis
     const ctaHtml = a.revendiquee
       ? `<button class="btn-primary" onclick="openDevis('${a.title.replace(/'/g, "\'")}')">Demander un devis</button>`
-      : `<a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="btn-secondary-modal">Revendiquer cette fiche →</a>`;
+      : `<a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="btn-secondary-modal" onclick="if(typeof gtag!=='undefined')gtag('event','revendiquer_clic',{activite_titre:'${a.title.replace(/'/g,"\'")}',source:'modale'})">Revendiquer cette fiche →</a>`;
 
     // ── Site web : visible+ ──
     const siteHtml = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire && a.partenaire.site
