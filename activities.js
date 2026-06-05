@@ -94,7 +94,7 @@ const activities = [
       duree: "3 heures",
       emoji: "🏺",
       gradient: "linear-gradient(135deg, #8E2DE2, #4A00E0)",
-      image: null,
+      image: "images/poterie.jpg",
       tags: [
         { label: "Créatif", cls: "cat-creatif" },
         { label: "Bien-être", cls: "cat-bienetre" },
