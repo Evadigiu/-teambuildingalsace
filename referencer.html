@@ -7,6 +7,7 @@
   <meta name="description" content="Référencez votre activité de team building en Alsace sur teambuildingalsace.fr">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --violet: #5B2EFF; --violet-clair: #7B5FFF; --vert: #00E5A0;
@@ -153,6 +154,38 @@
     .tarif-cta--secondary { background: var(--gris-clair); color: var(--violet); }
     .tarif-cta--secondary:hover { background: var(--bordure); }
     .tarif-note { text-align: center; margin-top: 20px; font-size: 0.78rem; color: #bbb; }
+    .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 32px; }
+    .billing-toggle span { font-size: 0.85rem; font-weight: 600; color: #aaa; transition: color 0.2s; }
+    .billing-toggle span.active { color: var(--violet); }
+    .toggle-switch { position: relative; width: 52px; height: 28px; cursor: pointer; }
+    .toggle-switch input { display: none; }
+    .toggle-track { position: absolute; inset: 0; background: var(--bordure); border-radius: 100px; transition: background 0.2s; }
+    .toggle-switch input:checked + .toggle-track { background: var(--violet); }
+    .toggle-thumb { position: absolute; top: 4px; left: 4px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: transform 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+    .toggle-switch input:checked ~ .toggle-thumb { transform: translateX(24px); }
+    .badge-annuel { display: inline-block; background: #E8FFF5; color: #00897B; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 100px; border: 1px solid #B2EBE0; margin-left: 6px; }
+    .prix-annuel { display: none; }
+    .prix-mensuel { display: flex; }
+    body.annuel .prix-annuel { display: flex; }
+    body.annuel .prix-mensuel { display: none; }
+    /* Bandeau recap forfait */
+    .forfait-recap { background: linear-gradient(135deg, var(--gris-clair), white); border: 2px solid var(--violet); border-radius: 14px; padding: 16px 24px; margin-bottom: 28px; display: none; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .forfait-recap.visible { display: flex; }
+    .forfait-recap-left { display: flex; align-items: center; gap: 12px; }
+    .forfait-recap-badge { background: var(--violet); color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .forfait-recap-name { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--noir); }
+    .forfait-recap-price { font-size: 0.82rem; color: #888; }
+    .forfait-recap-change { font-size: 0.75rem; color: var(--violet); font-weight: 600; cursor: pointer; text-decoration: underline; white-space: nowrap; }
+    /* Réassurance */
+    .reassurance { background: white; border-top: 1px solid var(--bordure); border-bottom: 1px solid var(--bordure); padding: 40px; }
+    .reassurance-inner { max-width: 900px; margin: 0 auto; }
+    .reassurance-title { text-align: center; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--violet); font-weight: 700; margin-bottom: 28px; }
+    .reassurance-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .reassurance-item { text-align: center; }
+    .reassurance-icon { font-size: 2rem; margin-bottom: 10px; }
+    .reassurance-val { font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 900; color: var(--noir); letter-spacing: -0.04em; }
+    .reassurance-label { font-size: 0.78rem; color: #888; margin-top: 4px; line-height: 1.4; }
+    @media (max-width: 600px) { .reassurance-grid { grid-template-columns: repeat(2,1fr); } }
 
     @media (max-width: 900px) {
       .tarifs-grid { grid-template-columns: repeat(2, 1fr); }
@@ -197,7 +230,16 @@
     <p style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--violet);margin-bottom:12px">Pourquoi nous rejoindre</p>
     <h2 style="margin-bottom:6px">La seule plateforme 100% dédiée<br>au team building en Alsace.</h2>
     <p style="font-size:1.05rem;color:#555;font-weight:500;margin-bottom:20px">On ne référence pas tout. On référence ce qui vaut le détour.</p>
-    <p style="font-size:0.82rem;color:#aaa">Commencez gratuitement, évoluez selon vos ambitions. Sans engagement, résiliable à tout moment.</p>
+    <p style="font-size:0.82rem;color:#aaa;margin-bottom:28px">Commencez gratuitement, évoluez selon vos ambitions. Sans engagement, résiliable à tout moment.</p>
+    <div class="billing-toggle">
+      <span class="active" id="lbl-mensuel">Mensuel</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="billing-toggle" onchange="toggleBilling(this.checked)">
+        <div class="toggle-track"></div>
+        <div class="toggle-thumb"></div>
+      </label>
+      <span id="lbl-annuel">Annuel <span class="badge-annuel">−10%</span></span>
+    </div>
   </div>
   <div class="tarifs-grid">
 
@@ -230,9 +272,13 @@
         <div class="tarif-niveau">Niveau 2</div>
         <div class="tarif-nom">Essentiel</div>
       </div>
-      <div class="tarif-prix">
+      <div class="tarif-prix prix-mensuel">
         <span class="montant">39€</span>
         <span class="periode">/ mois</span>
+      </div>
+      <div class="tarif-prix prix-annuel">
+        <span class="montant">35€</span>
+        <span class="periode">/ mois · <strong style="color:#00897B">421€/an</strong></span>
       </div>
       <div class="tarif-sep"></div>
       <div class="tarif-features">
@@ -254,9 +300,13 @@
         <div class="tarif-niveau">Niveau 3</div>
         <div class="tarif-nom">Visible</div>
       </div>
-      <div class="tarif-prix">
+      <div class="tarif-prix prix-mensuel">
         <span class="montant">69€</span>
         <span class="periode">/ mois</span>
+      </div>
+      <div class="tarif-prix prix-annuel">
+        <span class="montant">62€</span>
+        <span class="periode">/ mois · <strong style="color:#00897B">745€/an</strong></span>
       </div>
       <div class="tarif-sep"></div>
       <div class="tarif-features">
@@ -277,9 +327,13 @@
         <div class="tarif-niveau">Niveau 4</div>
         <div class="tarif-nom">Partenaire</div>
       </div>
-      <div class="tarif-prix">
+      <div class="tarif-prix prix-mensuel">
         <span class="montant">99€</span>
         <span class="periode">/ mois</span>
+      </div>
+      <div class="tarif-prix prix-annuel">
+        <span class="montant">89€</span>
+        <span class="periode">/ mois · <strong style="color:#00897B">1 069€/an</strong></span>
       </div>
       <div class="tarif-sep"></div>
       <div class="tarif-features">
@@ -301,9 +355,13 @@
         <div class="tarif-niveau">Niveau 5</div>
         <div class="tarif-nom">Partenaire Officiel</div>
       </div>
-      <div class="tarif-prix">
+      <div class="tarif-prix prix-mensuel">
         <span class="montant" style="color:#C9933A">149€</span>
         <span class="periode">/ mois</span>
+      </div>
+      <div class="tarif-prix prix-annuel">
+        <span class="montant" style="color:#C9933A">134€</span>
+        <span class="periode">/ mois · <strong style="color:#00897B">1 609€/an</strong></span>
       </div>
       <div class="tarif-sep"></div>
       <div class="tarif-features">
@@ -320,7 +378,52 @@
   <p class="tarif-note">Sans engagement · Résiliable à tout moment · Mise en ligne sous 48h après validation</p>
 </section>
 
-<div class="form-container">
+<div class="reassurance">
+  <div class="reassurance-inner">
+    <div class="reassurance-title">Ils nous font confiance</div>
+    <div class="reassurance-grid">
+      <div class="reassurance-item">
+        <div class="reassurance-icon">🗺️</div>
+        <div class="reassurance-val">30+</div>
+        <div class="reassurance-label">activités référencées en Alsace</div>
+      </div>
+      <div class="reassurance-item">
+        <div class="reassurance-icon">🏙️</div>
+        <div class="reassurance-val">6</div>
+        <div class="reassurance-label">villes et zones couvertes</div>
+      </div>
+      <div class="reassurance-item">
+        <div class="reassurance-icon">⚡</div>
+        <div class="reassurance-val">48h</div>
+        <div class="reassurance-label">mise en ligne après validation</div>
+      </div>
+      <div class="reassurance-item">
+        <div class="reassurance-icon">🎯</div>
+        <div class="reassurance-val">100%</div>
+        <div class="reassurance-label">focus team building Alsace — sans concurrence nationale</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:32px;margin-top:28px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Sans engagement</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Résiliable à tout moment</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Aucune commission sur vos ventes</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Leads transmis directement par email</div>
+    </div>
+  </div>
+</div>
+
+<div class="form-container" id="form-start">
+  <!-- Recap forfait choisi -->
+  <div class="forfait-recap" id="forfait-recap">
+    <div class="forfait-recap-left">
+      <span class="forfait-recap-badge" id="recap-badge">Visible</span>
+      <div>
+        <div class="forfait-recap-name" id="recap-name">Visible ⭐</div>
+        <div class="forfait-recap-price" id="recap-price">69€ / mois — ou 745€ / an (−10%)</div>
+      </div>
+    </div>
+    <span class="forfait-recap-change" onclick="document.getElementById('tarifs').scrollIntoView({behavior:'smooth'})">Changer de forfait ↑</span>
+  </div>
   <div class="progress-bar">
     <div class="progress-step active" onclick="goToStep(1)"><span class="step-num">1</span>Structure</div>
     <div class="progress-step" onclick="goToStep(2)"><span class="step-num">2</span>Activité</div>
@@ -478,22 +581,73 @@
   <div class="success-screen" id="success-screen">
     <div class="success-icon">🎉</div>
     <h2>Demande envoyée !</h2>
-    <p>Notre équipe va examiner votre demande et vous recontacter sous <strong>48h</strong>.</p>
-    <br><a href="index.html" style="color:var(--violet);font-weight:700;text-decoration:none">← Retour aux activités</a>
+    <p>Un email de confirmation vient de vous être envoyé. Notre équipe va examiner votre demande et vous recontacter sous <strong>48h ouvrées</strong>.</p>
+    <br>
+    <div style="background:var(--gris-clair);border:1.5px solid var(--bordure);border-radius:14px;padding:20px 24px;max-width:400px;margin:20px auto;text-align:left">
+      <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--violet);margin-bottom:12px">Prochaines étapes</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:10px;font-size:0.85rem;color:#555"><span style="color:var(--violet);font-weight:800;flex-shrink:0">1.</span>Vous recevez un email de confirmation</div>
+        <div style="display:flex;gap:10px;font-size:0.85rem;color:#555"><span style="color:var(--violet);font-weight:800;flex-shrink:0">2.</span>Notre équipe valide votre fiche sous 48h</div>
+        <div style="display:flex;gap:10px;font-size:0.85rem;color:#555"><span style="color:var(--violet);font-weight:800;flex-shrink:0">3.</span>Votre activité est en ligne et visible des RH alsaciens</div>
+      </div>
+    </div>
+    <br><a href="index.html" style="color:var(--violet);font-weight:700;text-decoration:none">← Voir toutes les activités</a>
   </div>
 </div>
 
 <footer>&copy; 2025 <span>TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.</footer>
 
 <script>
+  var isAnnuel = false;
+  var NIVEAUX = {
+    gratuit:    { name: 'Gratuit', price_m: '0€ / mois', price_a: '0€', badge: 'Gratuit' },
+    essentiel:  { name: 'Essentiel', price_m: '39€ / mois', price_a: '421€ / an (35€/mois)', badge: 'Essentiel' },
+    visible:    { name: 'Visible ⭐', price_m: '69€ / mois', price_a: '745€ / an (62€/mois)', badge: 'Visible' },
+    partenaire: { name: 'Partenaire', price_m: '99€ / mois', price_a: '1 069€ / an (89€/mois)', badge: 'Partenaire' },
+    categorie:  { name: 'Partenaire Officiel 🏆', price_m: '149€ / mois', price_a: '1 609€ / an (134€/mois)', badge: 'Officiel' },
+  };
+
+  function toggleBilling(annuel) {
+    isAnnuel = annuel;
+    document.body.classList.toggle('annuel', annuel);
+    document.getElementById('lbl-mensuel').classList.toggle('active', !annuel);
+    document.getElementById('lbl-annuel').classList.toggle('active', annuel);
+    // Mettre à jour le recap si visible
+    var checked = document.querySelector('[name="niveau"]:checked');
+    if (checked) updateForfaitRecap(checked.value);
+    // GA4
+    if (typeof gtag !== 'undefined') gtag('event', 'billing_toggle', { type: annuel ? 'annuel' : 'mensuel' });
+  }
+
+  function updateForfaitRecap(val) {
+    var n = NIVEAUX[val];
+    if (!n) return;
+    document.getElementById('recap-badge').textContent = n.badge;
+    document.getElementById('recap-name').textContent = n.name;
+    document.getElementById('recap-price').textContent = isAnnuel ? n.price_a + ' — économisez 10%' : n.price_m;
+    document.getElementById('forfait-recap').classList.add('visible');
+    // Ajouter hidden field période
+    var existing = document.querySelector('[name="periode_facturation"]');
+    if (!existing) { var inp = document.createElement('input'); inp.type='hidden'; inp.name='periode_facturation'; document.getElementById('main-form').appendChild(inp); }
+    document.querySelector('[name="periode_facturation"]').value = isAnnuel ? 'Annuel (-10%)' : 'Mensuel';
+  }
+
   function selectNiveau(val) {
     const radio = document.querySelector(`input[name="niveau"][value="${val}"]`);
     if (radio) {
       radio.checked = true;
       radio.dispatchEvent(new Event('change', {bubbles:true}));
     }
-    window.scrollTo({top: document.getElementById('main-form').offsetTop - 80, behavior: 'smooth'});
+    updateForfaitRecap(val);
+    document.getElementById('form-start').scrollIntoView({behavior:'smooth', block:'start'});
+    // GA4
+    if (typeof gtag !== 'undefined') gtag('event', 'forfait_selectionne', { forfait: val });
   }
+
+  // Écouter les changements de radio dans le formulaire aussi
+  document.querySelectorAll('[name="niveau"]').forEach(function(r) {
+    r.addEventListener('change', function() { updateForfaitRecap(this.value); });
+  });
   function goToStep(n) {
     document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.progress-step').forEach((s, i) => { s.classList.remove('active','done'); if(i+1<n) s.classList.add('done'); if(i+1===n) s.classList.add('active'); });
@@ -569,9 +723,33 @@
   }
   document.getElementById('main-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    fetch('https://formspree.io/f/xkoqlnpg', { method:'POST', headers:{'Accept':'application/json'}, body: new FormData(this) })
-    .then(r => { if(r.ok){ document.getElementById('main-form').style.display='none'; document.querySelector('.progress-bar').style.display='none'; document.getElementById('success-screen').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); } else { alert('Erreur. Réessayez.'); } })
-    .catch(() => alert('Erreur. Réessayez.'));
+    var form = this;
+    var btn = form.querySelector('[type=submit]');
+    btn.textContent = 'Envoi en cours…'; btn.disabled = true;
+
+    // GA4 — formulaire soumis
+    if (typeof gtag !== 'undefined') gtag('event', 'referencement_soumis', {
+      niveau: form.querySelector('[name="niveau"]:checked')?.value || 'inconnu'
+    });
+
+    fetch('https://formspree.io/f/xkoqlnpg', { method:'POST', headers:{'Accept':'application/json'}, body: new FormData(form) })
+    .then(r => {
+      if (r.ok) {
+        // Afficher l'écran de succès
+        form.style.display = 'none';
+        document.querySelector('.progress-bar').style.display = 'none';
+        document.getElementById('forfait-recap').style.display = 'none';
+        document.getElementById('success-screen').style.display = 'block';
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      } else {
+        btn.textContent = '✉️ Envoyer ma demande'; btn.disabled = false;
+        alert('Une erreur est survenue. Réessayez ou contactez-nous par email.');
+      }
+    })
+    .catch(() => {
+      btn.textContent = '✉️ Envoyer ma demande'; btn.disabled = false;
+      alert('Erreur de connexion. Réessayez.');
+    });
   });
 </script>
 <script src="nav.js"></script>
