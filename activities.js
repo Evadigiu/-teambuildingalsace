@@ -56,7 +56,7 @@ const activities = [
       lng: 7.4831,
       description: "Immersion en pleine forêt vosgienne pour tester et développer les aptitudes de leadership de vos managers. Orienteering, construction de camp, gestion de crise simulée et prise de décision collective sous pression. Un programme conçu pour révéler les leaders naturels et renforcer la confiance mutuelle.",
       objectifs: ["leadership", "stress"],
-      univers: ["nature", "sport"],
+      univers: ["nature", "sport", "wtf"],
       format: ["journee"],
       saison: ["printempsete"],
       env: ["outdoor"],
@@ -66,6 +66,7 @@ const activities = [
       duree: "Journée complète",
       emoji: "🌲",
       gradient: "linear-gradient(135deg, #0F2027, #203A43, #2C5364)",
+      image : "images/survie.jpg",  
       tags: [
         { label: "Leadership", cls: "cat-leadership" },
         { label: "Gestion du stress", cls: "cat-stress" },
