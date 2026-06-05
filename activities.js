@@ -781,6 +781,29 @@ const activities = [
       { label: "Indoor", cls: "cat-indoor" }
     ]
   },
+    {
+  id: 31,
+  title: "Journée Groupe — Nature & Sensations en Forêt Vosgienne",
+  location: "Hautes-Vosges",
+  ville: "vosges",
+  univers: ["nature", "sport", "wtf"],
+  objectif: ["cohesion", "stress", "rse"],
+  env: ["outdoor"],
+  format: ["journee"],
+  saison: ["printemps", "ete", "automne"],
+  participantsMin: 15,
+  participantsMax: 200,
+  duree: "Journée complète (09h30 – 17h30)",
+  prixMin: 39,
+  prixMax: 82,
+  emoji: "🌲",
+  gradient: "linear-gradient(135deg, #2D6A4F, #40916C)",
+  image: "images/accrobranche.jpg",
+  revendiquee: false,
+  offre: "gratuit",
+  description: "Tyroliennes, saut à l'élastique, jeu de piste en forêt, repas inclus — une journée complète en pleine nature vosgienne pour les groupes à partir de 15 personnes. Pot d'accueil, parcours d'aventure le matin, activité au choix l'après-midi.",
+  tags: ["tyrolienne", "saut élastique", "accrobranche", "jeu de piste", "repas inclus"],
+},
   ]
 
 // ── Correspondances ville → mots-clés de localisation ──
