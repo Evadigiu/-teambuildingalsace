@@ -597,7 +597,7 @@
     }
     .card-badge {
       position: absolute;
-      top: 12px; right: 12px;
+      top: 10px; left: 10px;
       background: rgba(0,0,0,0.65);
       backdrop-filter: blur(8px);
       color: white;
@@ -935,7 +935,7 @@
 
 
     /* ── BADGES OFFRE ── */
-    .offre-badge { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; }
+    .offre-badge { position: absolute; top: 10px; right: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; max-width: calc(100% - 20px); white-space: nowrap; }
     .offre-visible { background: rgba(91,46,255,0.9); color: white; }
     .offre-partenaire { background: linear-gradient(135deg, #5B2EFF, #7B5FFF); color: white; box-shadow: 0 2px 8px rgba(91,46,255,0.4); }
     .offre-categorie { background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; box-shadow: 0 2px 8px rgba(201,147,58,0.4); }
@@ -1701,8 +1701,27 @@
     if (!map) return;
     markers.forEach(m => map.removeLayer(m));
     markers = [];
+    // Détecter les coords identiques et appliquer un offset en spirale
+    var coordCount = {};
     data.forEach(a => {
-      const marker = L.marker([a.lat, a.lng], customIcon ? { icon: customIcon } : {})
+      var key = a.lat + ',' + a.lng;
+      coordCount[key] = (coordCount[key] || 0) + 1;
+    });
+    var coordIndex = {};
+    data.forEach(a => {
+      var key = a.lat + ',' + a.lng;
+      coordIndex[key] = (coordIndex[key] || 0);
+      var idx = coordIndex[key];
+      coordIndex[key]++;
+      var lat = a.lat, lng = a.lng;
+      if (coordCount[key] > 1 && idx > 0) {
+        // Offset en spirale : rayon croissant, angle régulier
+        var angle = (idx * 137.5) * (Math.PI / 180); // angle d'or
+        var radius = 0.003 * Math.ceil(idx / 5);
+        lat = a.lat + radius * Math.cos(angle);
+        lng = a.lng + radius * Math.sin(angle);
+      }
+      const marker = L.marker([lat, lng], customIcon ? { icon: customIcon } : {})
         .addTo(map)
         .bindPopup(`
           <div style="font-family:'Plus Jakarta Sans',sans-serif;min-width:220px;overflow:hidden;border-radius:8px;">
@@ -1719,7 +1738,7 @@
           </div>
         `);
       markers.push(marker);
-    });
+    }); // fin forEach activities
   }
 
   function openModal(id) {
@@ -1910,7 +1929,7 @@
     if (target) target.classList.add('active-ville');
 
     applyFilters();
-    document.getElementById('activites').scrollIntoView({ behavior: 'smooth' });
+    // Pas de scroll automatique — l'utilisateur reste là où il est
   }
 
   function filterUnivers(univers) {
