@@ -148,7 +148,7 @@
     .tarif-feature { display: flex; align-items: flex-start; gap: 8px; font-size: 0.78rem; color: #555; line-height: 1.4; }
     .tarif-feature .ico { flex-shrink: 0; font-size: 0.8rem; margin-top: 1px; }
     .tarif-feature .ico--non { opacity: 0.3; }
-    .tarif-cta { display: block; text-align: center; padding: 11px 16px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
+    .tarif-cta { cursor: pointer; font-family: inherit; display: block; text-align: center; padding: 11px 16px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
     .tarif-cta--primary { background: linear-gradient(135deg, var(--violet), var(--violet-clair)); color: white; box-shadow: 0 4px 14px rgba(91,46,255,0.35); }
     .tarif-cta--primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(91,46,255,0.45); }
     .tarif-cta--secondary { background: var(--gris-clair); color: var(--violet); }
@@ -263,7 +263,7 @@
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Lien vers votre site</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Transmission des leads</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--secondary" onclick="selectNiveau('gratuit');return false;">Commencer →</a>
+      <button type="button" class="tarif-cta tarif-cta--secondary" onclick="selectNiveau('gratuit')">Commencer →</button>
     </div>
 
     <!-- Essentiel -->
@@ -290,7 +290,7 @@
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Lien vers votre site</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Transmission des leads</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--secondary" onclick="selectNiveau('essentiel');return false;">Choisir →</a>
+      <button type="button" class="tarif-cta tarif-cta--secondary" onclick="selectNiveau('essentiel')">Choisir →</button>
     </div>
 
     <!-- Visible -->
@@ -318,7 +318,7 @@
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Position prioritaire</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Mise en avant sur la home</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--primary" onclick="selectNiveau('visible');return false;">Choisir →</a>
+      <button type="button" class="tarif-cta tarif-cta--primary" onclick="selectNiveau('visible')">Choisir →</button>
     </div>
 
     <!-- Partenaire -->
@@ -345,7 +345,7 @@
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Page univers dédiée</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Article de blog mensuel</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--primary" onclick="selectNiveau('partenaire');return false;">Choisir →</a>
+      <button type="button" class="tarif-cta tarif-cta--primary" onclick="selectNiveau('partenaire')">Choisir →</button>
     </div>
 
     <!-- Partenaire Officiel -->
@@ -371,7 +371,7 @@
         <div class="tarif-feature"><span class="ico">✓</span><span>1 article de blog par mois</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Visibilité maximale sur le site</span></div>
       </div>
-      <a href="#form-start" class="tarif-cta tarif-cta--primary" style="background:linear-gradient(135deg,#C9933A,#F0C060);color:#0D0D0D;box-shadow:0 4px 14px rgba(201,147,58,0.35)" onclick="selectNiveau('categorie');return false;">Choisir →</a>
+      <button type="button" class="tarif-cta tarif-cta--primary" style="background:linear-gradient(135deg,#C9933A,#F0C060);color:#0D0D0D;box-shadow:0 4px 14px rgba(201,147,58,0.35)" onclick="selectNiveau('categorie')">Choisir →</button>
     </div>
 
   </div>
@@ -732,7 +732,19 @@
       niveau: form.querySelector('[name="niveau"]:checked')?.value || 'inconnu'
     });
 
-    fetch('https://formspree.io/f/xkoqlnpg', { method:'POST', headers:{'Accept':'application/json'}, body: new FormData(form) })
+    // Ajouter les champs Formspree pour la confirmation automatique
+    var formData = new FormData(form);
+    var emailField = form.querySelector('[name="contact_email"]');
+    var nomField = form.querySelector('[name="contact_nom"]');
+    var niveauField = form.querySelector('[name="niveau"]:checked');
+    if (emailField && emailField.value) {
+      formData.append('_replyto', emailField.value);
+      formData.append('email', emailField.value);
+    }
+    formData.append('_subject', 'Nouvelle demande de référencement — TeamBuildingAlsace.fr');
+    formData.append('_next', 'https://teambuildingalsace.fr/referencer.html?merci=1');
+
+    fetch('https://formspree.io/f/xkoqlnpg', { method:'POST', headers:{'Accept':'application/json'}, body: formData })
     .then(r => {
       if (r.ok) {
         // Afficher l'écran de succès
