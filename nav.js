@@ -147,7 +147,7 @@
           <span class="d-info"><span class="d-name">Saint-Louis</span><span class="d-count">Team building à Saint-Louis</span></span>
         </a>
         <div class="dropdown-divider"></div>
-        <a href="index.html#activites" class="dropdown-item" style="color:var(--violet)">
+        <a href="/#activites" class="dropdown-item" style="color:var(--violet)">
           <span class="d-emoji">🗺️</span>
           <span class="d-info"><span class="d-name">Toutes les activités</span><span class="d-count">Voir toute l'Alsace</span></span>
         </a>
