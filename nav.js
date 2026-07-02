@@ -116,9 +116,9 @@
   var header = document.querySelector('header');
   if (header) {
     header.innerHTML = `
-  <a href="index.html" class="logo">Team Building <span>Alsace</span></a>
+  <a href="/" class="logo">Team Building <span>Alsace</span></a>
   <nav>
-    <a href="index.html">Accueil</a>
+    <a href="/">Accueil</a>
     <div class="nav-dropdown">
       <button class="nav-dropdown-btn" onclick="toggleDropdown(event)" aria-label="Navigation par ville" aria-haspopup="true">Par ville <span class="arrow">▼</span></button>
       <div class="dropdown-menu">
@@ -207,7 +207,7 @@
   var mobileNav = document.getElementById('mobile-nav');
   if (mobileNav) {
     mobileNav.innerHTML = `
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
+  <a href="/" onclick="toggleMenu()">Accueil</a>
   <div class="mob-accordion">
     <button class="mob-accordion-btn" onclick="toggleAccordion(this)">
       Par ville <span class="mob-arrow">▼</span>
