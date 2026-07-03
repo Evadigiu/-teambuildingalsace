@@ -12,7 +12,7 @@ const activities = [
       partenaire: {
         nom: "Pomelo",
         tagline: "L\'agence événementielle pour faire l\'expérience de la nature",
-        logo: "images/logo_pomelo.png",
+        logo: "images/logo_pomelo.webp",
         site: "https://www.pomelolab.fr",
         categorie: "nature",
         interview: [
@@ -37,8 +37,8 @@ const activities = [
       duree: "Journée ou Demi-journée",
       emoji: "🌱",
       gradient: "linear-gradient(135deg, #134E5E, #71B280)",
-      image: "images/pomelo.png",
-      images: ["images/pomelo.png", "images/pomelo-2.jpg", "images/pomelo-3.jpg", "images/pomelo-4.jpg", "images/pomelo-5.jpg"],
+      image: "images/pomelo.webp",
+      images: ["images/pomelo.webp", "images/pomelo-2.webp", "images/pomelo-3.webp", "images/pomelo-4.webp", "images/pomelo-5.webp"],
       tags: [
         { label: "Cohésion", cls: "cat-cohesion" },
         { label: "RSE", cls: "cat-rse" },
@@ -66,7 +66,7 @@ const activities = [
       duree: "Journée complète",
       emoji: "🌲",
       gradient: "linear-gradient(135deg, #0F2027, #203A43, #2C5364)",
-      image : "images/survie.jpg",  
+      image : "images/survie.webp",  
       tags: [
         { label: "Leadership", cls: "cat-leadership" },
         { label: "Gestion du stress", cls: "cat-stress" },
@@ -94,7 +94,7 @@ const activities = [
       duree: "3 heures",
       emoji: "🏺",
       gradient: "linear-gradient(135deg, #8E2DE2, #4A00E0)",
-      image: "images/poterie.jpg",
+      image: "images/poterie.webp",
       tags: [
         { label: "Créatif", cls: "cat-creatif" },
         { label: "Bien-être", cls: "cat-bienetre" },
@@ -210,8 +210,8 @@ const activities = [
   duree: "40 min à demi-journée",
   emoji: "🥽",
   gradient: "linear-gradient(135deg, #0D0D0D, #5B2EFF)",
-  image: "images/EVA-1.jpg",
-  images: ["images/EVA-1.jpg", "images/EVA-2.jpg", "images/EVA-3.jpg", "images/EVA-4.jpg", "images/EVA-5.jpg"],
+  image: "images/EVA-1.webp",
+  images: ["images/EVA-1.webp", "images/EVA-2.webp", "images/EVA-3.webp", "images/EVA-4.webp", "images/EVA-5.webp"],
   tags: [
     { label: "Jeux & Digital", cls: "cat-jeux" },
     { label: "Sport & Adrénaline", cls: "cat-sport" },
@@ -243,8 +243,8 @@ const activities = [
   duree: "Demi-journée ou journée",
   emoji: "🤸",
   gradient: "linear-gradient(135deg, #B71C1C, #E53935)",
-  image: "images/xperience-1.jpg",
-  images: ["images/xperience-1.jpg", "images/xperience-2.jpg", "images/xperience-3.jpg", "images/xperience-4.jpg", "images/xperience-5.jpg"],
+  image: "images/xperience-1.webp",
+  images: ["images/xperience-1.webp", "images/xperience-2.webp", "images/xperience-3.webp", "images/xperience-4.webp", "images/xperience-5.webp"],
   tags: [
     { label: "Sport & Adrénaline", cls: "cat-sport" },
     { label: "Cohésion", cls: "cat-cohesion" },
@@ -799,7 +799,7 @@ const activities = [
   prixMax: 82,
   emoji: "🌲",
   gradient: "linear-gradient(135deg, #2D6A4F, #40916C)",
-  image: "images/accrobranche.jpg",
+  image: "images/accrobranche.webp",
   revendiquee: false,
   offre: "gratuit",
   description: "Tyroliennes, saut à l'élastique, jeu de piste en forêt, repas inclus — une journée complète en pleine nature vosgienne pour les groupes à partir de 15 personnes. Pot d'accueil, parcours d'aventure le matin, activité au choix l'après-midi.",
