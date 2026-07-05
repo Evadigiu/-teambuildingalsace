@@ -904,7 +904,125 @@ function renderActivityCard(a) {
 
 // ── Trier les activités par offre (partenaires en premier) ──
 function sortByOffre(acts) {
-  const order = { categorie: 0, partenaire: 1, visible: 2, essentiel: 3, gratuit: 4 };
+  const order = { categorie: 0, partenaire: 1, visible: 2, essentiel: 3, gratuit: 4 }
+,
+{
+  id: 32,
+  revendiquee: false,
+  offre: "gratuit",
+  title: "Création de bougies artisanales",
+  location: "Mulhouse",
+  lat: 47.7508,
+  lng: 7.3359,
+  description: "Participez à un atelier de fabrication de bougies naturelles en choisissant vos parfums et compositions. Les équipes collaborent pour créer des objets uniques. Ce format met en avant créativité, échange et détente. Accessible et relaxant, il favorise une cohésion douce dans une ambiance chaleureuse.",
+  objectifs: ["cohesion", "bienetre"],
+  ambiances: ["creatif", "bienetre"],
+  env: ["indoor"],
+  format: ["demijournee"],
+  saison: ["toutesaisons"],
+  prixMin: 35,
+  participantsMin: 6,
+  participantsMax: 25,
+  duree: "2h",
+  emoji: "🕯️",
+  gradient: "linear-gradient(135deg, #f6d365, #fda085)",
+  image: "images/bougieartisanal.webp",
+  tags: [
+    { label: "Cohésion", cls: "cat-cohesion" },
+    { label: "Bien-être", cls: "cat-bienetre" },
+    { label: "Créatif", cls: "cat-creatif" },
+    { label: "Indoor", cls: "cat-indoor" }
+  ]
+},
+{
+  id: 33,
+  revendiquee: false,
+  offre: "gratuit",
+  title: "Action game immersif en équipe",
+  location: "Dorlisheim",
+  lat: 48.52463034617253,
+  lng: 7.488820360399826,
+  description: "Découvrez un concept innovant de team building en Alsace avec cet action game immersif situé à Dorlisheim. Les équipes évoluent à travers différentes salles de défis mêlant logique, agilité et coopération. Chaque épreuve sollicite des compétences variées, permettant à tous les profils de s'impliquer et de contribuer à la réussite collective. Idéal pour les entreprises à la recherche d'une activité dynamique et engageante, ce format renforce la cohésion, la communication et l'esprit d'équipe dans une ambiance ludique et compétitive.",
+  objectifs: ["communication", "cohesion"],
+  ambiances: ["challenge", "urbain"],
+  env: ["indoor"],
+  format: ["demijournee"],
+  saison: ["toutesaisons"],
+  prixMin: 20,
+  participantsMin: 4,
+  participantsMax: 100,
+  duree: "1h30",
+  emoji: "🔐",
+  gradient: "linear-gradient(135deg, #134E5E, #71B280)",
+  image: "images/prisonisland.webp",
+  tags: [
+    { label: "Cohésion", cls: "cat-cohesion" },
+    { label: "Communication", cls: "cat-communication" },
+    { label: "Challenge", cls: "cat-challenge" },
+    { label: "Indoor", cls: "cat-indoor" }
+  ]
+},
+{
+  id: 34,
+  revendiquee: false,
+  offre: "gratuit",
+  title: "Team building improvisation théâtrale",
+  location: "Alsace",
+  lat: 48.5734053,
+  lng: 7.7521113,
+  description: "Renforcez la cohésion de vos équipes grâce à un atelier d'improvisation théâtrale spécialement conçu pour les entreprises en Alsace. Encadrés par une intervenante expérimentée, les participants découvrent des exercices progressifs favorisant l'écoute, la coopération, la créativité et la prise d'initiative, sans aucun prérequis en théâtre. À travers des mises en situation inspirées du quotidien professionnel et un débriefing collectif, cette expérience immersive développe des réflexes utiles en entreprise tout en créant un véritable moment de partage. Une activité originale idéale pour un séminaire, une intégration ou pour relancer la dynamique d'une équipe.",
+  objectifs: ["communication", "cohesion", "leadership"],
+  ambiances: ["creatif", "bienetre"],
+  env: ["indoor"],
+  format: ["demijournee", "journee"],
+  saison: ["toutesaisons"],
+  prixMin: 65,
+  participantsMin: 5,
+  participantsMax: 25,
+  duree: "3h à 7h",
+  emoji: "🎭",
+  gradient: "linear-gradient(135deg, #7B4397, #DC2430)",
+  image: "images/improvisation50.webp",
+  tags: [
+    { label: "Communication", cls: "cat-communication" },
+    { label: "Cohésion", cls: "cat-cohesion" },
+    { label: "Leadership", cls: "cat-leadership" },
+    { label: "Créatif", cls: "cat-creatif" },
+    { label: "Bien-être", cls: "cat-bienetre" },
+    { label: "Indoor", cls: "cat-indoor" }
+  ]
+},
+{
+  id: 35,
+  revendiquee: false,
+  offre: "gratuit",
+  title: "Séminaire au vert avec hébergement",
+  location: "Oberhaslach",
+  lat: 48.5515,
+  lng: 7.3312,
+  description: "Offrez à vos collaborateurs un séminaire au vert au cœur de la nature alsacienne, dans un domaine privatisable réunissant hébergement, restauration, espaces de réunion et activités de cohésion. Cette formule tout-en-un permet d'alterner temps de travail, moments de détente et expériences collectives dans un environnement propice aux échanges. Idéal pour renforcer l'esprit d'équipe, organiser un séminaire résidentiel ou accompagner un projet d'entreprise, ce cadre naturel favorise la créativité, la communication et le bien-être des participants.",
+  objectifs: ["cohesion", "communication", "leadership"],
+  ambiances: ["nature", "bienetre"],
+  env: ["outdoor", "indoor"],
+  format: ["journee", "multijours"],
+  saison: ["toutesaisons"],
+  prixMin: 95,
+  participantsMin: 10,
+  participantsMax: 80,
+  duree: "1 à 3 jours",
+  emoji: "🌿",
+  gradient: "linear-gradient(135deg, #3E7B5A, #A8D5A2)",
+  image: "images/seminairevert51.webp",
+  tags: [
+    { label: "Cohésion", cls: "cat-cohesion" },
+    { label: "Leadership", cls: "cat-leadership" },
+    { label: "Nature", cls: "cat-nature" },
+    { label: "Bien-être", cls: "cat-bienetre" },
+    { label: "Indoor", cls: "cat-indoor" },
+    { label: "Outdoor", cls: "cat-outdoor" }
+  ]
+}
+;
   return [...acts].sort((a, b) => {
     const oa = order[a.offre || (a.revendiquee ? 'essentiel' : 'gratuit')] ?? 4;
     const ob = order[b.offre || (b.revendiquee ? 'essentiel' : 'gratuit')] ?? 4;
