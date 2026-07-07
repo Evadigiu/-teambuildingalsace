@@ -1062,9 +1062,7 @@
     .ville-emoji { font-size: 1.3rem; }
     .ville-name { font-size: 0.68rem; font-weight: 700; color: var(--noir); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
     .ville-count { font-size: 0.62rem; color: #767676; font-weight: 500; }
-    .mobile-cta { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 500; padding: 13px 28px; background: linear-gradient(135deg, var(--violet), var(--violet-clair)); color: white; border-radius: 100px; font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.88rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 30px rgba(91,46,255,0.5); white-space: nowrap; }
     @media (max-width: 768px) {
-      .mobile-cta { display: block; }
       .villes-section { padding: 24px 16px; }
       .search-wrap { margin: 16px 0 0; }
 
@@ -1241,7 +1239,7 @@
   </div>
 
   <div class="hero-btns" style="margin-top:20px; position:relative; z-index:1">
-    <a href="#activites" class="btn-hero-primary">Explorer les activités &#8595;</a>
+    <a href="#cards-grid" class="btn-hero-primary">Explorer les activités &#8595;</a>
     <a href="referencer.html" class="btn-hero-secondary">Référencer mon activité</a>
   </div>
   <div class="hero-stats">
@@ -1268,8 +1266,6 @@
     <div class="ville-btn" id="ville-saint-louis" onclick="filterVille('saint-louis')"><span class="ville-emoji">🌉</span><span class="ville-name">Saint-Louis</span><span class="ville-count">0 activité</span></div>
   </div>
 </div>
-<a href="#activites" class="mobile-cta">Explorer les activités &#8595;</a>
-
 <!-- MAIN -->
 <div class="main-container" id="activites">
 
