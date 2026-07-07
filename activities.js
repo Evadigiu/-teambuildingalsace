@@ -805,107 +805,6 @@ const activities = [
   description: "Tyroliennes, saut à l'élastique, jeu de piste en forêt, repas inclus — une journée complète en pleine nature vosgienne pour les groupes à partir de 15 personnes. Pot d'accueil, parcours d'aventure le matin, activité au choix l'après-midi.",
   tags: ["tyrolienne", "saut élastique", "accrobranche", "jeu de piste", "repas inclus"],
 },
-  ]
-
-// ── Correspondances ville → mots-clés de localisation ──
-var activeVille = null;
-var villeMap = {
-    strasbourg: ['strasbourg', 'souffelweyersheim', 'sur votre lieu de travail', 'dans votre entreprise'],
-    colmar: ['colmar', 'route des vins'],
-    selestat: ['selestat', 'sélestat'],
-    ribeauville: ['ribeauvillé', 'ribeauville'],
-    altkirch: ['altkirch'],
-    haguenau: ['haguenau'],
-    'saint-louis': ['saint-louis', 'saint louis', 'hésingue', 'hesingue', 'bale', 'bâle', 'basel', 'sundgau'],
-    mulhouse: ['mulhouse', 'wittenheim'],
-    vosges: ['vosges', 'massif', 'obernai']
-  };
-
-// ── Labels affichés pour chaque univers ──
-const universLabels = {
-  nature: 'Nature & Plein air',
-  gastronomie: 'Gastronomie & Vins',
-  creatif: 'Artistique & Créatif',
-  bienetre: 'Bien-être & Slow',
-  sport: 'Sport & Adrénaline',
-  jeux: 'Jeux & Digital',
-  culture: 'Culture & Patrimoine',
-  wtf: 'What the Fuck',
-  strategie: 'Stratégie & Logique',
-};
-
-// ── Rendu d'une carte activité (utilisé sur toutes les pages) ──
-// Niveaux : gratuit < essentiel < visible < partenaire < categorie
-
-function getOffreBadge(a) {
-  const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
-  if (offre === 'visible')    return '<div class="offre-badge offre-visible"><span class="badge-tick">✓</span> Vérifié</div>';
-  if (offre === 'partenaire') return '<div class="offre-badge offre-partenaire">⭐ Partenaire</div>';
-  if (offre === 'categorie')  return '<div class="offre-badge offre-categorie">🏆 Partenaire Officiel</div>';
-  return '';
-}
-
-function getCardClass(a) {
-  const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
-  if (offre === 'partenaire') return 'act-card act-card--partenaire';
-  if (offre === 'categorie')  return 'act-card act-card--categorie';
-  return 'act-card';
-}
-
-function renderActivityCard(a) {
-  const tagHtml = (a.tags || []).map(t =>
-    `<span class="card-tag ${t.cls}">${t.label}</span>`
-  ).join('');
-
-  const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
-
-  // Photo toujours affichée si image existe — gradient = fallback uniquement
-  const containerStyle = `background:${a.gradient || '#1A1A2E'}`;
-
-  // Bannière "non revendiquée" → contact Formspree
-  const unclaimedBanner = !a.revendiquee ? `
-    <div class="card-unclaimed">
-      <span class="card-unclaimed-text">Fiche non revendiquée</span>
-      <a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
-    </div>` : '';
-
-  const offreBadge = getOffreBadge(a);
-
-  // Image toujours affichée si disponible
-  const imgHtml = a.image ? `
-    <img
-      src="${a.image}"
-      alt="${a.title}"
-      loading="lazy"
-      decoding="async"
-      onload="this.classList.add('loaded')"
-      class="card-lazy-img"
-    >` : `<div class="card-img-placeholder">${a.emoji || '🎯'}</div>`;
-
-  return `
-    <div class="${getCardClass(a)}" onclick="openModal(${a.id})">
-      <div class="card-img" style="${containerStyle}">
-        ${imgHtml}
-        <div class="card-badge">${a.duree}</div>
-        ${offreBadge}
-        ${unclaimedBanner}
-      </div>
-      <div class="card-body">
-        <div class="card-tags">${tagHtml}</div>
-        <div class="card-title">${a.title}</div>
-        <div class="card-location">📍 ${a.location}</div>
-        <div class="card-footer">
-          <span class="card-price">À partir de <strong>${a.prixMin} €</strong>/pers.</span>
-          <span class="card-participants">👥 ${a.participantsMin}–${a.participantsMax}</span>
-        </div>
-      </div>
-    </div>`;
-}
-
-// ── Trier les activités par offre (partenaires en premier) ──
-function sortByOffre(acts) {
-  const order = { categorie: 0, partenaire: 1, visible: 2, essentiel: 3, gratuit: 4 }
-,
 {
   id: 32,
   revendiquee: false,
@@ -1022,7 +921,106 @@ function sortByOffre(acts) {
     { label: "Outdoor", cls: "cat-outdoor" }
   ]
 }
-;
+  ]
+
+// ── Correspondances ville → mots-clés de localisation ──
+var activeVille = null;
+var villeMap = {
+    strasbourg: ['strasbourg', 'souffelweyersheim', 'sur votre lieu de travail', 'dans votre entreprise'],
+    colmar: ['colmar', 'route des vins'],
+    selestat: ['selestat', 'sélestat'],
+    ribeauville: ['ribeauvillé', 'ribeauville'],
+    altkirch: ['altkirch'],
+    haguenau: ['haguenau'],
+    'saint-louis': ['saint-louis', 'saint louis', 'hésingue', 'hesingue', 'bale', 'bâle', 'basel', 'sundgau'],
+    mulhouse: ['mulhouse', 'wittenheim'],
+    vosges: ['vosges', 'massif', 'obernai']
+  };
+
+// ── Labels affichés pour chaque univers ──
+const universLabels = {
+  nature: 'Nature & Plein air',
+  gastronomie: 'Gastronomie & Vins',
+  creatif: 'Artistique & Créatif',
+  bienetre: 'Bien-être & Slow',
+  sport: 'Sport & Adrénaline',
+  jeux: 'Jeux & Digital',
+  culture: 'Culture & Patrimoine',
+  wtf: 'What the Fuck',
+  strategie: 'Stratégie & Logique',
+};
+
+// ── Rendu d'une carte activité (utilisé sur toutes les pages) ──
+// Niveaux : gratuit < essentiel < visible < partenaire < categorie
+
+function getOffreBadge(a) {
+  const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
+  if (offre === 'visible')    return '<div class="offre-badge offre-visible"><span class="badge-tick">✓</span> Vérifié</div>';
+  if (offre === 'partenaire') return '<div class="offre-badge offre-partenaire">⭐ Partenaire</div>';
+  if (offre === 'categorie')  return '<div class="offre-badge offre-categorie">🏆 Partenaire Officiel</div>';
+  return '';
+}
+
+function getCardClass(a) {
+  const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
+  if (offre === 'partenaire') return 'act-card act-card--partenaire';
+  if (offre === 'categorie')  return 'act-card act-card--categorie';
+  return 'act-card';
+}
+
+function renderActivityCard(a) {
+  const tagHtml = (a.tags || []).map(t =>
+    `<span class="card-tag ${t.cls}">${t.label}</span>`
+  ).join('');
+
+  const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
+
+  // Photo toujours affichée si image existe — gradient = fallback uniquement
+  const containerStyle = `background:${a.gradient || '#1A1A2E'}`;
+
+  // Bannière "non revendiquée" → contact Formspree
+  const unclaimedBanner = !a.revendiquee ? `
+    <div class="card-unclaimed">
+      <span class="card-unclaimed-text">Fiche non revendiquée</span>
+      <a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
+    </div>` : '';
+
+  const offreBadge = getOffreBadge(a);
+
+  // Image toujours affichée si disponible
+  const imgHtml = a.image ? `
+    <img
+      src="${a.image}"
+      alt="${a.title}"
+      loading="lazy"
+      decoding="async"
+      onload="this.classList.add('loaded')"
+      class="card-lazy-img"
+    >` : `<div class="card-img-placeholder">${a.emoji || '🎯'}</div>`;
+
+  return `
+    <div class="${getCardClass(a)}" onclick="openModal(${a.id})">
+      <div class="card-img" style="${containerStyle}">
+        ${imgHtml}
+        <div class="card-badge">${a.duree}</div>
+        ${offreBadge}
+        ${unclaimedBanner}
+      </div>
+      <div class="card-body">
+        <div class="card-tags">${tagHtml}</div>
+        <div class="card-title">${a.title}</div>
+        <div class="card-location">📍 ${a.location}</div>
+        <div class="card-footer">
+          <span class="card-price">À partir de <strong>${a.prixMin} €</strong>/pers.</span>
+          <span class="card-participants">👥 ${a.participantsMin}–${a.participantsMax}</span>
+        </div>
+      </div>
+    </div>`;
+}
+
+// ── Trier les activités par offre (partenaires en premier) ──
+function sortByOffre(acts) {
+  const order = { categorie: 0, partenaire: 1, visible: 2, essentiel: 3, gratuit: 4 };
   return [...acts].sort((a, b) => {
     const oa = order[a.offre || (a.revendiquee ? 'essentiel' : 'gratuit')] ?? 4;
     const ob = order[b.offre || (b.revendiquee ? 'essentiel' : 'gratuit')] ?? 4;
