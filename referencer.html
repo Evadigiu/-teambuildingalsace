@@ -451,10 +451,13 @@
         <div class="field-group"><label>Siret <span class="optional">(optionnel)</span></label><input type="text" name="siret" placeholder="123 456 789 00012"></div>
       </div>
       <div class="field-group" style="margin-top:8px">
-        <label>Niveau choisi <span class="required">*</span> <span class="optional">— vous pouvez changer en haut de page</span></label>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:8px" id="niveau-grid">
+        <!-- Le niveau est choisi via les cartes de tarifs en haut de page (voir #tarifs et selectNiveau()). -->
+        <!-- Ces radios restent dans le DOM (visuellement masqués, pas display:none) pour garder la validation -->
+        <!-- HTML5 "required" active et une valeur toujours soumise, même si l'utilisateur scrolle -->
+        <!-- directement au formulaire sans cliquer sur une carte en haut. -->
+        <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap" id="niveau-grid">
           <label class="check-item niveau-item" data-val="gratuit">
-            <input type="radio" name="niveau" value="gratuit" required>
+            <input type="radio" name="niveau" value="gratuit" required checked>
             <div><strong>Gratuit</strong><br><span style="font-size:0.75rem;color:#aaa">0€/mois</span></div>
           </label>
           <label class="check-item niveau-item" data-val="essentiel">
@@ -653,6 +656,10 @@
   document.querySelectorAll('[name="niveau"]').forEach(function(r) {
     r.addEventListener('change', function() { updateForfaitRecap(this.value); });
   });
+  // Le niveau "gratuit" est pré-coché par défaut (voir input required checked ci-dessus) :
+  // on affiche le récap dès le chargement pour que ce ne soit jamais vide, même si
+  // l'utilisateur scrolle directement au formulaire sans passer par les cartes de tarifs.
+  updateForfaitRecap('gratuit');
   function goToStep(n) {
     document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.progress-step').forEach((s, i) => { s.classList.remove('active','done'); if(i+1<n) s.classList.add('done'); if(i+1===n) s.classList.add('active'); });
