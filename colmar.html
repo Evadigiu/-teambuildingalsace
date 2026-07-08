@@ -11,17 +11,18 @@
   <meta property="og:title" content="Team Building Colmar — Vignoble, Gastronomie & Cohésion 2026">
   <meta property="og:description" content="Rallye gourmand, chasse au trésor dans le vignoble, voitures vintage — les meilleures activités de team building à Colmar. Devis gratuit.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://teambuildingalsace.fr/colmar.html">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Team Building Colmar — Activités entreprise 2025",
-    "url": "https://www.teambuildingalsace.fr/colmar",
+    "name": "Team Building Colmar — Activités entreprise 2026",
+    "url": "https://teambuildingalsace.fr/colmar.html",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.teambuildingalsace.fr" },
-        { "@type": "ListItem", "position": 2, "name": "Team Building Colmar — Activités entreprise 2025", "item": "https://www.teambuildingalsace.fr/colmar" }
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://teambuildingalsace.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Team Building Colmar — Activités entreprise 2026", "item": "https://teambuildingalsace.fr/colmar.html" }
       ]
     }
   }
@@ -185,6 +186,45 @@
     .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
     .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
     .mob-accordion-content a:hover { color: var(--vert) !important; }
+
+    /* Décalage d'ancre pour le header sticky (68px) */
+    #activites, #devis { scroll-margin-top: 80px; }
+
+    /* ── SECTION CONCIERGE (formulaire lead) ── */
+    .concierge { background: var(--noir); padding: 72px 40px; border-bottom: none; position: relative; overflow: hidden; }
+    .concierge::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 15% 0%, rgba(91,46,255,0.28) 0%, transparent 55%); pointer-events: none; }
+    .concierge-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
+    .concierge-copy h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; color: white; letter-spacing: -0.03em; line-height: 1.15; margin: 12px 0 16px; }
+    .concierge-copy h2 em { color: var(--vert); font-style: normal; }
+    .concierge-copy > p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.8; margin-bottom: 22px; }
+    .concierge-points { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .concierge-points li { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5; }
+    .concierge-points strong { color: white; }
+
+    .concierge-form-card { background: white; border-radius: 20px; padding: 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .concierge-form { display: flex; flex-direction: column; gap: 14px; }
+    .concierge-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .concierge-field { display: flex; flex-direction: column; gap: 6px; }
+    .concierge-field label { font-size: 0.72rem; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.07em; }
+    .concierge-field input, .concierge-field select, .concierge-field textarea {
+      border: 1.5px solid var(--bordure); border-radius: 10px; padding: 11px 13px; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem; color: var(--noir); background: var(--blanc); transition: border-color 0.2s, background 0.2s; width: 100%;
+    }
+    .concierge-field input:focus, .concierge-field select:focus, .concierge-field textarea:focus { outline: none; border-color: var(--violet); background: white; }
+    .concierge-field textarea { resize: vertical; min-height: 76px; }
+    .concierge-submit { margin-top: 4px; width: 100%; justify-content: center; text-align: center; border: none; cursor: pointer; }
+    .concierge-note { font-size: 0.72rem; color: #aaa; text-align: center; line-height: 1.5; margin-top: 2px; }
+    .concierge-success { display: none; text-align: center; padding: 24px 8px; }
+    .concierge-success .success-ico { font-size: 3rem; display: block; margin-bottom: 12px; }
+    .concierge-success h4 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--noir); margin-bottom: 8px; }
+    .concierge-success p { font-size: 0.9rem; color: #777; line-height: 1.7; }
+
+    @media (max-width: 768px) {
+      .concierge { padding: 48px 20px; }
+      .concierge-inner { grid-template-columns: 1fr; gap: 28px; }
+      .concierge-form-card { padding: 22px; }
+      .concierge-row { grid-template-columns: 1fr; }
+    }
   </style>
 <link rel="stylesheet" href="cards.css">
 </head>
@@ -393,12 +433,100 @@
     </div>
   </div>
 </section>
-<div class="cta-section">
-  <h2>Prêt à organiser votre team building<br>au cœur du <em>vignoble alsacien</em> ?</h2>
-  <p>Parcourez toutes nos activités, filtrez par format et budget. Il y en a pour tous les goûts, même les indécis.</p>
-  <div class="cta-btns">
-    <a href="activites.html" class="btn-p">Voir toutes les activités</a>
-    <a href="referencer.html" class="btn-s">Référencer mon activité</a>
+<div class="concierge" id="devis">
+  <div class="concierge-inner">
+    <div class="concierge-copy">
+      <span class="section-label" style="color:var(--vert)">Réponse en 48h · Gratuit · Sans engagement</span>
+      <h2>Dites-nous votre objectif RH,<br>on vous envoie une <em>sélection sur-mesure</em>.</h2>
+      <p>Pas le temps de comparer toutes les activités du vignoble ? Décrivez votre besoin en 30 secondes. On vous renvoie 2 à 3 activités à Colmar qui collent à votre objectif, votre budget et votre effectif — et vous contactez directement les prestataires.</p>
+      <ul class="concierge-points">
+        <li>✅ Une présélection filtrée par <strong>objectif métier</strong>, pas par catégorie d'activité</li>
+        <li>✅ Calée sur votre <strong>budget</strong> et votre <strong>effectif</strong> réels</li>
+        <li>✅ 100% local — prestataires sélectionnés en Alsace, contact en direct</li>
+      </ul>
+    </div>
+
+    <div class="concierge-form-card">
+      <form id="concierge-form" class="concierge-form">
+        <input type="hidden" name="source" value="Page Colmar — concierge RH">
+        <input type="hidden" name="_subject" value="Nouvelle demande — Team Building Colmar">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+
+        <div class="concierge-row">
+          <div class="concierge-field">
+            <label for="c-prenom">Prénom</label>
+            <input type="text" id="c-prenom" name="prenom" autocomplete="given-name">
+          </div>
+          <div class="concierge-field">
+            <label for="c-nom">Nom</label>
+            <input type="text" id="c-nom" name="nom" autocomplete="family-name">
+          </div>
+        </div>
+
+        <div class="concierge-row">
+          <div class="concierge-field">
+            <label for="c-email">Email pro *</label>
+            <input type="email" id="c-email" name="email" required autocomplete="email">
+          </div>
+          <div class="concierge-field">
+            <label for="c-entreprise">Entreprise</label>
+            <input type="text" id="c-entreprise" name="entreprise" autocomplete="organization">
+          </div>
+        </div>
+
+        <div class="concierge-field">
+          <label for="c-objectif">Objectif principal *</label>
+          <select id="c-objectif" name="objectif" required>
+            <option value="" selected disabled>Choisir…</option>
+            <option>Cohésion d'équipe</option>
+            <option>Onboarding / intégration</option>
+            <option>Leadership / management</option>
+            <option>Communication</option>
+            <option>Gestion du stress</option>
+            <option>RSE / engagement</option>
+            <option>Je ne sais pas encore</option>
+          </select>
+        </div>
+
+        <div class="concierge-row">
+          <div class="concierge-field">
+            <label for="c-effectif">Effectif à mobiliser</label>
+            <select id="c-effectif" name="effectif">
+              <option value="" selected disabled>Choisir…</option>
+              <option>Moins de 10</option>
+              <option>10 à 25</option>
+              <option>25 à 50</option>
+              <option>Plus de 50</option>
+            </select>
+          </div>
+          <div class="concierge-field">
+            <label for="c-budget">Budget / pers.</label>
+            <select id="c-budget" name="budget">
+              <option value="" selected disabled>Choisir…</option>
+              <option>Moins de 30 €</option>
+              <option>30 à 60 €</option>
+              <option>60 à 100 €</option>
+              <option>Plus de 100 €</option>
+              <option>À définir</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="concierge-field">
+          <label for="c-message">Précisions (optionnel)</label>
+          <textarea id="c-message" name="message" placeholder="Date envisagée, contraintes, équipe hybride…"></textarea>
+        </div>
+
+        <button type="submit" class="btn-p concierge-submit">Recevoir ma sélection →</button>
+        <p class="concierge-note">Réponse sous 48h ouvrées. Vos données servent uniquement à vous répondre — aucune revente, aucune newsletter non sollicitée.</p>
+      </form>
+
+      <div class="concierge-success" id="concierge-success">
+        <span class="success-ico">✅</span>
+        <h4>C'est envoyé !</h4>
+        <p>On revient vers vous sous 48h avec une sélection d'activités taillée pour votre équipe.</p>
+      </div>
+    </div>
   </div>
 </div>
 <footer>
@@ -412,8 +540,32 @@
   // toggleMenu défini dans nav.js
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
-  // toggleMenu défini dans nav.js
-  function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+  // ── Formulaire concierge → Formspree (même endpoint que la modale devis) ──
+  (function() {
+    var form = document.getElementById('concierge-form');
+    if (!form) return;
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      try {
+        var res = await fetch('https://formspree.io/f/xwvaajow', {
+          method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          if (typeof window.gtag !== 'undefined') {
+            window.gtag('event', 'devis_soumis', { source: 'page_colmar_concierge' });
+          }
+          form.style.display = 'none';
+          document.getElementById('concierge-success').style.display = 'block';
+        } else {
+          alert("Une erreur est survenue. Réessayez ou écrivez-nous directement.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Une erreur réseau est survenue. Réessayez dans un instant.");
+      }
+    });
+  })();
 
   // Redirige vers index.html avec filtre ville + modale ouverte
   function openModal(id) {
