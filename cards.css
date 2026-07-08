@@ -56,7 +56,7 @@
    les deux, quelle que soit la longueur du texte. */
 .card-badge {
   position: absolute;
-  top: 10px; left: 10px;
+  top: 10px; left: 10px; bottom: auto; right: auto;
   max-width: 58%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   background: rgba(0,0,0,0.78);
   color: white;
@@ -69,7 +69,7 @@
   border: 1px solid rgba(255,255,255,0.15);
   z-index: 4;
 }
-.offre-badge { position: absolute; top: 10px; right: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; max-width: 42%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.offre-badge { position: absolute; top: 10px; right: 10px; bottom: auto; left: auto; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; max-width: 42%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .offre-visible { background: rgba(91,46,255,0.9); color: white; }
 .offre-partenaire { background: linear-gradient(135deg, #5B2EFF, #7B5FFF); color: white; box-shadow: 0 2px 8px rgba(91,46,255,0.4); }
 .offre-categorie { background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; box-shadow: 0 2px 8px rgba(201,147,58,0.4); }
