@@ -58,8 +58,7 @@
   position: absolute;
   top: 10px; left: 10px;
   max-width: 58%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.78);
   color: white;
   font-size: 0.65rem;
   text-transform: uppercase;
@@ -123,6 +122,8 @@
   padding: 3px 9px;
   border-radius: 100px;
   font-weight: 700;
+  background: #F0F0F0;
+  color: #666;
 }
 
 /* Objectifs métier */
