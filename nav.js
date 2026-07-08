@@ -136,6 +136,7 @@
       nav a {
         color: rgba(255,255,255,0.6);
         text-decoration: none;
+        margin-left: 0;
         font-size: 0.82rem;
         letter-spacing: 0.06em;
         text-transform: uppercase;
@@ -148,6 +149,7 @@
         background: var(--violet, #5B2EFF);
         color: white !important;
         padding: 8px 18px;
+        margin-left: 0 !important;
         border-radius: 100px;
         font-size: 0.78rem !important;
       }
