@@ -1,0 +1,196 @@
+/* ============================================================
+   cards.css — Styles des cartes d'activités (act-card)
+   Source unique de vérité pour toutes les pages qui affichent
+   des cartes générées par renderActivityCard() (activities.js).
+   Toute modification ici s'applique automatiquement à :
+   index.html, colmar.html, gastronomie.html, mulhouse.html,
+   nature.html, saint-louis.html, selestat.html, strasbourg.html,
+   vosges.html.
+   ============================================================ */
+
+.act-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.act-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(91,46,255,0.15);
+  border-color: var(--violet);
+}
+.act-card--partenaire { border-color: #5B2EFF !important; box-shadow: 0 4px 20px rgba(91,46,255,0.15) !important; }
+.act-card--categorie { border-color: #C9933A !important; box-shadow: 0 4px 20px rgba(201,147,58,0.2) !important; }
+
+/* ── Image / media ── */
+.card-img {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+.card-img-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+}
+.card-lazy-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+.card-lazy-img.loaded { opacity: 1; }
+
+/* ── Badge durée (haut-gauche) et badge palier (haut-droite) ──
+   Largeurs maximales fixes pour empêcher toute collision entre
+   les deux, quelle que soit la longueur du texte. */
+.card-badge {
+  position: absolute;
+  top: 10px; left: 10px;
+  max-width: 58%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(8px);
+  color: white;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.15);
+  z-index: 4;
+}
+.offre-badge { position: absolute; top: 10px; right: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; max-width: 42%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.offre-visible { background: rgba(91,46,255,0.9); color: white; }
+.offre-partenaire { background: linear-gradient(135deg, #5B2EFF, #7B5FFF); color: white; box-shadow: 0 2px 8px rgba(91,46,255,0.4); }
+.offre-categorie { background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; box-shadow: 0 2px 8px rgba(201,147,58,0.4); }
+.badge-tick { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; background: white; color: #5B2EFF; border-radius: 50%; font-size: 0.55rem; font-weight: 900; margin-right: 4px; vertical-align: middle; }
+
+/* ── Fiche non revendiquée ── */
+.card-unclaimed {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(13,13,13,0.82);
+  backdrop-filter: blur(6px);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  z-index: 4;
+}
+.card-unclaimed-text {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.card-unclaimed-btn {
+  padding: 5px 12px;
+  background: var(--vert);
+  color: var(--noir);
+  border: none;
+  border-radius: 100px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.card-unclaimed-btn:hover { opacity: 0.85; }
+
+/* ── Corps de la carte ── */
+.card-body { padding: 18px; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 11px; }
+
+.card-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+/* Objectifs métier */
+.card-tag.cat-commercial    { background: #FFF3E0; color: #E65100; }
+.card-tag.cat-leadership    { background: #EDE7F6; color: #4527A0; }
+.card-tag.cat-cohesion      { background: #E8F5E9; color: #2E7D32; }
+.card-tag.cat-innovation    { background: #E3F2FD; color: #1565C0; }
+.card-tag.cat-communication { background: #FCE4EC; color: #AD1457; }
+.card-tag.cat-stress        { background: #F3E5F5; color: #6A1B9A; }
+.card-tag.cat-onboarding    { background: #E8F4FD; color: #1A5276; }
+.card-tag.cat-rse           { background: #EAFAF1; color: #1E8449; }
+.card-tag.cat-management    { background: #FEF9E7; color: #9A7D0A; }
+/* Univers */
+.card-tag.cat-nature        { background: #E8F8F0; color: #1B5E20; }
+.card-tag.cat-gastronomie   { background: #FFF8E1; color: #F57F17; }
+.card-tag.cat-creatif       { background: #E8EAF6; color: #283593; }
+.card-tag.cat-bienetre      { background: #E0F7FA; color: #006064; }
+.card-tag.cat-sport         { background: #FFEBEE; color: #B71C1C; }
+.card-tag.cat-jeux          { background: #ECEFF1; color: #263238; }
+.card-tag.cat-culture       { background: #F3E5F5; color: #4A148C; }
+.card-tag.cat-wtf           { background: #1A1A2E; color: #00E5A0; }
+.card-tag.cat-strategie     { background: #E8F0FF; color: #1A237E; }
+/* Environnement */
+.card-tag.cat-indoor        { background: #F4F2FF; color: #5B2EFF; }
+.card-tag.cat-outdoor       { background: #E8F5E9; color: #1B5E20; }
+/* Format */
+.card-tag.cat-moins2h       { background: #FFF9C4; color: #F39C12; }
+.card-tag.cat-demijournee   { background: #FFF9C4; color: #D68910; }
+.card-tag.cat-journee       { background: #FFF9C4; color: #B7770B; }
+.card-tag.cat-weekend       { background: #FFF9C4; color: #9A640A; }
+/* Saison */
+.card-tag.cat-toutesaisons  { background: #F0F4FF; color: #2C3E7A; }
+.card-tag.cat-printempsete  { background: #FFFBE6; color: #D4AC0D; }
+.card-tag.cat-automnehiver  { background: #FBF0E6; color: #CA6F1E; }
+/* Caractéristiques */
+.card-tag.cat-toutemeteo    { background: #E8F0FF; color: #1A5276; }
+.card-tag.cat-pmr           { background: #E8F5E9; color: #1B6E2F; }
+.card-tag.cat-bilingue      { background: #E8EAF6; color: #283593; }
+.card-tag.cat-repas         { background: #FFF8E1; color: #E67E22; }
+.card-tag.cat-sansalcool    { background: #EAFAF1; color: #1E8449; }
+.card-tag.cat-avecalcool    { background: #FEF5E7; color: #CA6F1E; }
+
+.card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--noir);
+  margin-bottom: 7px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.card-location {
+  font-size: 0.75rem;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--bordure);
+  font-size: 0.8rem;
+}
+.card-price { color: var(--violet); }
+.card-price strong { font-family: 'Outfit', sans-serif; font-weight: 800; }
+.card-participants { color: #aaa; display: flex; align-items: center; gap: 4px; font-weight: 500; }
