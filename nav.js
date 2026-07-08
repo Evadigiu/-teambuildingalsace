@@ -112,9 +112,11 @@
     document.head.appendChild(style);
   }
 
-  // ── Injecter le header ──
+  // ── Injecter le header (seulement s'il est vide — certaines pages,
+  //     comme index.html, ont leur propre header codé en dur avec des
+  //     compteurs dynamiques et ne doivent pas être écrasées) ──
   var header = document.querySelector('header');
-  if (header) {
+  if (header && header.innerHTML.trim() === '') {
     header.innerHTML = `
   <a href="/" class="logo">Team Building <span>Alsace</span></a>
   <nav>
@@ -203,9 +205,9 @@
   </button>`;
   }
 
-  // ── Injecter le mobile-nav ──
+  // ── Injecter le mobile-nav (seulement s'il est vide, même logique que le header) ──
   var mobileNav = document.getElementById('mobile-nav');
-  if (mobileNav) {
+  if (mobileNav && mobileNav.innerHTML.trim() === '') {
     mobileNav.innerHTML = `
   <a href="/" onclick="toggleMenu()">Accueil</a>
   <div class="mob-accordion">
