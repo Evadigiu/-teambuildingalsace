@@ -108,6 +108,107 @@
       .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
       .hamburger.open span:nth-child(2) { opacity: 0; }
       .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      /* ── Header / nav desktop — source unique, remplace les copies
+           divergentes laissées dans le <style> de chaque page ── */
+      header {
+        background: var(--noir, #0D0D0D);
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 3px solid var(--violet, #5B2EFF);
+      }
+      .logo {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: white;
+        text-decoration: none;
+        letter-spacing: -0.02em;
+      }
+      .logo span { color: var(--vert, #00E5A0); }
+      nav { display: flex; align-items: center; gap: 28px; }
+      nav a {
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: color 0.2s;
+        white-space: nowrap;
+      }
+      nav a:hover { color: var(--vert, #00E5A0); }
+      .nav-cta {
+        background: var(--violet, #5B2EFF);
+        color: white !important;
+        padding: 8px 18px;
+        border-radius: 100px;
+        font-size: 0.78rem !important;
+      }
+      .nav-cta:hover { background: var(--violet-clair, #7B5FFF) !important; }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+        background: none;
+        border: none;
+      }
+      .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
+
+      /* Dropdowns "Par ville" / "Par univers" */
+      .nav-dropdown { position: relative; margin-left: 0; }
+      .nav-dropdown-btn {
+        background: none; border: none;
+        color: rgba(255,255,255,0.6);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.82rem; letter-spacing: 0.06em;
+        text-transform: uppercase; font-weight: 600;
+        cursor: pointer; display: flex; align-items: center; gap: 6px;
+        padding: 0; padding-bottom: 12px; margin-bottom: -12px;
+        transition: color 0.2s;
+      }
+      .nav-dropdown-btn:hover { color: var(--vert, #00E5A0); }
+      .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+      .nav-dropdown:hover .nav-dropdown-btn { color: var(--vert, #00E5A0); }
+      .nav-dropdown:hover .arrow { transform: rotate(180deg); }
+      .dropdown-menu {
+        position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+        background: white; border-radius: 14px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        padding: 10px; padding-top: 18px; min-width: 220px;
+        display: none; z-index: 2000;
+        border: 1px solid var(--bordure, #E8E4FF);
+      }
+      .dropdown-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; background: transparent; }
+      .nav-dropdown:hover .dropdown-menu { display: block; }
+      .nav-dropdown.open .dropdown-menu { display: block; }
+      .dropdown-item {
+        display: flex; align-items: center; gap: 10px;
+        padding: 9px 12px; border-radius: 10px;
+        text-decoration: none; color: var(--noir, #0D0D0D);
+        font-size: 0.82rem; font-weight: 600;
+        transition: background 0.15s;
+      }
+      .dropdown-item:hover { background: var(--gris-clair, #F4F2FF); color: var(--violet, #5B2EFF); }
+      .dropdown-item .d-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+      .dropdown-item .d-info { flex: 1; }
+      .dropdown-item .d-name { display: block; }
+      .dropdown-item .d-count { display: block; font-size: 0.68rem; color: #aaa; font-weight: 500; margin-top: 1px; }
+      .dropdown-divider { height: 1px; background: var(--bordure, #E8E4FF); margin: 6px 0; }
+
+      @media (max-width: 768px) {
+        header { padding: 0 20px; }
+        nav { display: none; }
+        .hamburger { display: flex; }
+      }
     `;
     document.head.appendChild(style);
   }
