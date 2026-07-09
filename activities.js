@@ -1068,13 +1068,6 @@ function renderActivityCard(a) {
   // Photo toujours affichée si image existe — gradient = fallback uniquement
   const containerStyle = `background:${a.gradient || '#1A1A2E'}`;
 
-  // Bannière "non revendiquée" → contact Formspree
-  const unclaimedBanner = !a.revendiquee ? `
-    <div class="card-unclaimed">
-      <span class="card-unclaimed-text">Fiche non revendiquée</span>
-      <a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="card-unclaimed-btn" onclick="event.stopPropagation()">Revendiquer →</a>
-    </div>` : '';
-
   const offreBadge = getOffreBadge(a);
 
   // Image toujours affichée si disponible
@@ -1094,7 +1087,6 @@ function renderActivityCard(a) {
         ${imgHtml}
         <div class="card-badge">${a.duree}</div>
         ${offreBadge}
-        ${unclaimedBanner}
       </div>
       <div class="card-body">
         <div class="card-tags">${tagHtml}</div>
