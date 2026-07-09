@@ -27,6 +27,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cards.css">
   <style>
     :root {
       --violet: #5B2EFF;
@@ -146,15 +147,6 @@
     .rh-card p { font-size: 0.82rem; color: #666; line-height: 1.65; }
     .rh-stat { display: inline-block; font-size: 0.72rem; background: var(--vert-pale); color: var(--vert-nature); padding: 3px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; }
 
-    /* ── ACTIVITÉS ── */
-    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
-    .act-body { padding: 18px; }
-    .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
-    .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
-    .act-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--bordure); }
-    .act-price { color: var(--vert-nature); font-weight: 800; font-family: 'Outfit', sans-serif; }
-    .act-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; background: var(--vert-pale); color: var(--vert-nature); }
-
     /* ── ALSACE SECTION ── */
     .alsace-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
     .alsace-item { background: white; border: 1.5px solid var(--bordure); border-radius: 12px; padding: 20px; text-align: center; transition: all 0.2s; }
@@ -198,49 +190,6 @@
       .grid-2, .grid-3, .alsace-grid { grid-template-columns: 1fr; }
       .cta-section { padding: 50px 20px; }
     }
-  
-    /* ── CARTES ACTIVITÉS DYNAMIQUES ── */
-    .acts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 32px; }
-    .act-card { background: white; border: 1.5px solid var(--bordure); border-radius: 14px; overflow: hidden; cursor: pointer; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
-    .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(91,46,255,0.12); border-color: var(--violet); }
-    .offre-badge { position: absolute; top: 10px; right: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; max-width: calc(100% - 20px); white-space: nowrap; }
-    .offre-visible { background: rgba(91,46,255,0.9); color: white; }
-    .offre-partenaire { background: linear-gradient(135deg, #5B2EFF, #7B5FFF); color: white; box-shadow: 0 2px 8px rgba(91,46,255,0.4); }
-    .offre-categorie { background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; box-shadow: 0 2px 8px rgba(201,147,58,0.4); }
-    .act-card--partenaire { border-color: #5B2EFF !important; box-shadow: 0 4px 20px rgba(91,46,255,0.15) !important; }
-    .act-card--categorie { border-color: #C9933A !important; box-shadow: 0 4px 20px rgba(201,147,58,0.2) !important; }
-    .badge-tick { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; background: white; color: #5B2EFF; border-radius: 50%; font-size: 0.55rem; font-weight: 900; margin-right: 4px; vertical-align: middle; }
-    .card-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; position: relative; overflow: hidden; }
-    .card-img-placeholder { font-size: 2.8rem; }
-    .card-badge { position: absolute; top: 10px; left: 10px; background: rgba(13,13,13,0.75); color: white; padding: 4px 10px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; backdrop-filter: blur(4px); }
-    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .card-unclaimed-text { font-size: 0.68rem; color: rgba(255,255,255,0.55); font-weight: 500; }
-    .card-unclaimed-btn { padding: 5px 12px; background: var(--vert); color: var(--noir); border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; cursor: pointer; white-space: nowrap; text-decoration: none; }
-    .card-body { padding: 16px; }
-    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-    .card-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; }
-    .card-title { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 6px; color: var(--noir); }
-    .card-location { font-size: 0.78rem; color: #aaa; margin-bottom: 12px; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--bordure); font-size: 0.82rem; }
-    .card-price { color: var(--violet); }
-    .card-price strong { font-family: 'Outfit', sans-serif; font-weight: 800; }
-    .card-participants { color: #aaa; font-size: 0.78rem; }
-    .add-card { background: white; border: 1.5px dashed var(--bordure); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px; text-align: center; min-height: 200px; }
-    .add-card h3 { font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 800; margin: 10px 0 6px; }
-    .add-card p { font-size: 0.8rem; color: #aaa; margin-bottom: 14px; }
-    /* Tag colors */
-    .cat-commercial { background:#FFF3E0;color:#E65100; } .cat-leadership { background:#EDE7F6;color:#4527A0; }
-    .cat-cohesion { background:#E8F5E9;color:#2E7D32; } .cat-innovation { background:#E3F2FD;color:#1565C0; }
-    .cat-communication { background:#FCE4EC;color:#AD1457; } .cat-stress { background:#F3E5F5;color:#6A1B9A; }
-    .cat-onboarding { background:#E8F4FD;color:#1A5276; } .cat-rse { background:#EAFAF1;color:#1E8449; }
-    .cat-management { background:#FEF9E7;color:#9A7D0A; } .cat-nature { background:#E8F8F0;color:#1B5E20; }
-    .cat-gastronomie { background:#FFF8E1;color:#F57F17; } .cat-creatif { background:#E8EAF6;color:#283593; }
-    .cat-bienetre { background:#E0F7FA;color:#006064; } .cat-sport { background:#FFEBEE;color:#B71C1C; }
-    .cat-jeux { background:#ECEFF1;color:#263238; } .cat-culture { background:#F3E5F5;color:#4A148C; }
-    .cat-evenementiel { background:#FFF0F6;color:#C0392B; } .cat-wtf { background:#1A1A2E;color:#00E5A0; }
-    .cat-strategie { background:#E8F0FF;color:#1A237E; } .cat-indoor { background:#F4F2FF;color:#5B2EFF; }
-    .cat-outdoor { background:#E8F5E9;color:#1B5E20; }
-    @media (max-width: 768px) { .acts-grid { grid-template-columns: 1fr; } }
 
   
     /* ── BADGES OFFRE ── */
@@ -314,24 +263,6 @@
     .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
     .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
     .mob-accordion-content a:hover { color: var(--vert) !important; }
-    /* CSS cartes activités */
-    .card-img { position: relative; height: 160px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .card-img-placeholder { font-size: 2.8rem; }
-    .card-lazy-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; z-index: 1; transition: opacity 0.4s ease; }
-    .card-lazy-img.loaded { opacity: 1; }
-    .card-badge { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); color: white; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 100px; font-weight: 700; z-index: 4; }
-    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 4; }
-    .card-unclaimed-text { font-size: 0.68rem; color: rgba(255,255,255,0.55); }
-    .card-unclaimed-btn { font-size: 0.68rem; color: white; font-weight: 700; text-decoration: none; background: var(--vert-nature); padding: 4px 10px; border-radius: 100px; }
-    .card-body { padding: 14px 16px; }
-    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
-    .card-tag { font-size: 0.62rem; padding: 3px 8px; border-radius: 100px; font-weight: 700; background: var(--gris-clair); color: var(--violet); }
-    .card-title { font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 800; margin-bottom: 5px; color: var(--noir); }
-    .card-location { font-size: 0.78rem; color: #999; margin-bottom: 10px; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--bordure); font-size: 0.78rem; }
-    .card-price { color: #555; }
-    .card-price strong { color: var(--violet); font-weight: 800; }
-    .card-participants { color: #aaa; }
     /* Galerie Pomelo */
     .partner-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 24px; }
     .partner-gallery img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
@@ -667,29 +598,16 @@
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
-  function openModal(id) {
-    window.location.href = 'index.html?univers=nature&activite=' + id + '&scroll=activites';
-  }
-
   window.addEventListener('load', function() {
-    var filtered = sortByOffre(
-      activities.filter(function(a) { return (a.univers || []).includes('nature'); })
-    ).slice(0, 3);
-
-    var grid = document.getElementById('acts-grid');
-    if (!grid) return;
+    renderUniverse('nature', '#acts-grid');
 
     var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">'
       + '<div style="font-size:2rem;margin-bottom:10px">➕</div>'
       + '<h3 style="font-family:Outfit,sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité nature ?</h3>'
       + '<p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>'
       + '<span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
-
-    if (filtered.length === 0) {
-      grid.innerHTML = referenceCard;
-      return;
-    }
-    grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('') + referenceCard;
+    var grid = document.getElementById('acts-grid');
+    if (grid) grid.insertAdjacentHTML('beforeend', referenceCard);
   });
 </script>
 <script src="nav.js"></script>

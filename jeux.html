@@ -28,6 +28,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cards.css">
   <style>
     :root {
       --violet: #5B2EFF; --violet-clair: #7B5FFF; --vert: #00E5A0;
@@ -93,15 +94,6 @@
     .section-title em { color: var(--c1); font-style: normal; }
     .section-intro { color: #555; font-size: 0.95rem; max-width: 640px; line-height: 1.85; margin-bottom: 44px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; }
-    .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px #1A237E1E; border-color: var(--c1); }
-    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; overflow: hidden; }
-    .act-body { padding: 18px; }
-    .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
-    .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
-    .act-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--cb); flex-wrap: wrap; gap: 6px; }
-    .act-price { color: var(--c1); font-weight: 800; font-family: 'Outfit', sans-serif; font-size: 0.88rem; }
-    .act-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; background: var(--cp); color: var(--c1); }
     .faq-item { border-bottom: 1px solid var(--cb); }
     .faq-q { padding: 18px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.93rem; gap: 16px; }
     .faq-q:hover { color: var(--c1); }
@@ -363,47 +355,7 @@
     <span class="section-label">Sélection jeux & digital</span>
     <h2 class="section-title">Trois activités pour <em>jouer maintenant</em></h2>
     <p class="section-intro">Des activités réelles disponibles en Alsace — cliquez pour voir la fiche complète.</p>
-    <div class="grid-3">
-
-      <a href="index.html?univers=jeux&activite=4&scroll=activites" class="act-card" onclick="openFromUnivers(event,4,'jeux')">
-        <div class="act-img" style="background:linear-gradient(135deg,#1A1A2E,#5B2EFF)">🧠</div>
-        <div class="act-body">
-          <h3>Quiz</h3>
-          <p>Manches thématiques, jokers stratégiques, décisions collectives sous pression chrono. Le format qui révèle à la fois qui sait des choses et qui sait travailler en équipe.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 35 €/pers.</span>
-            <span class="act-tag">Jeux · Communication</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="index.html?univers=jeux&activite=6&scroll=activites" class="act-card" onclick="openFromUnivers(event,6,'jeux')">
-        <div class="act-img" style="background:linear-gradient(135deg,#1A1A2E,#5B2EFF)">🧩</div>
-        <div class="act-body">
-          <h3>Escape Game dans votre Entreprise</h3>
-          <p>L'escape game qui vient à vous — mallette d'énigmes, animateur, scénario clé en main. Pas besoin de réserver une salle : votre salle de réunion devient la scène du crime.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 33 €/pers.</span>
-            <span class="act-tag">Jeux · Cohésion</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="index.html?univers=jeux&activite=7&scroll=activites" class="act-card" onclick="openFromUnivers(event,7,'jeux')">
-        <div class="act-img" style="background:linear-gradient(135deg,#0D0D0D,#5B2EFF);overflow:hidden;padding:0">
-          <img src="images/EVA-1.webp" alt="Réalité virtuelle EVA Mulhouse" style="width:100%;height:100%;object-fit:cover;display:block">
-        </div>
-        <div class="act-body">
-          <h3>Team Building Réalité Virtuelle — EVA</h3>
-          <p>Missions immersives en VR multi-joueurs à Wittenheim. 200 personnes max, 40 min à demi-journée. L'activité qui transforme même les sceptiques en évangélistes de la VR.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 19 €/pers.</span>
-            <span class="act-tag">VR · Digital</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
+    <div class="grid-3" id="acts-grid"></div>
     <div style="text-align:center;margin-top:32px">
       <a href="index.html?univers=jeux&scroll=activites" class="btn-p">Voir toutes les activités jeux & digital →</a>
     </div>
@@ -496,10 +448,6 @@
 </footer>
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
-  function openFromUnivers(e, id, univers) {
-    e.preventDefault();
-    window.location.href = 'index.html?univers=' + univers + '&activite=' + id + '&scroll=activites';
-  }
   function submitDream() {
     var text = document.getElementById('dream-text').value.trim();
     if (!text || text.length < 10) {
@@ -519,6 +467,12 @@
       }
     }).catch(function() { alert('Une erreur s\'est produite, réessayez.'); });
   }
+</script>
+<script src="activities.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    renderUniverse('jeux', '#acts-grid');
+  });
 </script>
 <script src="nav.js"></script>
 </body>

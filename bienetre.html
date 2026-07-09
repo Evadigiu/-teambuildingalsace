@@ -24,6 +24,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cards.css">
   <style>
     :root {
       --violet: #5B2EFF; --violet-clair: #7B5FFF; --vert: #00E5A0;
@@ -117,16 +118,7 @@
     .dark-box ul li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
     .dark-box ul li:last-child { border-bottom: none; }
     .dark-box ul li strong { color: #4DB6AC; }
-    .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; }
     .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px #0060641E; border-color: var(--c1); }
-    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
-    .act-body { padding: 18px; }
-    .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
-    .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
-    .act-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--cb); flex-wrap: wrap; gap: 6px; }
-    .act-price { color: var(--c1); font-weight: 800; font-family: 'Outfit', sans-serif; }
-    .act-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; background: var(--cp); color: var(--c1); }
     .faq-item { border-bottom: 1px solid var(--cb); }
     .faq-q { padding: 18px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.93rem; gap: 16px; }
     .faq-q:hover { color: var(--c1); }
@@ -387,49 +379,7 @@
     <span class="section-label">Sélection bien-être</span>
     <h2 class="section-title">Trois activités pour <em>commencer</em></h2>
     <p class="section-intro">Des activités réelles disponibles en Alsace — cliquez pour voir la fiche complète.</p>
-    <div class="grid-3 mob-carousel">
-
-      <a href="index.html?univers=bienetre&activite=1&scroll=activites" class="act-card" onclick="openFromUnivers(event,1,'bienetre')">
-        <div class="act-img" style="background:linear-gradient(135deg,#134E5E,#71B280);overflow:hidden;padding:0">
-          <img src="images/pomelo.webp" alt="Potager collaboratif Mulhouse" style="width:100%;height:100%;object-fit:cover;display:block">
-        </div>
-        <div class="act-body">
-          <h3>Potager Collaboratif & Permaculture</h3>
-          <p>Planter ensemble, choisir les espèces, mettre les mains dans la terre — un slow workshop ancré dans le vivant.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 80 €/pers.</span>
-            <span class="act-tag">Bien-être · RSE</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="index.html?univers=bienetre&activite=3&scroll=activites" class="act-card" onclick="openFromUnivers(event,3,'bienetre')">
-        <div class="act-img" style="background:linear-gradient(135deg,#8E2DE2,#4A00E0)">🏺</div>
-        <div class="act-body">
-          <h3>Atelier Poterie & Céramique Alsacienne</h3>
-          <p>Argile, tour de potier, lenteur du geste — un atelier méditatif où la concentration remplace le stress.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 55 €/pers.</span>
-            <span class="act-tag">Bien-être · Créatif</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="index.html?univers=bienetre&activite=18&scroll=activites" class="act-card" onclick="openFromUnivers(event,18,'bienetre')">
-        <div class="act-img" style="background:linear-gradient(135deg,#FF7E5F,#FEB47B);overflow:hidden;padding:0">
-          <img src="images/fresque-collaborative-mulhouse.webp" alt="Fresque collaborative Mulhouse" style="width:100%;height:100%;object-fit:cover;display:block">
-        </div>
-        <div class="act-body">
-          <h3>Création de Fresque Collaborative</h3>
-          <p>Peindre ensemble une œuvre qui se révèle à la fin — un moment de création lente et joyeuse.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 35 €/pers.</span>
-            <span class="act-tag">Bien-être · Créatif</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
+    <div class="grid-3 mob-carousel" id="acts-grid"></div>
     <div style="text-align:center;margin-top:32px">
       <a href="index.html?univers=bienetre&scroll=activites" class="btn-p">Voir toutes les activités bien-être →</a>
     </div>
@@ -521,10 +471,12 @@
 </footer>
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
-  function openFromUnivers(e, id, univers) {
-    e.preventDefault();
-    window.location.href = 'index.html?univers=' + univers + '&activite=' + id + '&scroll=activites';
-  }
+</script>
+<script src="activities.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    renderUniverse('bienetre', '#acts-grid');
+  });
 </script>
 <script src="nav.js"></script>
 </body>

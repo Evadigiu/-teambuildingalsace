@@ -29,6 +29,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cards.css">
   <style>
     :root {
       --violet: #5B2EFF; --violet-clair: #7B5FFF; --vert: #00E5A0;
@@ -122,15 +123,6 @@
     .dark-box ul li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
     .dark-box ul li:last-child { border-bottom: none; }
     .dark-box ul li strong { color: #B57BF0; }
-    .act-card { background: white; border: 1.5px solid var(--cb); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
-    .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px #4A00801E; border-color: var(--c1); }
-    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; overflow: hidden; }
-    .act-body { padding: 18px; }
-    .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
-    .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
-    .act-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--cb); flex-wrap: wrap; gap: 6px; }
-    .act-price { color: var(--c1); font-weight: 800; font-family: 'Outfit', sans-serif; }
-    .act-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; background: var(--cp); color: var(--c1); }
     .faq-item { border-bottom: 1px solid var(--cb); }
     .faq-q { padding: 18px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.93rem; gap: 16px; }
     .faq-q:hover { color: var(--c1); }
@@ -403,49 +395,7 @@
     <span class="section-label">Sélection créatif</span>
     <h2 class="section-title">Les activités artistiques <em>du moment</em></h2>
     <p class="section-intro">Trois activités pensées pour libérer la créativité de vos équipes — sans talent requis, sans prise de tête.</p>
-    <div class="grid-3 mob-carousel" id="acts-grid">
-
-      <a href="index.html?univers=creatif&activite=3&scroll=activites" class="act-card" onclick="openFromUnivers(event, 3, 'creatif')">
-        <div class="act-img" style="background:linear-gradient(135deg, #8E2DE2, #4A00E0)">🏺</div>
-        <div class="act-body">
-          <h3>Atelier Poterie & Céramique Alsacienne</h3>
-          <p>Argile, tour de potier, motifs traditionnels alsaciens — et une équipe qui crée ensemble des pièces uniques à Strasbourg.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 55 €/pers.</span>
-            <span class="act-tag">Créatif · Bien-être</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="index.html?univers=creatif&activite=14&scroll=activites" class="act-card" onclick="openFromUnivers(event, 14, 'creatif')">
-        <div class="act-img" style="background:linear-gradient(135deg, #434343, #000000); overflow:hidden; padding:0;">
-          <img src="images/escape-game-narratif-strasbourg.webp" alt="Escape game narratif Strasbourg" style="width:100%;height:100%;object-fit:cover;display:block">
-        </div>
-        <div class="act-body">
-          <h3>Escape Game Narratif Immersif</h3>
-          <p>Décors poussés, narration scénarisée, énigmes qui font appel à l'intelligence collective — pas à la force brute.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 25 €/pers.</span>
-            <span class="act-tag">Créatif · Cohésion</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="index.html?univers=creatif&activite=15&scroll=activites" class="act-card" onclick="openFromUnivers(event, 15, 'creatif')">
-        <div class="act-img" style="background:linear-gradient(135deg, #f12711, #f5af19); overflow:hidden; padding:0;">
-          <img src="images/brassage-biere-artisanale.webp" alt="Brassage bière artisanale Strasbourg" style="width:100%;height:100%;object-fit:cover;display:block">
-        </div>
-        <div class="act-body">
-          <h3>Atelier Brassage de Bière Artisanale</h3>
-          <p>Créer sa propre recette de bière en équipe, de la sélection des ingrédients à la dégustation — c'est du créatif qui se boit.</p>
-          <div class="act-footer">
-            <span class="act-price">Dès 40 €/pers.</span>
-            <span class="act-tag">Créatif · Gastronomie</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
+    <div class="grid-3 mob-carousel" id="acts-grid"></div>
     <div style="text-align:center;margin-top:32px">
       <a href="index.html?univers=creatif&scroll=activites" class="btn-p">Voir toutes les activités créatives →</a>
     </div>
@@ -524,11 +474,12 @@
 </footer>
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
-
-  function openFromUnivers(e, id, univers) {
-    e.preventDefault();
-    window.location.href = 'index.html?univers=' + univers + '&activite=' + id + '&scroll=activites';
-  }
+</script>
+<script src="activities.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    renderUniverse('creatif', '#acts-grid');
+  });
 </script>
 <script src="nav.js"></script>
 </body>

@@ -1027,3 +1027,24 @@ function sortByOffre(acts) {
     return oa - ob;
   });
 }
+
+// ── Rendu partagé des pages-univers : filtre par univers, trie, affiche un
+//    teaser de 3 cartes (identiques à index.html) et gère le cas 0 résultat ──
+function renderUniverse(universeKey, containerSelector) {
+  var container = document.querySelector(containerSelector);
+  if (!container) return;
+
+  window.openModal = function(id) {
+    window.location.href = 'index.html?univers=' + universeKey + '&activite=' + id + '&scroll=activites';
+  };
+
+  var filtered = sortByOffre(
+    activities.filter(function(a) { return (a.univers || []).includes(universeKey); })
+  ).slice(0, 3);
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#aaa;font-size:0.9rem">Aucune activité disponible pour le moment dans cet univers.</p>';
+    return;
+  }
+  container.innerHTML = filtered.map(renderActivityCard).join('');
+}
