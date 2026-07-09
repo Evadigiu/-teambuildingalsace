@@ -122,7 +122,7 @@ const activities = [
   duree: "1h15",
   emoji: "🧠",
   gradient: "linear-gradient(135deg, #1A1A2E, #5B2EFF)",
-  image: null,
+  image: "images/quizz_mulhouse.webp",
   tags: [
     { label: "Communication", cls: "cat-communication" },
     { label: "Cohésion", cls: "cat-cohesion" },
@@ -150,7 +150,7 @@ const activities = [
       duree: "2h",
       emoji: "🪓",
       gradient: "linear-gradient(135deg, #134E5E, #71B280)",
-      image: null,
+      image: "images/lancerhache.webp",
       tags: [
         { label: "Cohésion", cls: "cat-cohesion" },
         { label: "Sport & Adrénaline", cls: "cat-sport" },
@@ -178,7 +178,7 @@ const activities = [
   duree: "1h30",
   emoji: "🧩",
   gradient: "linear-gradient(135deg, #1A1A2E, #5B2EFF)",
-  image: null,
+  image: "images/espionnage.webp",
   tags: [
     { label: "Communication", cls: "cat-communication" },
     { label: "Cohésion", cls: "cat-cohesion" },
