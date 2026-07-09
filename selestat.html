@@ -597,7 +597,8 @@
   }
 
   window.addEventListener('load', function() {
-    var keywords = ['sélestat', 'selestat', 'ribeauvillé', 'ribeauville', 'bergheim', 'sainte-marie'];
+    var VILLE = 'selestat';
+    var keywords = villeMap[VILLE] || [VILLE];
     var filtered = sortByOffre(activities.filter(function(a) {
       var loc = (a.location || '').toLowerCase();
       return keywords.some(function(kw) { return loc.includes(kw); });

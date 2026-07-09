@@ -582,7 +582,8 @@
   }
 
   window.addEventListener('load', function() {
-    var keywords = ['saint-louis', 'saint louis', 'huningue', 'village-neuf', 'hésingue', 'hégenheim', 'blotzheim', 'altkirch'];
+    var VILLE = 'saint-louis';
+    var keywords = villeMap[VILLE] || [VILLE];
     var filtered = sortByOffre(activities.filter(function(a) {
       var loc = (a.location || '').toLowerCase();
       return keywords.some(function(kw) { return loc.includes(kw); });
