@@ -587,7 +587,7 @@
   window.addEventListener('load', function() {
     var VILLE = 'vosges';
     var MAX = 3;
-    var keywords = ['vosges', 'munster', 'obernai', 'hohneck', 'schlucht', 'orbey', 'gérardmer', 'thann'];
+    var keywords = villeMap[VILLE] || [VILLE];
     var filtered = sortByOffre(activities.filter(function(a) {
       var loc = (a.location || '').toLowerCase();
       return keywords.some(function(kw) { return loc.includes(kw); });

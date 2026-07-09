@@ -1017,15 +1017,12 @@ const activities = [
 // ── Correspondances ville → mots-clés de localisation ──
 var activeVille = null;
 var villeMap = {
-    strasbourg: ['strasbourg', 'souffelweyersheim', 'sur votre lieu de travail', 'dans votre entreprise'],
-    colmar: ['colmar', 'route des vins'],
-    selestat: ['selestat', 'sélestat'],
-    ribeauville: ['ribeauvillé', 'ribeauville'],
-    altkirch: ['altkirch'],
-    haguenau: ['haguenau'],
-    'saint-louis': ['saint-louis', 'saint louis', 'hésingue', 'hesingue', 'bale', 'bâle', 'basel', 'sundgau'],
+    strasbourg: ['strasbourg', 'souffelweyersheim', 'sur votre lieu de travail', 'dans votre entreprise', 'haguenau', 'dorlisheim', 'oberhaslach', 'alsace'],
+    colmar: ['colmar', 'route des vins', 'ribeauvillé', 'ribeauville'],
+    selestat: ['selestat', 'sélestat', 'bergheim', 'sainte-marie'],
+    'saint-louis': ['saint-louis', 'saint louis', 'hésingue', 'hesingue', 'bale', 'bâle', 'basel', 'sundgau', 'altkirch', 'huningue', 'village-neuf', 'hégenheim', 'blotzheim'],
     mulhouse: ['mulhouse', 'wittenheim'],
-    vosges: ['vosges', 'massif', 'obernai']
+    vosges: ['vosges', 'massif', 'obernai', 'munster', 'hohneck', 'schlucht', 'orbey', 'gérardmer', 'thann', 'la bresse', 'husseren-wesserling']
   };
 
 // ── Labels affichés pour chaque univers ──
