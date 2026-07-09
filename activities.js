@@ -30,7 +30,7 @@ const activities = [
       univers: ["nature", "bienetre", "strategie"],
       format: ["journee", "demijournee"],
       saison: ["printempsete"],
-      env: ["outdoor"],
+      env: ["outdoor", "sursite"],
       prixMin: 80,
       participantsMin: 5,
       participantsMax: 50,
@@ -43,7 +43,8 @@ const activities = [
         { label: "Cohésion", cls: "cat-cohesion" },
         { label: "RSE", cls: "cat-rse" },
         { label: "Nature & Plein air", cls: "cat-nature" },
-        { label: "Outdoor", cls: "cat-outdoor" }
+        { label: "Outdoor", cls: "cat-outdoor" },
+        { label: "Sur site", cls: "cat-sursite" }
       ]
     },
     {
@@ -169,7 +170,7 @@ const activities = [
   description: "Transformez vos locaux en terrain d'aventure avec un escape game clé en main. Scénario d'espionnage immersif, énigmes et manipulation d'objets en équipes encadrées par des maîtres du jeu. Communication, logique et gestion du temps sont essentielles. Idéal pour animer un séminaire ou renforcer la cohésion sans contrainte logistique.",
   objectifs: ["communication", "cohesion"],
   univers: ["jeux"],
-  env: ["indoor"],
+  env: ["indoor", "sursite"],
   format: ["moins2h"],
   saison: ["toutesaisons"],
   prixMin: 33,
@@ -183,7 +184,8 @@ const activities = [
     { label: "Communication", cls: "cat-communication" },
     { label: "Cohésion", cls: "cat-cohesion" },
     { label: "Jeux & Digital", cls: "cat-jeux" },
-    { label: "Indoor", cls: "cat-indoor" }
+    { label: "Indoor", cls: "cat-indoor" },
+    { label: "Sur site", cls: "cat-sursite" }
   ]
 },
     {
@@ -1017,7 +1019,7 @@ const activities = [
 // ── Correspondances ville → mots-clés de localisation ──
 var activeVille = null;
 var villeMap = {
-    strasbourg: ['strasbourg', 'souffelweyersheim', 'sur votre lieu de travail', 'dans votre entreprise', 'haguenau', 'dorlisheim', 'oberhaslach', 'alsace'],
+    strasbourg: ['strasbourg', 'souffelweyersheim', 'haguenau', 'dorlisheim', 'oberhaslach', 'alsace'],
     colmar: ['colmar', 'route des vins', 'ribeauvillé', 'ribeauville'],
     selestat: ['selestat', 'sélestat', 'bergheim', 'sainte-marie'],
     'saint-louis': ['saint-louis', 'saint louis', 'hésingue', 'hesingue', 'bale', 'bâle', 'basel', 'sundgau', 'altkirch', 'huningue', 'village-neuf', 'hégenheim', 'blotzheim'],
