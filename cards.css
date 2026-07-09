@@ -149,6 +149,7 @@
 /* Environnement */
 .card-tag.cat-indoor        { background: #F4F2FF; color: #5B2EFF; }
 .card-tag.cat-outdoor       { background: #E8F5E9; color: #1B5E20; }
+.card-tag.cat-sursite       { background: #E1F5FE; color: #0277BD; }
 /* Format */
 .card-tag.cat-moins2h       { background: #FFF9C4; color: #F39C12; }
 .card-tag.cat-demijournee   { background: #FFF9C4; color: #D68910; }
