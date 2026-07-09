@@ -26,6 +26,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cards.css">
   <style>
     :root {
       --violet: #5B2EFF;
@@ -151,24 +152,6 @@
     .rh-card p { font-size: 0.82rem; color: #666; line-height: 1.65; }
     .rh-stat { display: inline-block; font-size: 0.7rem; background: var(--or-pale); color: var(--or); padding: 3px 10px; border-radius: 100px; margin-top: 8px; font-weight: 700; }
 
-    /* ── ACTIVITÉS ── */
-    .act-card { background: white; border: 1.5px solid var(--bordure-or); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
-    .act-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(201,147,58,0.15); border-color: var(--or); }
-    .offre-badge { position: absolute; top: 10px; right: 10px; padding: 4px 10px; border-radius: 100px; font-size: 0.65rem; font-weight: 700; z-index: 4; max-width: calc(100% - 20px); white-space: nowrap; }
-    .offre-visible { background: rgba(91,46,255,0.9); color: white; }
-    .offre-partenaire { background: linear-gradient(135deg, #5B2EFF, #7B5FFF); color: white; box-shadow: 0 2px 8px rgba(91,46,255,0.4); }
-    .offre-categorie { background: linear-gradient(135deg, #C9933A, #F0C060); color: #0D0D0D; box-shadow: 0 2px 8px rgba(201,147,58,0.4); }
-    .act-card--partenaire { border-color: #5B2EFF !important; box-shadow: 0 4px 20px rgba(91,46,255,0.15) !important; }
-    .act-card--categorie { border-color: #C9933A !important; box-shadow: 0 4px 20px rgba(201,147,58,0.2) !important; }
-    .badge-tick { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; background: white; color: #5B2EFF; border-radius: 50%; font-size: 0.55rem; font-weight: 900; margin-right: 4px; vertical-align: middle; }
-    .act-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
-    .act-body { padding: 18px; }
-    .act-body h3 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; margin-bottom: 7px; }
-    .act-body p { font-size: 0.8rem; color: #777; line-height: 1.6; margin-bottom: 12px; }
-    .act-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--bordure-or); }
-    .act-price { color: var(--or); font-weight: 800; font-family: 'Outfit', sans-serif; }
-    .act-tag { font-size: 0.62rem; padding: 3px 9px; border-radius: 100px; font-weight: 700; text-transform: uppercase; background: var(--or-pale); color: var(--or); }
-
     /* ── CÉPAGES ALSACIENS ── */
     .cepage-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
     .cepage-card { background: white; border: 1.5px solid var(--bordure-or); border-radius: 12px; padding: 18px; text-align: center; transition: all 0.2s; }
@@ -238,23 +221,6 @@
     .mob-accordion-content.open { max-height: 600px; padding-top: 16px; }
     .mob-accordion-content a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
     .mob-accordion-content a:hover { color: var(--vert) !important; }
-    /* Cartes dynamiques */
-    .card-img { position: relative; height: 160px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .card-img-placeholder { font-size: 2.8rem; }
-    .card-lazy-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; z-index: 1; transition: opacity 0.4s ease; }
-    .card-lazy-img.loaded { opacity: 1; }
-    .card-badge { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); color: white; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 100px; font-weight: 700; z-index: 4; }
-    .card-unclaimed { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.82); backdrop-filter: blur(6px); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 4; }
-    .card-unclaimed-text { font-size: 0.68rem; color: rgba(255,255,255,0.55); }
-    .card-unclaimed-btn { font-size: 0.68rem; color: white; font-weight: 700; text-decoration: none; background: var(--or); padding: 4px 10px; border-radius: 100px; }
-    .card-body { padding: 14px 16px; }
-    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
-    .card-tag { font-size: 0.62rem; padding: 3px 8px; border-radius: 100px; font-weight: 700; background: var(--or-pale); color: var(--or); }
-    .card-title { font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 800; margin-bottom: 5px; color: var(--noir); }
-    .card-location { font-size: 0.78rem; color: #999; margin-bottom: 10px; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--bordure-or); font-size: 0.78rem; }
-    .card-price strong { color: var(--or); font-weight: 800; }
-    .card-participants { color: #aaa; }
   </style>
 </head>
 <body>
@@ -623,26 +589,16 @@
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
-  function openModal(id) {
-    window.location.href = 'index.html?univers=gastronomie&activite=' + id + '&scroll=activites';
-  }
-
   window.addEventListener('load', function() {
-    var filtered = sortByOffre(
-      activities.filter(function(a) { return (a.univers || []).includes('gastronomie'); })
-    ).slice(0, 3);
-
-    var grid = document.getElementById('acts-grid');
-    if (!grid) return;
+    renderUniverse('gastronomie', '#acts-grid');
 
     var referenceCard = '<a href="referencer.html" class="act-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center">'
       + '<div style="font-size:2rem;margin-bottom:10px">➕</div>'
       + '<h3 style="font-family:Outfit,sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:6px">Vous proposez une activité gastronomique ?</h3>'
       + '<p style="font-size:0.8rem;color:#aaa;margin-bottom:14px">Référencez-la gratuitement.</p>'
       + '<span class="btn-p" style="font-size:0.78rem;padding:9px 18px">Référencer</span></a>';
-
-    if (filtered.length === 0) { grid.innerHTML = referenceCard; return; }
-    grid.innerHTML = filtered.map(function(a) { return renderActivityCard(a); }).join('') + referenceCard;
+    var grid = document.getElementById('acts-grid');
+    if (grid) grid.insertAdjacentHTML('beforeend', referenceCard);
   });
 </script>
 <script src="nav.js"></script>
