@@ -911,6 +911,10 @@
     /* Site link dans la modale */
     .modal-site-link { display: inline-block; margin: 8px 0 16px; font-size: 0.82rem; color: #5B2EFF; text-decoration: none; font-weight: 600; }
     .modal-site-link:hover { text-decoration: underline; }
+    /* Coordonnées (téléphone / email) — essentiel+ */
+    .modal-coord { font-size: 0.82rem; color: #555; margin: -8px 0 16px; }
+    .modal-coord a { color: #5B2EFF; text-decoration: none; font-weight: 600; }
+    .modal-coord a:hover { text-decoration: underline; }
     /* Galerie photos visible+ */
     .modal-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; margin-bottom: 16px; }
     .modal-gallery-img { width: 100%; height: 140px; object-fit: cover; border-radius: 10px; }
@@ -1678,17 +1682,28 @@
     };
     const modalBadge = badgeMap[offre] || '';
 
-    // ── Bouton principal : demande de devis, pour toutes les fiches ──
-    const ctaHtml = `<button class="btn-primary" onclick="openDevis('${a.title.replace(/'/g, "\'")}')">Demander un devis</button>`;
+    // ── Bouton "Demander un devis" : réservé à Visible/Partenaire/Officiel
+    //     (Essentiel ne bénéficie pas de la transmission de leads par la plateforme) ──
+    const ctaHtml = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie')
+      ? `<button class="btn-primary" onclick="openDevis('${a.title.replace(/'/g, "\'")}')">Demander un devis</button>`
+      : '';
 
     // ── Fiche non revendiquée : ligne discrète en fin de modale ──
     const claimLineHtml = !a.revendiquee
       ? `<a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="modal-claim-line" onclick="if(typeof gtag!=='undefined')gtag('event','revendiquer_clic',{activite_titre:'${a.title.replace(/'/g,"\'")}',source:'modale_footer'})">Référencez votre activité ici →</a>`
       : '';
 
-    // ── Site web : visible+ ──
-    const siteHtml = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire && a.partenaire.site
+    // ── Site web : essentiel+ ──
+    const siteHtml = (offre === 'essentiel' || offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire && a.partenaire.site
       ? `<a href="${a.partenaire.site}" target="_blank" class="modal-site-link">🔗 ${a.partenaire.site.replace(/^https?:\/\//, '')}</a>` : '';
+
+    // ── Coordonnées (téléphone / email) : essentiel+ ──
+    var coordItems = [];
+    if ((offre === 'essentiel' || offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire) {
+      if (a.partenaire.telephone) coordItems.push('📞 <a href="tel:' + a.partenaire.telephone.replace(/\s/g,'') + '">' + a.partenaire.telephone + '</a>');
+      if (a.partenaire.email) coordItems.push('✉️ <a href="mailto:' + a.partenaire.email + '">' + a.partenaire.email + '</a>');
+    }
+    const coordHtml = coordItems.length ? '<div class="modal-coord">' + coordItems.join(' &nbsp;·&nbsp; ') + '</div>' : '';
 
     // ── Galerie photos : visible+ (images[1..4]) ──
     var extraImages = '';
@@ -1722,7 +1737,8 @@
     html += '<div class="modal-section-title">Catégories</div>';
     html += '<div class="modal-tags">' + a.tags.map(function(t){ return '<span class="card-tag ' + t.cls + '">' + t.label + '</span>'; }).join('') + '</div>';
     html += siteHtml;
-    html += '<div class="modal-cta">' + ctaHtml + '</div>';
+    html += coordHtml;
+    if (ctaHtml) html += '<div class="modal-cta">' + ctaHtml + '</div>';
     html += extraImages;
     html += claimLineHtml;
     html += '</div>';

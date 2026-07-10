@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Référencer mon activité — Team Building Alsace</title>
-  <meta name="description" content="Référencez votre activité de team building en Alsace sur teambuildingalsace.fr">
+  <meta name="description" content="Référencez votre activité de team building en Alsace sur teambuildingalsace.fr — à partir de 39€/mois.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -129,7 +129,7 @@
     .tarifs-header { text-align: center; margin-bottom: 40px; }
     .tarifs-header h2 { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--noir); letter-spacing: -0.03em; margin-bottom: 8px; }
     .tarifs-header p { font-size: 0.88rem; color: #777; max-width: 480px; margin: 0 auto; }
-    .tarifs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; max-width: 1100px; margin: 0 auto; }
+    .tarifs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1100px; margin: 0 auto; }
     .tarif-card { background: white; border: 1.5px solid var(--bordure); border-radius: 16px; padding: 24px 18px; display: flex; flex-direction: column; gap: 14px; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
     .tarif-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(91,46,255,0.1); }
     .tarif-card--popular { border-color: var(--violet); box-shadow: 0 0 0 3px rgba(91,46,255,0.12); }
@@ -141,7 +141,6 @@
     .tarif-nom { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--noir); }
     .tarif-prix { display: flex; align-items: baseline; gap: 4px; }
     .tarif-prix .montant { font-family: 'Outfit', sans-serif; font-size: 1.9rem; font-weight: 800; color: var(--violet); }
-    .tarif-prix .montant--gratuit { color: var(--vert); }
     .tarif-prix .periode { font-size: 0.75rem; color: #aaa; font-weight: 500; }
     .tarif-sep { height: 1px; background: var(--bordure); }
     .tarif-features { display: flex; flex-direction: column; gap: 8px; flex: 1; }
@@ -214,14 +213,14 @@
   <div class="hero-shape hero-shape-1"></div>
   <div class="hero-shape hero-shape-2"></div>
   <div class="hero-label">📋 Prestataires</div>
-  <h1>Référencez votre activité <span class="highlight">gratuitement</span></h1>
+  <h1>Référencez votre activité <span class="highlight">dès 39€/mois</span></h1>
   <p>Rejoignez la première plateforme de team building en Alsace et touchez des entreprises qui cherchent exactement ce que vous proposez.</p>
 </div>
 
 <div class="avantages">
   <div class="avantage"><div class="avantage-icon">🎯</div><span>Visibilité ciblée auprès des entreprises</span></div>
   <div class="avantage"><div class="avantage-icon">⚡</div><span>Mise en ligne sous 48h</span></div>
-  <div class="avantage"><div class="avantage-icon">💶</div><span>Référencement 100% gratuit</span></div>
+  <div class="avantage"><div class="avantage-icon">💶</div><span>Sans engagement, résiliable à tout moment</span></div>
   <div class="avantage"><div class="avantage-icon">📊</div><span>Filtres intelligents pour être trouvé</span></div>
 </div>
 
@@ -230,7 +229,7 @@
     <p style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--violet);margin-bottom:12px">Pourquoi nous rejoindre</p>
     <h2 style="margin-bottom:6px">La seule plateforme 100% dédiée<br>au team building en Alsace.</h2>
     <p style="font-size:1.05rem;color:#555;font-weight:500;margin-bottom:20px">On ne référence pas tout. On référence ce qui vaut le détour.</p>
-    <p style="font-size:0.82rem;color:#aaa;margin-bottom:28px">Commencez gratuitement, évoluez selon vos ambitions. Sans engagement, résiliable à tout moment.</p>
+    <p style="font-size:0.82rem;color:#aaa;margin-bottom:28px">Démarrez au niveau Essentiel, évoluez selon vos ambitions. Sans engagement, résiliable à tout moment.</p>
     <div class="billing-toggle">
       <span class="active" id="lbl-mensuel">Mensuel</span>
       <label class="toggle-switch">
@@ -243,33 +242,10 @@
   </div>
   <div class="tarifs-grid">
 
-    <!-- Gratuit -->
-    <div class="tarif-card">
-      <div>
-        <div class="tarif-niveau">Niveau 1</div>
-        <div class="tarif-nom">Gratuit</div>
-      </div>
-      <div class="tarif-prix">
-        <span class="montant montant--gratuit">0€</span>
-        <span class="periode">/ mois</span>
-      </div>
-      <div class="tarif-sep"></div>
-      <div class="tarif-features">
-        <div class="tarif-feature"><span class="ico">✓</span><span>Fiche activité basique</span></div>
-        <div class="tarif-feature"><span class="ico">✓</span><span>Filtres de recherche</span></div>
-        <div class="tarif-feature"><span class="ico">✓</span><span>Visible sur la carte</span></div>
-        <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Nom de l'entreprise</span></div>
-        <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Photo</span></div>
-        <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Lien vers votre site</span></div>
-        <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Transmission des leads</span></div>
-      </div>
-      <button type="button" class="tarif-cta tarif-cta--secondary" onclick="selectNiveau('gratuit')">Commencer →</button>
-    </div>
-
     <!-- Essentiel -->
     <div class="tarif-card">
       <div>
-        <div class="tarif-niveau">Niveau 2</div>
+        <div class="tarif-niveau">Niveau 1</div>
         <div class="tarif-nom">Essentiel</div>
       </div>
       <div class="tarif-prix prix-mensuel">
@@ -282,12 +258,14 @@
       </div>
       <div class="tarif-sep"></div>
       <div class="tarif-features">
-        <div class="tarif-feature"><span class="ico">✓</span><span>Tout le niveau Gratuit</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Fiche activité, filtres, visible sur la carte</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Nom de l'entreprise affiché</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>1 photo sur la fiche</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Emplacement exact</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Lien vers votre site</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Coordonnées affichées</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Badge vérifié</span></div>
-        <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Lien vers votre site</span></div>
+        <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Formulaire de devis sur la fiche</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Transmission des leads</span></div>
       </div>
       <button type="button" class="tarif-cta tarif-cta--secondary" onclick="selectNiveau('essentiel')">Choisir →</button>
@@ -297,7 +275,7 @@
     <div class="tarif-card tarif-card--popular">
       <div class="tarif-badge tarif-badge--popular">⭐ Recommandé</div>
       <div>
-        <div class="tarif-niveau">Niveau 3</div>
+        <div class="tarif-niveau">Niveau 2</div>
         <div class="tarif-nom">Visible</div>
       </div>
       <div class="tarif-prix prix-mensuel">
@@ -313,7 +291,7 @@
         <div class="tarif-feature"><span class="ico">✓</span><span>Tout le niveau Essentiel</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>5 photos sur la fiche</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Badge ✓ Vérifié</span></div>
-        <div class="tarif-feature"><span class="ico">✓</span><span>Lien vers votre site</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Formulaire de devis sur la fiche</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Transmission des leads</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Position prioritaire</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Mise en avant sur la home</span></div>
@@ -324,7 +302,7 @@
     <!-- Partenaire -->
     <div class="tarif-card">
       <div>
-        <div class="tarif-niveau">Niveau 4</div>
+        <div class="tarif-niveau">Niveau 3</div>
         <div class="tarif-nom">Partenaire</div>
       </div>
       <div class="tarif-prix prix-mensuel">
@@ -352,7 +330,7 @@
     <div class="tarif-card tarif-card--best">
       <div class="tarif-badge tarif-badge--best">🏆 Best</div>
       <div>
-        <div class="tarif-niveau">Niveau 5</div>
+        <div class="tarif-niveau">Niveau 4</div>
         <div class="tarif-nom">Partenaire Officiel</div>
       </div>
       <div class="tarif-prix prix-mensuel">
@@ -456,12 +434,8 @@
         <!-- HTML5 "required" active et une valeur toujours soumise, même si l'utilisateur scrolle -->
         <!-- directement au formulaire sans cliquer sur une carte en haut. -->
         <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap" id="niveau-grid">
-          <label class="check-item niveau-item" data-val="gratuit">
-            <input type="radio" name="niveau" value="gratuit" required checked>
-            <div><strong>Gratuit</strong><br><span style="font-size:0.75rem;color:#aaa">0€/mois</span></div>
-          </label>
           <label class="check-item niveau-item" data-val="essentiel">
-            <input type="radio" name="niveau" value="essentiel">
+            <input type="radio" name="niveau" value="essentiel" required checked>
             <div><strong>Essentiel</strong><br><span style="font-size:0.75rem;color:#aaa">39€/mois</span></div>
           </label>
           <label class="check-item niveau-item" data-val="visible" style="border-color:var(--violet)">
@@ -608,7 +582,6 @@
 <script>
   var isAnnuel = false;
   var NIVEAUX = {
-    gratuit:    { name: 'Gratuit', price_m: '0€ / mois', price_a: '0€', badge: 'Gratuit' },
     essentiel:  { name: 'Essentiel', price_m: '39€ / mois', price_a: '421€ / an (35€/mois)', badge: 'Essentiel' },
     visible:    { name: 'Visible ⭐', price_m: '69€ / mois', price_a: '745€ / an (62€/mois)', badge: 'Visible' },
     partenaire: { name: 'Partenaire', price_m: '99€ / mois', price_a: '1 069€ / an (89€/mois)', badge: 'Partenaire' },
@@ -656,10 +629,11 @@
   document.querySelectorAll('[name="niveau"]').forEach(function(r) {
     r.addEventListener('change', function() { updateForfaitRecap(this.value); });
   });
-  // Le niveau "gratuit" est pré-coché par défaut (voir input required checked ci-dessus) :
-  // on affiche le récap dès le chargement pour que ce ne soit jamais vide, même si
-  // l'utilisateur scrolle directement au formulaire sans passer par les cartes de tarifs.
-  updateForfaitRecap('gratuit');
+  // Le niveau "essentiel" (palier d'entrée) est pré-coché par défaut (voir input required
+  // checked ci-dessus) : on affiche le récap dès le chargement pour que ce ne soit jamais
+  // vide, même si l'utilisateur scrolle directement au formulaire sans passer par les
+  // cartes de tarifs.
+  updateForfaitRecap('essentiel');
   function goToStep(n) {
     document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.progress-step').forEach((s, i) => { s.classList.remove('active','done'); if(i+1<n) s.classList.add('done'); if(i+1===n) s.classList.add('active'); });
