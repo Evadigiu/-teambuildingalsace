@@ -1070,6 +1070,12 @@ function renderActivityCard(a) {
 
   const offreBadge = getOffreBadge(a);
 
+  // Bouton favori (❤️) — présent uniquement sur les pages qui déclarent
+  // la variable `favoris` (index.html), sinon absent du rendu.
+  const favBtn = (typeof favoris !== 'undefined')
+    ? `<button type="button" class="card-fav${favoris.has(a.id) ? ' active' : ''}" data-fav-id="${a.id}" onclick="toggleFavori(${a.id}, event)" aria-label="Ajouter aux favoris">${favoris.has(a.id) ? '❤️' : '🤍'}</button>`
+    : '';
+
   // Image toujours affichée si disponible
   const imgHtml = a.image ? `
     <img
@@ -1087,6 +1093,7 @@ function renderActivityCard(a) {
         ${imgHtml}
         <div class="card-badge">${a.duree}</div>
         ${offreBadge}
+        ${favBtn}
       </div>
       <div class="card-body">
         <div class="card-tags">${tagHtml}</div>
