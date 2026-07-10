@@ -12,28 +12,116 @@
 });
 (function() {
 
-  // ── Google Analytics ──
-  if (!document.getElementById('gtag-script')) {
-    var gtagScript = document.createElement('script');
-    gtagScript.id = 'gtag-script';
-    gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-X6RP21L6W8';
-    document.head.appendChild(gtagScript);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function(){dataLayer.push(arguments);};
-    gtag('js', new Date());
-    gtag('config', 'G-X6RP21L6W8');
+  // ── Cookies : mémorisation du consentement via un cookie classique
+  //     (pas localStorage/sessionStorage, interdits par CLAUDE.md) ──
+  function tbaGetCookie(name) {
+    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+  function tbaSetCookie(name, value, days) {
+    var d = new Date();
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = name + '=' + encodeURIComponent(value) + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
   }
 
+  // ── Google Analytics + Microsoft Clarity — chargés uniquement après
+  //     consentement (voir bandeau cookies ci-dessous) ──
+  function tbaLoadTrackers() {
+    if (!document.getElementById('gtag-script')) {
+      var gtagScript = document.createElement('script');
+      gtagScript.id = 'gtag-script';
+      gtagScript.async = true;
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-X6RP21L6W8';
+      document.head.appendChild(gtagScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);};
+      gtag('js', new Date());
+      gtag('config', 'G-X6RP21L6W8');
+    }
 
-  // ── Microsoft Clarity ──
-  if (!document.getElementById('clarity-script')) {
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      t.id='clarity-script';
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "x1sywk2trp");
+    if (!document.getElementById('clarity-script')) {
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        t.id='clarity-script';
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "x1sywk2trp");
+    }
+  }
+
+  var tbaConsent = tbaGetCookie('tba_cookie_consent');
+  if (tbaConsent === 'accepted') tbaLoadTrackers();
+
+  // ── Bandeau cookies (une seule injection) ──
+  if (!document.getElementById('tba-cookie-banner')) {
+    var cookieStyle = document.createElement('style');
+    cookieStyle.textContent = `
+      .tba-cookie-banner {
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 3000;
+        background: #0D0D0D; color: rgba(255,255,255,0.85);
+        padding: 18px 24px; display: flex; align-items: center;
+        justify-content: space-between; gap: 20px; flex-wrap: wrap;
+        box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
+        border-top: 3px solid #5B2EFF;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .tba-cookie-text { flex: 1; min-width: 240px; font-size: 0.85rem; line-height: 1.5; }
+      .tba-cookie-text a { color: #00E5A0; text-decoration: underline; }
+      .tba-cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+      .tba-cookie-btn {
+        padding: 10px 20px; border-radius: 100px; font-size: 0.82rem;
+        font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;
+        cursor: pointer; border: none; transition: all 0.2s; white-space: nowrap;
+      }
+      .tba-cookie-btn--reject { background: transparent; border: 1.5px solid rgba(255,255,255,0.3); color: white; }
+      .tba-cookie-btn--reject:hover { border-color: white; }
+      .tba-cookie-btn--accept { background: #5B2EFF; color: white; }
+      .tba-cookie-btn--accept:hover { background: #7B5FFF; }
+      .tba-cookie-manage {
+        position: fixed; bottom: 16px; left: 16px; z-index: 2999;
+        width: 44px; height: 44px; border-radius: 50%;
+        background: #0D0D0D; border: 2px solid #5B2EFF;
+        font-size: 1.15rem; cursor: pointer;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+        display: none; align-items: center; justify-content: center;
+      }
+      @media (max-width: 600px) {
+        .tba-cookie-banner { flex-direction: column; align-items: stretch; }
+        .tba-cookie-actions { justify-content: stretch; }
+        .tba-cookie-btn { flex: 1; }
+      }
+    `;
+    document.head.appendChild(cookieStyle);
+
+    document.body.insertAdjacentHTML('beforeend', `
+      <div class="tba-cookie-banner" id="tba-cookie-banner">
+        <div class="tba-cookie-text">🍪 Nous utilisons des cookies de mesure d'audience (Google Analytics) et d'analyse de navigation (Microsoft Clarity) pour améliorer le site. <a href="mentions-legales.html#cookies">En savoir plus</a></div>
+        <div class="tba-cookie-actions">
+          <button type="button" class="tba-cookie-btn tba-cookie-btn--reject" onclick="tbaCookieChoice(false)">Tout refuser</button>
+          <button type="button" class="tba-cookie-btn tba-cookie-btn--accept" onclick="tbaCookieChoice(true)">Tout accepter</button>
+        </div>
+      </div>
+      <button type="button" id="tba-cookie-manage" class="tba-cookie-manage" onclick="tbaShowBanner()" aria-label="Gérer les cookies">🍪</button>
+    `);
+
+    var tbaBanner = document.getElementById('tba-cookie-banner');
+    var tbaManageBtn = document.getElementById('tba-cookie-manage');
+    if (tbaConsent === null) {
+      tbaBanner.style.display = 'flex';
+    } else {
+      tbaBanner.style.display = 'none';
+      tbaManageBtn.style.display = 'flex';
+    }
+
+    window.tbaCookieChoice = function(accepted) {
+      tbaSetCookie('tba_cookie_consent', accepted ? 'accepted' : 'refused', 180);
+      tbaBanner.style.display = 'none';
+      tbaManageBtn.style.display = 'flex';
+      if (accepted) tbaLoadTrackers();
+    };
+    window.tbaShowBanner = function() {
+      tbaBanner.style.display = 'flex';
+    };
   }
 
   // ── Injecter le CSS mobile-nav (une seule fois) ──
