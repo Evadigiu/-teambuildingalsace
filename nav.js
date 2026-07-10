@@ -86,9 +86,10 @@
         display: none; align-items: center; justify-content: center;
       }
       @media (max-width: 600px) {
-        .tba-cookie-banner { flex-direction: column; align-items: stretch; }
-        .tba-cookie-actions { justify-content: stretch; }
-        .tba-cookie-btn { flex: 1; }
+        .tba-cookie-banner { flex-direction: column; align-items: stretch; padding: 14px 16px; gap: 12px; }
+        .tba-cookie-text { font-size: 0.78rem; line-height: 1.4; min-width: 0; }
+        .tba-cookie-actions { justify-content: stretch; gap: 8px; }
+        .tba-cookie-btn { flex: 1; padding: 10px 12px; font-size: 0.78rem; }
       }
     `;
     document.head.appendChild(cookieStyle);
@@ -137,9 +138,9 @@
         z-index: 999;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 28px;
-        padding: 0 40px;
+        padding: 32px 40px;
         overflow-y: auto;
       }
       #mobile-nav.open { display: flex; }
