@@ -145,14 +145,21 @@
     .tarif-sep { height: 1px; background: var(--bordure); }
     .tarif-features { display: flex; flex-direction: column; gap: 8px; flex: 1; }
     .tarif-feature { display: flex; align-items: flex-start; gap: 8px; font-size: 0.78rem; color: #555; line-height: 1.4; }
-    .tarif-feature .ico { flex-shrink: 0; font-size: 0.8rem; margin-top: 1px; }
-    .tarif-feature .ico--non { opacity: 0.3; }
+    .tarif-feature .ico { flex-shrink: 0; font-size: 0.8rem; margin-top: 1px; color: var(--vert); font-weight: 700; }
+    .tarif-feature .ico--non { opacity: 0.3; color: #ccc; font-weight: 400; }
     .tarif-cta { cursor: pointer; font-family: inherit; display: block; text-align: center; padding: 11px 16px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
     .tarif-cta--primary { background: linear-gradient(135deg, var(--violet), var(--violet-clair)); color: white; box-shadow: 0 4px 14px rgba(91,46,255,0.35); }
     .tarif-cta--primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(91,46,255,0.45); }
     .tarif-cta--secondary { background: var(--gris-clair); color: var(--violet); }
     .tarif-cta--secondary:hover { background: var(--bordure); }
     .tarif-note { text-align: center; margin-top: 20px; font-size: 0.78rem; color: #bbb; }
+    .tarif-cle-en-main {
+      max-width: 780px; margin: 24px auto 0; padding: 16px 24px;
+      background: linear-gradient(120deg, var(--violet), #4620C4);
+      border-radius: 16px; text-align: center; color: white;
+      font-size: 0.9rem; line-height: 1.5; box-shadow: 0 10px 30px rgba(91,46,255,0.2);
+    }
+    .tarif-cle-en-main a { color: var(--vert); font-weight: 700; text-decoration: underline; white-space: nowrap; }
     .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 32px; }
     .billing-toggle span { font-size: 0.85rem; font-weight: 600; color: #aaa; transition: color 0.2s; }
     .billing-toggle span.active { color: var(--violet); }
@@ -295,8 +302,12 @@
       </div>
       <div class="tarif-sep"></div>
       <div class="tarif-features">
-        <div class="tarif-feature"><span class="ico">✓</span><span>Tout le niveau Essentiel</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Fiche activité, filtres, visible sur la carte</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Nom de l'entreprise affiché</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>5 photos sur la fiche</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Emplacement exact</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Lien vers votre site</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Coordonnées affichées</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Badge ✓ Vérifié</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Formulaire de devis sur la fiche</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Transmission des leads</span></div>
@@ -322,7 +333,15 @@
       </div>
       <div class="tarif-sep"></div>
       <div class="tarif-features">
-        <div class="tarif-feature"><span class="ico">✓</span><span>Tout le niveau Visible</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Fiche activité, filtres, visible sur la carte</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Nom de l'entreprise affiché</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>5 photos sur la fiche</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Emplacement exact</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Lien vers votre site</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Coordonnées affichées</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Badge ✓ Vérifié</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Formulaire de devis sur la fiche</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Transmission des leads</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Badge ⭐ Partenaire</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Position prioritaire dans les résultats</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Mise en avant sur la home</span></div>
@@ -350,9 +369,20 @@
       </div>
       <div class="tarif-sep"></div>
       <div class="tarif-features">
-        <div class="tarif-feature"><span class="ico">✓</span><span>Tout le niveau Partenaire</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Fiche activité, filtres, visible sur la carte</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Nom de l'entreprise affiché</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>5 photos sur la fiche</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Emplacement exact</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Lien vers votre site</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Coordonnées affichées</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Badge ✓ Vérifié</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Formulaire de devis sur la fiche</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Transmission des leads</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Badge ⭐ Partenaire</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Position prioritaire dans les résultats</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Mise en avant sur la home</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Badge 🏆 Partenaire Officiel [catégorie]</span></div>
-        <div class="tarif-feature"><span class="ico">✓</span><span>Présence dans la page univers de votre catégorie</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>La vitrine n°1 de votre univers : mis en avant sur toute la page dédiée à votre catégorie</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>1 article de blog par mois</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Visibilité maximale sur le site</span></div>
       </div>
@@ -361,6 +391,7 @@
 
   </div>
   <p class="tarif-note">Sans engagement · Résiliable à tout moment · Mise en ligne sous 48h après validation</p>
+  <div class="tarif-cle-en-main">💼 Pas le temps de gérer de nouveaux clients ? <strong>TBA s'occupe de tout : du devis à la facture finale.</strong> L'option clé en main la plus cool de l'histoire. <a href="contact.html">On en discute →</a></div>
 </section>
 
 <div class="reassurance">
