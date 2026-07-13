@@ -23,6 +23,10 @@
     d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
     document.cookie = name + '=' + encodeURIComponent(value) + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
   }
+  // Exposées globalement pour être réutilisées par d'autres scripts de page
+  // (ex. cookie de préférence "popup newsletter déjà vu")
+  window.tbaGetCookie = tbaGetCookie;
+  window.tbaSetCookie = tbaSetCookie;
 
   // ── Google Analytics + Microsoft Clarity — chargés uniquement après
   //     consentement (voir bandeau cookies ci-dessous) ──

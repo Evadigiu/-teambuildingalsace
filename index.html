@@ -890,6 +890,50 @@
     .devis-success p { font-size: 0.85rem; color: #777; }
     @media (max-width: 480px) { .devis-row { grid-template-columns: 1fr; } }
 
+    /* ── POP-UP NEWSLETTER ── */
+    .newsletter-overlay {
+      display: none; position: fixed; inset: 0; z-index: 3100;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .newsletter-overlay.open { display: flex; }
+    .newsletter-modal {
+      background: white; border-radius: 20px; width: 100%; max-width: 420px;
+      padding: 32px 28px; text-align: center; position: relative;
+      animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .newsletter-close {
+      position: absolute; top: 14px; right: 14px; background: var(--gris-clair); border: none;
+      color: #999; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .newsletter-close:hover { background: var(--bordure); color: var(--noir); }
+    .newsletter-icon { font-size: 2.6rem; margin-bottom: 12px; }
+    .newsletter-modal h3 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--noir); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .newsletter-modal p { font-size: 0.88rem; color: #666; line-height: 1.5; margin-bottom: 20px; }
+    #newsletter-form-el { display: flex; flex-direction: column; gap: 12px; }
+    #newsletter-form-el input[type=email] {
+      padding: 12px 16px; border: 1.5px solid var(--bordure); border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: var(--noir);
+      background: var(--gris-clair); outline: none; transition: border-color 0.2s;
+    }
+    #newsletter-form-el input[type=email]:focus { border-color: var(--violet); background: white; }
+    .newsletter-submit {
+      padding: 13px; background: linear-gradient(135deg, var(--violet), var(--violet-clair));
+      color: white; border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.2s;
+      box-shadow: 0 6px 20px rgba(91,46,255,0.3);
+    }
+    .newsletter-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(91,46,255,0.4); }
+    .newsletter-dismiss {
+      background: none; border: none; color: #aaa; font-size: 0.78rem; cursor: pointer;
+      margin-top: 6px; text-decoration: underline;
+    }
+    .newsletter-success { display: none; text-align: center; }
+    .newsletter-success .success-ico { font-size: 3rem; margin-bottom: 12px; display: block; }
+    .newsletter-success h4 { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--noir); margin-bottom: 8px; }
+    .newsletter-success p { font-size: 0.85rem; color: #777; }
+
     .btn-primary {
       flex: 1;
       padding: 14px;
@@ -1061,6 +1105,27 @@
     .ville-emoji { font-size: 1.3rem; }
     .ville-name { font-size: 0.68rem; font-weight: 700; color: var(--noir); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
     .ville-count { font-size: 0.62rem; color: #767676; font-weight: 500; }
+
+    /* ======= BANDEAU CONCIERGE ======= */
+    .concierge-banner {
+      max-width: 1000px; margin: 20px auto 0; padding: 18px 28px;
+      background: linear-gradient(120deg, var(--violet), #4620C4);
+      border-radius: 18px; display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap; box-shadow: 0 10px 30px rgba(91,46,255,0.25);
+    }
+    .concierge-banner-text { flex: 1; min-width: 240px; color: white; font-size: 0.92rem; line-height: 1.4; }
+    .concierge-banner-text strong { font-family: 'Outfit', sans-serif; font-weight: 800; }
+    .concierge-banner-btn {
+      flex-shrink: 0; padding: 12px 24px; background: white; color: var(--violet);
+      border: none; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+      transition: transform 0.15s;
+    }
+    .concierge-banner-btn:hover { transform: scale(1.04); }
+    @media (max-width: 768px) {
+      .concierge-banner { margin: 16px 16px 0; padding: 16px 20px; justify-content: center; text-align: center; }
+      .concierge-banner-btn { width: 100%; }
+    }
     @media (max-width: 768px) {
       .villes-section { padding: 24px 16px; }
       .search-wrap { margin: 16px 0 0; }
@@ -1270,6 +1335,12 @@
     </button>
   </div>
 </div>
+
+<div class="concierge-banner">
+  <div class="concierge-banner-text"><strong>Pas d'inspi ?</strong> Parlez-nous de vous et on vous concocte le meilleur team building en Alsace.</div>
+  <button type="button" class="concierge-banner-btn" onclick="openDevis('Demande spontanée — bandeau concierge')">Être rappelé(e) →</button>
+</div>
+
 <!-- MAIN -->
 <div class="main-container" id="activites">
 
@@ -1457,6 +1528,30 @@
   </div>
 </div>
 
+<div class="newsletter-overlay" id="newsletter-overlay" onclick="closeNewsletterPopup(event)">
+  <div class="newsletter-modal">
+    <button class="newsletter-close" onclick="closeNewsletterPopup(event)" aria-label="Fermer">✕</button>
+    <div id="newsletter-form-inner">
+      <div class="newsletter-icon">💡</div>
+      <h3>En panne d'idées ?</h3>
+      <p>Marre du mini-golf ? Abonnez-vous à notre newsletter pour ne rien louper des meilleures activités de team building en Alsace.</p>
+      <form id="newsletter-form-el">
+        <input type="hidden" name="_subject" value="Nouvelle inscription newsletter — TeamBuildingAlsace">
+        <input type="hidden" name="source" value="Popup newsletter index">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="email" name="email" placeholder="vous@entreprise.fr" required aria-label="Adresse email">
+        <button type="submit" class="newsletter-submit">Je m'abonne →</button>
+      </form>
+      <button type="button" class="newsletter-dismiss" onclick="closeNewsletterPopup(event, true)">Non merci</button>
+    </div>
+    <div class="newsletter-success" id="newsletter-success">
+      <span class="success-ico">🎉</span>
+      <h4>Inscription confirmée !</h4>
+      <p>Merci ! Vous recevrez nos meilleures idées de team building en Alsace.</p>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="modal-overlay"  onclick="closeModal(event)">
   <div class="modal" id="modal-content"></div>
 </div>
@@ -1547,6 +1642,67 @@
             }
             document.getElementById('devis-form-inner').style.display = 'none';
             document.getElementById('devis-success').style.display = 'block';
+          }
+        } catch(err) { console.error(err); }
+      });
+    }
+
+    // ── POP-UP NEWSLETTER ──
+    // Cookie de préférence (pas de tracking, juste "déjà vu/déjà abonné") —
+    // via tbaGetCookie/tbaSetCookie exposées par nav.js
+    var NEWSLETTER_COOKIE = 'tba_newsletter_popup';
+    var newsletterShown = false;
+
+    function maybeShowNewsletterPopup() {
+      if (newsletterShown) return;
+      if (typeof tbaGetCookie === 'function' && tbaGetCookie(NEWSLETTER_COOKIE)) return;
+      newsletterShown = true;
+      document.getElementById('newsletter-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (typeof gtag !== 'undefined') gtag('event', 'newsletter_popup_affiche');
+    }
+    window.closeNewsletterPopup = function(e, dismissed) {
+      if (dismissed || !e || e.target === document.getElementById('newsletter-overlay') || e.currentTarget.classList.contains('newsletter-close')) {
+        document.getElementById('newsletter-overlay').classList.remove('open');
+        document.body.style.overflow = '';
+        // Ne pas écraser le cookie "subscribed" (365j) par un "dismissed" (30j)
+        // lors de la fermeture automatique après inscription réussie
+        if (typeof tbaGetCookie === 'function' && typeof tbaSetCookie === 'function' && tbaGetCookie(NEWSLETTER_COOKIE) !== 'subscribed') {
+          tbaSetCookie(NEWSLETTER_COOKIE, 'dismissed', 30);
+        }
+      }
+    };
+
+    // Déclencheur desktop : intention de sortie (souris vers le haut de la fenêtre).
+    // Activé après un court délai de grâce pour éviter tout déclenchement
+    // parasite lié au chargement initial de la page.
+    setTimeout(function() {
+      document.addEventListener('mouseout', function(e) {
+        if (!e.relatedTarget && e.clientY < 10) maybeShowNewsletterPopup();
+      });
+    }, 4000);
+    // Déclencheurs de secours (mobile + desktop qui ne quitte jamais la page) :
+    // scroll au-delà du bandeau concierge (~1400px, seuil fixe — le
+    // scrollHeight dynamique n'est pas fiable tant que les cartes ne sont
+    // pas rendues) ou 30s passées sur le site
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 1400) maybeShowNewsletterPopup();
+    }, { passive: true });
+    setTimeout(maybeShowNewsletterPopup, 30000);
+
+    var newsletterForm = document.getElementById('newsletter-form-el');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var data = new FormData(newsletterForm);
+        try {
+          var res = await fetch('https://formspree.io/f/xwvaajow', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+          if (res.ok) {
+            if (typeof gtag !== 'undefined') gtag('event', 'newsletter_inscription');
+            document.getElementById('newsletter-form-inner').style.display = 'none';
+            document.getElementById('newsletter-success').style.display = 'block';
+            if (typeof tbaSetCookie === 'function') tbaSetCookie(NEWSLETTER_COOKIE, 'subscribed', 365);
+            setTimeout(function() { window.closeNewsletterPopup(null, true); }, 2500);
           }
         } catch(err) { console.error(err); }
       });
