@@ -1745,8 +1745,9 @@
   function loadMore() {
     currentPage++;
     var grid = document.getElementById('cards-grid');
-    var next = currentData.slice(currentPage * PAGE_SIZE, (currentPage + 1) * PAGE_SIZE);
-    grid.insertAdjacentHTML('beforeend', next.map(renderActivityCard).join(''));
+    var offset = currentPage * PAGE_SIZE;
+    var next = currentData.slice(offset, offset + PAGE_SIZE);
+    grid.insertAdjacentHTML('beforeend', next.map(function(a, i) { return renderActivityCard(a, offset + i); }).join(''));
     updateLoadMoreBtn();
   }
 
@@ -1933,15 +1934,18 @@
     }); // fin forEach activities
   }
 
-  function openModal(id) {
+  function openModal(id, position) {
     const a = activities.find(x => x.id === id);
     if (!a) return;
-    // GA4 — fiche ouverte
+    // GA4 — fiche ouverte (position = rang de la carte dans la grille au
+    // moment du clic, pour distinguer un vrai intérêt d'un simple biais
+    // de position ; null si la fiche n'a pas été ouverte depuis une grille)
     if (typeof gtag !== 'undefined') gtag('event', 'fiche_ouverte', {
       activite_id: a.id,
       activite_titre: a.title,
       activite_offre: a.offre || 'gratuit',
-      activite_revendiquee: !!a.revendiquee
+      activite_revendiquee: !!a.revendiquee,
+      position_grille: (typeof position === 'number') ? position : null
     });
     const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
 

@@ -1076,7 +1076,12 @@ function getCardClass(a) {
   return 'act-card';
 }
 
-function renderActivityCard(a) {
+// `position` (optionnel, 0-based) : position de la carte dans la grille
+// au moment du rendu, pour tracker si le clic est dû à un vrai intérêt ou
+// juste à la position (biais de position). Transmis à openModal(), qui
+// l'attache à l'event GA4 fiche_ouverte si présent — ignoré sans effet
+// sur les pages qui ne le passent pas.
+function renderActivityCard(a, position) {
   const tagHtml = (a.tags || []).map(t =>
     `<span class="card-tag ${t.cls}">${t.label}</span>`
   ).join('');
@@ -1105,8 +1110,10 @@ function renderActivityCard(a) {
       class="card-lazy-img"
     >` : `<div class="card-img-placeholder">${a.emoji || '🎯'}</div>`;
 
+  const posArg = (typeof position === 'number') ? position + 1 : 'null';
+
   return `
-    <div class="${getCardClass(a)}" onclick="openModal(${a.id})">
+    <div class="${getCardClass(a)}" onclick="openModal(${a.id}, ${posArg})">
       <div class="card-img" style="${containerStyle}">
         ${imgHtml}
         <div class="card-badge">${a.duree}</div>
