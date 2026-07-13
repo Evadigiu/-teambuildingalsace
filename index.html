@@ -1970,9 +1970,19 @@
       ? `<button class="btn-primary" onclick="openDevis('${a.title.replace(/'/g, "\'")}', 'fiche_activite')">Demander un devis</button>`
       : '';
 
-    // ── Fiche non revendiquée : ligne discrète en fin de modale ──
+    // ── Fiche non revendiquée : ligne discrète en fin de modale (côté presta) ──
     const claimLineHtml = !a.revendiquee
       ? `<a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="modal-claim-line" onclick="if(typeof gtag!=='undefined')gtag('event','revendiquer_clic',{activite_titre:'${a.title.replace(/'/g,"\'")}',source:'modale_footer'})">Référencez votre activité ici →</a>`
+      : '';
+
+    // ── Fiche non revendiquée : CTA côté client, pour ne pas laisser la
+    //     modale sur une impression de vide. Honnête : ne promet pas de
+    //     contact avec CE prestataire (non vérifié), propose une
+    //     alternative — réutilise la modale devis avec un source dédié
+    //     pour identifier quelles fiches non revendiquées génèrent un
+    //     vrai intérêt (utile pour prioriser le démarchage). ──
+    const concergeHtml = !a.revendiquee
+      ? `<button class="btn-primary" onclick="openDevis('Intérêt pour : ${a.title.replace(/'/g, "\'")}', 'fiche_non_revendiquee')">Cette activité vous tente ? On s'en occupe →</button>`
       : '';
 
     // ── Site web : essentiel+ (UTM ajoutés pour que le prestataire voie
@@ -2022,7 +2032,7 @@
     html += '<div class="modal-tags">' + a.tags.map(function(t){ return '<span class="card-tag ' + t.cls + '">' + t.label + '</span>'; }).join('') + '</div>';
     html += siteHtml;
     html += coordHtml;
-    if (ctaHtml) html += '<div class="modal-cta">' + ctaHtml + '</div>';
+    if (ctaHtml || concergeHtml) html += '<div class="modal-cta">' + (ctaHtml || concergeHtml) + '</div>';
     html += extraImages;
     html += claimLineHtml;
     html += '</div>';
