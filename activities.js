@@ -1043,6 +1043,24 @@ const universLabels = {
 // ── Rendu d'une carte activité (utilisé sur toutes les pages) ──
 // Niveaux : gratuit < essentiel < visible < partenaire < categorie
 
+// ── UTM sur les liens sortants vers le site des prestataires ──
+// Permet au prestataire de voir dans SON propre Analytics que le trafic
+// vient de TeamBuildingAlsace.fr. Construit à la volée (pas stocké dans
+// les fiches) pour ne pas dupliquer la logique UTM sur 38+ enregistrements.
+function buildUtmUrl(url, activiteId) {
+  if (!url) return url;
+  try {
+    var u = new URL(url);
+    u.searchParams.set('utm_source', 'teambuildingalsace');
+    u.searchParams.set('utm_medium', 'referral');
+    u.searchParams.set('utm_campaign', 'fiche_activite');
+    u.searchParams.set('utm_content', String(activiteId));
+    return u.toString();
+  } catch (e) {
+    return url;
+  }
+}
+
 function getOffreBadge(a) {
   const offre = a.offre || (a.revendiquee ? 'essentiel' : 'gratuit');
   if (offre === 'visible')    return '<div class="offre-badge offre-visible"><span class="badge-tick">✓</span> Vérifié</div>';

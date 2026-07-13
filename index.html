@@ -1963,15 +1963,17 @@
       ? `<a href="referencer.html?activite=${encodeURIComponent(a.title)}" class="modal-claim-line" onclick="if(typeof gtag!=='undefined')gtag('event','revendiquer_clic',{activite_titre:'${a.title.replace(/'/g,"\'")}',source:'modale_footer'})">Référencez votre activité ici →</a>`
       : '';
 
-    // ── Site web : essentiel+ ──
+    // ── Site web : essentiel+ (UTM ajoutés pour que le prestataire voie
+    //     ce trafic dans son propre Analytics) ──
+    const actTitleEsc = a.title.replace(/'/g, "\\'");
     const siteHtml = (offre === 'essentiel' || offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire && a.partenaire.site
-      ? `<a href="${a.partenaire.site}" target="_blank" class="modal-site-link">🔗 ${a.partenaire.site.replace(/^https?:\/\//, '')}</a>` : '';
+      ? `<a href="${buildUtmUrl(a.partenaire.site, a.id)}" target="_blank" class="modal-site-link" onclick="if(typeof gtag!=='undefined')gtag('event','site_prestataire_clic',{activite_titre:'${actTitleEsc}'})">🔗 ${a.partenaire.site.replace(/^https?:\/\//, '')}</a>` : '';
 
     // ── Coordonnées (téléphone / email) : essentiel+ ──
     var coordItems = [];
     if ((offre === 'essentiel' || offre === 'visible' || offre === 'partenaire' || offre === 'categorie') && a.partenaire) {
-      if (a.partenaire.telephone) coordItems.push('📞 <a href="tel:' + a.partenaire.telephone.replace(/\s/g,'') + '">' + a.partenaire.telephone + '</a>');
-      if (a.partenaire.email) coordItems.push('✉️ <a href="mailto:' + a.partenaire.email + '">' + a.partenaire.email + '</a>');
+      if (a.partenaire.telephone) coordItems.push('📞 <a href="tel:' + a.partenaire.telephone.replace(/\s/g,'') + '" onclick="if(typeof gtag!==\'undefined\')gtag(\'event\',\'telephone_clic\',{activite_titre:\'' + actTitleEsc + '\'})">' + a.partenaire.telephone + '</a>');
+      if (a.partenaire.email) coordItems.push('✉️ <a href="mailto:' + a.partenaire.email + '" onclick="if(typeof gtag!==\'undefined\')gtag(\'event\',\'email_clic\',{activite_titre:\'' + actTitleEsc + '\'})">' + a.partenaire.email + '</a>');
     }
     const coordHtml = coordItems.length ? '<div class="modal-coord">' + coordItems.join(' &nbsp;·&nbsp; ') + '</div>' : '';
 
