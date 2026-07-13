@@ -1338,7 +1338,7 @@
 
 <div class="concierge-banner">
   <div class="concierge-banner-text"><strong>Pas d'inspi ?</strong> Parlez-nous de vous et on vous concocte le meilleur team building en Alsace.</div>
-  <button type="button" class="concierge-banner-btn" onclick="openDevis('Demande spontanée — bandeau concierge')">Être recontacté(e) →</button>
+  <button type="button" class="concierge-banner-btn" onclick="openDevis('Demande spontanée — bandeau concierge', 'bandeau_concierge')">Être recontacté(e) →</button>
 </div>
 
 <!-- MAIN -->
@@ -1481,6 +1481,7 @@
       <div class="devis-form" id="devis-form-inner">
         <form id="devis-form-el" class="devis-form">
           <input type="hidden" name="activite" id="devis-act-field">
+          <input type="hidden" name="source" id="devis-source-field">
           <div class="devis-row">
             <div class="devis-field">
               <label>Prénom & Nom *</label>
@@ -1607,14 +1608,20 @@
   }
 
   // ── MODALE DEVIS ──
-  function openDevis(actTitle) {
+  // source : d'où vient l'ouverture ("fiche_activite" par défaut, ou
+  // "bandeau_concierge" depuis le bandeau au-dessus des filtres) — permet
+  // de comparer cette source de leads aux formulaires concierge des
+  // pages-villes dans GA4 (même paramètre "source").
+  function openDevis(actTitle, source) {
+    source = source || 'fiche_activite';
     // GA4 — devis ouvert
-    if (typeof gtag !== 'undefined') gtag('event', 'devis_ouvert', { activite_titre: actTitle });
+    if (typeof gtag !== 'undefined') gtag('event', 'devis_ouvert', { activite_titre: actTitle, source: source });
     // Fermer la modale activité d'abord
     document.getElementById('modal-overlay').classList.remove('open');
     // Ouvrir la modale devis
     document.getElementById('devis-act-name').textContent = actTitle;
     document.getElementById('devis-act-field').value = actTitle;
+    document.getElementById('devis-source-field').value = source;
     document.getElementById('devis-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -1638,7 +1645,8 @@
             // GA4 — devis soumis
             if (typeof gtag !== 'undefined') {
               var actName = document.getElementById('devis-act-field') ? document.getElementById('devis-act-field').value : '';
-              gtag('event', 'devis_soumis', { activite_titre: actName });
+              var sourceVal = document.getElementById('devis-source-field') ? document.getElementById('devis-source-field').value : '';
+              gtag('event', 'devis_soumis', { activite_titre: actName, source: sourceVal });
             }
             document.getElementById('devis-form-inner').style.display = 'none';
             document.getElementById('devis-success').style.display = 'block';
@@ -1955,7 +1963,7 @@
     // ── Bouton "Demander un devis" : réservé à Visible/Partenaire/Officiel
     //     (Essentiel ne bénéficie pas de la transmission de leads par la plateforme) ──
     const ctaHtml = (offre === 'visible' || offre === 'partenaire' || offre === 'categorie')
-      ? `<button class="btn-primary" onclick="openDevis('${a.title.replace(/'/g, "\'")}')">Demander un devis</button>`
+      ? `<button class="btn-primary" onclick="openDevis('${a.title.replace(/'/g, "\'")}', 'fiche_activite')">Demander un devis</button>`
       : '';
 
     // ── Fiche non revendiquée : ligne discrète en fin de modale ──
