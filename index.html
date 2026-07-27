@@ -1077,13 +1077,46 @@
     .search-bar input::placeholder { color: rgba(255,255,255,0.38); }
     .search-btn { padding: 10px 20px; background: linear-gradient(135deg, var(--violet), var(--violet-clair)); color: white; border: none; border-radius: 100px; font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.82rem; font-weight: 700; cursor: pointer; white-space: nowrap; box-shadow: 0 4px 14px rgba(91,46,255,0.4); transition: transform 0.15s; }
     .search-btn:hover { transform: scale(1.04); }
-    .suggestions { position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: white; border-radius: 14px; box-shadow: 0 16px 50px rgba(0,0,0,0.2); overflow: hidden; display: none; z-index: 9999; }
-    .suggestions.on { display: block; }
-    .sug-item { padding: 11px 18px; cursor: pointer; font-size: 0.86rem; color: var(--noir); font-weight: 500; transition: background 0.15s; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--bordure); }
-    .sug-item:last-child { border-bottom: none; }
-    .sug-item:hover { background: var(--gris-clair); }
-    .sug-type { font-size: 0.65rem; color: #bbb; margin-left: auto; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
-    .sug-empty { padding: 18px; text-align: center; font-size: 0.84rem; color: #bbb; }
+    .suggestions {
+      position: absolute; top: calc(100% + 10px); left: 0; right: 0; background: white;
+      border-radius: 16px; box-shadow: 0 20px 60px rgba(13,13,13,0.28), 0 2px 8px rgba(13,13,13,0.06);
+      overflow: hidden; display: none; z-index: 9999; max-height: 70vh; overflow-y: auto;
+      opacity: 0; transform: translateY(-6px); transition: opacity 0.16s ease, transform 0.16s ease;
+      padding: 6px;
+    }
+    .suggestions.on { display: block; opacity: 1; transform: translateY(0); }
+    .sug-item {
+      padding: 10px 12px; cursor: pointer; color: var(--noir); font-weight: 500;
+      transition: background 0.15s; display: flex; align-items: center; gap: 12px;
+      border-radius: 11px;
+    }
+    .sug-item:hover, .sug-item:active { background: var(--gris-clair); }
+    .sug-icon {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 11px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.15rem;
+      background: var(--gris-clair);
+    }
+    .sug-icon--activite { background: rgba(91,46,255,0.1); }
+    .sug-icon--ville     { background: rgba(0,229,160,0.14); }
+    .sug-icon--cat       { background: rgba(240,192,96,0.22); }
+    .sug-body { min-width: 0; flex: 1; }
+    .sug-title {
+      font-weight: 700; font-size: 0.88rem; color: var(--noir);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .sug-title mark { background: none; color: var(--violet); font-weight: 800; }
+    .sug-sub {
+      font-size: 0.75rem; color: #999; margin-top: 1px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .sug-type {
+      flex-shrink: 0; font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.06em; padding: 4px 10px; border-radius: 100px;
+    }
+    .sug-type--activite { background: rgba(91,46,255,0.1); color: var(--violet); }
+    .sug-type--ville     { background: rgba(0,229,160,0.16); color: #00A87A; }
+    .sug-type--cat       { background: rgba(240,192,96,0.28); color: #8A6412; }
+    .sug-empty { padding: 26px 18px; text-align: center; font-size: 0.84rem; color: #aaa; }
 
     /* ======= VILLES ======= */
     .villes-section { background: white; padding: 36px 40px; border-bottom: 1px solid var(--bordure); }
@@ -1129,6 +1162,11 @@
     @media (max-width: 768px) {
       .villes-section { padding: 24px 16px; }
       .search-wrap { margin: 16px 0 0; }
+      .suggestions { left: -4px; right: -4px; max-height: 60vh; border-radius: 14px; }
+      .sug-item { padding: 12px 10px; gap: 10px; }
+      .sug-icon { width: 36px; height: 36px; font-size: 1.05rem; }
+      .sug-title { font-size: 0.9rem; }
+      .sug-type { display: none; }
 
       /* Villes : grille 2 colonnes sur mobile */
       .villes-grid {
@@ -2190,6 +2228,16 @@
     { type: 'cat', label: 'Stratégie & Logique', sub: 'Jeux de construction, logique', emoji: '🧠', val: 'strategie' }
   ]);
 
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function highlightMatch(label, q) {
+    var idx = label.toLowerCase().indexOf(q);
+    if (idx === -1) return escapeHtml(label);
+    return escapeHtml(label.slice(0, idx)) + '<mark>' + escapeHtml(label.slice(idx, idx + q.length)) + '</mark>' + escapeHtml(label.slice(idx + q.length));
+  }
+
   function showSuggestions(val) {
     var box = document.getElementById('suggestions');
     if (!val || !val.trim()) { box.classList.remove('on'); return; }
@@ -2199,17 +2247,18 @@
     }).slice(0, 6);
     var html = '';
     if (res.length === 0) {
-      html = '<div class="sug-empty">Aucun résultat...</div>';
+      html = '<div class="sug-empty">🔍 Aucun résultat pour « ' + escapeHtml(val) + ' »</div>';
     } else {
       for (var i = 0; i < res.length; i++) {
         var r = res[i];
         var tl = r.type === 'activite' ? 'Activité' : r.type === 'ville' ? 'Ville' : 'Catégorie';
         var v = r.type === 'activite' ? r.id : r.val;
         html += '<div class="sug-item" onmousedown="pickSug(\'' + r.type + '\',\'' + v + '\')">';
-        html += '<span>' + r.emoji + '</span>';
-        html += '<div><div style="font-weight:600">' + r.label + '</div>';
-        html += '<div style="font-size:0.73rem;color:#aaa">' + r.sub + '</div></div>';
-        html += '<span class="sug-type">' + tl + '</span></div>';
+        html += '<span class="sug-icon sug-icon--' + r.type + '">' + r.emoji + '</span>';
+        html += '<div class="sug-body">';
+        html += '<div class="sug-title">' + highlightMatch(r.label, q) + '</div>';
+        html += '<div class="sug-sub">' + escapeHtml(r.sub) + '</div></div>';
+        html += '<span class="sug-type sug-type--' + r.type + '">' + tl + '</span></div>';
       }
     }
     box.innerHTML = html;

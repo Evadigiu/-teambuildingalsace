@@ -552,7 +552,7 @@
       <div id="recap-content"></div>
       <div class="field-group" style="margin-top:24px">
         <label class="check-item" style="border-color:var(--bordure)">
-          <input type="checkbox" name="cgv" required>
+          <input type="checkbox" name="cgv">
           J'accepte que mes informations soient publiées sur teambuildingalsace.fr et je certifie être le représentant légal de la structure.
         </label>
       </div>
@@ -639,6 +639,9 @@
   // vide, même si l'utilisateur scrolle directement au formulaire sans passer par les
   // cartes de tarifs.
   updateForfaitRecap('essentiel');
+  document.querySelector('[name="cgv"]').addEventListener('change', function() {
+    if (this.checked) this.closest('.check-item').style.borderColor = '';
+  });
   function goToStep(n) {
     document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.progress-step').forEach((s, i) => { s.classList.remove('active','done'); if(i+1<n) s.classList.add('done'); if(i+1===n) s.classList.add('active'); });
@@ -715,6 +718,18 @@
   document.getElementById('main-form').addEventListener('submit', function(e) {
     e.preventDefault();
     var form = this;
+
+    // Case CGV requise — pas couverte par validateStep() (dernière étape).
+    // Sur mobile (Safari notamment), le navigateur ne montre pas toujours
+    // sa bulle de validation native : sans ce contrôle manuel, le bouton
+    // "Envoyer ma demande" semble ne rien faire si la case n'est pas cochée.
+    var cgvBox = form.querySelector('[name="cgv"]');
+    if (!cgvBox.checked) {
+      cgvBox.closest('.check-item').style.borderColor = 'tomato';
+      cgvBox.closest('.check-item').scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
     var btn = form.querySelector('[type=submit]');
     btn.textContent = 'Envoi en cours…'; btn.disabled = true;
 
