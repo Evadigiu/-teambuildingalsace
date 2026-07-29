@@ -1268,6 +1268,10 @@
           <span class="d-emoji">🧠</span>
           <span class="d-info"><span class="d-name">Stratégie & Logique</span><span class="d-count">Réflexion, construction</span></span>
         </a>
+        <a href="engage.html" class="dropdown-item">
+          <span class="d-emoji">🤝</span>
+          <span class="d-info"><span class="d-name">Engagé & Solidaire</span><span class="d-count">ESAT, RSE, actions solidaires</span></span>
+        </a>
       </div>
     </div>
     <a href="blog.html">Blog</a>
@@ -1313,6 +1317,7 @@
       <a href="culture.html" onclick="toggleMenu()">🎭 Culture & Patrimoine</a>
       <a href="wtf.html" onclick="toggleMenu()">🛸 What the Fuck</a>
       <a href="strategie.html" onclick="toggleMenu()">🧠 Stratégie & Logique</a>
+      <a href="engage.html" onclick="toggleMenu()">🤝 Engagé & Solidaire</a>
     </div>
   </div>
 
@@ -1347,7 +1352,7 @@
   <div class="hero-stats">
     <div class="stat-item"><span class="stat-num" id="total-count">0</span><span class="stat-label">Activités</span></div>
     <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Villes</span></div>
-    <div class="stat-item"><span class="stat-num">9</span><span class="stat-label">Univers</span></div>
+    <div class="stat-item"><span class="stat-num">10</span><span class="stat-label">Univers</span></div>
     <div class="stat-item"><span class="stat-num">9</span><span class="stat-label">Objectifs</span></div>
   </div>
 </div>
@@ -1418,6 +1423,7 @@
         <div class="tag" data-filter="univers" data-val="culture">🎭 Culture & Patrimoine</div>
         <div class="tag" data-filter="univers" data-val="wtf">🛸 What the Fuck</div>
         <div class="tag" data-filter="univers" data-val="strategie">🧠 Stratégie & Logique</div>
+        <div class="tag" data-filter="univers" data-val="engage">🤝 Engagé & Solidaire</div>
       </div>
     </div>
 
@@ -2128,7 +2134,7 @@
 
   function updateCounters() {
     var villes = ['strasbourg','colmar','mulhouse','vosges','selestat','saint-louis'];
-    var univers = ['nature','gastronomie','creatif','bienetre','sport','jeux','culture','wtf','strategie'];
+    var univers = ['nature','gastronomie','creatif','bienetre','sport','jeux','culture','wtf','strategie','engage'];
     var total = activities.length;
 
     // ── Bouton "Toutes" ──
@@ -2225,7 +2231,8 @@
     { type: 'cat', label: 'Jeux & Digital', sub: 'Quiz, escape game', emoji: '🎮', val: 'jeux' },
     { type: 'cat', label: 'Culture & Patrimoine', sub: 'Alsace et histoire', emoji: '🎭', val: 'culture' },
     { type: 'cat', label: 'What the Fuck', sub: 'Activités inclassables', emoji: '🛸', val: 'wtf' },
-    { type: 'cat', label: 'Stratégie & Logique', sub: 'Jeux de construction, logique', emoji: '🧠', val: 'strategie' }
+    { type: 'cat', label: 'Stratégie & Logique', sub: 'Jeux de construction, logique', emoji: '🧠', val: 'strategie' },
+    { type: 'cat', label: 'Engagé & Solidaire', sub: 'ESAT, RSE, actions solidaires', emoji: '🤝', val: 'engage' }
   ]);
 
   function escapeHtml(s) {
