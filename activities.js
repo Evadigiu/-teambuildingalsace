@@ -1317,9 +1317,7 @@ const activities = [
   offre: "partenaire",
   partenaire: {
     nom: "SapoCycle France",
-    site: "https://france.sapocycle.org",
-    telephone: "06 20 08 25 04",
-    email: "france@sapocycle.org"
+    site: "https://france.sapocycle.org"
   },
   title: "Fabrique ton savon solidaire",
   location: "165 rue du Ladhof, Colmar",
