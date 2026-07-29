@@ -1310,6 +1310,42 @@ const activities = [
     { label: "Bien-être & Slow", cls: "cat-bienetre" },
     { label: "Indoor", cls: "cat-indoor" }
   ]
+},
+{
+  id: 65,
+  revendiquee: true,
+  offre: "partenaire",
+  partenaire: {
+    nom: "SapoCycle France",
+    site: "https://france.sapocycle.org",
+    telephone: "06 20 08 25 04",
+    email: "france@sapocycle.org"
+  },
+  title: "Fabrique ton savon solidaire",
+  location: "165 rue du Ladhof, Colmar",
+  lat: 48.0921,
+  lng: 7.3757,
+  description: "Fabriquez des savons solidaires lors d'un atelier immersif au sein d'un ESAT. Guidés par des formateurs en situation de handicap, les participants découvrent les étapes de fabrication tout en partageant un moment riche en échanges, en sensibilisation et en cohésion d'équipe. Une expérience humaine porteuse de sens.",
+  objectifs: ["cohesion", "stress", "rse"],
+  univers: ["bienetre", "engage"],
+  format: ["moins2h"],
+  saison: ["toutesaisons"],
+  env: ["indoor"],
+  prixMin: 70,
+  participantsMin: 6,
+  participantsMax: 10,
+  duree: "2 heures",
+  emoji: "🧼",
+  gradient: "linear-gradient(135deg, #56ab2f, #a8e063)",
+  image: "images/sapocycle-1.webp",
+  images: ["images/sapocycle-1.webp", "images/sapocycle-2.webp", "images/sapocycle-3.webp", "images/sapocycle-4.webp"],
+  tags: [
+    { label: "Cohésion", cls: "cat-cohesion" },
+    { label: "RSE", cls: "cat-rse" },
+    { label: "Engagé & Solidaire", cls: "cat-engage" },
+    { label: "Bien-être & Slow", cls: "cat-bienetre" },
+    { label: "Indoor", cls: "cat-indoor" }
+  ]
 }
   ]
 
@@ -1335,6 +1371,7 @@ const universLabels = {
   culture: 'Culture & Patrimoine',
   wtf: 'What the Fuck',
   strategie: 'Stratégie & Logique',
+  engage: 'Engagé & Solidaire',
 };
 
 // ── Rendu d'une carte activité (utilisé sur toutes les pages) ──

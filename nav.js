@@ -390,6 +390,10 @@
           <span class="d-emoji">🧠</span>
           <span class="d-info"><span class="d-name">Stratégie & Logique</span><span class="d-count">Réflexion, construction</span></span>
         </a>
+        <a href="engage.html" class="dropdown-item">
+          <span class="d-emoji">🤝</span>
+          <span class="d-info"><span class="d-name">Engagé & Solidaire</span><span class="d-count">ESAT, RSE, actions solidaires</span></span>
+        </a>
       </div>
     </div>
     <a href="blog.html">Blog</a>
@@ -433,6 +437,7 @@
       <a href="culture.html" onclick="toggleMenu()">🎭 Culture & Patrimoine</a>
       <a href="wtf.html" onclick="toggleMenu()">🛸 What the Fuck</a>
       <a href="strategie.html" onclick="toggleMenu()">🧠 Stratégie & Logique</a>
+      <a href="engage.html" onclick="toggleMenu()">🤝 Engagé & Solidaire</a>
     </div>
   </div>
   <a href="blog.html" onclick="toggleMenu()">Blog</a>
