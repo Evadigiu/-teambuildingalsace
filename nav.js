@@ -202,7 +202,7 @@
       .hamburger.open span:nth-child(2) { opacity: 0; }
       .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-      /* ── Header / nav desktop — source unique, remplace les copies
+      /* ── Header / nav desktop, source unique, remplace les copies
            divergentes laissées dans le <style> de chaque page ── */
       header {
         background: var(--noir, #0D0D0D);

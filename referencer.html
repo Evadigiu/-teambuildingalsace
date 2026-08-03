@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Référencer mon activité — Team Building Alsace</title>
-  <meta name="description" content="Référencez votre activité de team building en Alsace sur teambuildingalsace.fr — à partir de 39€/mois.">
+  <title>Référencer mon activité, Team Building Alsace</title>
+  <meta name="description" content="Référencez votre activité de team building en Alsace sur teambuildingalsace.fr, à partir de 39€/mois.">
   <link rel="canonical" href="https://teambuildingalsace.fr/referencer.html">
   <meta property="og:url" content="https://teambuildingalsace.fr/referencer.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -299,7 +299,7 @@
       <div class="tarif-sep"></div>
       <div class="tarif-features">
         <div class="tarif-feature"><span class="ico">✓</span><span>Fiche complète : 5 photos, emplacement exact, lien vers votre site</span></div>
-        <div class="tarif-feature"><span class="ico">✓</span><span>Badge ✓ Vérifié — gage de confiance auprès des RH</span></div>
+        <div class="tarif-feature"><span class="ico">✓</span><span>Badge ✓ Vérifié, gage de confiance auprès des RH</span></div>
         <div class="tarif-feature"><span class="ico">✓</span><span>Formulaire de devis + transmission des leads en direct</span></div>
         <div class="tarif-feature"><span class="ico ico--non">✗</span><span style="color:#ccc">Pas encore de position prioritaire ni de mise en avant home</span></div>
       </div>
@@ -383,7 +383,7 @@
       <div class="reassurance-item">
         <div class="reassurance-icon">🎯</div>
         <div class="reassurance-val">100%</div>
-        <div class="reassurance-label">focus team building Alsace — sans concurrence nationale</div>
+        <div class="reassurance-label">focus team building Alsace, sans concurrence nationale</div>
       </div>
     </div>
     <div style="display:flex;justify-content:center;gap:32px;margin-top:28px;flex-wrap:wrap">
@@ -402,7 +402,7 @@
       <span class="forfait-recap-badge" id="recap-badge">Visible</span>
       <div>
         <div class="forfait-recap-name" id="recap-name">Visible ⭐</div>
-        <div class="forfait-recap-price" id="recap-price">69€ / mois — ou 745€ / an (−10%)</div>
+        <div class="forfait-recap-price" id="recap-price">69€ / mois, ou 745€ / an (−10%)</div>
       </div>
     </div>
     <span class="forfait-recap-change" onclick="document.getElementById('tarifs').scrollIntoView({behavior:'smooth'})">Changer de forfait ↑</span>
@@ -416,7 +416,7 @@
   </div>
 
   <form name="referencer-activite" method="POST" id="main-form">
-    <input type="hidden" name="_subject" value="Nouvelle demande de référencement — TeamBuildingAlsace.fr">
+    <input type="hidden" name="_subject" value="Nouvelle demande de référencement, TeamBuildingAlsace.fr">
 
     <div class="form-section active" id="step-1">
       <div class="section-title">Votre structure</div>
@@ -578,7 +578,7 @@
 </div>
 
 <footer>
-  &copy; 2026 <span style="color:var(--vert);font-weight:700">TeamBuildingAlsace.fr</span> — La référence du team building en Alsace.
+  &copy; 2026 <span style="color:var(--vert);font-weight:700">TeamBuildingAlsace.fr</span>, La référence du team building en Alsace.
   <br>
   <a href="mentions-legales.html" style="color:rgba(255,255,255,0.35);text-decoration:none;font-size:0.72rem;margin:6px 8px 0;display:inline-block;transition:color 0.2s" onmouseover="this.style.color='#00E5A0'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Mentions légales</a>
   <a href="cgv.html" style="color:rgba(255,255,255,0.35);text-decoration:none;font-size:0.72rem;margin:6px 8px 0;display:inline-block;transition:color 0.2s" onmouseover="this.style.color='#00E5A0'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">CGV</a>
@@ -610,7 +610,7 @@
     if (!n) return;
     document.getElementById('recap-badge').textContent = n.badge;
     document.getElementById('recap-name').textContent = n.name;
-    document.getElementById('recap-price').textContent = isAnnuel ? n.price_a + ' — économisez 10%' : n.price_m;
+    document.getElementById('recap-price').textContent = isAnnuel ? n.price_a + ', économisez 10%' : n.price_m;
     document.getElementById('forfait-recap').classList.add('visible');
     // Ajouter hidden field période
     var existing = document.querySelector('[name="periode_facturation"]');
@@ -691,8 +691,8 @@
   }
   function buildRecap() {
     const f = document.getElementById('main-form');
-    const get = n => f.querySelector(`[name="${n}"]`)?.value || '—';
-    const getChecked = n => [...f.querySelectorAll(`[name="${n}"]:checked`)].map(c=>c.value).join(', ') || '—';
+    const get = n => f.querySelector(`[name="${n}"]`)?.value || ', ';
+    const getChecked = n => [...f.querySelectorAll(`[name="${n}"]:checked`)].map(c=>c.value).join(', ') || ', ';
     document.getElementById('recap-content').innerHTML = `
       <div class="recap-block"><h4>Votre structure</h4>
         <div class="recap-line"><span>Structure</span><strong>${get('structure_nom')}</strong></div>
@@ -712,7 +712,7 @@
       </div>
       <div class="recap-block"><h4>Tarifs</h4>
         <div class="recap-line"><span>Prix min.</span><strong>${get('prix_min')} €/pers.</strong></div>
-        <div class="recap-line"><span>Participants</span><strong>${get('participants_min')} – ${get('participants_max')} pers.</strong></div>
+        <div class="recap-line"><span>Participants</span><strong>${get('participants_min')} à ${get('participants_max')} pers.</strong></div>
       </div>`;
   }
   document.getElementById('main-form').addEventListener('submit', function(e) {
@@ -747,7 +747,7 @@
       formData.append('_replyto', emailField.value);
       formData.append('email', emailField.value);
     }
-    formData.append('_subject', 'Nouvelle demande de référencement — TeamBuildingAlsace.fr');
+    formData.append('_subject', 'Nouvelle demande de référencement, TeamBuildingAlsace.fr');
     formData.append('_next', 'https://teambuildingalsace.fr/referencer.html?merci=1');
 
     fetch('https://formspree.io/f/xkoqlnpg', { method:'POST', headers:{'Accept':'application/json'}, body: formData })
