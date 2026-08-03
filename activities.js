@@ -196,7 +196,7 @@ const activities = [
     nom: "EVA",
     site: "https://www.eva.gg/fr-FR/your-events/team-building",
   },
-  title: "Team Building Réalité Virtuelle — EVA Mulhouse",
+  title: "Team Building Réalité Virtuelle, EVA Mulhouse",
   location: "6 Rue du Nonnenbruch, Wittenheim",
   lat: 47.8089,
   lng: 7.3364,
@@ -233,7 +233,7 @@ const activities = [
   location: "6 Rue du Nonnenbruch, Wittenheim",
   lat: 47.8089,
   lng: 7.3364,
-  description: "1 500 m² d'espaces de jeux à Wittenheim pour un team building original et sur-mesure. Trampoline, Ninja Warrior, Puissance 4 basket, arcades — jusqu'à 100 personnes dans un cadre fun et convivial. Salle de 200 m² avec écran et vidéoprojecteur disponible pour vos temps de travail.",
+  description: "1 500 m² d'espaces de jeux à Wittenheim pour un team building original et sur-mesure. Trampoline, Ninja Warrior, Puissance 4 basket, arcades, jusqu'à 100 personnes dans un cadre fun et convivial. Salle de 200 m² avec écran et vidéoprojecteur disponible pour vos temps de travail.",
   objectifs: ["cohesion", "communication", "stress"],
   univers: ["sport", "jeux"],
   env: ["indoor"],
@@ -682,7 +682,7 @@ const activities = [
     location: "Hésingue",
     lat: 47.5897,
     lng: 7.5214,
-    description: "Plus de 20 variétés de végétaux, un pistolet à colle, des tabliers — et l'objectif de créer ensemble une fresque murale qui ne ressemble à aucune autre. L'atelier Végétal'Art ne demande aucun talent artistique préalable, juste l'envie de faire quelque chose avec ses mains en équipe. En 2 heures, les groupes de 6 à 12 personnes découvrent que la cohésion peut aussi se construire dans le silence concentré d'une création collective. Relaxant, ancrant, et franchement beau à voir.",
+    description: "Plus de 20 variétés de végétaux, un pistolet à colle, des tabliers, et l'objectif de créer ensemble une fresque murale qui ne ressemble à aucune autre. L'atelier Végétal'Art ne demande aucun talent artistique préalable, juste l'envie de faire quelque chose avec ses mains en équipe. En 2 heures, les groupes de 6 à 12 personnes découvrent que la cohésion peut aussi se construire dans le silence concentré d'une création collective. Relaxant, ancrant, et franchement beau à voir.",
     objectifs: ["cohesion", "stress", "rse"],
     univers: ["creatif", "bienetre", "nature"],
     format: ["demijournee"],
@@ -706,11 +706,11 @@ const activities = [
     id: 28,
     revendiquee: false,
     offre: "gratuit",
-    title: "Échappée Colorée — Atelier Peinture Sur Mesure",
+    title: "Échappée Colorée, Atelier Peinture Sur Mesure",
     location: "Saint-Louis",
     lat: 47.5896,
     lng: 7.5036,
-    description: "Couleurs, formes et thèmes à personnaliser : l'Échappée Colorée est un atelier peinture conçu pour ceux qui veulent s'évader le temps d'une session. Mandala, lâcher-prise, exploration créative libre — chaque séance se construit autour des envies du groupe. En duo, trio ou quatuor, dans une ambiance conviviale et sans pression artistique. Les weekends, sur rendez-vous, pour 2 à 4 heures selon l'élan du moment.",
+    description: "Couleurs, formes et thèmes à personnaliser : l'Échappée Colorée est un atelier peinture conçu pour ceux qui veulent s'évader le temps d'une session. Mandala, lâcher-prise, exploration créative libre, chaque séance se construit autour des envies du groupe. En duo, trio ou quatuor, dans une ambiance conviviale et sans pression artistique. Les weekends, sur rendez-vous, pour 2 à 4 heures selon l'élan du moment.",
     objectifs: ["stress", "cohesion", "onboarding"],
     univers: ["creatif", "bienetre"],
     format: ["demijournee"],
@@ -760,11 +760,11 @@ const activities = [
     id: 30,
     revendiquee: false,
     offre: "gratuit",
-    title: "Olympiade Football — FIVE Saint-Louis",
+    title: "Olympiade Football, FIVE Saint-Louis",
     location: "Saint-Louis",
     lat: 47.5896,
     lng: 7.5036,
-    description: "Bubble foot, foot billard, crossbar challenge, mur digital interactif — FIVE transforme le football en terrain de cohésion. L'olympiade se déroule en plusieurs épreuves ludiques et progressives, accessible à tous les niveaux y compris ceux qui n'ont pas touché un ballon depuis le lycée. Chaque défi encourage la communication, l'esprit d'équipe et le dépassement collectif dans une ambiance qui monte vite. Le format idéal pour les entreprises qui veulent une activité sportive et fédératrice sans se ruiner.",
+    description: "Bubble foot, foot billard, crossbar challenge, mur digital interactif, FIVE transforme le football en terrain de cohésion. L'olympiade se déroule en plusieurs épreuves ludiques et progressives, accessible à tous les niveaux y compris ceux qui n'ont pas touché un ballon depuis le lycée. Chaque défi encourage la communication, l'esprit d'équipe et le dépassement collectif dans une ambiance qui monte vite. Le format idéal pour les entreprises qui veulent une activité sportive et fédératrice sans se ruiner.",
     objectifs: ["cohesion", "communication", "commercial"],
     univers: ["sport", "jeux"],
     format: ["demijournee"],
@@ -786,7 +786,7 @@ const activities = [
   },
     {
   id: 31,
-  title: "Journée Groupe — Nature & Sensations en Forêt Vosgienne",
+  title: "Journée Groupe, Nature & Sensations en Forêt Vosgienne",
   location: "Hautes-Vosges",
   ville: "vosges",
   univers: ["nature", "sport", "wtf"],
@@ -796,7 +796,7 @@ const activities = [
   saison: ["printempsete", "automne"],
   participantsMin: 15,
   participantsMax: 200,
-  duree: "Journée complète (09h30 – 17h30)",
+  duree: "Journée complète (09h30 à 17h30)",
   prixMin: 39,
   prixMax: 82,
   emoji: "🌲",
@@ -804,7 +804,7 @@ const activities = [
   image: "images/accrobranche.webp",
   revendiquee: false,
   offre: "gratuit",
-  description: "Tyroliennes, saut à l'élastique, jeu de piste en forêt, repas inclus — une journée complète en pleine nature vosgienne pour les groupes à partir de 15 personnes. Pot d'accueil, parcours d'aventure le matin, activité au choix l'après-midi.",
+  description: "Tyroliennes, saut à l'élastique, jeu de piste en forêt, repas inclus, une journée complète en pleine nature vosgienne pour les groupes à partir de 15 personnes. Pot d'accueil, parcours d'aventure le matin, activité au choix l'après-midi.",
   tags: ["tyrolienne", "saut élastique", "accrobranche", "jeu de piste", "repas inclus"],
 },
 {
@@ -1458,7 +1458,7 @@ function renderActivityCard(a, position) {
         <div class="card-location">📍 ${a.location}</div>
         <div class="card-footer">
           <span class="card-price">À partir de <strong>${a.prixMin} €</strong>/pers.</span>
-          <span class="card-participants">👥 ${a.participantsMin}–${a.participantsMax}</span>
+          <span class="card-participants">👥 ${a.participantsMin} à ${a.participantsMax}</span>
         </div>
       </div>
     </div>`;
