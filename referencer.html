@@ -155,6 +155,9 @@
     .tarif-cta--secondary { background: var(--gris-clair); color: var(--violet); }
     .tarif-cta--secondary:hover { background: var(--bordure); }
     .tarif-note { text-align: center; margin-top: 20px; font-size: 0.78rem; color: #bbb; }
+    .offre-conditions { max-width: 620px; margin: 10px auto 0; text-align: center; font-size: 0.72rem; color: #bbb; line-height: 1.6; }
+    .montant-barre { font-size: 1rem; color: #bbb; text-decoration: line-through; font-weight: 600; }
+    .promo-pill { display: inline-block; background: rgba(0,229,160,0.15); color: #00A87A; font-size: 0.62rem; font-weight: 800; padding: 2px 7px; border-radius: 100px; margin-left: 4px; vertical-align: middle; }
     .tarif-cle-en-main {
       max-width: 780px; margin: 24px auto 0; padding: 16px 24px;
       background: linear-gradient(120deg, var(--violet), #4620C4);
@@ -162,6 +165,13 @@
       font-size: 0.9rem; line-height: 1.5; box-shadow: 0 10px 30px rgba(91,46,255,0.2);
     }
     .tarif-cle-en-main a { color: var(--vert); font-weight: 700; text-decoration: underline; white-space: nowrap; }
+    .offre-lancement { max-width: 780px; margin: 28px auto 0; padding: 22px 28px; background: linear-gradient(120deg, var(--violet), #4620C4); border-radius: 18px; text-align: center; color: white; box-shadow: 0 10px 30px rgba(91,46,255,0.25); }
+    .offre-lancement-badge { display: inline-block; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; background: rgba(255,255,255,0.15); padding: 5px 14px; border-radius: 100px; margin-bottom: 10px; }
+    .offre-lancement-titre { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .offre-lancement-titre span { color: var(--vert); }
+    .offre-lancement-detail { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-bottom: 14px; }
+    .offre-lancement-date { display: inline-block; background: rgba(13,13,13,0.3); padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; }
+    @media (max-width: 768px) { .offre-lancement { margin: 20px 16px 0; padding: 18px 20px; } }
     .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 32px; }
     .billing-toggle span { font-size: 0.85rem; font-weight: 600; color: #aaa; transition: color 0.2s; }
     .billing-toggle span.active { color: var(--violet); }
@@ -233,10 +243,17 @@
   <p>Rejoignez la première plateforme de team building en Alsace et touchez des entreprises qui cherchent exactement ce que vous proposez.</p>
 </div>
 
+<div class="offre-lancement">
+  <div class="offre-lancement-badge">🔥 Offre de lancement</div>
+  <div class="offre-lancement-titre">−50% sur votre abonnement, <span>pendant 3 mois</span></div>
+  <div class="offre-lancement-detail">+ 1 article de blog offert (valeur 149€) pour toute nouvelle souscription</div>
+  <div class="offre-lancement-date">Du 1ᵉʳ août au 30 septembre 2026</div>
+</div>
+
 <div class="avantages">
   <div class="avantage"><div class="avantage-icon">🎯</div><span>Visibilité ciblée auprès des entreprises</span></div>
   <div class="avantage"><div class="avantage-icon">⚡</div><span>Mise en ligne sous 48h</span></div>
-  <div class="avantage"><div class="avantage-icon">💶</div><span>Sans engagement, résiliable à tout moment</span></div>
+  <div class="avantage"><div class="avantage-icon">💶</div><span>Sans engagement au tarif standard</span></div>
   <div class="avantage"><div class="avantage-icon">📊</div><span>Filtres intelligents pour être trouvé</span></div>
 </div>
 
@@ -245,7 +262,7 @@
     <p style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--violet);margin-bottom:12px">Pourquoi nous rejoindre</p>
     <h2 style="margin-bottom:6px">La seule plateforme 100% dédiée<br>au team building en Alsace.</h2>
     <p style="font-size:1.05rem;color:#555;font-weight:500;margin-bottom:20px">On ne référence pas tout. On référence ce qui vaut le détour.</p>
-    <p style="font-size:0.82rem;color:#aaa;margin-bottom:28px">Démarrez au niveau Essentiel, évoluez selon vos ambitions. Sans engagement, résiliable à tout moment.</p>
+    <p style="font-size:0.82rem;color:#aaa;margin-bottom:28px">Démarrez au niveau Essentiel, évoluez selon vos ambitions. Sans engagement au tarif standard, résiliable à tout moment.</p>
     <div class="billing-toggle">
       <span class="active" id="lbl-mensuel">Mensuel</span>
       <label class="toggle-switch">
@@ -265,8 +282,9 @@
         <div class="tarif-nom">Essentiel</div>
       </div>
       <div class="tarif-prix prix-mensuel">
-        <span class="montant">39€</span>
-        <span class="periode">/ mois</span>
+        <span class="montant-barre">39€</span>
+        <span class="montant">19€</span>
+        <span class="periode">/ mois <span class="promo-pill">−50%</span></span>
       </div>
       <div class="tarif-prix prix-annuel">
         <span class="montant">35€</span>
@@ -289,8 +307,9 @@
         <div class="tarif-nom">Visible</div>
       </div>
       <div class="tarif-prix prix-mensuel">
-        <span class="montant">69€</span>
-        <span class="periode">/ mois</span>
+        <span class="montant-barre">69€</span>
+        <span class="montant">34€</span>
+        <span class="periode">/ mois <span class="promo-pill">−50%</span></span>
       </div>
       <div class="tarif-prix prix-annuel">
         <span class="montant">62€</span>
@@ -313,8 +332,9 @@
         <div class="tarif-nom">Partenaire</div>
       </div>
       <div class="tarif-prix prix-mensuel">
-        <span class="montant">99€</span>
-        <span class="periode">/ mois</span>
+        <span class="montant-barre">99€</span>
+        <span class="montant">49€</span>
+        <span class="periode">/ mois <span class="promo-pill">−50%</span></span>
       </div>
       <div class="tarif-prix prix-annuel">
         <span class="montant">89€</span>
@@ -338,8 +358,9 @@
         <div class="tarif-nom">Partenaire Officiel</div>
       </div>
       <div class="tarif-prix prix-mensuel">
-        <span class="montant" style="color:#C9933A">149€</span>
-        <span class="periode">/ mois</span>
+        <span class="montant-barre">149€</span>
+        <span class="montant" style="color:#C9933A">74€</span>
+        <span class="periode">/ mois <span class="promo-pill">−50%</span></span>
       </div>
       <div class="tarif-prix prix-annuel">
         <span class="montant" style="color:#C9933A">134€</span>
@@ -357,7 +378,8 @@
     </div>
 
   </div>
-  <p class="tarif-note">Sans engagement · Résiliable à tout moment · Mise en ligne sous 48h après validation</p>
+  <p class="tarif-note">Sans engagement au tarif standard · Résiliable à tout moment · Mise en ligne sous 48h après validation</p>
+  <p class="offre-conditions">Tarifs de lancement valables pour toute nouvelle souscription entre le 1ᵉʳ août et le 30 septembre 2026, pendant les 3 premiers mois. Engagement minimum de 3 mois pour cette offre uniquement, puis poursuite au tarif standard sans reconduction forcée. Offre non cumulable avec la remise annuelle.</p>
   <div class="tarif-cle-en-main">💼 Pas le temps de gérer de nouveaux clients ? <strong>TBA s'occupe de tout : du devis à la facture finale.</strong> L'option clé en main la plus cool de l'histoire. <a href="contact.html">On en discute →</a></div>
 </section>
 
@@ -387,11 +409,12 @@
       </div>
     </div>
     <div style="display:flex;justify-content:center;gap:32px;margin-top:28px;flex-wrap:wrap">
-      <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Sans engagement</div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Résiliable à tout moment</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Sans engagement au tarif standard*</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Résiliable à tout moment*</div>
       <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Aucune commission sur vos ventes</div>
       <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#555;font-weight:500"><span style="color:var(--vert);font-size:1.1rem">✓</span> Leads transmis directement par email</div>
     </div>
+    <p style="text-align:center;font-size:0.7rem;color:#aaa;margin-top:14px">*Hors offre de lancement en cours (engagement 3 mois, <a href="#tarifs" style="color:var(--violet);font-weight:600">voir conditions</a>)</p>
   </div>
 </div>
 
