@@ -58,6 +58,12 @@
     .breadcrumb a { color: var(--violet); text-decoration: none; font-weight: 600; }
     .hero { background: var(--noir); padding: 80px 40px 70px; position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; }
     .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, #1A3A6B33 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 10% 80%, #2E5FAA22 0%, transparent 50%); }
+    .bubble { position: absolute; opacity: 0.07; animation: rise 6s ease-in-out infinite; pointer-events: none; font-size: 3rem; }
+    .bubble:nth-child(2) { top: 15%; right: 12%; animation-delay: 0s; font-size: 4rem; }
+    .bubble:nth-child(3) { top: 55%; right: 6%; animation-delay: 2s; font-size: 2.5rem; }
+    .bubble:nth-child(4) { top: 25%; right: 28%; animation-delay: 4s; font-size: 3.5rem; }
+    .bubble:nth-child(5) { bottom: 15%; right: 18%; animation-delay: 1s; font-size: 5rem; }
+    @keyframes rise { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-18px) rotate(5deg)} }
     .hero-content { position: relative; z-index: 1; max-width: 760px; }
     .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7BAAF7; background: #7BAAF71A; border: 1px solid #7BAAF74D; padding: 7px 18px; border-radius: 100px; margin-bottom: 24px; font-weight: 600; }
     .hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; color: white; line-height: 1.05; margin-bottom: 10px; letter-spacing: -0.04em; }
@@ -136,6 +142,10 @@
 
 <div class="hero">
   <div class="hero-bg"></div>
+  <span class="bubble">🧠</span>
+  <span class="bubble">♟️</span>
+  <span class="bubble">🔍</span>
+  <span class="bubble">🧩</span>
   <div class="hero-content">
     <div class="hero-label">🧠 Univers · Stratégie & Logique</div>
     <h1>La vraie cohésion se construit<span class="line2">quand on réfléchit ensemble.</span></h1>
