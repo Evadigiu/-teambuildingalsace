@@ -805,7 +805,12 @@ const activities = [
   revendiquee: false,
   offre: "gratuit",
   description: "Tyroliennes, saut à l'élastique, jeu de piste en forêt, repas inclus, une journée complète en pleine nature vosgienne pour les groupes à partir de 15 personnes. Pot d'accueil, parcours d'aventure le matin, activité au choix l'après-midi.",
-  tags: ["tyrolienne", "saut élastique", "accrobranche", "jeu de piste", "repas inclus"],
+  tags: [
+    { label: "Cohésion", cls: "cat-cohesion" },
+    { label: "Nature & Plein air", cls: "cat-nature" },
+    { label: "Sport & Adrénaline", cls: "cat-sport" },
+    { label: "Outdoor", cls: "cat-outdoor" }
+  ],
 },
 {
   id: 32,
@@ -1343,6 +1348,33 @@ const activities = [
     { label: "Engagé & Solidaire", cls: "cat-engage" },
     { label: "Bien-être & Slow", cls: "cat-bienetre" },
     { label: "Indoor", cls: "cat-indoor" }
+  ]
+},
+{
+  id: 66,
+  revendiquee: false,
+  offre: "gratuit",
+  title: "Journée neige et déjeuner trappeur",
+  location: "Hautes-Vosges",
+  ville: "vosges",
+  description: "Une journée complète dans les Vosges enneigées : construction d'igloo en équipe, déjeuner montagnard dans une cabane de trappeur entièrement privatisée, et randonnée en raquettes l'après-midi. Balade en traîneau à chiens et challenge biathlon en option, encadrés par des professionnels de la montagne et sportifs de haut niveau. Café d'accueil gourmand le matin, goûter vin chaud et crêpes en fin de journée. Sous réserve d'enneigement.",
+  objectifs: ["cohesion", "communication"],
+  univers: ["nature", "sport"],
+  env: ["outdoor"],
+  format: ["journee"],
+  saison: ["automnehiver"],
+  prixMin: 89,
+  participantsMin: 5,
+  participantsMax: 20,
+  duree: "Journée complète (09h30 à 17h00)",
+  emoji: "🛷",
+  gradient: "linear-gradient(135deg, #2D6A4F, #A8D5A2)",
+  image: "images/journee-neige-trappeur-vosges.webp",
+  tags: [
+    { label: "Cohésion", cls: "cat-cohesion" },
+    { label: "Nature & Plein air", cls: "cat-nature" },
+    { label: "Sport & Adrénaline", cls: "cat-sport" },
+    { label: "Outdoor", cls: "cat-outdoor" }
   ]
 }
   ]
