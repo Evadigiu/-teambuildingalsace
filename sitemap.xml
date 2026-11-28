@@ -112,7 +112,7 @@
   <!-- ── BLOG ── -->
   <url>
     <loc>https://teambuildingalsace.fr/blog.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -170,11 +170,17 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://teambuildingalsace.fr/article-10-incentive-team-building-difference.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- ── PAGES UTILITAIRES ── -->
   <url>
     <loc>https://teambuildingalsace.fr/referencer.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
